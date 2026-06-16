@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣紅龍果專業圖鑑</title>
+<style>
+  :root {
+    --pitaya-pink: #C2185B; --pitaya-deep: #880E4F; --pitaya-magenta: #E91E63;
+    --pitaya-light: #FCE4EC; --pitaya-cream: #FFF3E0;
+    --pitaya-green: #558B2F; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFBFB; --card-bg: #FFFFFF; --accent: #C2185B;
+    --section-bg: #FCE4EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #880E4F 0%, #C2185B 35%, #E91E63 65%, #F06292 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg') center/cover;
+    opacity: 0.08;
+  }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .back-home {
+    position: absolute; top: 16px; left: 20px; z-index: 10;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; transition: color 0.2s;
+  }
+  .back-home:hover { color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box {
+    background: linear-gradient(135deg,#FCE4EC,#FFF3E0);
+    border-radius: 16px; padding: 30px; margin: 30px 0;
+    border-left: 5px solid var(--accent);
+  }
+  .category-grid {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px; margin: 30px 0;
+  }
+  .category-card {
+    background: var(--card-bg); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s;
+  }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section {
+    background: var(--card-bg); border-radius: 16px; padding: 30px;
+    margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table {
+    width: 100%; border-collapse: collapse; margin: 20px 0;
+    font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #FCE4EC; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card {
+    border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+  }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header {
+    background: linear-gradient(135deg,#2E7D32,#43A047);
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 700;
+  }
+  .cons-card .pc-header {
+    background: linear-gradient(135deg,#C62828,#E53935);
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 700;
+  }
+  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #C2185B; color: white; }
+  .badge-new { background: #FF6F00; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .badge-premium { background: #4527A0; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-red { background: #FFEBEE; color: #C2185B; }
+  .tag-pink { background: #FCE4EC; color: #AD1457; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-yellow { background: #FFF9C4; color: #F57F17; }
+  .tag-blue { background: #E3F2FD; color: #1565C0; }
+  .tag-purple { background: #EDE7F6; color: #4527A0; }
+  .tag-gold { background: #FFF8E1; color: #E65100; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#C2185B,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .maturity-bar { display: flex; height: 48px; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .maturity-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="fruit-atlas.html">← 返回水果圖鑑首頁</a>
+  <h1>🐉 臺灣紅龍果專業圖鑑</h1>
+  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle2">15 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>紅龍果（火龍果）為仙人掌科三角柱屬（<em>Hylocereus</em>），多年生攀緣性肉質植物，原生於中南美洲熱帶雨林及西印度地區。臺灣於 <strong>1983 年</strong>由國內農友及醫師自越南、中南美洲引進種原，並進行民間雜交育種。</p>
+  <p>紅龍果幼年性短（約 10 個月即可生產），年產量高達 <strong>15,000 公斤/公頃</strong>以上。目前市場上<strong>白肉種約佔 3 成、紅肉種約佔 7 成</strong>，近 3–5 年新植面積以紅肉種為主。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://kmweb.moa.gov.tw/files/subject_WS/39809/7112814411071.jpg" alt="白肉種與紅肉種幼果外觀差異" loading="lazy">
+  <img src="https://kmweb.moa.gov.tw/files/subject_WS/46587/A02_4.jpg" alt="各種不同肉色的紅龍果" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：白肉種(左)與紅肉種(右)幼果外觀差異 ｜ 右：各種不同肉色的紅龍果（圖：農業部）</p>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🕐 栽培面積變遷三階段</h3>
+  <table class="compare-table">
+    <tr><th style="width:22%">時期</th><th style="width:18%">年份</th><th style="width:20%">栽培面積</th><th>關鍵事件</th></tr>
+    <tr><td style="background:#FFF3E0;">引進擴張期</td><td>1999–2003</td><td>380 → 1,044 公頃</td><td>以越南白肉種為主；品質不穩、口感差、草青味重，價格崩跌、農民棄種</td></tr>
+    <tr><td style="background:#E3F2FD;">盤整改進期</td><td>2003–2009</td><td>逐年遞減至 770 公頃</td><td>品種改良與栽培管理技術日漸成熟；產期調節技術開發成功</td></tr>
+    <tr><td style="background:#E8F5E9;">再度擴增期</td><td>2009–迄今</td><td>2016 年達 2,490 公頃（產量 49,108 公噸）<br>2020 年峰值 <strong>2,879 公頃</strong>（產量 ≈70,000 公噸）<br>其後產銷調整略有回落，現維持約 <strong>2,600–2,850 公頃</strong></td><td>2010 年越南檢疫禁令＋白肉種獲日外銷許可→價格穩定；2011–2016 面積成長 184%；2021 起因產銷失衡略降；南投超越彰化成最大產區</td></tr>
+  </table>
+
+  <div class="note-box">
+    <strong>🔄 轉折關鍵：</strong>2010 年越南紅龍果因檢疫問題無法進口，加上臺灣白肉種獲日本同意外銷，使國內市場價格穩定，再次掀起種植風潮。紅肉種因含甜菜苷色素、抗氧化能力佳，需求持續增加，目前新植面積以紅肉種為主。
+  </div>
+
+  <h3>🗺️ 主要產地分布</h3>
+  <p>以下數據综合自農糧署農業統計、臺南區農業改良場技術專刊（2018）及各年度產地調查。<strong>南投縣近年栽培面積持續成長，約2022–2023年間已超越彰化縣成為全台最大產區</strong>（名間鄉日夜溼差大、果品質佳、拍賣價全台最高）。</p>
+  <table class="compare-table">
+    <tr><th>排名</th><th>縣市</th><th>栽培面積</th><th>佔比</th><th>備註</th></tr>
+    <tr style="background:#FFF3E0;"><td>1</td><td>南投縣</td><td>約 450–500 公頃</td><td>16–18%</td><td>已成最大產區；名間鄉為核心產區</td></tr>
+    <tr style="background:#FFF3E0;"><td>2</td><td>彰化縣</td><td>431 公頃（2024）</td><td>約 15–16%</td><td>二林鎮佔約6成（≈260公頃）；曾長年居第一</td></tr>
+    <tr><td>3</td><td>屏東縣</td><td>約 350–390 公頃</td><td>12–14%</td><td>長治、新埤、鹽埔等地</td></tr>
+    <tr><td>4</td><td>臺南市</td><td>約 280–320 公頃</td><td>10–11%</td><td>東山、後壁、官田等為主要產區</td></tr>
+    <tr><td>5</td><td>嘉義縣</td><td>約 200–250 公頃</td><td>7–9%</td><td>嘉南平原南部產區</td></tr>
+    <tr><td>6</td><td>臺東縣</td><td>約 120–160 公頃</td><td>4–6%</td><td>逐漸發展中產區</td></tr>
+    <tr><td>7</td><td>高雄市</td><td>約 80–120 公頃</td><td>3–4%</td><td>南部次要產區</td></tr>
+    <tr style="background:#F5F5F5;"><td colspan="2" style="text-align:right;"><strong>全台合計（約）</strong></td><td><strong>約 2,600–2,850 公頃*</strong></td><td>100%</td><td>*隨年度產銷調節動態消長</td></tr>
+  </table>
+
+  <div class="note-box">
+    <strong>📊 數據說明：</strong>上表為<strong>多年度綜合估值</strong>。精確數值請參考<a href="https://agrstat.moa.gov.tw/sdweb/public/inquiry/InquireAdvance.aspx" target="_blank">農業部統計資料查詢系統</a>。
+  </div>
+
+  <h3>📊 紅肉 vs 白肉栽培比例</h3>
+  <div class="key-point">
+    <strong>紅肉種：白肉種 ≈ 7：3</strong><br>
+    近 3～5 年新植面積以紅肉種為主，主因：①含甜菜苷色素（抗氧化能力佳） ②國際市場較具競爭力 ③品種改良（大紅、蜜寶等）品質穩定。
+  </div>
+
+  <h3>🌾 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">💰</span><span class="pc-text"><strong>市場價格穩定、利潤佳</strong> — 相較於其他水果，紅龍果價格波動較小</span></div>
+        <div class="pc-item"><span class="pc-icon">🌱</span><span class="pc-text"><strong>栽培門檻低、適應性廣</strong> — 耐旱耐瘠，平地至丘陵均可栽培</span></div>
+        <div class="pc-item"><span class="pc-icon">⚡</span><span class="pc-text"><strong>定植後 14 個月即可結果</strong> — 投資回收期短，資金壓力低</span></div>
+        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>採收期長達半年</strong> — 5–11 月為主產期，分批成熟降低集中上市風險</span></div>
+        <div class="pc-item"><span class="pc-icon">💡</span><span class="pc-text"><strong>夜間燈照可延長產期至全年</strong> — 調節技術成熟，錯峰上市提升收益</span></div>
+        <div class="pc-item"><span class="pc-icon">✈️</span><span class="pc-text"><strong>外銷日本、加拿大等市場</strong> — 白肉種已獲日方檢疫准入</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">📊</span><span class="pc-text"><strong>全台栽培面積急速增加</strong> — 需持續監控產銷平衡，避免供過於求</span></div>
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>紅肉種多需人工異花授粉</strong> — 勞力成本高，授粉時段受限（夜間）</span></div>
+        <div class="pc-item"><span class="pc-icon">📐</span><span class="pc-text"><strong>各批次果形大小差異大</strong> — 分級標準化難度較高</span></div>
+        <div class="pc-item"><span class="pc-icon">🐛</span><span class="pc-text"><strong>病蟲害威脅</strong> — 炭疽病、潰瘍病、東方果實蠅等需持續防治</span></div>
+        <div class="pc-item"><span class="pc-icon">📦</span><span class="pc-text"><strong>部分品種不耐貯運</strong> — 果皮薄，常溫保存期短</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<p>依農業部農業知識入口網正式分類，臺灣紅龍果分為<strong>四大類</strong>：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/49fe997ed1_m.jpg" alt="白肉種" loading="lazy">
+    <div class="card-body"><h4>🤍 白肉種</h4><p><em>H. undatus</em> · 自花親和 · 肉質爽脆</p><span class="tag tag-green">越南白肉種</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg" alt="紅肉種" loading="lazy">
+    <div class="card-body"><h4>❤️ 改良紅肉種</h4><p><em>H. polyrhizus / costaricensis</em> · 10 品種</p><span class="tag tag-red">大紅 · 蜜寶 · 喜香紅等</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46587/A02_1.jpg" alt="特色品種" loading="lazy">
+    <div class="card-body"><h4>💜 特色品種</h4><p>雙色 · 粉紅 · 蜜龍 · 青龍 · 無刺</p><span class="tag tag-purple">5 特殊品種</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46585/A02_3.jpg" alt="黃龍果" loading="lazy">
+    <div class="card-body"><h4>💛 黃龍果（燕窩果）</h4><p><em>H. megalanthus</em> · 黃皮白肉 · 高價位</p><span class="tag tag-yellow">燕窩果</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 一、白肉種 ===== -->
+<h2>🤍 一、白肉種（越南白肉種）</h2>
+<div class="variety-section">
+  <h3><em>Hylocereus undatus</em> Britt. &amp; Rose</h3>
+
+  <div class="feature-row">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/49fe997ed1_m.jpg" alt="白肉種果實" loading="lazy">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/39810/711281514571.jpg" alt="白肉種柱頭與雌蕊距離接近" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">左：白肉種果實 ｜ 右：白肉種柱頭與雌蕊距離接近，具自花親和性（圖：農業部）</p>
+
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>紅色，成熟時鱗片仍為綠色，與皮色呈明顯對比，具光澤感</td></tr>
+    <tr><td>果肉</td><td>白色，肉質爽脆，口感清甜</td></tr>
+    <tr><td>果形</td><td>長橢圓形，鱗片長，外觀整體較紅肉種佳</td></tr>
+    <tr><td>糖度</td><td>果心 16–20 °Brix（較紅肉種低）</td></tr>
+    <tr><td>產期</td><td>南部 4 月下旬至 5 月上旬開花，9 月中旬結束（較紅肉種短 1–1.5 個月）</td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>柱頭與雄蕊距離短，不需人工異花授粉，遇雨亦不影響著果</td></tr>
+    <tr><td>風味</td><td>較具草腥味；不會有色素沾衣困擾</td></tr>
+    <tr><td>管理</td><td>枝條細刺較短小，管理省工</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>套袋提示：</strong>利用牛皮紙或不織布套袋，果皮顏色較亮麗；紗網套袋皮色不均、賣相差。
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 二、改良紅肉種 ===== -->
+<h2>❤️ 二、改良紅肉種</h2>
+<div class="variety-section">
+
+  <h3>🌿 紅肉種共同特徵</h3>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>產期</td><td>較白肉種早（南部 4 月上旬至 10 月中旬），燈照可延至 11–12 月，每年 12 批花以上</td></tr>
+    <tr><td>外觀辨識</td><td>枝條邊緣多呈不連續條帶，花瓣前端帶紅色，枝條刺較長</td></tr>
+    <tr><td>授粉</td><td>柱頭長於雄蕊，<span class="badge" style="background:#FF5722;color:white;">多具自交不親和性</span>需混用其他紅肉或白肉種花粉人工授粉</td></tr>
+    <tr><td>風味</td><td>糖度較高，果肉軟較不脆，含甜菜苷色素不易消化</td></tr>
+  </table>
+  <div class="note-box">
+    <strong>⚠️ 注意：</strong>各批次果形大小差異大，栽種較費工。排泄物帶色屬正常現象（甜菜苷色素）。
+  </div>
+
+  <h3>品種詳述</h3>
+
+  <!-- ── 大紅 ── -->
+  <h3>大紅 <span class="badge badge-main">主力品種 · 佔紅肉 6 成</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg" alt="大紅" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">大紅：名間鄉陳永池與蔡東訓兩位農友共同選育，佔紅肉種栽培面積約 6 成（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>南投縣名間鄉陳永池、蔡東訓兩位農友共同選育</td></tr>
+    <tr><td>果實</td><td>偏圓形，鱗片寬、短且薄（運輸時果皮不易因鱗片摩擦而產生擦傷痕）；平均單果重可達 400g 以上</td></tr>
+    <tr><td>果肉</td><td>深紅色，肉質較鬆軟</td></tr>
+    <tr><td>糖度</td><td>八分熟時果心平均可達 <strong>20 °Brix 以上</strong></td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>柱頭與雄蕊距離較短，不需人工授粉即可結出中等以上果形</td></tr>
+    <tr><td>耐雨</td><td>開花期間若下小雨，不影響著果（但果形仍會偏小）</td></tr>
+    <tr><td>莖部</td><td>當年發育的肉質莖較為下垂，不易被強風吹斷</td></tr>
+    <tr><td>缺點</td><td>果皮薄、果肉鬆軟，櫥架壽命較短；南部盛夏較不耐熱，果實會偏小</td></tr>
+    <tr><td>市場</td><td>紅肉種中栽培面積約佔 6 成，為主力品種</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 昕運1號─蜜寶 ── -->
+  <h3>昕運 1 號—蜜寶 <span class="badge badge-new">外銷專用</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/ede709d746_m.jpg" alt="蜜寶" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">蜜寶：昕運國際有限公司 2012 年取得品種權，專為外銷市場培育（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>昕運國際有限公司，2012 年取得品種權</td></tr>
+    <tr><td>果實</td><td>橢圓或圓球形，鱗片較白肉種短小（便於包裝、裝箱），果萼深度較淺</td></tr>
+    <tr><td>果肉</td><td>紅色，肉質爽脆</td></tr>
+    <tr><td>糖度</td><td>八分熟時果心可溶性固形物平均達 <strong>18 °Brix 以上</strong></td></tr>
+    <tr><td>裂果</td><td>不易裂果（果皮轉紅後 1 星期不採果亦不易裂果）</td></tr>
+    <tr><td>貯運</td><td>貯運性佳，室溫櫥架壽命約 5 天；低溫（5℃ 冷藏）長達 <strong>2 星期以上</strong></td></tr>
+    <tr><td>枝條</td><td>刺座稍長於白肉種，但短於其他紅肉種，作業時較不易被刺傷</td></tr>
+    <tr><td>市場</td><td>外銷用栽培種，以輸銷國外市場為主</td></tr>
+    <tr><td>授粉</td><td>需人工授粉</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 喜香紅 ── -->
+  <h3>喜香紅 <span class="badge badge-new">濃厚香氣</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/098465c2bd_m.jpg" alt="喜香紅" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">喜香紅：嘉義竹崎賴文化、賴偉誌選育，2013 年申請品種權，最大特色為濃厚香氣（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>嘉義竹崎 — 賴文化、賴偉誌，自吳連芳後代所售出之品種中選育，2013 年申請品種權</td></tr>
+    <tr><td>果實</td><td>長橢圓形，較「大紅」為小；鱗片稍長、會反卷，顏色較為暗紅（缺點）</td></tr>
+    <tr><td>果肉</td><td>紅色，肉質爽脆</td></tr>
+    <tr><td>糖度</td><td>果心平均 <strong>18 °Brix 以上</strong>，全果糖度分布均勻</td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>不需異花授粉</td></tr>
+    <tr><td>裂果</td><td>不易裂果，轉色後仍可掛果 2 星期</td></tr>
+    <tr><td>風味</td><td><strong>具濃厚香氣為最大特色</strong>，風味頗優</td></tr>
+    <tr><td>缺點</td><td>果重較小、鱗片顏色較暗紅</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 富貴紅(450) ── -->
+  <h3>富貴紅 (450) <span class="badge badge-special">紫紅肉 · 約佔 25%</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/b9dbd07469_m.jpg" alt="富貴紅" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">富貴紅(450)：南投縣竹山鎮蔡國億農友培育，果皮呈豔麗玫瑰紅色（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>南投縣竹山鎮蔡國億農友所培育的品系</td></tr>
+    <tr><td>果實</td><td>長橢圓形，果實大；皮色豔麗呈玫瑰紅、果皮薄、果萼長</td></tr>
+    <tr><td>果肉</td><td>紫紅色</td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>不需人工授粉，著果性良好且穩定</td></tr>
+    <tr><td>缺點</td><td>萼端不易裂果，但因果實大，容易有<strong>側邊裂果</strong>的情形；枝條頗脆，容易折枝斷裂</td></tr>
+    <tr><td>肥水</td><td>對肥份與水分供應較為敏感，進入轉色前需嚴謹控制養分與水分</td></tr>
+    <tr><td>品質</td><td>果實品質於不同季節的變化較大</td></tr>
+    <tr><td>生長</td><td>生長勢甚強</td></tr>
+    <tr><td>面積</td><td>約佔紅肉種 25%</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農1號-小甜甜 ── -->
+  <h3>台農 1 號—小甜甜 <span class="badge badge-new">新品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46590/A02_1.jpg" alt="小甜甜" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農1號—小甜甜：農業部農業試驗所 2015 年提出，選育自無刺黃龍實生後代（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>農業部農業試驗所，2015 年 6 月提出品種權，為無刺黃龍的實生後代中所選育</td></tr>
+    <tr><td>果皮</td><td>桃紅色，不帶細刺（對比蜜龍有刺）</td></tr>
+    <tr><td>果肉</td><td>紫紅色（較大紅肉色淡）</td></tr>
+    <tr><td>果重</td><td>250–400g（偏小）</td></tr>
+    <tr><td>糖度</td><td>果心可達 <strong>19 °Brix 以上</strong></td></tr>
+    <tr><td>酸度</td><td>0.19%（酸度低）</td></tr>
+    <tr><td>風味</td><td>帶有<strong>甘蔗甜味</strong>，清爽甜美，口感甚佳，風味與外觀近似「蜜龍」</td></tr>
+    <tr><td>抗病</td><td>較「蜜龍」為強</td></tr>
+    <tr><td>市場</td><td>以<strong>宅配市場</strong>為消費重心（截至 2017 年尚未正式通過品種審議）</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 石火泉種 ── -->
+  <h3>石火泉種</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/5cd1aa8d6d_m.jpg" alt="石火泉種" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">石火泉種：南投縣集集鎮農友石火泉選育，適合中部地區栽培（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>南投縣集集鎮農友石火泉所選育之品系</td></tr>
+    <tr><td>果實</td><td>中等大小，自花授粉情況下可達 400g 以上；果皮及鱗片偏薄</td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>不需人工授粉即可結出中等大小果實</td></tr>
+    <tr><td>風味</td><td>具香氣，品質中等</td></tr>
+    <tr><td>適合地區</td><td>中部地區較為適合；南部地區栽植於高溫期易有曬傷及花苞流汁情形</td></tr>
+    <tr><td>缺點</td><td>果萼端易裂果；果皮及鱗片偏薄，較<strong>不耐運輸及貯藏</strong></td></tr>
+    <tr><td>高溫期</td><td>7–8 月高溫期枝條易曬傷，花苞會流汁；雌蕊提早抽出導致果形變小</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 吳沛然系列 ── -->
+  <h3>吳沛然系列（福龍 · 帝龍 · 甜龍）</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/9095233354_m.jpg" alt="吳沛然系列" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">吳沛然系列：南投縣集集鎮農友吳沛然選育，包含福龍、帝龍、甜龍三個品系（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th>品系</th><th>果實</th><th>風味</th><th>栽培</th><th>要點</th></tr>
+    <tr>
+      <td><strong>福龍</strong></td>
+      <td>果形較大，果萼較長，果皮較厚<br>呈色較不亮麗，較不易裂果</td>
+      <td>微香氣</td>
+      <td>需人工授粉<br>7–8 月果較大</td>
+      <td>生長勢強，枝條莖肉較厚、耐日曬<br>刺座又長又多，管理易被刺傷</td>
+    </tr>
+    <tr>
+      <td><strong>帝龍</strong></td>
+      <td>果萼較短，果皮亮度高<br>容易裂果 ⚠️</td>
+      <td>甜酸適度<br>風味頗佳</td>
+      <td>需人工授粉<br>管理技術要求高</td>
+      <td>早、末期採收果較福龍為大<br>管理不當時果肉風味會帶酸</td>
+    </tr>
+    <tr>
+      <td><strong>甜龍</strong></td>
+      <td>偏圓球形，皮色較不具光澤<br>鱗片稍會卷曲，末端有褐化</td>
+      <td>甜酸兼具<br>口感佳</td>
+      <td>需人工授粉<br>肉色紫紅，果肉紮實</td>
+      <td>果實蠅較不愛叮咬，可免套袋<br>台南柳營、東山一帶栽植不少</td>
+    </tr>
+  </table>
+  <div class="note-box"><strong>🌡️ 吳沛然系列共通特性：</strong>可適應南部地區高溫栽植，但必須人工授粉果形才會大，開花期受氣溫影響較大。</div>
+
+  <!-- ── 蜜玄龍、昕運2號 ── -->
+  <hr>
+  <h3>近年新育成品系</h3>
+  <p style="font-size:0.9rem;">以下品系尚在推廣或品種審議階段，已引起市場關注：</p>
+
+  <table class="compare-table">
+    <tr><th style="width:25%">品種</th><th>育成者</th><th>特徵</th></tr>
+    <tr>
+      <td><strong>蜜玄龍</strong></td>
+      <td>民間育種</td>
+      <td>紅肉新品系，鱗片披針形（大紅為三角形），品系差異明顯，辨識度高</td>
+    </tr>
+    <tr>
+      <td><strong>昕運 2 號—臻寶</strong></td>
+      <td>昕運國際</td>
+      <td>果肉為不均勻紫紅色，較大紅為淡</td>
+    </tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 三、其他特色品種 ===== -->
+<h2>💜 三、其他特色品種</h2>
+<div class="variety-section">
+
+  <!-- ── 雙色種 ── -->
+  <h3>雙色種</h3>
+  <p>多為紅肉種與白肉種的雜交後代，果肉呈現紅白兩色分布，為近年話題品種。</p>
+
+  <div class="feature-row">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46587/A02_1.jpg" alt="玉里雙色" loading="lazy">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46587/A02_2.jpg" alt="粉紅寶石鑲繞白玉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">左：玉里雙色成熟果外觀與果肉呈色 ｜ 右：如粉紅寶石鑲繞白玉（圖：農業部）</p>
+
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>紅色（較淡，不夠紅豔且不具光澤），皮薄</td></tr>
+    <tr><td>果肉</td><td>紅白兩色（分布受授粉品種影響，不穩定）</td></tr>
+    <tr><td>風味</td><td>酸度較低，風味口感佳，兼具紅肉與白肉兩種口感</td></tr>
+    <tr><td>缺點</td><td>果萼短而易裂果；肉色分布不穩定</td></tr>
+  </table>
+
+  <div class="note-box"><strong>🌡️ 溫度與肉色關係：</strong>高溫期間甜菜紅素不易生成，夏天果實如同白肉種。氣溫愈低、日夜溫差大時紅圈會較大。<strong>秋冬果風味最佳。</strong></div>
+  <div class="key-point"><strong>栽培要點：</strong>①套牛皮紙袋改善皮色 ②提早 5 天採收防裂果 ③適合草生栽培避免土壤水分變化過於激烈</div>
+
+  <hr>
+
+  <!-- ── 粉紅佳人 ── -->
+  <h3>粉紅種（粉紅佳人）</h3>
+  <p>多為紅肉與白肉雜交後代品系，果肉全果均勻呈粉紅色，與雙色種最大差異在於<strong>無紅白區隔</strong>。</p>
+
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/21b4f89da1_m.jpg" alt="粉紅佳人" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">粉紅佳人：果皮紅色亮麗具光澤感，果肉粉紅色均勻分布無區隔（圖：農業部）</p>
+
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>紅色亮麗具光澤感</td></tr>
+    <tr><td>果肉</td><td>全果均勻淡紅色，無明顯區隔</td></tr>
+    <tr><td>果形</td><td>偏小（&lt;600g）</td></tr>
+    <tr><td>風味</td><td>微酸，清爽有脆感，無草腥味</td></tr>
+    <tr><td>授粉</td><td>夏季多需人工授粉</td></tr>
+    <tr><td>缺點</td><td>對潰瘍病敏感度高，不耐熱</td></tr>
+  </table>
+
+  <div class="key-point"><strong>🔍 粉紅種 vs 雙色種：</strong>粉紅種全果均勻淡紅無區隔，雙色種紅白兩色明顯分隔；粉紅種皮色亮麗、雙色種皮色較淡。兩者目前均尚無大面積商業生產。</div>
+
+  <hr>
+
+  <!-- ── 蜜龍 ── -->
+  <h3>蜜龍 <span class="badge badge-special">屬間雜交 · 育種親本</span></h3>
+  <p>農業試驗所鳳山分所自紅皮紅肉種（<em>H. polyrhizus</em>）與黃龍（<em>H. megalanthus</em>）的屬間雜交後代中所選育，是目前臺灣少數成功跨屬雜交的紅龍果品系。</p>
+
+  <div class="feature-row">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/8ef63e0034_m.jpg" alt="蜜龍" loading="lazy">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46586/A02_6.jpg" alt="黃龍果幼果" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">左：蜜龍果實，皮色橙紅 ｜ 右：母本黃龍果幼果，果皮帶細刺（蜜龍繼承此特徵）（圖：農業部）</p>
+
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>橙紅色或橙色（與一般紅肉種紅皮明顯不同），近基部帶細刺（遺傳自母本黃龍）</td></tr>
+    <tr><td>果肉</td><td>紅色，風味近似黃龍種，帶有<strong>甘蔗甜味</strong>，清爽甜美</td></tr>
+    <tr><td>果形</td><td>偏小（400g 以下），同為母本黃龍遺傳</td></tr>
+    <tr><td>糖度</td><td>果心可溶性固形物可達 <strong>20 °Brix 以上</strong></td></tr>
+    <tr><td>酸度</td><td>極低（0.19%），糖酸比高</td></tr>
+    <tr><td>產期</td><td>花期自 3 月下旬至 12 月上旬，不經燈照即可延長至翌年 1 月 — <strong>產期極長</strong></td></tr>
+    <tr><td>商業</td><td>因果皮帶細刺及果形偏小，尚無商業生產；目前作為雜交親本使用</td></tr>
+  </table>
+  <div class="note-box"><strong>🔬 育種定位：</strong>蜜龍的核心價值在作為屬間雜交橋樑品系，攜帶紅肉種紅色果肉 + 黃龍甘蔗甜味、長產期、自花親和等優勢基因。未來有望育出「大果 + 無刺 + 甘蔗甜味 + 長產期」的理想品種。</div>
+
+  <hr>
+
+  <!-- ── 青龍 ── -->
+  <h3>青龍 <span class="badge badge-special">綠皮特色</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/a6351ab42d_m.jpg" alt="青龍" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">青龍：同時具青皮白肉與青皮紅肉兩種型態，綠色果皮為最大特色（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>最佳賞味期間果皮色仍為<strong>綠色</strong>；掛果超過 50 日以上，果皮色會轉為不均勻的紅色</td></tr>
+    <tr><td>果肉</td><td>同時具有<strong>青皮白肉</strong>與<strong>青皮紅肉</strong>兩種型態</td></tr>
+    <tr><td>風味</td><td>果實風味較為淡薄</td></tr>
+    <tr><td>栽培</td><td>因採收成熟度不易判定，為栽培上的挑戰</td></tr>
+    <tr><td>市場</td><td>考量消費者接受度，目前僅限於<strong>有機經營者</strong>或<strong>趣味栽培者</strong>種植，尚未大規模商業化推廣</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 無刺種（善龍） ── -->
+  <h3>無刺種（善龍）</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/39824/7112815172071.jpg" alt="無刺種" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">無刺種（善龍）：枝條短刺僅 0.5mm，幾近無刺狀態，管理極不易被刺傷（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>外觀似白肉種，鱗片綠色與皮色對比明顯，具亮麗色澤與光澤</td></tr>
+    <tr><td>果肉</td><td>紅色</td></tr>
+    <tr><td>枝條</td><td>短刺僅 0.5mm，幾近無刺狀態，管理省工</td></tr>
+    <tr><td>風味</td><td>口感平平，風味較淡薄</td></tr>
+    <tr><td>商業</td><td>栽培者仍不多</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 四、黃龍果（燕窩果） ===== -->
+<h2>💛 四、黃龍果（燕窩果）</h2>
+<div class="variety-section">
+  <h3><em>Hylocereus megalanthus</em> Bauer.</h3>
+
+  <div class="feature-row">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46585/A02_3.jpg" alt="燕窩果" loading="lazy">
+    <img src="https://kmweb.moa.gov.tw/files/subject_WS/46585/A02_1.jpg" alt="燕窩果果實" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">左：成熟果皮為黃色，果形偏小 ｜ 右：燕窩果果實（圖：農業部）</p>
+
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果皮</td><td>黃色，帶細刺</td></tr>
+    <tr><td>果肉</td><td>白色，風味近似燕窩</td></tr>
+    <tr><td>果形</td><td>偏小，與紅皮白肉種相似</td></tr>
+    <tr><td>授粉</td><td><span class="badge badge-main">自花親和</span>花柱有機會與花粉直接碰觸</td></tr>
+    <tr><td>產期</td><td>夏果約 75–90 天（開花至採收），冬果可至 150 天</td></tr>
+    <tr><td>繁殖</td><td>直接扦插生長勢差，宜用富貴紅為砧木嫁接</td></tr>
+    <tr><td>病蟲害</td><td>枝條容易有炭疽與潰瘍病，需及時剪除</td></tr>
+    <tr><td>市場</td><td>越南超市曾合約新台幣 1,012 元/Kg</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 品種綜合對比表 ===== -->
+<h2>📊 品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>果皮色</th><th>果肉色</th><th>果形</th><th>自花親和</th><th>糖度</th><th>特色</th></tr>
+    <tr><td><strong>白肉種</strong></td><td>紅色光澤</td><td>白色</td><td>長橢圓</td><td>✅</td><td>16–20°</td><td>爽脆·管理省工</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>大紅</strong></td><td>紅色</td><td>深紅色</td><td>偏圓形</td><td>✅</td><td>20°↑</td><td>佔紅肉6成·鱗片寬短</td></tr>
+    <tr><td><strong>蜜寶</strong></td><td>紅色</td><td>紅色</td><td>橢圓/圓球</td><td>—</td><td>18°↑</td><td>外銷種·耐貯放2週</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>喜香紅</strong></td><td>紅色</td><td>紅色</td><td>長橢圓</td><td>✅</td><td>18°↑</td><td>濃厚香氣·風味優</td></tr>
+    <tr><td><strong>富貴紅</strong></td><td>玫瑰紅</td><td>紫紅色</td><td>長橢圓</td><td>✅</td><td>—</td><td>易側邊裂果·對肥水敏感</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>小甜甜</strong></td><td>桃紅色</td><td>紫紅(淡)</td><td>偏小</td><td>—</td><td>19°↑</td><td>甘蔗甜味·宅配市場</td></tr>
+    <tr><td><strong>石火泉</strong></td><td>紅色</td><td>紅色</td><td>—</td><td>✅</td><td>中等</td><td>較適中部·栽培者漸少</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>甜龍</strong></td><td>紅色</td><td>紫紅色</td><td>偏圓球</td><td>—</td><td>甜酸兼俱</td><td>果實蠅較不愛叮</td></tr>
+    <tr><td><strong>蜜玄龍</strong></td><td>紅色</td><td>紅色</td><td>—</td><td>—</td><td>—</td><td>鱗片披針形·辨識度高</td></tr>
+    <tr><td><strong>臻寶</strong></td><td>紅色</td><td>紫紅(不均)</td><td>—</td><td>—</td><td>—</td><td>淡紫紅肉</td></tr>
+    <tr style="background:#F3E5F5;"><td><strong>雙色種</strong></td><td>淡紅色</td><td>紅白雙色</td><td>—</td><td>—</td><td>酸度低</td><td>肉色不穩定·秋冬最佳</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>粉紅種</strong></td><td>紅色光澤</td><td>均勻粉紅</td><td>偏小</td><td>—</td><td>較白肉高</td><td>清爽脆感·對潰瘍病敏感</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>蜜龍</strong></td><td>橙紅色</td><td>紅色</td><td>偏小</td><td>—</td><td>20°↑</td><td>甘蔗甜味·產期極長</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>青龍</strong></td><td>綠色</td><td>白/紅肉</td><td>—</td><td>—</td><td>中等</td><td>綠皮特色·成熟度難判定</td></tr>
+    <tr style="background:#E0F2F1;"><td><strong>善龍</strong></td><td>紅色光澤</td><td>紅色</td><td>—</td><td>—</td><td>較淡薄</td><td>近無刺·管理方便</td></tr>
+    <tr style="background:#FFF9C4;"><td><strong>黃龍</strong></td><td>黃色帶刺</td><td>白色</td><td>偏小</td><td>✅</td><td>高</td><td>高價位·易染炭疽潰瘍</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🌱 栽培技術要點</h2>
+<div class="variety-section">
+  <h3>🌿 授粉需求一覽</h3>
+  <table class="compare-table">
+    <tr><th>授粉類型</th><th>品種</th><th>說明</th></tr>
+    <tr><td><span class="badge badge-main">自花親和</span></td><td>白肉種、大紅、喜香紅、富貴紅、石火泉、燕窩果</td><td>不需人工授粉，遇雨不影響著果</td></tr>
+    <tr><td><span class="badge" style="background:#FF5722;color:white;">需人工授粉</span></td><td>蜜寶、吳沛然系列(夏季)、粉紅種(夏季)、部分紅肉種</td><td>柱頭長於雄蕊，需混用其他品種花粉</td></tr>
+  </table>
+
+  <h3>📦 套袋建議</h3>
+  <table class="compare-table">
+    <tr><th>套袋材質</th><th>效果</th><th>適用品種</th></tr>
+    <tr><td>牛皮紙袋</td><td>✅ 皮色亮麗最佳</td><td>白肉種、雙色種</td></tr>
+    <tr><td>不織布袋</td><td>✅ 皮色尚可</td><td>一般品種</td></tr>
+    <tr><td>紗網袋</td><td>❌ 皮色不均、賣相差</td><td>不建議</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果皮鮮紅有光澤、鱗片鮮綠不枯萎<br>
+    <strong>觸感：</strong>按壓微有彈性（過硬未熟、過軟過熟）<br>
+    <strong>重量：</strong>同體積下愈重愈好（水分充足）<br>
+    <strong>果臍：</strong>果臍小且無裂口為佳
+  </div>
+
+  <div class="note-box" style="margin-top:16px;">
+    <strong>🔬 各品種口感速查：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>白肉種：</strong>肉質爽脆、清甜不膩 — 最適合不喜黏口的人</li>
+      <li><strong>大紅／蜜寶：</strong>甜度高（18–20°Brix）、多汁細嫩</li>
+      <li><strong>喜香紅：</strong>濃厚香氣、風味獨特</li>
+      <li><strong>小甜甜：</strong>甘蔗甜味、清爽甜美</li>
+      <li><strong>燕窩果（黃龍）：</strong>口感如燕窩般滑順、帶獨特花香</li>
+      <li><strong>雙色種／粉紅種：</strong>甜度中等、風味層次豐富</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>🏢 北農交易代碼對照</h2>
+<div class="variety-section">
+  <p>以下為本圖鑑收錄品種與<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司</a>果菜品名代碼對照：</p>
+  <table class="compare-table">
+    <tr><th>圖鑑品種</th><th>北農代碼</th><th>北農品名</th></tr>
+    <tr><td>白肉種（H. undatus）</td><td><strong>811</strong></td><td>紅龍果（白肉）</td></tr>
+    <tr style="background:#FFF3E0;"><td>青龍</td><td><strong>811</strong></td><td>紅龍果（白肉）</td></tr>
+    <tr style="background:#FFF3E0;"><td>無刺種（善龍）</td><td><strong>811</strong></td><td>紅龍果（白肉）</td></tr>
+    <tr><td>大紅</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>蜜寶（昕運1號）</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>喜香紅</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>富貴紅 (450)</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>台農1號—小甜甜</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>石火泉種</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>吳沛然系列（福龍/帝龍/甜龍）</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>蜜玄龍</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>昕運2號—臻寶</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr><td>蜜龍</td><td><strong>812</strong></td><td>紅龍果（紅肉）</td></tr>
+    <tr style="background:#E3F2FD;"><td>雙色種</td><td><strong>813</strong></td><td>紅龍果（雙色）</td></tr>
+    <tr style="background:#E3F2FD;"><td>粉紅種（粉紅佳人）</td><td><strong>813</strong></td><td>紅龍果（雙色）</td></tr>
+    <tr style="background:#E3F2FD;"><td>黃龍（燕窩果）</td><td><strong>813</strong></td><td>紅龍果（雙色）</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:#999;margin-top:12px;">※ 北農目前僅區分白肉(811)、紅肉(812)、雙色(813)三類，未細分品種。</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 紅龍果主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46589" target="_blank">臺灣紅龍果栽培品種介紹</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46587" target="_blank">雙色種紅龍果（兼具紅、白肉特性）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46585" target="_blank">黃龍─燕窩果</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46586" target="_blank">燕窩果（披著黃色外衣的仙人掌果）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46590" target="_blank">介紹幾種近年選育的紅龍果紅肉栽培品種</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39813" target="_blank">大紅</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39812" target="_blank">昕運1號─蜜寶</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39814" target="_blank">喜香紅</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39817" target="_blank">富貴紅(450)</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39818" target="_blank">石火泉種</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39819" target="_blank">吳沛然系列</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39816" target="_blank">台農1號-小甜甜</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39821" target="_blank">青龍</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39820" target="_blank">蜜龍</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39824" target="_blank">無刺(善龍)</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39822" target="_blank">雙色</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39823" target="_blank">粉紅(粉紅佳人)</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39810" target="_blank">白肉種</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39809" target="_blank">紅肉種</a></li>
+  </ul>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網紅龍果主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+  <p><strong>產業數據補充來源：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://www.agriharvest.tw/archives/30661/" target="_blank">紅龍果產業發展概況 — 農傳媒</a>（栽培面積、產量、產地分布）</li>
+    <li><a href="https://agri.kcg.gov.tw/localfood/LocalFoodCropDetail.aspx?appname=LocalFoodCropDetail.aspx&id=c77f5c35-96f9-4803-a354-49705a219a7e" target="_blank">紅龍果品種介紹 — 高雄市政府農業局</a>（品種清單、產期、特徵）</li>
+    <li><a href="https://www.tcdares.gov.tw/upload/tdais/files/web_structure/11142/TC02-131-01.pdf" target="_blank">紅龍果栽培技術 — 臺南區農業改良場</a>（品種特性、栽培管理）</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

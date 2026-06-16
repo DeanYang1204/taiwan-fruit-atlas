@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣龍眼專業圖鑑</title>
+<style>
+  :root {
+    --longan-brown: #8D6E63; --longan-deep: #5D4037; --longan-amber: #A1887F;
+    --longan-light: #EFEBE9; --longan-cream: #F5F0E8;
+    --longan-red: #BF360C; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FDFAF7; --card-bg: #FFFFFF; --accent: #8D6E63;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #3E2723 0%, #5D4037 30%, #8D6E63 55%, #A1887F 80%, #D7CCC8 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-4-kL0YQ.jpg') center/cover;
+    opacity: 0.07;
+  }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .back-home { position: absolute; top: 16px; left: 20px; z-index: 10; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .back-home:hover { color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box { background: linear-gradient(135deg,#EFEBE9,#F5F0E8); border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid var(--accent); }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 280px; object-fit: cover; background: #f8f8f8; }
+  .card-img-square { height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #EFEBE9; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: linear-gradient(135deg,#2E7D32,#43A047); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .cons-card .pc-header { background: linear-gradient(135deg,#C62828,#E53935); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #8D6E63; color: white; }
+  .badge-new { background: #5D4037; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-brown { background: #EFEBE9; color: #5D4037; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-red { background: #FFEBEE; color: #C62828; }
+  .tag-amber { background: #FFF8E1; color: #E65100; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#8D6E63,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .maturity-bar { display: flex; height: 48px; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .maturity-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="fruit-atlas.html">← 返回水果圖鑑首頁</a>
+  <h1>🟤 臺灣龍眼專業圖鑑</h1>
+  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle2">13 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>龍眼（<em>Dimocarpus longan</em> Lour.）為無患子科龍眼屬常綠喬木，原產於中國華南地區，與荔枝同科不同屬。明朝《荔枝譜》形容龍眼：「<strong>圓如驪珠，赤若金丸，肉似玻璃，核如黑漆</strong>」，是夏季最具代表性的水果之一。</p>
+  <p>臺灣龍眼約 <strong>300 年前</strong>自閩粵地區引進，經地方果農自行篩選命名，衍生出 <strong>50 種以上</strong>的品種（農業部農業試驗所嘉義分所種原庫保存）。栽培面積約 <strong>11,000–12,000 公頃</strong>，為臺灣<strong>第四大果樹</strong>，僅次於香蕉、芒果、鳳梨。產地集中於<strong>臺南、嘉義</strong>，加工品龍眼乾（桂圓）與龍眼蜜為重要經濟衍生產品。</p>
+  <p>龍眼不僅是鮮食佳果，更是臺灣重要的加工農產品。以龍眼木炭慢火烘焙的<strong>龍眼乾（桂圓）</strong>香氣獨特，是許多臺灣甜湯與養生茶飲的靈魂原料；<strong>龍眼花蜜</strong>則被譽為臺灣人心目中最好的蜂蜜。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-1-TiR2m.jpg" alt="粉殼龍眼" loading="lazy">
+  <img src="https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-2-EUTt4.jpg" alt="十月龍眼" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：粉殼龍眼 — 全臺最主要栽培品種 ｜ 右：十月龍眼 — 最晚熟品種，可至 10 月仍可採收（圖：自由時報食譜自由配）</p>
+
+<h2>📅 產期分布一覽</h2>
+<div class="variety-section">
+  <p>以臺灣中部地區為基準，龍眼產期分為<strong>三大階段</strong>：</p>
+  <div class="maturity-bar">
+    <div style="flex:1;background:linear-gradient(180deg,#FFCC80,#E65100);">早熟<br>6 月起</div>
+    <div style="flex:2.5;background:linear-gradient(180deg,#BCAAA4,#5D4037);">盛產<br>8 月</div>
+    <div style="flex:1;background:linear-gradient(180deg,#90CAF9,#1565C0);">晚熟<br>至 11 月</div>
+  </div>
+  <table class="compare-table">
+    <tr><th>產期階段</th><th>時間</th><th>代表品種</th><th>說明</th></tr>
+    <tr style="background:#FFF3E0;"><td>🟠 早熟</td><td>6 月起</td><td>五月眼、水貢、四季龍眼</td><td>搶先上市，最早可至 5 月下旬</td></tr>
+    <tr style="background:#EFEBE9;"><td>🟤 盛產</td><td>8 月（中元前後）</td><td><strong>粉殼</strong>、紅殼、青殼、福眼</td><td>主力產季，全臺同步上市</td></tr>
+    <tr style="background:#E3F2FD;"><td>🔵 晚熟</td><td>至 11 月</td><td><strong>十月眼</strong></td><td>最晚熟，延長供應期</td></tr>
+  </table>
+
+  <div class="feature-single">
+    <img src="images/longan-season.png" alt="台灣常見龍眼產期圖" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台灣常見龍眼產期分布圖</p>
+</div>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🗺️ 主要產地分布</h3>
+  <table class="compare-table">
+    <tr><th>排名</th><th>縣市</th><th>約佔比</th><th>代表產區</th></tr>
+    <tr style="background:#EFEBE9;"><td>1</td><td><strong>臺南市</strong></td><td>30–35%</td><td>東山、南化、楠西（龍眼乾重鎮）</td></tr>
+    <tr style="background:#EFEBE9;"><td>2</td><td><strong>嘉義縣</strong></td><td>20–25%</td><td>竹崎、中埔、番路</td></tr>
+    <tr><td>3</td><td>臺中市</td><td>15–20%</td><td>太平、霧峰</td></tr>
+    <tr><td>4</td><td>南投縣</td><td>10–15%</td><td>中寮、名間</td></tr>
+    <tr><td>5</td><td>高雄市</td><td>8–12%</td><td>內門、田寮</td></tr>
+  </table>
+
+  <h3>⚖️ 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🍯</span><span class="pc-text"><strong>加工價值鏈完整</strong> — 龍眼乾（桂圓）、龍眼蜜、龍眼木炭為高附加價值產品</span></div>
+        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>種原庫逾 50 品種</strong> — 嘉義農試分所保存豐富基因資源</span></div>
+        <div class="pc-item"><span class="pc-icon">🌳</span><span class="pc-text"><strong>樹齡可達百年以上</strong> — 老欉龍眼品質更佳，具文化與觀光價值</span></div>
+        <div class="pc-item"><span class="pc-icon">📜</span><span class="pc-text"><strong>300 年栽培歷史</strong> — 深植臺灣農村文化，東山土窯烘焙為無形文化資產</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">⏱️</span><span class="pc-text"><strong>產期極度集中</strong> — 8 月盛產期僅約 2–3 週，價格波動劇烈</span></div>
+        <div class="pc-item"><span class="pc-icon">🌡️</span><span class="pc-text"><strong>氣候敏感</strong> — 暖冬導致花芽分化不良，隔年結果現象明顯</span></div>
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>採收勞動密集</strong> — 植株高大、多種於山坡，採收風險高、缺工嚴峻</span></div>
+        <div class="pc-item"><span class="pc-icon">🦠</span><span class="pc-text"><strong>病害威脅</strong> — 露疫病、炭疽病為主要病害，潮濕季節防治壓力大</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-1-TiR2m.jpg" alt="盛產主力" loading="lazy">
+    <div class="card-body"><h4>🟤 盛產主力品種</h4><p>8 月盛產 · 鮮食加工兩用</p><span class="tag tag-brown">粉殼 · 紅殼 · 青殼 · 福眼</span></div>
+  </div>
+  <div class="category-card">
+    <img src="images/longan-season-v2.jpg" alt="台灣常見龍眼產期圖" loading="lazy" class="card-img-square">
+    <div class="card-body"><h4>✨ 早熟／晚熟／特色品種</h4><p>延長產季 · 特殊風味</p><span class="tag tag-amber">五月眼 · 十月眼 · 四季 · 水貢等</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 品種詳細 ===== -->
+<h2>🟤 品種詳細介紹</h2>
+<div class="variety-section">
+
+  <!-- ── 粉殼 ── -->
+  <h3>粉殼 <span class="badge badge-main">主力品種 · 全臺栽培最多</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/182/955042301b_m.jpg" alt="粉殼龍眼" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">粉殼：臺灣最主要栽培品種，成熟時果粉明顯為命名由來，甜度可達 26 度（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>果農自行選出的實生變異種</td></tr>
+    <tr><td>果實</td><td>中等大小，種子小，果肉厚實、Q 彈口感佳；成熟時<strong>果粉明顯</strong></td></tr>
+    <tr><td>甜度</td><td>甜度高，農傳媒報導可達 <strong>26 °Brix</strong>（最甜品種之一）</td></tr>
+    <tr><td>產期</td><td>8 月上中旬（中元節前後為盛產期）</td></tr>
+    <tr><td>產地</td><td>全臺均有種植，臺中、南投、高雄等地栽培較多</td></tr>
+    <tr><td>優點</td><td>產量高且穩定、不易退甘、少有隔年結果現象</td></tr>
+    <tr><td>用途</td><td>適合鮮食及加工（龍眼乾烘焙）</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 紅殼 ── -->
+  <h3>紅殼（湖底）<span class="badge badge-special">烘焙專用</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/182/2ce45bb450_m.jpg" alt="紅殼龍眼" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">紅殼：成熟時果皮呈赤褐色，又名「湖底」，南部最受歡迎（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>別名</td><td>湖底</td></tr>
+    <tr><td>果實</td><td>果實大、肉厚、果核小，肉質甜脆</td></tr>
+    <tr><td>果皮</td><td>成熟時呈赤褐色（故名紅殼）</td></tr>
+    <tr><td>風味</td><td>糖度高；口感軟、水分較多</td></tr>
+    <tr><td>產期</td><td>約 8 月上旬（5–8 月）</td></tr>
+    <tr><td>產地</td><td>臺南市南化區、高雄市內門區；南部最受歡迎</td></tr>
+    <tr><td>加工</td><td>烘焙後品質依然很好，很適合加工成龍眼乾</td></tr>
+    <tr><td>缺點</td><td>產量不高</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 青殼 ── -->
+  <h3>青殼（青皮）<span class="badge badge-new">高甜耐儲</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/182/3122b55c5c_m.jpg" alt="青殼龍眼" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">青殼：成熟後果皮呈淡黃褐微帶青綠，果實大、果核小、糖度高、較耐貯藏（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>別名</td><td>青皮</td></tr>
+    <tr><td>果實</td><td>果大核小，果肉結實</td></tr>
+    <tr><td>果皮</td><td>成熟後呈淡黃褐微帶淡青綠色</td></tr>
+    <tr><td>甜度</td><td>比粉殼更甜</td></tr>
+    <tr><td>產期</td><td>5–8 月</td></tr>
+    <tr><td>特色</td><td>最大特色是採收後果色不易變質、<strong>耐儲存</strong></td></tr>
+    <tr><td>產地</td><td>多種植於臺南一帶，產量較少、較不普遍</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 十月眼 ── -->
+  <h3>十月眼 <span class="badge badge-special">最晚熟</span></h3>
+  <div class="feature-single">
+    <img src="https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-2-EUTt4.jpg" alt="十月龍眼" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">十月眼：臺灣最晚熟的龍眼品種，至 10–11 月仍可採收，果實碩大</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果實碩大</td></tr>
+    <tr><td>甜度</td><td>甜度高，且甜度可持久不降</td></tr>
+    <tr><td>口感</td><td>Q 脆</td></tr>
+    <tr><td>產期</td><td>至 10–11 月（最晚熟品種）</td></tr>
+    <tr><td>市場</td><td>收成期易遇颱風，價格略高；最受中北部果農歡迎</td></tr>
+    <tr><td>研發</td><td>大量栽植仍待繼續研發</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 福眼 ── -->
+  <h3>福眼 <span class="badge badge-main">果型最大</span></h3>
+  <div class="feature-single">
+    <img src="images/longan-fuyan-v2.png" alt="福眼龍眼" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">福眼：果型最大、荷包形狀，皮薄好剝，吃一顆抵兩顆</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td><strong>果型最大</strong>，荷包形狀；皮薄好剝，果肉多</td></tr>
+    <tr><td>甜度</td><td>甜度略低於粉殼</td></tr>
+    <tr><td>風味</td><td>體大肉多，因甜度略低吃不膩</td></tr>
+    <tr><td>定位</td><td>傳統品種，適合鮮食</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 其他品種表 ── -->
+  <h3>其他龍眼品種一覽</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>產期類型</th><th>主要特徵</th></tr>
+    <tr style="background:#FFF3E0;"><td><strong>五月眼</strong></td><td>最早熟</td><td>5 月下旬至 6 月即可採收，搶鮮上市</td></tr>
+    <tr><td><strong>四季龍眼</strong></td><td>多次開花</td><td>一年可多次開花結果，但單次產量較低</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>水貢</strong></td><td>早熟</td><td>水分含量較高、果肉多汁，適合鮮食</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>大粉殼</strong></td><td>盛產</td><td>粉殼的大型變異品系，果實較粉殼大</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>石硖</strong></td><td>盛產</td><td>果核較小、果肉比率高，為優良鮮食品種</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>菱角種</strong></td><td>盛產</td><td>果形略似菱角，為地方特色品種</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<h2>📊 品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>果實大小</th><th>甜度</th><th>產期</th><th>核心特色</th></tr>
+    <tr style="background:#EFEBE9;"><td><strong>粉殼</strong></td><td>中</td><td>最高（26°）</td><td>8 月上中旬</td><td>主力品種 · 果粉明顯 · Q 彈</td></tr>
+    <tr><td><strong>紅殼</strong></td><td>大</td><td>高</td><td>8 月上旬</td><td>赤褐皮 · 烘焙專用 · 南部最愛</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>青殼</strong></td><td>大</td><td>更高</td><td>5–8 月</td><td>青綠皮 · 比粉殼甜 · 耐儲存</td></tr>
+    <tr><td><strong>十月眼</strong></td><td>碩大</td><td>高</td><td>10–11 月</td><td>最晚熟 · Q 脆 · 價格高</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>福眼</strong></td><td>最大</td><td>中</td><td>8 月</td><td>荷包形 · 吃不膩</td></tr>
+    <tr><td><strong>五月眼</strong></td><td>中</td><td>—</td><td>5–6 月</td><td>最早熟 · 搶鮮上市</td></tr>
+    <tr style="background:#EFEBE9;"><td><strong>四季龍眼</strong></td><td>中</td><td>—</td><td>多次</td><td>可多次開花結果</td></tr>
+    <tr><td><strong>水貢</strong></td><td>中</td><td>—</td><td>早熟</td><td>多汁 · 適合鮮食</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果殼完整無裂痕、色澤均勻；粉殼應有明顯白色果粉<br>
+    <strong>觸感：</strong>按壓結實有彈性（過軟已過熟或發酵）<br>
+    <strong>果枝：</strong>帶枝的龍眼較耐放，枝葉鮮綠表示新鮮採收<br>
+    <strong>保存：</strong>常溫通風可放 3–5 天；冷藏前用報紙包裹，可延長至 1 週
+  </div>
+
+  <div class="note-box">
+    <strong>🔬 各品種食用建議：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>粉殼：</strong>最甜的品種（可達 26°）— 鮮食首選，也適合烘焙龍眼乾</li>
+      <li><strong>紅殼：</strong>果大肉厚 — 南部人最愛，烘焙後品質絕佳</li>
+      <li><strong>青殼：</strong>比粉殼更甜 + 耐儲存 — 買多不怕壞</li>
+      <li><strong>十月眼：</strong>Q 脆口感 — 晚秋限定，錯過等明年</li>
+      <li><strong>福眼：</strong>吃一顆抵兩顆 — 怕甜膩的人最適合</li>
+      <li><strong>⚠️ 食用提醒：</strong>因甜度及熱量較高，成年人每次建議以 <strong>11–12 顆</strong> 為限（農糧署建議）</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>🏢 北農交易代碼對照</h2>
+<div class="source-box">
+  <p>以下為本圖鑑收錄品種與<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司</a>果菜品名代碼對照：</p>
+  <table class="compare-table">
+    <tr><th>北農代碼</th><th>北農品名</th><th>對應圖鑑品種</th></tr>
+    <tr style="background:#FFF3E0;"><td><strong>K2</strong></td><td>十月眼</td><td>十月眼（最晚熟品種）</td></tr>
+    <tr><td><strong>K3</strong></td><td>粉殼</td><td>粉殼（主力品種，全臺栽培最多）</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>K4</strong></td><td>龍眼乾（帶殼）</td><td>—（加工品，非鮮果品種）</td></tr>
+    <tr><td><strong>K41</strong></td><td>龍眼肉</td><td>—（加工品，非鮮果品種）</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>K0</strong></td><td>其他</td><td>紅殼（湖底）、青殼（青皮）、福眼、五月眼、四季龍眼、水貢、大粉殼、石硖、菱角種</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:#999;margin-top:12px;">※ 北農龍眼代碼僅收錄十月眼與粉殼兩個鮮食品種，其餘品種實務交易以 K0「其他」統稱。</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=44912" target="_blank">龍眼主題館 — 龍眼百百種（農業知識入口網）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=44966" target="_blank">粉殼</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=45073" target="_blank">紅殼</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=44965" target="_blank">青殼</a></li>
+    <li><a href="https://www.agriharvest.tw/archives/106726/" target="_blank">盛暑啖龍眼 — 農傳媒（品種比較 + 歷史）</a></li>
+    <li><a href="https://fae.moa.gov.tw/theme_data.php?theme=topics&sub_theme=knowledge&id=1834" target="_blank">龍眼產期與品種 — 農糧署食農教育</a></li>
+    <li><a href="https://food.ltn.com.tw/article/7932" target="_blank">龍眼品種介紹 — 自由時報食譜自由配</a></li>
+  </ul>
+  <p style="font-size:0.82rem;color:#999;">品種照片引用自農業部、自由時報食譜自由配及農傳媒。版權歸原機關所有。</p>
+</div>
+
+</div>
+</body>
+</html>

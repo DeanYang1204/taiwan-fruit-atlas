@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北農水果專業圖鑑</title>
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --card-bg: #FFFFFF;
+    --text: #2C2C2C;
+    --text-muted: #777;
+    --shadow: 0 4px 20px rgba(0,0,0,0.07);
+    --shadow-hover: 0 12px 36px rgba(0,0,0,0.13);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(160deg, #1B1B2F 0%, #2D1B36 30%, #3C1F3C 55%, #1B1B2F 100%);
+    color: white; padding: 80px 20px 70px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,143,0,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(194,24,91,0.10) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(198,40,40,0.12) 0%, transparent 50%);
+  }
+  .hero h1 {
+    font-size: 2.8rem; position: relative; letter-spacing: 0.04em;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.5); margin-bottom: 12px;
+  }
+  .hero-logo {
+    height: 64px; position: relative; margin-bottom: 16px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  }
+  .hero p {
+    font-size: 1.15rem; position: relative; opacity: 0.8;
+    max-width: 600px; margin: 0 auto;
+  }
+  .hero .badge-row { position: relative; margin-top: 20px; }
+  .hero .badge-row span {
+    display: inline-block; margin: 0 8px; padding: 4px 16px;
+    border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+    background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.85);
+  }
+
+  /* ── Container ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  .section-title {
+    font-size: 1.6rem; margin-bottom: 28px; color: #333;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 1px; background: #ddd;
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  /* ── Fruit Card ── */
+  .fruit-card {
+    background: var(--card-bg); border-radius: 18px; overflow: hidden;
+    box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer; text-decoration: none; color: inherit; display: block;
+  }
+  .fruit-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .card-img {
+    width: 100%; height: 200px; object-fit: cover;
+    display: block; background: #f0f0f0;
+  }
+
+  .card-body { padding: 22px; position: relative; }
+
+  .card-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+
+  .card-body h3 {
+    font-size: 1.8rem; margin-bottom: 2px; font-weight: 800; letter-spacing: 0.03em;
+  }
+  .card-body .sci-name {
+    font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 10px;
+  }
+  .card-body .desc {
+    font-size: 0.92rem; color: var(--text-muted);
+    margin-bottom: 14px; line-height: 1.65;
+  }
+
+  .card-stats {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+  .stat {
+    background: #f9f9f9; border-radius: 8px;
+    padding: 8px 14px; font-size: 0.8rem; color: #666;
+  }
+  .stat strong { color: #333; display: block; font-size: 1rem; }
+
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    display: inline-block; padding: 3px 12px; border-radius: 14px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+
+  .card-arrow {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; font-weight: 700; margin-top: 8px;
+    transition: gap 0.2s;
+  }
+  .fruit-card:hover .card-arrow { gap: 8px; }
+
+  /* ── 建構中 ── */
+  .fruit-card.wip {
+    opacity: 0.55; filter: grayscale(0.5); cursor: default;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .fruit-card.wip:hover { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .fruit-card.wip .card-img { filter: brightness(0.9); }
+  .fruit-card.wip .card-arrow { display: none; }
+  .wip-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+    background: linear-gradient(135deg,#9E9E9E,#BDBDBD); color: white;
+    margin-bottom: 14px;
+  }
+
+  /* ── Coming Soon ── */
+  .coming-soon {
+    background: var(--card-bg); border-radius: 18px;
+    border: 2px dashed #ddd; padding: 48px 20px;
+    text-align: center; color: #bbb;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 200px;
+  }
+  .coming-soon .icon { font-size: 2.4rem; margin-bottom: 10px; opacity: 0.4; }
+  .coming-soon p { font-size: 0.95rem; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center; padding: 30px 20px; color: #aaa; font-size: 0.82rem;
+    border-top: 1px solid #eee;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero-logo { height: 48px; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 769px) and (max-width: 1080px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ Hero ═══════════ -->
+<div class="hero">
+  <img class="hero-logo" src="beinong-logo.png" alt="臺北農產運銷公司">
+  <h1>北農水果專業圖鑑</h1>
+  <p>臺北農產運銷公司內部培訓學習資料 &mdash; 完整收錄臺灣主要果物品種分類、產地分布、市場行情與栽培要點</p>
+  <div class="badge-row">
+    <span>🔥 火龍果</span><span>🥭 芒果</span><span>🍒 荔枝</span><span>🍍 鳳梨</span><span>🍌 香蕉</span><span>🫒 芭樂</span><span>🟤 龍眼</span><span>⋯ 續</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── 已完成 ── -->
+  <div class="section-title">✅ 已完成收錄圖鑑</div>
+  <div class="card-grid">
+
+    <!-- ▸▸▸ 火龍果 Pitaya ▸▸▸ -->
+    <a class="fruit-card" href="pitaya-atlas.html">
+      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg" alt="火龍果" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #C2185B, #E91E63);"></div>
+      <div class="card-body">
+        <h3 style="color:#C2185B;">🔥 火龍果</h3>
+        <div class="sci-name">Hylocereus spp. · Pitaya / Dragon Fruit</div>
+        <div class="desc">紅肉、白肉、粉紅肉三大色系，14 品種完整收錄。近年栽培面積暴增，產地南投第一、彰化第二。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>2,400+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>14 品種</strong>三大色系</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FCE4EC;color:#C2185B;">產地分布</span>
+          <span class="tag" style="background:#FCE4EC;color:#C2185B;">品種對比</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">產業分析</span>
+        </div>
+        <div class="card-arrow" style="color:#C2185B;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
+    <!-- ▸▸▸ 芒果 Mango ▸▸▸ -->
+    <a class="fruit-card" href="mango-atlas.html">
+      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/427844a45d_m.jpg" alt="芒果" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #E65100, #FF8F00);"></div>
+      <div class="card-body">
+        <h3 style="color:#E65100;">🥭 芒果</h3>
+        <div class="sci-name">Mangifera indica · Mango</div>
+        <div class="desc">第二大果樹，年產 15 萬公噸。24 品種五大分類：本土在來、美國引進、南洋引進、官方育成、民間育成。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>16,000 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>24 品種</strong>五大分類</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF3E0;color:#E65100;">品種分類</span>
+          <span class="tag" style="background:#FFF3E0;color:#E65100;">歷史脈絡</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">選購指南</span>
+        </div>
+        <div class="card-arrow" style="color:#E65100;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
+    <!-- ▸▸▸ 荔枝 Lychee ▸▸▸ -->
+    <a class="fruit-card" href="lychee-atlas.html">
+      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg" alt="荔枝" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #C62828, #EF5350);"></div>
+      <div class="card-body">
+        <h3 style="color:#C62828;">🍒 荔枝</h3>
+        <div class="sci-name">Litchi chinensis · Lychee</div>
+        <div class="desc">第四大果樹，年產 9 萬公噸。五大成熟梯隊涵蓋 14 品種，黑葉佔 70%、玉荷包 25%。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>11,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>14 品種</strong>五大梯隊</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFEBEE;color:#C62828;">產期分布</span>
+          <span class="tag" style="background:#FFEBEE;color:#C62828;">品種對比</span>
+          <span class="tag" style="background:#FFF3E0;color:#FF6F00;">低溫需求</span>
+        </div>
+        <div class="card-arrow" style="color:#C62828;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
+    <!-- ▸▸▸ 芭樂 Guava ▸▸▸ -->
+    <a class="fruit-card" href="guava-atlas.html">
+      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/3fd8443dd5_m.jpg" alt="芭樂" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #2E7D32, #43A047);"></div>
+      <div class="card-body">
+        <h3 style="color:#43A047;">🫒 芭樂</h3>
+        <div class="sci-name">Psidium guajava · Guava</div>
+        <div class="desc">全年生產的國民水果，16 品種完整收錄。珍珠拔佔 80% 為絕對主力，紅肉系富含茄紅素。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>7,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>16 品種</strong>脆肉/紅肉</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">珍珠拔主力</span>
+          <span class="tag" style="background:#FCE4EC;color:#AD1457;">紅肉系列</span>
+          <span class="tag" style="background:#FFF3E0;color:#FF6F00;">周年生產</span>
+        </div>
+        <div class="card-arrow" style="color:#43A047;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
+    <!-- ▸▸▸ 龍眼 Longan ▸▸▸ -->
+    <a class="fruit-card" href="longan-atlas.html">
+      <img class="card-img" src="https://img.ltn.com.tw/Upload/food/page/2018/08/12/180812-7932-1-TiR2m.jpg" alt="龍眼" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #5D4037, #8D6E63);"></div>
+      <div class="card-body">
+        <h3 style="color:#8D6E63;">🟤 龍眼</h3>
+        <div class="sci-name">Dimocarpus longan · Longan</div>
+        <div class="desc">第四大果樹，300 年栽培史。13 品種收錄，粉殼甜度可達 26°Brix。龍眼乾（桂圓）為高附加價值加工品。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>11,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>13 品種</strong>三階段產期</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#EFEBE9;color:#5D4037;">粉殼主力</span>
+          <span class="tag" style="background:#FFF8E1;color:#E65100;">龍眼乾加工</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">300年歷史</span>
+        </div>
+        <div class="card-arrow" style="color:#8D6E63;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
+  </div><!-- /card-grid 已完成 -->
+
+  <!-- ── 建構中 ── -->
+  <div class="section-title" style="margin-top:48px;">🚧 建構中</div>
+  <div class="card-grid">
+
+    <!-- ▸▸▸ 鳳梨 Pineapple ▸▸▸ -->
+    <div class="fruit-card wip">
+      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="鳳梨" loading="lazy">
+      <div class="card-accent" style="background: linear-gradient(90deg, #9E9E9E, #BDBDBD);"></div>
+      <div class="card-body">
+        <span class="wip-badge">🚧 建構中</span>
+        <h3 style="color:#757575;">🍍 鳳梨</h3>
+        <div class="sci-name">Ananas comosus · Pineapple</div>
+        <div class="desc">第三大果樹，年產 40 萬公噸。13 品種完整收錄，金鑽佔比 85% 為絕對主力。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>10,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>13 品種</strong>三大類別</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF8E1;color:#757575;">品種分類</span>
+          <span class="tag" style="background:#FFF8E1;color:#757575;">產地分布</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">市場分析</span>
+        </div>
+        <div class="card-arrow" style="color:#9E9E9E;">即將推出 →</div>
+      </div>
+    </div>
+
+    <!-- ▸▸▸ 香蕉 Banana ▸▸▸ -->
+    <div class="fruit-card wip">
+      <img class="card-img" src="images/banana-hero.jpg" alt="香蕉" loading="lazy" style="object-fit:contain; background:#FFFDE7;">
+      <div class="card-accent" style="background: linear-gradient(90deg, #9E9E9E, #BDBDBD);"></div>
+      <div class="card-body">
+        <span class="wip-badge">🚧 建構中</span>
+        <h3 style="color:#757575;">🍌 香蕉</h3>
+        <div class="sci-name">Musa spp. · Banana / Plantain</div>
+        <div class="desc">臺灣最大果樹，年產 33 萬公噸。10 品種內外銷香蕉 + 13 品種特色芭蕉完整收錄。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>15,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>23 品種</strong>兩大品系</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFFDE7;color:#757575;">內外銷香蕉</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">特色芭蕉</span>
+          <span class="tag" style="background:#FFF3E0;color:#757575;">抗病育種</span>
+        </div>
+        <div class="card-arrow" style="color:#9E9E9E;">即將推出 →</div>
+      </div>
+    </div>
+
+    <div class="coming-soon">
+      <div class="icon">🍇</div>
+      <p>更多品種 — 陸續擴充</p>
+      <p style="font-size:0.78rem;margin-top:4px;">葡萄、柑橘、棗子⋯</p>
+    </div>
+
+  </div><!-- /card-grid 建構中 -->
+</div><!-- /container -->
+
+<div class="footer">
+  北農水果專業圖鑑 · 資料來源：農業部農業知識入口網（kmweb.moa.gov.tw）及相關權威機構
+</div>
+
+</body>
+</html>

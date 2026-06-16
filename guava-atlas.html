@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣芭樂專業圖鑑</title>
+<style>
+  :root {
+    --guava-green: #43A047; --guava-deep: #2E7D32; --guava-light-green: #81C784;
+    --guava-light: #E8F5E9; --guava-cream: #F1F8E9;
+    --guava-pink: #F48FB1; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #F5FFF5; --card-bg: #FFFFFF; --accent: #43A047;
+    --section-bg: #E8F5E9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 30%, #43A047 55%, #66BB6A 80%, #A5D6A7 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/3fd8443dd5_m.jpg') center/cover;
+    opacity: 0.06;
+  }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .back-home { position: absolute; top: 16px; left: 20px; z-index: 10; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .back-home:hover { color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box {
+    background: linear-gradient(135deg,#E8F5E9,#F1F8E9);
+    border-radius: 16px; padding: 30px; margin: 30px 0;
+    border-left: 5px solid var(--accent);
+  }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #E8F5E9; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: linear-gradient(135deg,#2E7D32,#43A047); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .cons-card .pc-header { background: linear-gradient(135deg,#C62828,#E53935); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #43A047; color: white; }
+  .badge-new { background: #2E7D32; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-pink { background: #FCE4EC; color: #AD1457; }
+  .tag-yellow { background: #FFF9C4; color: #F57F17; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#43A047,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="fruit-atlas.html">← 返回水果圖鑑首頁</a>
+  <h1>🫒 臺灣芭樂專業圖鑑</h1>
+  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle2">16 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>芭樂（番石榴，<em>Psidium guajava</em> L.）為桃金孃科番石榴屬常綠小喬木，原產於中南美洲，經由早期移民傳入亞洲，已成為臺灣最重要的常年鮮食水果之一。臺灣全年均可生產芭樂，栽培面積約 <strong>7,000–8,000 公頃</strong>，年產約 <strong>18–20 萬公噸</strong>。</p>
+  <p>品種分為<strong>綠皮白肉（更年性）</strong>與<strong>紅肉/特色品種</strong>兩大類。白肉以<strong>珍珠拔</strong>為絕對主力（約佔 80% 以上），產地以<strong>高雄燕巢</strong>最負盛名；紅肉則以宜蘭紅肉拔、彩虹拔為代表。臺灣芭樂品種多樣性極高，涵蓋無籽系、軟肉系、脆肉系、香氣系等多元風味。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/3fd8443dd5_m.jpg" alt="珍珠拔" loading="lazy">
+  <img src="images/red-guava.png" alt="紅肉番石榴" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：珍珠拔 — 市佔率 80% 以上的絕對主力 ｜ 右：紅肉番石榴 — 富含茄紅素與類胡蘿蔔素</p>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🗺️ 主要產地分布</h3>
+  <table class="compare-table">
+    <tr><th>排名</th><th>縣市</th><th>約佔比</th><th>代表產區</th></tr>
+    <tr style="background:#E8F5E9;"><td>1</td><td><strong>高雄市</strong></td><td>35–40%</td><td>燕巢（珍珠拔發源地）、大社、岡山</td></tr>
+    <tr style="background:#E8F5E9;"><td>2</td><td><strong>彰化縣</strong></td><td>20–25%</td><td>溪州、社頭（帝王拔、珍珠拔）</td></tr>
+    <tr><td>3</td><td>臺南市</td><td>10–15%</td><td>玉井、楠西、大內</td></tr>
+    <tr><td>4</td><td>宜蘭縣</td><td>5–8%</td><td>員山（宜蘭紅肉拔特產區）</td></tr>
+    <tr><td>5</td><td>屏東縣</td><td>5–8%</td><td>高樹、里港</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>🌤️ 全年生產的祕密：</strong>芭樂為少數可<strong>周年生產</strong>的水果，透過修剪調節產期。秋冬（10–2 月）為品質最佳季節，果肉厚脆、糖度高；夏季高溫時果實成熟快、肉質易軟化，需慎選品種（帝王拔、珍翠等夏季表現較佳）。
+  </div>
+
+  <h3>⚖️ 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>周年可供應</strong> — 透過修剪調節，全年無休生產</span></div>
+        <div class="pc-item"><span class="pc-icon">🌟</span><span class="pc-text"><strong>珍珠拔品牌效應</strong> — 燕巢珍珠拔知名度極高，市場指名度強</span></div>
+        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>品種多元</strong> — 從脆肉到軟肉、白肉到紅肉、有籽到無籽，滿足各類消費者</span></div>
+        <div class="pc-item"><span class="pc-icon">🫒</span><span class="pc-text"><strong>高營養價值</strong> — 維生素 C 含量為柑橘類 3–5 倍，紅肉種更富含茄紅素</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">☀️</span><span class="pc-text"><strong>夏季品質不穩</strong> — 高溫期果肉易軟化、脆度下降，影響商品價值</span></div>
+        <div class="pc-item"><span class="pc-icon">🐛</span><span class="pc-text"><strong>果實蠅威脅</strong> — 東方果實蠅為最大病蟲害，套袋成本高</span></div>
+        <div class="pc-item"><span class="pc-icon">🦠</span><span class="pc-text"><strong>立枯病／根瘤線蟲</strong> — 部分品種對土壤病害敏感</span></div>
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>修剪管理費工</strong> — 產期調節需精密修剪技術，勞動力需求高</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<p>依農業部農業知識入口網正式分類：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/3fd8443dd5_m.jpg" alt="綠皮白肉系" loading="lazy">
+    <div class="card-body"><h4>🟢 綠皮白肉系（脆肉）</h4><p>更年性品種 · 10 品種</p><span class="tag tag-green">珍珠 · 帝王 · 水晶 · 世紀 · 珍翠</span></div>
+  </div>
+  <div class="category-card">
+    <img src="images/red-guava.png" alt="紅肉系" loading="lazy">
+    <div class="card-body"><h4>🔴 紅肉／特色品種</h4><p>非更年性品種 · 6 品種</p><span class="tag tag-pink">紅肉 · 彩虹 · 斑葉 · 水蜜 · 無子</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 一、綠皮白肉系 ===== -->
+<h2>🟢 一、綠皮白肉系（更年性 · 脆肉型）</h2>
+<div class="variety-section">
+
+  <!-- ── 珍珠拔 ── -->
+  <h3>珍珠拔 <span class="badge badge-main">絕對主力 · 80%+</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/3fd8443dd5_m.jpg" alt="珍珠拔" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">珍珠拔：臺灣芭樂的代名詞，市佔率 80% 以上，以高雄燕巢為核心產區（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>秋冬季果肉較厚且細緻，糖度高；夏季高溫時果肉易軟化、脆度較差</td></tr>
+    <tr><td>風味</td><td>具特殊甘味與芳香，酸度適中</td></tr>
+    <tr><td>產期</td><td>10 月以後品質較佳且穩定，生產宜避開夏季高溫期</td></tr>
+    <tr><td>植株</td><td>樹形開張、枝條具韌性；修剪後結果枝抽生比率高</td></tr>
+    <tr><td>栽培</td><td>果實罹病率低，栽培管理較省工</td></tr>
+    <tr><td>優點</td><td>品質穩定、管理省工、市場指名度高</td></tr>
+    <tr><td>缺點</td><td>夏季高溫果肉易軟化，脆度下降</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 帝王拔 ── -->
+  <h3>帝王拔 <span class="badge badge-new">夏季優勢品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/a4adbdc688_m.jpg" alt="帝王拔" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">帝王拔：農試所鳳山分所育成，珍珠拔 × 無籽拔雜交後代，夏季仍保持厚脆口感（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>農業試驗所鳳山分所育種命名，為珍珠拔與無籽拔雜交後代</td></tr>
+    <tr><td>果實</td><td>果肉質脆、果肉較厚；<strong>夏季果肉仍厚質脆</strong>（最大優勢）</td></tr>
+    <tr><td>風味</td><td>酸度略高（低溫期酸度偏高）</td></tr>
+    <tr><td>缺點</td><td>腐果率較高，低溫期酸度偏高，管理較費工</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 水晶拔 ── -->
+  <h3>水晶拔 <span class="badge badge-special">無籽品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/1df20e3d51_m.jpg" alt="水晶拔" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">水晶拔：由泰國拔變異而來，種子極少的無籽芭樂品種（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>泰國拔變異而來</td></tr>
+    <tr><td>果實</td><td>扁圓形，果面有不規則突起；種子極少（無籽芭樂）</td></tr>
+    <tr><td>果肉</td><td>肉質脆，但果頂與果肩糖度差異甚大</td></tr>
+    <tr><td>授粉</td><td>自然著果率高於一般圓葉無籽品種，無須特別藥劑處理</td></tr>
+    <tr><td>缺點</td><td>產量仍偏低；夏季果實易罹病；枝條較脆</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 高雄2號珍翠 ── -->
+  <h3>高雄 2 號─珍翠 <span class="badge badge-new">最新品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/c683008659_m.jpg" alt="珍翠" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">高雄2號珍翠：圓果型綠皮白肉，選育自印尼種紅肉番石榴後代，已專屬授權（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成</td><td>選育自印尼種紅肉番石榴的天然授粉種子之後代</td></tr>
+    <tr><td>果實</td><td>圓果型綠皮白肉，果重約 530 g（中大果）；果皮「起珠仔」特徵明顯、賣相佳</td></tr>
+    <tr><td>果肉</td><td>細緻；夏季果肉厚度較珍珠拔增加 <strong>20%</strong></td></tr>
+    <tr><td>糖度</td><td>夏季糖度約較珍珠拔高 <strong>1–2 °Brix</strong></td></tr>
+    <tr><td>栽培</td><td>容易管理且產量高；定植初期需注意線蟲防治</td></tr>
+    <tr><td>授權</td><td>已專屬授權潘連進先生（0919754319）</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 世紀芭樂 ── -->
+  <h3>世紀芭樂</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/1b291075af_m.jpg" alt="世紀芭樂" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">世紀芭樂：傳統脆肉品種，果形圓整美觀（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>圓整美觀，果皮翠綠</td></tr>
+    <tr><td>果肉</td><td>白肉脆甜，為傳統長銷品種</td></tr>
+    <tr><td>定位</td><td>中部地區仍有穩定栽培面積</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 其他綠皮白肉品種 ── -->
+  <h3>其他綠皮白肉品種</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>特徵摘要</th></tr>
+    <tr style="background:#E8F5E9;"><td><strong>圓葉無籽拔</strong></td><td>葉片圓形、種子極少，屬無籽芭樂品系；著果率較水晶拔低，需藥劑輔助</td></tr>
+    <tr><td><strong>東山月拔</strong></td><td>臺南東山地方品種，果形較小，風味獨特</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>巴西捲葉拔</strong></td><td>引自巴西，葉片捲曲為外觀特徵，果實風味佳</td></tr>
+    <tr><td><strong>香拔</strong></td><td>具特殊香氣，果實偏小，適合特色栽培</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 二、紅肉／特色品種 ===== -->
+<h2>🔴 二、紅肉／特色品種（非更年性）</h2>
+<div class="variety-section">
+
+  <!-- ── 紅肉番石榴介紹 ── -->
+  <h3>紅肉番石榴 <span class="badge badge-special">茄紅素 · 高營養</span></h3>
+  <div class="feature-single">
+    <img src="images/red-guava.png" alt="紅肉番石榴" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">紅肉番石榴：紅色來自類胡蘿蔔素及茄紅素，維生素 C 含量 72.2 mg/100g</p>
+  <p>紅肉番石榴主要分為兩大品系：</p>
+
+  <h4>宜蘭紅肉拔</h4>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>產地</td><td>宜蘭縣員山鄉枕山地區</td></tr>
+    <tr><td>果實</td><td>小果型，果重 120–204 g，果肉厚約 1.3 cm，可食率 35%</td></tr>
+    <tr><td>糖度</td><td>8–11 °Brix</td></tr>
+    <tr><td>風味</td><td>口感軟嫩香 Q，不會軟爛</td></tr>
+    <tr><td>產期</td><td>9 月至 12 月底</td></tr>
+    <tr><td>特色</td><td>屬於容易軟熟的品種，但因宜蘭獨特水質與氣候，仍保有香 Q 口感</td></tr>
+  </table>
+
+  <h4>彩虹拔（西瓜芭）</h4>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>產地</td><td>發源於彰化，高屏地區約 10 公頃</td></tr>
+    <tr><td>果實</td><td>中果型，300–600 g，果肉厚 2–2.5 cm，卵圓形；可食率 45–50%</td></tr>
+    <tr><td>糖度</td><td>8–12 °Brix</td></tr>
+    <tr><td>風味</td><td>口感清脆，具類似<strong>百香果的獨特果香</strong></td></tr>
+    <tr><td>特色</td><td>「非更年型」果實，成熟後果肉不會軟化、儲放時間長；果皮綠色與果肉紅色之間有白色果肉層，故稱「西瓜芭」</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 無子水蜜拔 ── -->
+  <h3>無子水蜜拔 <span class="badge badge-special">無籽 · 爽脆</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/28/daa2a26f65_m.jpg" alt="無子水蜜拔" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">無子水蜜拔：幾乎完全無籽，口感爽脆，品質佳（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>幾乎完全無籽</td></tr>
+    <tr><td>果肉</td><td>口感爽脆，品質佳</td></tr>
+    <tr><td>授粉</td><td>開花及著果情形較水晶拔良好</td></tr>
+    <tr><td>植株</td><td>生長勢較弱，抽梢速度較慢</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 其他紅肉/特色品種 ── -->
+  <h3>其他紅肉及特色品種</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>特徵摘要</th></tr>
+    <tr style="background:#FCE4EC;"><td><strong>斑葉紅肉拔</strong></td><td>葉片具斑紋為外觀特徵，果肉紅色，兼具觀賞與食用價值</td></tr>
+    <tr><td><strong>印尼紅皮紅肉拔</strong></td><td>引自印尼，果皮帶紅色，果肉深紅，風味濃郁</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>宜蘭紅心拔</strong></td><td>宜蘭地方紅肉品種，與紅肉拔為近親品系</td></tr>
+    <tr><td><strong>草莓番石榴與檸檬番石榴</strong></td><td>兩種特殊風味品種：草莓番石榴果小如草莓、帶莓果香；檸檬番石榴帶柑橘清香</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<h2>📊 品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>肉色</th><th>果重(g)</th><th>糖度(°Brix)</th><th>籽</th><th>核心特色</th></tr>
+    <tr style="background:#E8F5E9;"><td><strong>珍珠拔</strong></td><td>白</td><td>—</td><td>高</td><td>有</td><td>市佔 80%+ · 燕巢代表</td></tr>
+    <tr><td><strong>帝王拔</strong></td><td>白</td><td>—</td><td>—</td><td>有</td><td>夏季仍厚脆 · 雜交新品</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>水晶拔</strong></td><td>白</td><td>—</td><td>不均</td><td>極少</td><td>無籽 · 扁圓形</td></tr>
+    <tr><td><strong>珍翠</strong></td><td>白</td><td>530</td><td>珍珠+1-2°</td><td>有</td><td>夏季肉厚+20% · 起珠仔賣相佳</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>世紀芭樂</strong></td><td>白</td><td>—</td><td>—</td><td>有</td><td>圓整美觀 · 長銷品種</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>宜蘭紅肉拔</strong></td><td>紅</td><td>120–204</td><td>8–11</td><td>有</td><td>軟嫩香Q · 宜蘭特產</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>彩虹拔</strong></td><td>紅</td><td>300–600</td><td>8–12</td><td>有</td><td>清脆百香果香 · 不軟化</td></tr>
+    <tr><td><strong>無子水蜜拔</strong></td><td>白</td><td>—</td><td>—</td><td>極少</td><td>完全無籽 · 爽脆</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果皮翠綠有光澤、無軟爛或黑斑<br>
+    <strong>觸感：</strong>按壓結實有彈性（脆肉型）；微軟為軟肉型正常<br>
+    <strong>果形：</strong>圓整對稱、無畸形<br>
+    <strong>季節：</strong>秋冬（10–2 月）為品質最佳季節
+  </div>
+
+  <div class="note-box">
+    <strong>🔬 各品種口感速查：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>珍珠拔：</strong>經典脆甜 — 最百搭，適合所有族群</li>
+      <li><strong>帝王拔：</strong>夏季仍脆 — 夏天想吃脆芭樂的首選</li>
+      <li><strong>水晶拔：</strong>無籽脆甜 — 不喜歡吐籽的人最愛</li>
+      <li><strong>珍翠：</strong>夏季高甜 — 最新品種、潛力股</li>
+      <li><strong>宜蘭紅肉拔：</strong>軟嫩香 Q — 適合老人小孩</li>
+      <li><strong>彩虹拔：</strong>清脆百香果香 — 獨特風味愛好者必試</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>🏢 北農交易代碼對照</h2>
+<div class="source-box">
+  <p>以下為本圖鑑收錄品種與<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司</a>果菜品名代碼對照：</p>
+  <table class="compare-table">
+    <tr><th>北農代碼</th><th>北農品名</th><th>對應圖鑑品種</th></tr>
+    <tr style="background:#FFF3E0;"><td><strong>P1</strong></td><td>珍珠芭（芭樂）</td><td>珍珠拔（絕對主力，80%+）</td></tr>
+    <tr><td><strong>P2</strong></td><td>紅心芭</td><td>紅肉番石榴</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>P3</strong></td><td>帝王芭</td><td>帝王拔</td></tr>
+    <tr><td><strong>P4</strong></td><td>世紀芭</td><td>世紀芭樂</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>P5</strong></td><td>水晶無仔</td><td>水晶拔</td></tr>
+    <tr><td><strong>P0</strong></td><td>其他</td><td>高雄2號珍翠、無子水蜜拔、其他綠皮白肉及紅肉特色品種</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 芭樂主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=1231" target="_blank">芭樂家族 — 品種目錄（16 品種）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11941" target="_blank">珍珠拔</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11943" target="_blank">帝王拔</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11942" target="_blank">水晶拔</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11954" target="_blank">高雄2號—珍翠</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11956" target="_blank">世紀芭樂</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11946" target="_blank">紅肉番石榴</a>（含宜蘭紅肉拔、彩虹拔）</li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11952" target="_blank">無子水蜜拔</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11955" target="_blank">圓葉無籽拔</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11944" target="_blank">彩虹拔</a></li>
+  </ul>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網芭樂主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+</div>
+
+</div>
+</body>
+</html>

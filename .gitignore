@@ -1,0 +1,14 @@
+node_modules/
+.workbuddy/
+ppt-output/
+ppt-v2/
+ref-unpacked/
+*-deploy/
+mango-images/
+lychee-deploy/
+*.pptx
+*.py
+*.js
+package.json
+package-lock.json
+.clipboard-images/

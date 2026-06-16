@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣香蕉專業圖鑑</title>
+<style>
+  :root {
+    --banana-yellow: #F9A825; --banana-gold: #FFD600; --banana-deep: #F57F17;
+    --banana-light: #FFFDE7; --banana-cream: #FFF8E1;
+    --banana-green: #558B2F; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFFF5; --card-bg: #FFFFFF; --accent: #F9A825;
+    --section-bg: #FFFDE7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #F57F17 0%, #F9A825 30%, #FFD600 60%, #FFF176 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg') center/cover;
+    opacity: 0.07;
+  }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .back-home { position: absolute; top: 16px; left: 20px; z-index: 10; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .back-home:hover { color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box {
+    background: linear-gradient(135deg,#FFFDE7,#FFF8E1);
+    border-radius: 16px; padding: 30px; margin: 30px 0;
+    border-left: 5px solid var(--accent);
+  }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #FFFDE7; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: linear-gradient(135deg,#2E7D32,#43A047); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .cons-card .pc-header { background: linear-gradient(135deg,#C62828,#E53935); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #F9A825; color: white; }
+  .badge-new { background: #F57F17; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-yellow { background: #FFF9C4; color: #F57F17; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-red { background: #FFEBEE; color: #C62828; }
+  .tag-pink { background: #FCE4EC; color: #AD1457; }
+  .tag-purple { background: #EDE7F6; color: #4527A0; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#F9A825,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="fruit-atlas.html">← 返回水果圖鑑首頁</a>
+  <h1>🍌 臺灣香蕉專業圖鑑</h1>
+  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle2">10 品種內外銷香蕉 + 13 品種特色芭蕉 · 依農業部農業知識入口網正式分類</div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>香蕉（<em>Musa</em> spp.）為芭蕉科芭蕉屬大型草本植物，原產於東南亞熱帶地區，是世界上最重要的水果之一，年產量超過 <strong>1.5 億公噸</strong>，僅次於番茄、西瓜居世界水果第三位，也是臺灣<strong>栽培面積最大的果樹</strong>。</p>
+  <p>臺灣香蕉栽培面積約 <strong>15,000 公頃</strong>，年產約 <strong>33 萬公噸</strong>，曾經是臺灣最大的外銷農產品，1960–1970 年代年外銷日本最高達 <strong>40 萬公噸</strong>，為臺灣賺取大量外匯，有「<strong>香蕉王國</strong>」美譽。今日內銷為主、外銷為輔，產地集中中南部，<strong>屏東縣為最大產區</strong>。</p>
+  <p>品種方分為<strong>香蕉（AAA 基因組）</strong>與<strong>芭蕉（AA/AB/ABB 等基因組）</strong>兩大類。香蕉以「北蕉」為基礎親本，台蕉系列為主要栽培品種；芭蕉則以蛋蕉、玫瑰蕉、紅皮蕉等特色品種著稱。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="北蕉" loading="lazy">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="蛋蕉" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：北蕉 — 臺灣香蕉的基礎品種，栽培歷史逾 270 年 ｜ 右：蛋蕉 — AA 二倍體芭蕉，皮薄肉滑甜度高（圖：農業部）</p>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🗺️ 主要產地分布</h3>
+  <table class="compare-table">
+    <tr><th>排名</th><th>縣市</th><th>約佔比</th><th>主要鄉鎮</th></tr>
+    <tr style="background:#FFFDE7;"><td>1</td><td><strong>屏東縣</strong></td><td>25–30%</td><td>高樹、內埔、萬巒、里港</td></tr>
+    <tr style="background:#FFFDE7;"><td>2</td><td><strong>南投縣</strong></td><td>15–20%</td><td>名間、集集、竹山</td></tr>
+    <tr><td>3</td><td>高雄市</td><td>12–15%</td><td>旗山、美濃</td></tr>
+    <tr><td>4</td><td>臺南市</td><td>8–12%</td><td>山上、左鎮</td></tr>
+    <tr><td>5</td><td>嘉義縣</td><td>8–10%</td><td>中埔、竹崎</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>🌤️ 產期特點：</strong>臺灣香蕉為<strong>周年生產</strong>，但春夏（3–6 月）為風味最佳的盛產期，此時糖度最高、適合內外銷。秋冬香蕉因低溫生長較慢，果實較小但甜度仍佳。
+  </div>
+
+  <h3>⚖️ 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🏆</span><span class="pc-text"><strong>歷史品牌價值</strong> — 「香蕉王國」國際知名度高，日本市場對臺蕉有忠誠度</span></div>
+        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>周年可生產</strong> — 搭配不同產區與品種，全年供應無虞</span></div>
+        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>台蕉系列抗病育種有成</strong> — 從台蕉一號到八號，持續推出抗黃葉病新品種</span></div>
+        <div class="pc-item"><span class="pc-icon">🌍</span><span class="pc-text"><strong>芭蕉品種多樣</strong> — 13 種芭蕉各具風味特色，滿足多元消費需求</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🦠</span><span class="pc-text"><strong>黃葉病威脅</strong> — 第四生理小種（TR4）為全球香蕉產業最大威脅，北蕉不具抗性</span></div>
+        <div class="pc-item"><span class="pc-icon">🌪️</span><span class="pc-text"><strong>颱風災損</strong> — 香蕉植株高大易倒伏，每年颱風季損失可觀</span></div>
+        <div class="pc-item"><span class="pc-icon">📉</span><span class="pc-text"><strong>外銷量萎縮</strong> — 從年銷 40 萬噸降至近年約 3,000–8,000 噸，菲律賓、厄瓜多低價競爭</span></div>
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>勞動力老化</strong> — 香蕉栽培管理費工，缺工問題逐年加劇</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<p>依農業部農業知識入口網正式分類：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="香蕉系列" loading="lazy">
+    <div class="card-body"><h4>🍌 內外銷香蕉系列</h4><p>AAA 基因組 · 10 品種</p><span class="tag tag-yellow">北蕉 · 台蕉1–8號 · 新北蕉</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="芭蕉系列" loading="lazy">
+    <div class="card-body"><h4>🥚 常見芭蕉系列</h4><p>AA/AB/ABB 基因組 · 13 品種</p><span class="tag tag-green">蛋蕉 · 玫瑰蕉 · 紅皮蕉 · 呂宋蕉等</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 一、內外銷香蕉 ===== -->
+<h2>🍌 一、內外銷香蕉系列（AAA 基因組）</h2>
+<div class="variety-section">
+
+  <!-- ── 北蕉 ── -->
+  <h3>北蕉 <span class="badge badge-main">基礎品種 · 270 年歷史</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="北蕉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">北蕉：清乾隆年間自華南引入，栽培歷史逾 270 年，是臺灣所有香蕉品種的根基（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>歷史</td><td>清乾隆年間（1736–1795）自華南引入，至今約 270 年</td></tr>
+    <tr><td>植株</td><td>高大約 270 cm，假莖圓柱形、綠帶褐色；平均吸芽 7–8 枚</td></tr>
+    <tr><td>果實</td><td>果形略呈弓形，果指長 20–25 cm，平均指重 186 g</td></tr>
+    <tr><td>果肉</td><td>淡黃色，肉質細緻香甜</td></tr>
+    <tr><td>產量</td><td>每株果重約 25 公斤</td></tr>
+    <tr><td>產期</td><td>3–5 月種植，翌年 <strong>2–6 月</strong>採收（此時風味最佳、適合外銷）；新植約 12 個月可採收</td></tr>
+    <tr><td>抗病</td><td>對黃葉病第四生理小種<strong>不具抗病性</strong>，不宜在病園種植</td></tr>
+    <tr><td>栽培</td><td>偶有「青丹」現象發生；颱風季需插立防風支柱；建議黃色內層平滑紙套袋</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 仙人蕉 ── -->
+  <h3>仙人蕉</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="仙人蕉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">仙人蕉：北蕉的芽條變異品種，果形較北蕉更為弓彎（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>北蕉的芽條變異品種</td></tr>
+    <tr><td>果實</td><td>果形較北蕉更為弓彎，果指稍長</td></tr>
+    <tr><td>風味</td><td>香甜，與北蕉相近</td></tr>
+    <tr><td>產期</td><td>與北蕉相近，周年生產</td></tr>
+    <tr><td>定位</td><td>傳統地方品種，栽培面積較北蕉少</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台蕉系列表格 ── -->
+  <h3>台蕉系列品種（台蕉 1–8 號 + 新北蕉）</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>育種目標</th><th>主要特徵</th><th>產期</th></tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>台蕉 1 號</strong></td><td>抗黃葉病</td><td>北蕉體細胞變異選拔，耐病性較北蕉佳</td><td>周年</td>
+    </tr>
+    <tr>
+      <td><strong>台蕉 2 號</strong></td><td>矮化抗風</td><td>植株較北蕉矮，適合防風栽培</td><td>周年</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>台蕉 3 號</strong></td><td>抗黃葉病</td><td>北蕉優良株系選拔，為台蕉 5 號親本</td><td>周年</td>
+    </tr>
+    <tr>
+      <td><strong>新北蕉（寶島蕉）</strong></td><td>抗黃葉病</td><td>抗第四生理小種，可於病區種植；外銷主力接班品種</td><td>周年</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>台蕉 5 號（玉山）</strong> <span class="badge badge-new">中抗</span></td>
+      <td>抗黃葉病</td>
+      <td>果房圓柱形，低溫催熟轉色均勻金黃；櫥架壽命約 4.5 天；株高 250–280 cm<br>對黃葉病具中抗性；排水不良或砂質土壤發育較差</td>
+      <td>周年 / 11–12 月</td>
+    </tr>
+    <tr>
+      <td><strong>台蕉 6 號（玉豐）</strong></td>
+      <td>豐產抗病</td>
+      <td>高產潛力，適合內外銷</td>
+      <td>周年</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>台蕉 7 號（玉泉）</strong></td>
+      <td>抗病優質</td>
+      <td>果實品質優良，抗病性提升</td>
+      <td>周年</td>
+    </tr>
+    <tr>
+      <td><strong>台蕉 8 號</strong></td>
+      <td>抗病</td>
+      <td>最新台蕉品種，延續抗病育種方向</td>
+      <td>周年</td>
+    </tr>
+  </table>
+  <div class="note-box"><strong>📌 台蕉育種脈絡：</strong>台蕉系列以「北蕉」為基礎親本，依序針對抗黃葉病（1,3,5,7,8號）、矮化抗風（2號）、豐產（6號）、外銷（新北蕉）等目標進行選育。其中<strong>台蕉 5 號玉山</strong>和<strong>新北蕉寶島蕉</strong>為目前最重要的抗病接班品種。</div>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 二、常見芭蕉 ===== -->
+<h2>🥚 二、常見芭蕉系列</h2>
+<div class="variety-section">
+
+  <!-- ── 蛋蕉 ── -->
+  <h3>蛋蕉（旦蕉／一口蕉）<span class="badge badge-special">AA 二倍體 · 市場新寵</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="蛋蕉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">蛋蕉：泰國原名 Kluai Khai（意為「蛋」），果指短圓、皮薄肉滑甜度高，臺灣雖少種但市場反應極佳（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>基因組</td><td>AA（二倍體），泰國及馬來西亞最重要的鮮食蕉品種之一</td></tr>
+    <tr><td>果實</td><td>果指短圓，未熟青綠色、熟後轉淺黃色；果皮極薄</td></tr>
+    <tr><td>果肉</td><td>橙黃色，肉質滑嫩，甜度高，微帶香氣</td></tr>
+    <tr><td>產量</td><td>單株果重約 7–13 公斤，每串約 6–7 果把</td></tr>
+    <tr><td>抗病</td><td>可能抗黃葉病第一生理小種，但不抗第四小種</td></tr>
+    <tr><td>市場</td><td>臺灣種植極少，但市場試銷反應良好；又名貢蕉、Pisang Mas</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 玫瑰蕉 ── -->
+  <h3>玫瑰蕉 <span class="badge badge-new">AA 二倍體 · 精緻水果潛力股</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/3cfdef166f_m.jpg" alt="玫瑰蕉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">玫瑰蕉：原品種名 Cultivar Rose，1995 年自比利時國際香蕉種原轉運中心引進（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>基因組</td><td>AA（二倍體），1995 年自比利時 ITC 引進，來源不詳（可能為印尼地方品種）</td></tr>
+    <tr><td>果實</td><td>果指細長而尖，催熟後呈鮮黃色</td></tr>
+    <tr><td>果肉</td><td>淺黃色，香甜、口感極佳</td></tr>
+    <tr><td>產量</td><td>果房約 5–12 公斤；冬春低產、夏秋高產</td></tr>
+    <tr><td>產期</td><td>生育週期短，約 9–10 個月可採收</td></tr>
+    <tr><td>抗病</td><td><strong>對黃葉病具高度抗性</strong>，可在病區種植</td></tr>
+    <tr><td>市場</td><td>具發展為高品質精緻水果的潛力</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 紅皮蕉 ── -->
+  <h3>紅皮蕉 <span class="badge badge-special">AAA · 暗紅果皮</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/c6ce7ac796_m.jpg" alt="紅皮蕉" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">紅皮蕉：因果皮呈討喜的暗紅色而得名，全球廣泛分布但多為庭園式栽培（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>基因組</td><td>AAA，遍佈全球蕉區，東南亞及中南美洲普遍種植（多為庭院式）</td></tr>
+    <tr><td>植株</td><td>高大，假莖呈深紅色；生育期長達 18 個月</td></tr>
+    <tr><td>果實</td><td>果皮暗紅色，果指中型、肥短而直；果肉黃白色</td></tr>
+    <tr><td>風味</td><td>味甜而香，肉質較軟，口感不及一般香蕉</td></tr>
+    <tr><td>產量</td><td>平地約 12–15 公斤；稍高地區產量較高</td></tr>
+    <tr><td>市場</td><td>臺灣少量分布於旗山、埔里、集集、花蓮；又名蘋果蕉、Red Dacca</td></tr>
+    <tr><td>變異</td><td>常有體突變發生，假莖及果實變為綠色（青皮蕉）；中部曾發現紅綠各半果房</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 其他芭蕉表格 ── -->
+  <h3>其他芭蕉品種一覽</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>基因組</th><th>主要特徵</th></tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>南華蕉</strong></td><td>ABB</td>
+      <td>臺灣最常見的芭蕉品種之一，果指較香蕉短而肥，風味獨特，適合鮮食及烹調</td>
+    </tr>
+    <tr>
+      <td><strong>矮南華蕉</strong></td><td>ABB</td>
+      <td>南華蕉的矮化品種，植株較矮、抗風性佳</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>金手指</strong></td><td>AA</td>
+      <td>果指細小如手指，金黃色澤討喜，甜度高，屬精品級芭蕉</td>
+    </tr>
+    <tr>
+      <td><strong>皇后蕉</strong></td><td>—</td>
+      <td>果形小巧精緻，風味細緻，市場少見的高端芭蕉品種</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>李林蕉（美人蕉／佛手蕉）</strong></td><td>—</td>
+      <td>果串形似佛手，外觀特殊，具觀賞與食用雙重價值</td>
+    </tr>
+    <tr>
+      <td><strong>矮紅皮蕉</strong></td><td>AAA</td>
+      <td>紅皮蕉的矮化品種，植株較矮管理方便，果皮同樣呈暗紅色</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>呂宋蕉（日本蕉／南洋蕉）</strong></td><td>—</td>
+      <td>引自菲律賓呂宋島，果指較長，風味香甜，臺灣中部山區有栽培</td>
+    </tr>
+    <tr>
+      <td><strong>假呂宋蕉（仿仔）</strong></td><td>—</td>
+      <td>外觀近似呂宋蕉，風味略遜，市場上需注意辨別</td>
+    </tr>
+    <tr style="background:#FFFDE7;">
+      <td><strong>蜜蕉</strong></td><td>—</td>
+      <td>甜度高，如蜜般香甜，為近期市場話題芭蕉品種</td>
+    </tr>
+    <tr>
+      <td><strong>粉蕉</strong></td><td>ABB</td>
+      <td>果皮成熟時呈淺粉黃色，果肉細軟，風味清甜</td>
+    </tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<h2>📊 品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>基因組</th><th>果指特徵</th><th>單株果重</th><th>產期</th><th>核心特色</th></tr>
+    <tr style="background:#FFFDE7;"><td><strong>北蕉</strong></td><td>AAA</td><td>弓形 · 20–25 cm</td><td>25 kg</td><td>2–6 月</td><td>基礎品種 · 270 年歷史 · 外銷主力</td></tr>
+    <tr><td><strong>仙人蕉</strong></td><td>AAA</td><td>弓彎 · 較北蕉長</td><td>20–25 kg</td><td>周年</td><td>北蕉芽條變異</td></tr>
+    <tr style="background:#FFFDE7;"><td><strong>台蕉 5 號</strong></td><td>AAA</td><td>圓柱形 · 北蕉特性</td><td>—</td><td>11–12 月</td><td>中抗黃葉病 · 轉色均勻金黃</td></tr>
+    <tr><td><strong>新北蕉</strong></td><td>AAA</td><td>圓柱形</td><td>—</td><td>周年</td><td>抗 TR4 · 外銷接班品種</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>蛋蕉</strong></td><td>AA</td><td>短圓 · 極薄皮</td><td>7–13 kg</td><td>—</td><td>橙黃果肉 · 滑嫩甜高</td></tr>
+    <tr style="background:#E8F5E9;"><td><strong>玫瑰蕉</strong></td><td>AA</td><td>細長尖 · 鮮黃</td><td>5–12 kg</td><td>9–10 月</td><td>高抗黃葉病 · 口感極佳</td></tr>
+    <tr style="background:#FFEBEE;"><td><strong>紅皮蕉</strong></td><td>AAA</td><td>肥短直 · 暗紅皮</td><td>12–15 kg</td><td>18 月週期</td><td>暗紅果皮 · 全球分布</td></tr>
+    <tr><td><strong>南華蕉</strong></td><td>ABB</td><td>短肥</td><td>—</td><td>周年</td><td>最常見芭蕉 · 鮮食烹調兩用</td></tr>
+    <tr><td><strong>金手指</strong></td><td>AA</td><td>細小如指 · 金黃</td><td>—</td><td>—</td><td>精品級迷你蕉</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果皮金黃、無大面積黑斑或軟爛；果柄鮮綠表示新鮮<br>
+    <strong>觸感：</strong>按壓微有彈性（過硬未熟、過軟過熟）<br>
+    <strong>熟度：</strong>出現「芝麻點」（糖斑）時甜度最高，為最佳賞味時機<br>
+    <strong>保存：</strong>常溫置通風處即可（勿冷藏！低於 12°C 會凍傷變黑）
+  </div>
+
+  <div class="note-box">
+    <strong>🔬 各品種口感速查：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>北蕉：</strong>經典香蕉風味，香甜均衡 — 最百搭的日常選擇</li>
+      <li><strong>蛋蕉：</strong>皮薄肉滑甜度高 — 小巧精緻、一口滿足</li>
+      <li><strong>玫瑰蕉：</strong>果指細長、口感極佳 — 精緻水果級享受</li>
+      <li><strong>紅皮蕉：</strong>果皮暗紅討喜、肉質偏軟 — 視覺系特色蕉</li>
+      <li><strong>南華蕉：</strong>芭蕉經典風味 — 適合鮮食，亦可烹調（炸芭蕉、芭蕉糕）</li>
+      <li><strong>呂宋蕉：</strong>香甜風味 — 山區小農限定逸品</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 香蕉主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/index.php?id=20" target="_blank">香蕉主題館 — 品種目錄</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=952" target="_blank">北蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=957" target="_blank">台蕉5號—玉山</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=956" target="_blank">新北蕉—寶島蕉</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=919" target="_blank">蛋蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=920" target="_blank">玫瑰蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=921" target="_blank">紅皮蕉</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=922" target="_blank">呂宋蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=923" target="_blank">南華蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=970" target="_blank">金手指</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=926" target="_blank">蜜蕉</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=924" target="_blank">李林蕉（美人蕉）</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=969" target="_blank">皇后蕉</a></li>
+  </ul>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網香蕉主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+</div>
+
+</div>
+</body>
+</html>

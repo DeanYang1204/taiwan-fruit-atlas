@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣鳳梨專業圖鑑</title>
+<style>
+  :root {
+    --pineapple-gold: #F57F17; --pineapple-amber: #FFB300; --pineapple-deep: #E65100;
+    --pineapple-light: #FFF8E1; --pineapple-cream: #FFFDE7;
+    --pineapple-green: #558B2F; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFBF5; --card-bg: #FFFFFF; --accent: #F57F17;
+    --section-bg: #FFF8E1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #E65100 0%, #F57F17 30%, #FFB300 60%, #FFD54F 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg') center/cover;
+    opacity: 0.08;
+  }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .back-home {
+    position: absolute; top: 16px; left: 20px; z-index: 10;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; transition: color 0.2s;
+  }
+  .back-home:hover { color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box {
+    background: linear-gradient(135deg,#FFF8E1,#FFFDE7);
+    border-radius: 16px; padding: 30px; margin: 30px 0;
+    border-left: 5px solid var(--accent);
+  }
+  .category-grid {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px; margin: 30px 0;
+  }
+  .category-card {
+    background: var(--card-bg); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s;
+  }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section {
+    background: var(--card-bg); border-radius: 16px; padding: 30px;
+    margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table {
+    width: 100%; border-collapse: collapse; margin: 20px 0;
+    font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #FFF8E1; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card {
+    border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+  }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header {
+    background: linear-gradient(135deg,#2E7D32,#43A047);
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 700;
+  }
+  .cons-card .pc-header {
+    background: linear-gradient(135deg,#C62828,#E53935);
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 700;
+  }
+  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #F57F17; color: white; }
+  .badge-new { background: #E65100; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-gold { background: #FFF8E1; color: #E65100; }
+  .tag-yellow { background: #FFF9C4; color: #F57F17; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-red { background: #FFEBEE; color: #C62828; }
+  .tag-pink { background: #FCE4EC; color: #AD1457; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#F57F17,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="fruit-atlas.html">← 返回水果圖鑑首頁</a>
+  <h1>🍍 臺灣鳳梨專業圖鑑</h1>
+  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle2">13 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>鳳梨（<em>Ananas comosus</em>）為鳳梨科鳳梨屬多年生草本果樹，原產於南美洲巴西、巴拉圭一帶。臺灣栽培歷史可溯至 <strong>17 世紀荷蘭統治時期</strong>，經數百年選育發展出豐富的品種體系，是全球鳳梨育種的重要基地之一。</p>
+  <p>目前全臺鳳梨栽培面積約 <strong>10,000–12,000 公頃</strong>，年產約 <strong>40 萬公噸</strong>，產值逾 <strong>100 億元</strong>。其中 <strong>台農17號金鑽鳳梨約佔總面積 85% 以上</strong>，為絕對主力品種。產地集中中南部，<strong>屏東縣為最大產區</strong>，其次為臺南、嘉義、高雄、南投等地。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="金鑽鳳梨" loading="lazy">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/aa3e119795_m.jpg" alt="牛奶鳳梨" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：台農17號金鑽鳳梨 — 市佔率 85% 以上的絕對主力 ｜ 右：台農20號牛奶鳳梨 — 乳白果肉、高甜度（圖：農業部）</p>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🗺️ 主要產地分布</h3>
+  <table class="compare-table">
+    <tr><th>排名</th><th>縣市</th><th>約佔比</th><th>主要鄉鎮</th></tr>
+    <tr style="background:#FFF8E1;"><td>1</td><td><strong>屏東縣</strong></td><td><strong>30–35%</strong></td><td>高樹、內埔、萬巒、長治</td></tr>
+    <tr style="background:#FFF8E1;"><td>2</td><td><strong>臺南市</strong></td><td><strong>20–25%</strong></td><td>關廟、歸仁、新化</td></tr>
+    <tr><td>3</td><td>嘉義縣</td><td>15–20%</td><td>民雄、大林、中埔</td></tr>
+    <tr><td>4</td><td>高雄市</td><td>10–15%</td><td>大樹、內門</td></tr>
+    <tr><td>5</td><td>南投縣</td><td>5–10%</td><td>名間、竹山</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>🌤️ 產地與產期：</strong>屏東因緯度最低，<strong>3–4 月最早上市</strong>；臺南、嘉義 4–5 月接棒；南投等中部產區最晚可至 7–8 月。金鑽鳳梨搭配不同產地及催花技術，供應期可從 3 月延伸至 8 月長達半年。
+  </div>
+
+  <h3>📊 各品種栽培佔比（概估）</h3>
+  <table class="compare-table">
+    <tr><th>品種</th><th>市佔率（約）</th><th>定位</th></tr>
+    <tr style="background:#FFF8E1;"><td><strong>台農17號金鑽</strong></td><td>85–90%</td><td>絕對主力，內外銷雙棲</td></tr>
+    <tr><td><strong>台農16號甜蜜蜜</strong></td><td>3–5%</td><td>高甜度精品</td></tr>
+    <tr><td><strong>台農20號牛奶</strong></td><td>2–3%</td><td>乳白果肉 · 高級鮮食</td></tr>
+    <tr><td><strong>台農13號冬蜜</strong></td><td>1–2%</td><td>秋冬限定 · 反季節</td></tr>
+    <tr><td>其他品種</td><td>3–5%</td><td>開英種、金桂花、香水、蘋果、釋迦、蜜寶、黃金、蜜香等</td></tr>
+  </table>
+
+  <h3>⚖️ 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🌟</span><span class="pc-text"><strong>金鑽品牌效應強</strong> — 果肉金黃、纖維細緻、甜酸適中，國內外市場指名度極高</span></div>
+        <div class="pc-item"><span class="pc-icon">🌍</span><span class="pc-text"><strong>外銷競爭力強</strong> — 2021 年中國暫停進口後成功轉移日本、香港、新加坡市場</span></div>
+        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>產期可彈性調節</strong> — 催花技術成熟，搭配不同產地可達成 3–10 月全年供應</span></div>
+        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>品種資源豐富</strong> — 官方育種體系完整，持續推出新品種滿足多元市場需求</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">📉</span><span class="pc-text"><strong>金鑽一枝獨秀風險</strong> — 85% 以上依賴單一品種，產銷失衡風險高</span></div>
+        <div class="pc-item"><span class="pc-icon">🌡️</span><span class="pc-text"><strong>氣候變遷衝擊</strong> — 暖冬導致部分品種開花不整齊，品質波動加大</span></div>
+        <div class="pc-item"><span class="pc-icon">🐛</span><span class="pc-text"><strong>病蟲害管理</strong> — 粉介殼蟲、萎凋病為主要威脅，需持續監控防治</span></div>
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>農村勞動力老化</strong> — 鳳梨採收為勞動密集型作業，缺工問題逐年加劇</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<p>依農業部農業知識入口網正式分類，臺灣鳳梨分為<strong>三大類別</strong>：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/1c1858fbda_m.jpg" alt="開英種" loading="lazy">
+    <div class="card-body"><h4>🧬 開英種系</h4><p>經典基礎品種 · 鮮食製罐兩用</p><span class="tag tag-green">開英種</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="台農系列主力" loading="lazy">
+    <div class="card-body"><h4>🍍 台農系列主力</h4><p>金鑽 · 甜蜜蜜 · 牛奶 · 冬蜜等</p><span class="tag tag-gold">6 主力品種</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="台農系列特色" loading="lazy">
+    <div class="card-body"><h4>✨ 台農系列特色</h4><p>香水 · 蘋果 · 釋迦 · 蜜寶 · 黃金 · 蜜香</p><span class="tag tag-yellow">6 特色品種</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 開英種 ===== -->
+<h2>🧬 一、開英種系</h2>
+<div class="variety-section">
+
+  <h3>開英種 <span class="badge badge-special">基礎品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/1c1858fbda_m.jpg" alt="開英種" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">開英種：臺灣鳳梨的基礎品種，分為突目系、正常開英及三菱系，俗稱 1 號、2 號、3 號仔（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>圓筒形，果皮薄；平均單果重約 1.6 公斤</td></tr>
+    <tr><td>果肉</td><td>纖維稍粗，肉質稍硬且脆、緻密</td></tr>
+    <tr><td>糖度</td><td>16.0 °Brix · 酸度 0.35%</td></tr>
+    <tr><td>風味</td><td>濃郁，適合鮮食及製罐兩用</td></tr>
+    <tr><td>產期</td><td>5–7 月</td></tr>
+    <tr><td>植株</td><td>葉緣無刺，為臺灣鳳梨育種的重要基礎親本</td></tr>
+  </table>
+  <div class="note-box"><strong>📜 歷史地位：</strong>開英種是臺灣最早的商業化鳳梨品種，日治時期即大規模栽培，奠定了臺灣鳳梨產業的根基。現今多數台農系列品種均以其為親本進行雜交選育。</div>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 台農系列主力 ===== -->
+<h2>🍍 二、台農系列主力品種</h2>
+<div class="variety-section">
+
+  <!-- ── 台農17號 金鑽 ── -->
+  <h3>台農 17 號─金鑽 <span class="badge badge-main">絕對主力 · 85%+</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="金鑽鳳梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農17號金鑽：臺灣鳳梨的代名詞，佔比超過 85%，果肉金黃、肉質細緻（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>圓筒形，果皮薄，花腔淺；平均單果重約 1.4 公斤</td></tr>
+    <tr><td>果肉</td><td>黃色或金黃色，肉質細緻，果心稍大但細嫩可食</td></tr>
+    <tr><td>糖度</td><td>約 14.1 °Brix · 酸度 0.28% · 糖酸比 50</td></tr>
+    <tr><td>風味</td><td>口感及風味均佳，甜酸均衡適中</td></tr>
+    <tr><td>產期</td><td>正常 6–8 月；催花適期 3–5 月（可延伸供應期）</td></tr>
+    <tr><td>植株</td><td>中型，除葉尖外葉緣無刺；葉表略呈褐紅色，兩端草綠色</td></tr>
+    <tr><td>市場</td><td>市佔率 85% 以上，為內外銷絕對主力品種</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農16號 甜蜜蜜 ── -->
+  <h3>台農 16 號─甜蜜蜜 <span class="badge badge-new">高甜度</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="甜蜜蜜鳳梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農16號甜蜜蜜：糖度高達 18 °Brix，纖維極細，果肉細嫩（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>長圓錐形或略橢圓形，果目略突；平均單果重約 1.3 公斤</td></tr>
+    <tr><td>果肉</td><td>纖維極細，質地細嫩</td></tr>
+    <tr><td>糖度</td><td>約 <strong>18 °Brix</strong>（明顯高於金鑽）· 酸度 0.47% · 糖酸比 38</td></tr>
+    <tr><td>風味</td><td>風味佳，甜度突出</td></tr>
+    <tr><td>產期</td><td>正常 7–8 月；南部（高雄、屏東）3–6 月；嘉義 4–7 月</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農20號 牛奶 ── -->
+  <h3>台農 20 號─牛奶 <span class="badge badge-new">乳白果肉 · 高級鮮食</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/aa3e119795_m.jpg" alt="牛奶鳳梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農20號牛奶鳳梨：罕見乳白果肉，纖維少、肉質極細，晚熟品種（圖：農業部）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>圓筒形，果目大而平滑，成熟時果目尖端轉黃色；平均單果重 1.7–2.0 公斤</td></tr>
+    <tr><td>果肉</td><td><strong>乳白色</strong>（罕見），纖維少、肉質極細，子房空隙度大</td></tr>
+    <tr><td>糖度</td><td>糖度高，糖酸比高</td></tr>
+    <tr><td>風味</td><td>適合鮮食，口感獨特</td></tr>
+    <tr><td>產期</td><td><strong>5–10 月</strong>（晚熟，較開英種晚 20–30 日）</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農13號 冬蜜 ── -->
+  <h3>台農 13 號─冬蜜 <span class="badge badge-special">秋冬限定</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="冬蜜鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農13號冬蜜鳳梨：可於秋冬收穫，填補市場空窗期，為反季節特色品種</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果形中等，適合秋冬生產</td></tr>
+    <tr><td>果肉</td><td>甜度高，風味佳</td></tr>
+    <tr><td>特色</td><td><strong>臺灣唯一可在秋冬自然生產的鳳梨品種</strong>，不需催花處理即可反季節收穫</td></tr>
+    <tr><td>產期</td><td>8 月–翌年 2 月（秋冬反季節）</td></tr>
+    <tr><td>定位</td><td>填補夏季後市場空窗，單價較金鑽為高</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農18號 金桂花 ── -->
+  <h3>台農 18 號─金桂花 <span class="badge badge-special">桂花香氣</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/1c1858fbda_m.jpg" alt="金桂花鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農18號金桂花鳳梨：具獨特桂花香氣，為近年話題新品種</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>中小型果</td></tr>
+    <tr><td>果肉</td><td>口感細緻，具<strong>獨特桂花清香</strong>為最大特色</td></tr>
+    <tr><td>產期</td><td>6–8 月</td></tr>
+    <tr><td>定位</td><td>精品特色品種，走小眾高端路線</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 台農19號 蜜寶 ── -->
+  <h3>台農 19 號─蜜寶 <span class="badge badge-new">蜜甜風味</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="蜜寶鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農19號蜜寶鳳梨：甜度高、酸度低，適合不喜酸味的消費者</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果形圓潤</td></tr>
+    <tr><td>果肉</td><td>甜度高、酸度低，風味溫和</td></tr>
+    <tr><td>產期</td><td>5–8 月</td></tr>
+    <tr><td>定位</td><td>入門級鮮食用品種，適合怕酸族群</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 三、台農系列特色 ===== -->
+<h2>✨ 三、台農系列特色品種</h2>
+<div class="variety-section">
+
+  <h3>台農 4 號─釋迦鳳梨</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/1c1858fbda_m.jpg" alt="釋迦鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農4號釋迦鳳梨：果目突出如釋迦果，可直接用手剝食</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果目大而突出，如釋迦果外觀，可直接用手剝食，不需削皮</td></tr>
+    <tr><td>果肉</td><td>肉質細軟，風味清香</td></tr>
+    <tr><td>產期</td><td>5–7 月</td></tr>
+  </table>
+
+  <hr>
+
+  <h3>台農 6 號─蘋果鳳梨</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="蘋果鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農6號蘋果鳳梨：果肉帶蘋果香氣，風味獨特</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果形中等</td></tr>
+    <tr><td>果肉</td><td>帶有蘋果般清香，肉質細緻</td></tr>
+    <tr><td>產期</td><td>5–7 月</td></tr>
+  </table>
+
+  <hr>
+
+  <h3>台農 11 號─香水鳳梨</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/aa3e119795_m.jpg" alt="香水鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農11號香水鳳梨：具濃郁特殊香氣，是品種命名的由來</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>中小型果，果肉金黃</td></tr>
+    <tr><td>果肉</td><td>具<strong>濃郁特殊香氣</strong>，風味獨特</td></tr>
+    <tr><td>產期</td><td>6–8 月</td></tr>
+  </table>
+
+  <hr>
+
+  <h3>台農 21 號─黃金鳳梨</h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="黃金鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農21號黃金鳳梨：果肉金黃色澤深濃，外觀討喜</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果形圓整</td></tr>
+    <tr><td>果肉</td><td>金黃色澤深濃，甜度高</td></tr>
+    <tr><td>產期</td><td>5–8 月</td></tr>
+  </table>
+
+  <hr>
+
+  <h3>台農 22 號─蜜香 <span class="badge badge-new">最新品種</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/48cac446f9_m.jpg" alt="蜜香鳳梨代表照" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">台農22號蜜香鳳梨：近年最新推出的台農系列品種</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>最新台農系列品種，2016 年發布</td></tr>
+    <tr><td>果肉</td><td>帶有蜜甜香氣，風味層次豐富</td></tr>
+    <tr><td>產期</td><td>5–8 月</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<h2>📊 品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>果重(kg)</th><th>糖度(°Brix)</th><th>產期</th><th>核心特色</th></tr>
+    <tr><td><strong>開英種</strong></td><td>1.6</td><td>16.0</td><td>5–7 月</td><td>基礎品種 · 鮮食製罐兩用</td></tr>
+    <tr style="background:#FFF8E1;"><td><strong>金鑽 (台農17)</strong></td><td>1.4</td><td>14.1</td><td>3–8 月</td><td>市佔 85%+ · 內外銷主力</td></tr>
+    <tr><td><strong>甜蜜蜜 (台農16)</strong></td><td>1.3</td><td><strong>18.0</strong></td><td>3–8 月</td><td>最高甜度 · 纖維極細</td></tr>
+    <tr style="background:#FFF8E1;"><td><strong>牛奶 (台農20)</strong></td><td>1.7–2.0</td><td>高</td><td>5–10 月</td><td>乳白果肉 · 晚熟</td></tr>
+    <tr><td><strong>冬蜜 (台農13)</strong></td><td>中</td><td>高</td><td>8–2 月</td><td>秋冬限定 · 反季節</td></tr>
+    <tr><td><strong>金桂花 (台農18)</strong></td><td>中小</td><td>中高</td><td>6–8 月</td><td>桂花清香</td></tr>
+    <tr><td><strong>蜜寶 (台農19)</strong></td><td>中</td><td>高</td><td>5–8 月</td><td>甜度高 · 酸度低</td></tr>
+    <tr><td><strong>釋迦 (台農4)</strong></td><td>中</td><td>中</td><td>5–7 月</td><td>可直接剝食</td></tr>
+    <tr><td><strong>蘋果 (台農6)</strong></td><td>中</td><td>中</td><td>5–7 月</td><td>蘋果清香</td></tr>
+    <tr><td><strong>香水 (台農11)</strong></td><td>中小</td><td>中高</td><td>6–8 月</td><td>濃郁特殊香氣</td></tr>
+    <tr><td><strong>黃金 (台農21)</strong></td><td>中</td><td>高</td><td>5–8 月</td><td>金黃色澤深濃</td></tr>
+    <tr><td><strong>蜜香 (台農22)</strong></td><td>中</td><td>中高</td><td>5–8 月</td><td>蜜甜香氣 · 最新品種</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果皮金黃、果目平整、無軟爛或黑斑<br>
+    <strong>觸感：</strong>按壓微有彈性（過硬未熟、過軟過熟）<br>
+    <strong>冠芽：</strong>葉片鮮綠挺拔，無枯黃或脫落<br>
+    <strong>底部：</strong>果臍乾燥無發霉，聞之有自然果香無發酵味
+  </div>
+
+  <div class="note-box">
+    <strong>🔬 各品種口感速查：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>金鑽：</strong>酸甜均衡最百搭 — 初入門首選，適合所有族群</li>
+      <li><strong>甜蜜蜜：</strong>極高甜度 + 極細纖維 — 適合怕酸或牙口不好的人</li>
+      <li><strong>牛奶：</strong>乳白果肉 + 低酸 — 口感最溫和，市場罕見</li>
+      <li><strong>冬蜜：</strong>秋冬限定 — 反季節的稀有逸品</li>
+      <li><strong>金桂花：</strong>桂花清香 — 適合追求獨特風味的饕客</li>
+      <li><strong>釋迦：</strong>可直接剝食 — 食用最方便</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 鳳梨主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=208" target="_blank">鳳梨主題館 — 家族篇（品種目錄）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5928" target="_blank">台農17號—金鑽</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5927" target="_blank">台農16號—甜蜜蜜</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5931" target="_blank">台農20號—牛奶</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5922" target="_blank">開英種</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5926" target="_blank">台農13號—冬蜜</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5929" target="_blank">台農18號—金桂花</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5930" target="_blank">台農19號—蜜寶</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5923" target="_blank">台農4號—釋迦</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5924" target="_blank">台農6號—蘋果</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5925" target="_blank">台農11號—香水</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5932" target="_blank">台農21號—黃金</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5933" target="_blank">台農22號—蜜香</a></li>
+  </ul>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網鳳梨主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+</div>
+
+</div>
+</body>
+</html>
