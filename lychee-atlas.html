@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -80,6 +80,7 @@
   .tag-blue { background: #E3F2FD; color: #1565C0; }
   .tag-purple { background: #EDE7F6; color: #4527A0; }
   .tag-gold { background: #FFF8E1; color: #E65100; }
+  .tag-gray { background: #ECEFF1; color: #546E7A; }
   .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
   .source-box a { color: var(--accent); text-decoration: none; }
   .source-box a:hover { text-decoration: underline; }
@@ -97,7 +98,7 @@
   <a class="back-home" href="index.html">← 返回水果圖鑑首頁</a>
   <h1>🍒 臺灣荔枝專業圖鑑</h1>
   <div class="subtitle">北農內部培訓學習資料</div>
-  <div class="subtitle2">16 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+  <div class="subtitle2">17 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
 </div>
 
 <div class="container">
@@ -109,53 +110,141 @@
 </div>
 
 <div class="feature-row">
-  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg" alt="玉荷包荔枝" loading="lazy">
-  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/91d3fc4519_m.jpg" alt="黑葉荔枝" loading="lazy">
+  <img src="images/lychee/yuherbao_2.png" alt="玉荷包荔枝" loading="lazy">
+  <img src="images/lychee/heiye_2.png" alt="黑葉荔枝" loading="lazy">
 </div>
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：玉荷包荔枝 ｜ 右：黑葉荔枝 — 兩大主力合計佔總面積 95%（圖：農業部）</p>
 
-<h2>📅 產期分布一覽</h2>
-<div class="variety-section">
-  <p>以嘉義地區成熟期為基準，分為<strong>五大成熟梯隊</strong>：</p>
-  <div class="maturity-bar">
-    <div style="flex:1;background:linear-gradient(180deg,#FFCDD2,#E57373);">極早熟<br>5 月中下旬</div>
-    <div style="flex:1;background:linear-gradient(180deg,#FFAB91,#FF7043);">早熟<br>6 月上旬</div>
-    <div style="flex:1.5;background:linear-gradient(180deg,#EF9A9A,#C62828);">中熟<br>6 月中旬</div>
-    <div style="flex:1.5;background:linear-gradient(180deg,#CE93D8,#7B1FA2);">晚熟<br>6 月下旬</div>
-    <div style="flex:1.5;background:linear-gradient(180deg,#90CAF9,#1565C0);">極晚熟<br>7 月上中旬</div>
-  </div>
-  <table class="compare-table" style="margin-top:0;">
-    <tr><th>成熟梯隊</th><th>時間</th><th>品種</th><th>定位</th></tr>
-    <tr style="background:#FFF5F5;"><td>🟡 極早熟</td><td>5 月中下旬</td><td>三月紅、楠西早生、台農2號旺荔</td><td>打頭陣 · 搶鮮上市</td></tr>
-    <tr style="background:#FFF8E1;"><td>🟠 早熟</td><td>6 月上旬</td><td><strong>玉荷包</strong>、台農1號翠玉</td><td>精品主力 · 高價品種</td></tr>
-    <tr style="background:#FFEBEE;"><td>🔴 中熟</td><td>6 月中旬</td><td><strong>黑葉</strong>、竹葉黑</td><td>最大宗 · 經典風味</td></tr>
-    <tr style="background:#F3E5F5;"><td>🟣 晚熟</td><td>6 月下旬</td><td>糯米糍、港尾、台農4號吉荔、台農5號紅寶石</td><td>精品晚熟 · 延長產季</td></tr>
-    <tr style="background:#E3F2FD;"><td>🔵 極晚熟</td><td>7 月上中旬</td><td>桂味、淮荔、台農3號玫瑰紅</td><td>壓軸登場 · 特殊風味</td></tr>
-  </table>
-  <div class="note-box">
-    <strong>🌡️ 產地與產期關係：</strong>同一品種在不同緯度產期有別——南部（高雄、屏東）約比中部（臺中、彰化、南投）早 <strong>7–10 天</strong>。
-  </div>
+<h2>📅 產期分布一覽 —— 北農拍賣視角</h2>
+<p style="font-size:0.88rem;color:#888;text-align:center;margin:0 0 18px;">114 年實務追蹤｜產地由南往北逐序出貨，同品種跨產區接力供應</p>
 
-  <h3 style="margin-top:24px;">🗓️ 實務產期追蹤表 — 北農拍賣視角（曾有元講師，114 年）</h3>
-  <p style="font-size:0.9rem;color:#666;">下表為北農第一線拍賣實務中，逐月逐旬的產地與品種出貨追蹤，反映真實市場供貨節奏：</p>
-  <table class="compare-table" style="margin-top:0;">
-    <tr><th>月份</th><th>旬</th><th>登場品種與產地</th></tr>
-    <tr style="background:#FFF5F5;"><td><strong>3 月</strong></td><td>全月</td><td>🔸 豔荔（極少）</td></tr>
-    <tr style="background:#FFF5F5;"><td rowspan="2"><strong>4 月</strong></td><td>全月</td><td>屏東三月紅</td></tr>
-    <tr style="background:#FFF5F5;"><td>下旬</td><td>楠西早生（初登場）</td></tr>
-    <tr style="background:#FFF8E1;"><td rowspan="3"><strong>5 月</strong></td><td>上旬</td><td>楠西早生、屏東玉荷包</td></tr>
-    <tr style="background:#FFF8E1;"><td>中旬</td><td>楠西早生、屏東玉荷包</td></tr>
-    <tr style="background:#FFF8E1;"><td>下旬</td><td>屏東/高雄玉荷包、高雄竹葉黑（沙坑）</td></tr>
-    <tr style="background:#FFEBEE;"><td rowspan="3"><strong>6 月</strong></td><td>上旬</td><td>高雄/臺南/臺中/南投玉荷包、高雄黑葉、高雄竹葉黑</td></tr>
-    <tr style="background:#FFEBEE;"><td>中旬</td><td>南投/臺中玉荷包、臺中/南投黑葉、高雄竹葉黑、高雄大丁香</td></tr>
-    <tr style="background:#FFEBEE;"><td>下旬</td><td>南投/臺中黑葉</td></tr>
-    <tr style="background:#E3F2FD;"><td rowspan="3"><strong>7 月</strong></td><td>上旬</td><td>南投/臺中黑葉、糯米糍</td></tr>
-    <tr style="background:#E3F2FD;"><td>中旬</td><td>糯米糍、桂味、懷荔</td></tr>
-    <tr style="background:#E3F2FD;"><td>下旬</td><td>南投/臺中糯米糍、桂味、懷荔</td></tr>
+<div class="season-timeline" style="display:flex;gap:4px;margin:0 auto 24px;max-width:820px;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+  <div style="flex:1;background:linear-gradient(180deg,#FFF8E1,#FFE082,#FFB300);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;position:relative;font-size:0.78rem;font-weight:700;color:#5D4037;">3–4 月<br>暖身</div>
+  <div style="flex:1.2;background:linear-gradient(180deg,#FFFDE7,#FFD54F,#F9A825);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight:700;color:#5D4037;">⚡ 極早熟<br>5 月</div>
+  <div style="flex:1.5;background:linear-gradient(180deg,#FFCCBC,#FF8A65,#E64A19);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight:700;color:#fff;">🔥 早熟<br>5 下–6 上</div>
+  <div style="flex:2;background:linear-gradient(180deg,#FFCDD2,#E57373,#C62828);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight:700;color:#fff;">❤️ 中熟<br>6 月中</div>
+  <div style="flex:1.5;background:linear-gradient(180deg,#E1BEE7,#AB47BC,#6A1B9A);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight:700;color:#fff;">💜 晚熟<br>6 下–7 上</div>
+  <div style="flex:1.2;background:linear-gradient(180deg,#BBDEFB,#42A5F5,#1565C0);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight:700;color:#fff;">💧 極晚熟<br>7 月</div>
+</div>
+
+<div class="season-table-wrapper" style="max-width:860px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#263238;color:#fff;">
+        <th style="padding:12px 10px;text-align:center;font-weight:700;width:14%;">月份</th>
+        <th style="padding:12px 10px;text-align:center;font-weight:700;width:10%;">旬</th>
+        <th style="padding:12px 16px;text-align:left;font-weight:700;">登場品種</th>
+        <th style="padding:12px 10px;text-align:center;font-weight:700;width:22%;">產地</th>
+        <th style="padding:12px 10px;text-align:center;font-weight:700;width:16%;">階段</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 3月 -->
+      <tr style="background:#FFFDF5;border-bottom:1px solid #F5E6B8;">
+        <td style="padding:10px;text-align:center;font-weight:700;color:#5D4037;vertical-align:middle;" rowspan="1">3 月</td>
+        <td style="padding:10px;text-align:center;color:#888;">全月</td>
+        <td style="padding:10px 16px;">豔荔</td>
+        <td style="padding:10px;text-align:center;color:#666;">南投（零星）</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFF8E1;color:#F9A825;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">暖身</span></td>
+      </tr>
+      <!-- 4月 -->
+      <tr style="background:#FFFDF5;border-bottom:1px solid #F5E6B8;">
+        <td style="padding:10px;text-align:center;font-weight:700;color:#5D4037;vertical-align:middle;" rowspan="2">4 月</td>
+        <td style="padding:10px;text-align:center;color:#888;">全月</td>
+        <td style="padding:10px 16px;">三月紅</td>
+        <td style="padding:10px;text-align:center;color:#666;">屏東</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFF8E1;color:#F9A825;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">暖身</span></td>
+      </tr>
+      <tr style="background:#FFFDF5;border-bottom:1px solid #F5E6B8;">
+        <td style="padding:10px;text-align:center;color:#888;">下旬</td>
+        <td style="padding:10px 16px;">楠西早生 (初登場)</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺南</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFF8E1;color:#F9A825;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">暖身</span></td>
+      </tr>
+      <!-- 5月 极早熟 -->
+      <tr style="background:#FFFDE7;">
+        <td style="padding:10px;text-align:center;font-weight:700;color:#F57F17;vertical-align:middle;" rowspan="3">5 月</td>
+        <td style="padding:10px;text-align:center;color:#888;">上旬</td>
+        <td style="padding:10px 16px;">楠西早生</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺南</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFE082;color:#E65100;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">⚡ 極早熟</span></td>
+      </tr>
+      <tr style="background:#FFFDE7;">
+        <td style="padding:10px;text-align:center;color:#888;">中旬</td>
+        <td style="padding:10px 16px;">楠西早生、<strong>玉荷包</strong></td>
+        <td style="padding:10px;text-align:center;color:#666;">臺南 / 南投(少量)</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFE082;color:#E65100;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">⚡ 極早熟</span></td>
+      </tr>
+      <tr style="background:#FFFDE7;border-bottom:2px solid #F9A825;">
+        <td style="padding:10px;text-align:center;color:#888;">下旬</td>
+        <td style="padding:10px 16px;"><strong>玉荷包</strong>、竹葉黑</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺南 / 南投</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FFE082;color:#E65100;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">⚡ 極早熟</span></td>
+      </tr>
+      <!-- 6月 中熟 -->
+      <tr style="background:#FFF3E0;">
+        <td style="padding:10px;text-align:center;font-weight:700;color:#BF360C;vertical-align:middle;" rowspan="3">6 月</td>
+        <td style="padding:10px;text-align:center;color:#888;">上旬</td>
+        <td style="padding:10px 16px;"><strong>玉荷包</strong>、<strong>黑葉</strong>、竹葉黑</td>
+        <td style="padding:10px;text-align:center;color:#666;">南投 / 臺中</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#FF8A65;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">🔥 早熟</span></td>
+      </tr>
+      <tr style="background:#FFF3E0;">
+        <td style="padding:10px;text-align:center;color:#888;">中旬</td>
+        <td style="padding:10px 16px;"><strong>玉荷包 (尾)</strong>、<strong>黑葉 ↑</strong>、竹葉黑、大丁香</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺中 / 南投</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#E57373;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">❤️ 中熟 · 高峰</span></td>
+      </tr>
+      <tr style="background:#FFF3E0;border-bottom:2px solid #E64A19;">
+        <td style="padding:10px;text-align:center;color:#888;">下旬</td>
+        <td style="padding:10px 16px;"><strong>黑葉 (高峰)</strong></td>
+        <td style="padding:10px;text-align:center;color:#666;">南投 / 臺中</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#E57373;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">❤️ 中熟</span></td>
+      </tr>
+      <!-- 7月 极晚熟 -->
+      <tr style="background:#EDE7F6;">
+        <td style="padding:10px;text-align:center;font-weight:700;color:#4A148C;vertical-align:middle;" rowspan="3">7 月</td>
+        <td style="padding:10px;text-align:center;color:#888;">上旬</td>
+        <td style="padding:10px 16px;">黑葉 (尾)、糯米糍</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺中 / 南投</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#AB47BC;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">💜 晚熟</span></td>
+      </tr>
+      <tr style="background:#E3F2FD;">
+        <td style="padding:10px;text-align:center;color:#888;">中旬</td>
+        <td style="padding:10px 16px;">糯米糍、桂味</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺中 / 南投</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#42A5F5;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">💧 極晚熟</span></td>
+      </tr>
+      <tr style="background:#E3F2FD;">
+        <td style="padding:10px;text-align:center;color:#888;">下旬</td>
+        <td style="padding:10px 16px;">糯米糍、桂味</td>
+        <td style="padding:10px;text-align:center;color:#666;">臺中 / 南投</td>
+        <td style="padding:10px;text-align:center;"><span style="display:inline-block;background:#1565C0;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">💧 極晚熟</span></td>
+      </tr>
+    </tbody>
   </table>
-  <div class="key-point">
-    <strong>📌 實務要點：</strong>產地由南往北逐序出貨（屏東→高雄→臺南→嘉義→南投→臺中）。同一品種在不同產區可接力供應長達 4–6 週，承銷人可依此追蹤貨源切換時機。
+</div>
+
+<div style="max-width:860px;margin:16px auto 0;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:#666;">
+    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#FFE082;"></span> 暖身期 (3–4月)
   </div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:#666;">
+    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#FF8A65;"></span> 早熟期 (5下–6上)
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:#666;">
+    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#E57373;"></span> 中熟高峰 (6月中下)
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:#666;">
+    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#AB47BC;"></span> 晚熟期 (7上)
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:#666;">
+    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#42A5F5;"></span> 極晚熟 (7月中下)
+  </div>
+</div>
+
+<div class="key-point" style="max-width:860px;margin:16px auto;">
+  <strong>📌 北農實務要點：</strong>產地由南往北逐序出貨（屏東→臺南→南投→臺中），同品種跨產區可接力供應 <strong>4–6 週</strong>。承銷人掌握「產區切換點」是獲利關鍵——當南部貨源開始減少、中部貨源尚未全開的交接期，價格通常最高。
 </div>
 
 <hr class="section-divider">
@@ -174,7 +263,7 @@
   </table>
 
   <div class="key-point">
-    <strong>🏭 品種結構：</strong>黑葉約佔總面積 <strong>8 成以上</strong>（中部主力），玉荷包約 <strong>25%</strong>（高雄主力），其餘各式新品種合計僅約 5%。（資料來源：曾有元講師，114 年）
+    <strong>🏭 品種結構：</strong>黑葉約佔總面積 <strong>8 成以上</strong>（中部主力），玉荷包約 <strong>25%</strong>（高雄主力），其餘各式新品種合計僅約 5%。（資料來源：114 年實務追蹤）
   </div>
 
   <h3>📊 市場價格概況（拍賣市場近 10 年均價）</h3>
@@ -210,7 +299,7 @@
 
 <hr class="section-divider">
 
-<h2>📊 114 年產季市場數據（曾有元講師，5/1–6/13）</h2>
+<h2>📊 114 年產季市場數據（5/1–6/13）</h2>
 <div class="variety-section">
   <h3>📈 三大批發市場量價對比（114 vs 113）</h3>
   <table class="compare-table">
@@ -245,24 +334,28 @@
 <p>依成熟期早晚分為<strong>五大梯隊</strong>：</p>
 <div class="category-grid">
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/d3fd86184e_m.jpg" alt="極早熟" loading="lazy">
+    <img src="images/lychee/yanli_2.png" alt="極早熟" loading="lazy">
     <div class="card-body"><h4>🟡 極早熟梯隊</h4><p>3–5 月 · 搶鮮登場</p><span class="tag tag-yellow">豔荔 · 三月紅 · 楠西早生 · 旺荔</span></div>
   </div>
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg" alt="早熟" loading="lazy">
+    <img src="images/lychee/yuherbao_2.png" alt="早熟" loading="lazy">
     <div class="card-body"><h4>🟠 早熟梯隊</h4><p>6 月上旬 · 高價精品</p><span class="tag tag-red">玉荷包 · 翠玉</span></div>
   </div>
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/91d3fc4519_m.jpg" alt="中熟" loading="lazy">
+    <img src="images/lychee/heiye_2.png" alt="中熟" loading="lazy">
     <div class="card-body"><h4>🔴 中熟梯隊</h4><p>6 月中旬 · 最大宗主力</p><span class="tag tag-red">黑葉 · 竹葉黑</span></div>
   </div>
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/4a7195e2b8_m.jpg" alt="晚熟" loading="lazy">
+    <img src="images/lychee/nuomici_2.jpg" alt="晚熟" loading="lazy">
     <div class="card-body"><h4>🟣 晚熟梯隊</h4><p>6 月下旬 · 精品尾聲</p><span class="tag tag-purple">糯米糍 · 港尾 · 吉荔 · 紅寶石</span></div>
   </div>
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/166/46875470d5_m.jpg" alt="極晚熟" loading="lazy">
-    <div class="card-body"><h4>🔵 極晚熟梯隊</h4><p>7 月 · 壓軸登場</p><span class="tag tag-blue">桂味 · 淮荔 · 玫瑰紅 · 大丁香 · 懷荔</span></div>
+    <img src="images/lychee/dadingxiang_2.png" alt="極晚熟" loading="lazy">
+    <div class="card-body"><h4>🔵 極晚熟梯隊</h4><p>7 月 · 壓軸登場</p><span class="tag tag-blue">桂味 · 淮荔 · 玫瑰紅 · 大丁香</span></div>
+  </div>
+  <div class="category-card">
+    <img src="images/lychee/other_1.jpg" alt="其他品種" loading="lazy">
+    <div class="card-body"><h4>⚪ 其他引進品種</h4><p>中國大陸/泰國引入 · 巨型果</p><span class="tag tag-gray">鵝蛋荔 · 紫娘喜</span></div>
   </div>
 </div>
 
@@ -273,24 +366,26 @@
 <div class="variety-section">
 
   <h3>豔荔 <span class="badge badge-new">三月最早</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/d3fd86184e_m.jpg" alt="豔荔" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/yanli_1.png" alt="豔荔" loading="lazy">
+    <img src="images/lychee/yanli_2.png" alt="豔荔" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">豔荔：臺灣產期最早的荔枝品種，三月即可上市（示意圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">豔荔：臺灣產期最早的荔枝品種，三月即可上市</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產期</td><td><strong>3 月</strong>（臺灣最早，比三月紅更早約 1 個月）</td></tr>
     <tr><td>市場</td><td>產量極少，市面罕見，主要作為搶鮮指標</td></tr>
   </table>
-  <div class="note-box"><strong>📋 曾有元講師評註（114 年）：</strong>豔荔為三月最早登場的荔枝品種，比三月紅更早，但因產量極其有限，市面流通量極少，多作為產季正式開始的風向球。</div>
+  <div class="note-box"><strong>📋 評註：</strong>豔荔為三月最早登場的荔枝品種，比三月紅更早，但因產量極其有限，市面流通量極少，多作為產季正式開始的風向球。</div>
 
   <hr>
 
   <h3>楠西早生 <span class="badge badge-special">地方品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/d3fd86184e_m.jpg" alt="楠西早生" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/nanxizao_1.jpg" alt="楠西早生" loading="lazy">
+    <img src="images/lychee/nanxizao_2.png" alt="楠西早生" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">楠西早生：臺南楠西地方品種，產期僅次於三月紅（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">楠西早生：臺南楠西地方品種，產期僅次於三月紅</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產地</td><td>臺南楠西（已成地方品種）</td></tr>
@@ -302,10 +397,11 @@
   <hr>
 
   <h3>台農 2 號—旺荔 <span class="badge badge-new">新品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/99c316df65_m.jpg" alt="旺荔" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/wangli_1.png" alt="台農2號—旺荔" loading="lazy">
+    <img src="images/lychee/wangli_2.jpg" alt="台農2號—旺荔" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">旺荔：鳳山熱帶園藝試驗所 23 年育成，母本沙坑 × 父本玉荷包（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">旺荔：鳳山熱帶園藝試驗所 23 年育成，母本沙坑 × 父本玉荷包</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>鳳山熱帶園藝試驗所，歷經 23 年（96 年品種權）；母本沙坑 × 父本玉荷包</td></tr>
@@ -316,10 +412,11 @@
   </table>
 
   <h3>三月紅 <span class="badge badge-special">最早荔枝</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/d00a5915c2_m.jpg" alt="三月紅" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/sanyuehong_1.png" alt="三月紅" loading="lazy">
+    <img src="images/lychee/sanyuehong_2.png" alt="三月紅" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">三月紅：臺灣產期最早的荔枝品種，果皮鮮紅色、果實呈心臟形（圖：農業部 · 張哲瑋提供）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">三月紅：臺灣產期最早的荔枝品種，果皮鮮紅色、果實呈心臟形</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產期</td><td>4 月初即可採收，為臺灣最早熟品種</td></tr>
@@ -328,7 +425,7 @@
     <tr><td>品質</td><td>中等，易裂果；產量不高，種植存活率較低</td></tr>
     <tr><td>市場</td><td>流通量有限，楠西早生已逐步替代其市場地位</td></tr>
   </table>
-  <div class="note-box"><strong>📋 曾有元講師評註（114 年）：</strong>三月紅為臺灣最早熟荔枝品種，約 4 月初即可採收。果皮呈暗紅色，果粒大，果籽亦大，品質屬中等，易裂果。產量不高，種植存活率較低，市面流通量有限。楠西早生在品質上更具優勢，已逐步替代其市場地位。</div>
+  <div class="note-box"><strong>📋 評註：</strong>三月紅為臺灣最早熟荔枝品種，約 4 月初即可採收。果皮呈暗紅色，果粒大，果籽亦大，品質屬中等，易裂果。產量不高，種植存活率較低，市面流通量有限。楠西早生在品質上更具優勢，已逐步替代其市場地位。</div>
 
 </div>
 <hr class="section-divider">
@@ -339,8 +436,8 @@
 
   <h3>玉荷包 <span class="badge badge-main">高價主力</span></h3>
   <div class="feature-row">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg" alt="玉荷包" loading="lazy">
-    <img src="https://files.openclaw-gb.com/yuherbao.jpg" alt="玉荷包荔枝" loading="lazy">
+    <img src="images/lychee/yuherbao_1.png" alt="玉荷包" loading="lazy">
+    <img src="images/lychee/yuherbao_2.png" alt="玉荷包荔枝" loading="lazy">
   </div>
   <p style="font-size:0.82rem;color:#999;text-align:center;">玉荷包：臺灣最具人氣的荔枝品種，約佔總面積 25%（圖：農業部 / 綠盒）</p>
   <table class="compare-table">
@@ -357,13 +454,20 @@
   </table>
   <div class="note-box"><strong>🛒 選購提示：</strong>玉荷包<strong>並非越紅越好</strong>——果殼紅中帶綠的果實糖度最高。</div>
 
+  <!-- 楠西早 vs 玉荷包 對比 -->
+  <div class="feature-single" style="margin-top: 20px;">
+    <img src="images/lychee/compare_nanxi_yuherbao.png" alt="楠西早 vs 玉荷包 對比" loading="lazy" style="max-width: 700px; height: auto; object-fit: contain;">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">楠西早 vs 玉荷包 品種對比：果實外觀與果肉剖面</p>
+
   <hr>
 
   <h3>台農 1 號—翠玉 <span class="badge badge-new">新品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/7471d400f2_m.jpg" alt="翠玉" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/cuiyu_1.png" alt="翠玉" loading="lazy">
+    <img src="images/lychee/cuiyu_2.png" alt="翠玉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">翠玉：嘉義農試分所 17 年育成，母本黑葉 × 父本玉荷包，2004 年命名（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">翠玉：嘉義農試分所 17 年育成，母本黑葉 × 父本玉荷包，2004 年命名</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>嘉義農業試驗分所，歷經 17 年；母本黑葉 × 父本玉荷包</td></tr>
@@ -383,8 +487,8 @@
 
   <h3>黑葉（烏葉）<span class="badge badge-main">最大宗品種</span></h3>
   <div class="feature-row">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/91d3fc4519_m.jpg" alt="黑葉" loading="lazy">
-    <img src="https://files.openclaw-gb.com/blackleaf-lychee.jpg" alt="黑葉荔枝" loading="lazy">
+    <img src="images/lychee/heiye_1.png" alt="黑葉" loading="lazy">
+    <img src="images/lychee/heiye_2.png" alt="黑葉荔枝" loading="lazy">
   </div>
   <p style="font-size:0.82rem;color:#999;text-align:center;">黑葉：臺灣栽培面積最大的品種，約佔總面積 70%（圖：農業部 / 綠盒）</p>
   <table class="compare-table">
@@ -403,10 +507,11 @@
   <hr>
 
   <h3>竹葉黑（沙坑種 / 沙丘）<span class="badge badge-special">J4 品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/7b5b890d3b_m.jpg" alt="沙坑種" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/zhuyehei_1.png" alt="竹葉黑（沙坑種）" loading="lazy">
+    <img src="images/lychee/zhuyehei_2.jpg" alt="竹葉黑（沙坑種）" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">竹葉黑：嘉義農業試驗分所於嘉義縣竹崎鄉沙坑村發現的大果品種，又稱沙坑種、沙丘種。北農代碼 J4（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">竹葉黑：嘉義農業試驗分所於嘉義縣竹崎鄉沙坑村發現的大果品種，又稱沙坑種、沙丘種。北農代碼 J4</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>別名</td><td>沙坑種、沙丘種、大南種（嘉義地區同種異名）</td></tr>
@@ -420,6 +525,12 @@
     <tr><td>栽培</td><td>適合南部栽種；盛產年採後應儘快施肥促梢；10 月中下旬後佐以環剝及益收生長素控梢</td></tr>
   </table>
 
+  <!-- 黑葉 vs 竹葉黑 對比 -->
+  <div class="feature-single" style="margin-top: 20px;">
+    <img src="images/lychee/compare_heiye_zhuyehei.jpg" alt="黑葉 vs 竹葉黑 對比" loading="lazy" style="max-width: 700px; height: auto; object-fit: contain;">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">黑葉（烏葉）vs 竹葉黑（沙坑種）品種對比：樹上結果性狀</p>
+
 </div>
 <hr class="section-divider">
 
@@ -428,10 +539,11 @@
 <div class="variety-section">
 
   <h3>糯米糍 <span class="badge badge-premium">精品晚熟</span></h3>
-  <div class="feature-single">
-    <img src="https://files.openclaw-gb.com/glutinous-lychee.jpg" alt="糯米糍" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/nuomici_1.png" alt="糯米糍" loading="lazy">
+    <img src="images/lychee/nuomici_2.jpg" alt="糯米糍" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">糯米糍：晚生精品型品種，果實較大，產於中部（圖：綠盒）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">糯米糍：晚生精品型品種，果實較大，產於中部</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產地</td><td>中部主力（彰化、南投、臺中）</td></tr>
@@ -457,10 +569,11 @@
   </table>
 
   <h3>台農 4 號—吉荔 <span class="badge badge-new">巨型果</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/064d091fdd_m.jpg" alt="吉荔" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/jili_1.png" alt="吉荔" loading="lazy">
+    <img src="images/lychee/jili_2.png" alt="吉荔" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">吉荔：農業試驗所鳳山分所 2008 年育成，母本為泰國 Chakrapad（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">吉荔：農業試驗所鳳山分所 2008 年育成，母本為泰國 Chakrapad</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>農業試驗所鳳山分所，2008 年；母本 Chakrapad（泰國引進）</td></tr>
@@ -473,19 +586,27 @@
   </table>
 
   <h3>台農 5 號—紅寶石 <span class="badge badge-new">新品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/3c2cfcb48a_m.jpg" alt="紅寶石" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/hongbaoshi_1.png" alt="紅寶石" loading="lazy">
+    <img src="images/lychee/hongbaoshi_2.png" alt="紅寶石" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">紅寶石：嘉義農試分所育成，母本為妃子笑（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">紅寶石：嘉義農試分所育成，母本為妃子笑</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>嘉義農業試驗分所；種子取自自然授粉園，母本為妃子笑</td></tr>
     <tr><td>果實</td><td>長心形，紅色，果棘隆起圓鈍，縫合線不明顯；單果重 16–21g</td></tr>
-    <tr><td>果肉</td><td>果肉率 65–76%，小核率 <strong>50–80%</strong>（以 50–80% 居多）；種子重 0.1–1.9g</td></tr>
+    <tr><td>果肉</td><td>果肉率 65–76%，小核率 <strong>50–80%</strong>；種子重 0.1–1.9g<br><strong style="color:#c62828;">★ 關鍵特徵：每穗取一粒作全果分析，種子小與大比例約 <strong>3 : 1</strong></strong>——即每 4 粒果實中約 3 粒為小核、1 粒為大核，小核者品質優</td></tr>
     <tr><td>產期</td><td>中部 6 月下旬–7 月上旬；南部（屏東）可至 5 月下旬</td></tr>
     <tr><td>結果</td><td>每結果枝平均 7–13 粒，可達 20 粒以上，<strong>結果情形好而穩定</strong></td></tr>
     <tr><td>產調</td><td>屏東試區可藉栽培技術（控梢）略為調整產期，值得進一步研究</td></tr>
   </table>
+
+  <!-- 紅寶石種子大小分析圖 -->
+  <div class="feature-single" style="margin-top: 20px;">
+    <img src="images/lychee/hongbaoshi_seed_analysis.png" alt="台農5號紅寶石 每穗一粒全果分析" loading="lazy" style="max-width: 700px; height: auto; object-fit: contain;">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;"><strong>台農5號「紅寶石」每穗一粒全果種子分析：</strong>種子小（小核/退化核）與大（正常核）比例約 <strong>3 : 1</strong>——每 4 粒中約 3 粒為小核、1 粒為大核。小核者可食率高、品質優。（圖：嘉義農業試驗分所）</p>
+  <div class="note-box"><strong>🔬 種子特性說明：</strong>紅寶石的<strong>小核率達 50–80%</strong>，全果剖面分析顯示種子大小比約 3:1（小:大）。小核果實果肉多、食用體驗佳，是紅寶石作為精品荔枝的核心競爭力之一。<br>資料來源：<a href="https://www.epochtimes.com/b5/18/6/29/n10523330.htm" target="__blank">大紀元 — 嘉義農業試驗分所紅寶石報導</a></div>
 
 </div>
 <hr class="section-divider">
@@ -495,10 +616,11 @@
 <div class="variety-section">
 
   <h3>桂味（桂枝）<span class="badge badge-special">特殊花果香</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/4a7195e2b8_m.jpg" alt="桂味" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/guiwei_1.png" alt="桂味" loading="lazy">
+    <img src="images/lychee/guiwei_2.png" alt="桂味" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">桂味：臺灣桂味 ≠ 中國桂味，為同名異種（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">桂味：臺灣桂味 ≠ 中國桂味，為同名異種</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>注意</td><td><strong>⚠️ 臺灣桂味 ≠ 中國桂味</strong>，為同名異種</td></tr>
@@ -533,8 +655,8 @@
 
   <h3>台農 3 號—玫瑰紅 <span class="badge badge-new">玫瑰香氣</span></h3>
   <div class="feature-row">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/166/46875470d5_m.jpg" alt="玫瑰紅" loading="lazy">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/166/7b7df3a478_m.jpg" alt="玫瑰紅" loading="lazy">
+    <img src="images/lychee/meiguihong_1.png" alt="玫瑰紅" loading="lazy">
+    <img src="images/lychee/meiguihong_2.jpg" alt="玫瑰紅" loading="lazy">
   </div>
   <p style="font-size:0.82rem;color:#999;text-align:center;">玫瑰紅：嘉義農試分所 21 年育成，果皮如紅玫瑰般豔麗（圖：農業部）</p>
   <table class="compare-table">
@@ -549,34 +671,78 @@
     <tr><td>適栽區</td><td>嘉義以北，或南部海拔 300–400m 左右的淺山坡</td></tr>
   </table>
 
+  <!-- 玫瑰紅 vs 大丁香 分辨真假 -->
+  <div class="note-box" style="background:#FFF3E0;border-left:4px solid #E65100;margin-top:16px;">
+    <strong>⚠️ 市場警示：玫瑰紅有假！小心大丁香魚目混珠</strong><br>
+    2013 年 5 月，農試所人員在嘉義水上鄉等地發現路旁攤販以中國品種<strong>「大丁香」冒充「台農3號玫瑰紅」</strong>低價販售（每台斤僅 50 元 vs 正品百餘元）。農試所園藝系主任張哲瑋呼籲「<strong>此風不可長</strong>」，並提供以下辨識要訣：
+    <table style="width:100%;margin-top:10px;border-collapse:collapse;font-size:0.88rem;">
+      <tr style="background:#FFF8E1;"><th style="width:20%;padding:8px;text-align:left;border:1px solid #ddd;">辨識點</th><th style="width:40%;padding:8px;text-align:left;border:1px solid #ddd;color:#c62828;">✅ 正品 · 玫瑰紅</th><th style="width:40%;padding:8px;text-align:left;border:1px solid #ddd;color:#666;">❌ 山寨 · 大丁香</th></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>果型</strong></td><td style="padding:8px;border:1px solid #ddd;">圓鈍<strong>心形</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>斜心形</strong>，下方較尖</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>縫合線</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>一條明顯縫合線</strong></td><td style="padding:8px;border:1px solid #ddd;">縫合線<strong>不明顯</strong></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>剝皮</strong></td><td style="padding:8px;border:1px solid #ddd;">從縫合線輕捏即<strong>裂成兩半</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>果皮不易剝</strong></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>汁液</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>不流湯汁、不沾手</strong></td><td style="padding:8px;border:1px solid #ddd;">剝開<strong>會流湯汁</strong></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>肉質</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>Ｑ彈豐厚</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>軟爛</strong></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>香氣</strong></td><td style="padding:8px;border:1px solid #ddd;">帶有<strong>玫瑰香</strong></td><td style="padding:8px;border:1px solid #ddd;"><strong>無香味</strong></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;"><strong>價格</strong></td><td style="padding:8px;border:1px solid #ddd;">每台斤<strong>百餘元</strong></td><td style="padding:8px;border:1px solid #ddd;">每台斤<strong>五十元</strong>（約半價）</td></tr>
+    </table>
+    <p style="font-size:0.78rem;color:#888;margin:8px 0 0 0;">農試所表示二者「不僅外形與口感差異頗大」，消費者用心選購<strong>不難分辨真偽</strong>。<br>資料來源：<a href="https://news.ltn.com.tw/news/local/paper/689370" target="_blank">自由時報 — 玫瑰紅荔枝有假！農試所教民眾分辨</a>（2013.06.19）</p>
+  </div>
+
   <hr>
 
   <h3>大丁香 <span class="badge badge-new">晚熟大果</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/4a7195e2b8_m.jpg" alt="大丁香" loading="lazy">
+  <div class="feature-row">
+    <img src="images/lychee/dadingxiang_1.png" alt="大丁香" loading="lazy">
+    <img src="images/lychee/dadingxiang_2.png" alt="大丁香" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">大丁香：晚熟大果型荔枝品種，產期七月（示意圖）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">大丁香：晚熟大果型荔枝品種，產期七月；果形斜心形、下方較尖</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產期</td><td><strong>7 月</strong>（極晚熟大果型）</td></tr>
-    <tr><td>果實</td><td>果皮紅色，果肉乳白色</td></tr>
+    <tr><td>果實</td><td>果皮紅色，果肉乳白色；果形<strong>斜心形、下方較尖</strong>，縫合線不明顯</td></tr>
+    <tr><td>特性</td><td><strong>果皮不易剝</strong>，剝開<strong>會流湯汁</strong>；肉質軟爛、<strong>無特殊香氣</strong></td></tr>
     <tr><td>風味</td><td>肉質細嫩、較脆，味清甜，具香氣</td></tr>
-    <tr><td>市場</td><td>晚熟補充型品種，產量有限</td></tr>
+    <tr><td>市場</td><td>晚熟補充型品種，產量有限；<strong style="color:#c62828;">⚠ 曾於 2013 年被發現冒充「台農3號玫瑰紅」低價販售</strong>（詳見上方玫瑰紅品種說明）</td></tr>
   </table>
 
-  <hr>
+</div>
 
-  <h3>懷荔 <span class="badge badge-special">七月品種</span></h3>
-  <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/55f3652299_m.png" alt="懷荔" loading="lazy">
+<!-- ===== 六、其他引進品種 ===== -->
+<h2>⚪ 六、其他引進品種（中國大陸 / 泰國引入）</h2>
+<div class="variety-section">
+
+  <h3>鵝蛋荔（巨無霸荔枝 / 紫娘喜）<span class="badge badge-special">引進品種</span></h3>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">鵝蛋荔：目前臺灣及亞洲地區體型最大的荔枝品種之一，因碩大如鵝蛋而得名，又稱「巨無霸荔枝」；與「紫娘喜」為同系巨型果品種</p>
+
+  <!-- 鵝蛋荔圖片 1 -->
+  <div class="feature-single" style="margin-top: 14px;">
+    <img src="images/lychee/feidanli_1.jpg" alt="鵝蛋荔果實" loading="lazy" style="max-width: 600px; height: auto; object-fit: contain;">
   </div>
-  <p style="font-size:0.82rem;color:#999;">懷荔：七月下旬登場的極晚熟品種，與糯米糍、桂味同為季末壓軸（示意圖）</p>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">鵝蛋荔（巨無霸荔枝）— 果實實物（圖：粉專/網路公開來源）</p>
+
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
-    <tr><td>產期</td><td><strong>7 月中下旬</strong>（極晚熟）</td></tr>
-    <tr><td>產地</td><td>南投、臺中為主</td></tr>
-    <tr><td>市場</td><td>產量極少，通常合併於其他品種交易（J0 代碼）</td></tr>
+    <tr><td>別名</td><td>巨無霸荔枝、紫娘喜（同系巨型果）</td></tr>
+    <tr><td>來源</td><td>中國大陸引進（近十年引入臺灣試種）</td></tr>
+    <tr><td><strong>果實大小</strong></td><td>單果重 <strong>50–200g</strong>，約為一般荔枝的 <strong>3–5 倍</strong>；文獻記載有單果重達 120g 者，市面亦見 50–200g 之巨型果</td></tr>
+    <tr><td>外觀</td><td>果實碩大，果皮較一般荔枝<strong>粗厚</strong>，鱗目<strong>明顯隆起</strong></td></tr>
+    <tr><td><strong>果肉與口感</strong></td><td>果肉<strong>飽滿厚實</strong>，口感<strong>爽脆多汁</strong>；甜度可達 <strong>13–14.5 度</strong>，風味屬清甜；部分果實肉質細緻度略遜於玉荷包</td></tr>
+    <tr><td><strong>果核</strong></td><td>屬於<strong>大核品種</strong>，果核通常比一般荔枝來得大</td></tr>
+    <tr><td>植物性狀</td><td>葉片小，節間短，花芽分化晚</td></tr>
+    <tr><td>產期</td><td>晚熟（七月左右，視栽培地區調整）</td></tr>
+    <tr><td>市場定位</td><td>流通量極少，多為試種或趣味栽培；因肉質細緻度較一般栽培種低，市場接受度有限，主要作為<strong>加工或品種保存</strong>用途</td></tr>
   </table>
+
+  <!-- 鵝蛋荔圖片 2 -->
+  <div class="feature-single" style="margin-top: 18px;">
+    <img src="images/lychee/feidanli_2.png" alt="紫娘喜荔枝果實" loading="lazy" style="max-width: 600px; height: auto; object-fit: contain;">
+  </div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">紫娘喜（同系巨型果品種）— 果實實物，單果重量可達一般荔枝 3–5 倍（圖：粉專/網路公開來源）</p>
+
+  <div class="note-box" style="margin-top: 14px;">
+    <strong>📋 資料來源：</strong>農業部農業知識入口網 — <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24020" target="_blank">鵝蛋荔及相關巨型果品種</a>。鵝蛋荔（又稱巨無霸荔枝或紫娘喜）是目前臺灣及亞洲地區體型最大的荔枝品種之一，單果重量可達 50–200g，約是一般荔枝的 3–5 倍。<br>
+    <strong>🍇 補充參考：</strong>紫娘喜亦稱「荔枝王」，果肉飽滿厚實、爽脆多汁，甜度 13–14.5 度，屬清甜型；果核偏大，可食率相對較低，主要用於加工或觀光展示用途。
+  </div>
 
 </div>
 <hr class="section-divider">
@@ -601,7 +767,8 @@
   <tr style="background:#E3F2FD;"><td><strong>淮荔</strong></td><td>極晚熟</td><td>鮮紅</td><td>18–21</td><td>19–21</td><td>70%</td><td>7 上–7 中</td><td>高糖度極晚熟 · 特殊香味</td></tr>
   <tr style="background:#E3F2FD;"><td><strong>玫瑰紅</strong></td><td>極晚熟</td><td>玫瑰紅</td><td>—</td><td>—</td><td>—</td><td>7 上–7 中</td><td>玫瑰香氣 · 不沾手 · 耐貯藏</td></tr>
   <tr style="background:#E3F2FD;"><td><strong>大丁香</strong></td><td>極晚熟</td><td>紅</td><td>大果</td><td>—</td><td>—</td><td>7 月</td><td>晚熟大果 · 清甜香氣</td></tr>
-  <tr style="background:#E3F2FD;"><td><strong>懷荔</strong></td><td>極晚熟</td><td>紅</td><td>—</td><td>—</td><td>—</td><td>7 中下</td><td>七月壓軸 · 產量極少</td></tr>
+  <tr style="background:#ECEFF1;"><td><strong>鵝蛋荔</strong></td><td>其他</td><td>—</td><td><strong>50–200</strong></td><td>13–14.5</td><td>—</td><td>晚熟</td><td>巨型果 · 3–5倍大 · 加工用</td></tr>
+  <tr style="background:#ECEFF1;"><td><strong>紫娘喜</strong></td><td>其他</td><td>—</td><td><strong>50–200</strong></td><td>13–14.5</td><td>—</td><td>晚熟</td><td>巨型果 · 荔枝王 · 加工用</td></tr>
 </table>
 </div>
 
@@ -609,7 +776,7 @@
 
 <h2>🛒 選購消費指南</h2>
 <div class="variety-section">
-  <h3>🔍 品質鑑別三步驟（曾有元講師）</h3>
+  <h3>🔍 品質鑑別三步驟</h3>
   <div class="key-point">
     <strong>第一步 · 外觀色澤：</strong>觀察果皮——選擇色澤鮮豔、紅潤飽滿的品種，代表已成熟。果皮偏褐或暗淡則已不新鮮。<br><br>
     <strong>第二步 · 觸感彈性：</strong>用手輕輕捏一捏——選擇有彈性且偏硬的荔枝，表示水分充足、較為新鮮。搖動時不易落果者為鮮果。<br><br>
@@ -646,7 +813,7 @@
 
 <hr class="section-divider">
 
-<h2>📦 分級包裝實務（曾有元講師）</h2>
+<h2>📦 分級包裝實務</h2>
 <div class="variety-section">
   <h3>📏 分級標準</h3>
   <div class="key-point">
@@ -672,7 +839,7 @@
 
 <h2>🌱 栽培技術要點</h2>
 <div class="variety-section">
-  <h3>📅 荔枝生長期（曾有元講師，114 年）</h3>
+  <h3>📅 荔枝生長期(114 年)</h3>
   <table class="compare-table">
     <tr><th>生長期</th><th>時間</th><th>管理重點</th></tr>
     <tr><td>花芽分化期</td><td>10 月–2 月</td><td>低溫累積關鍵期，決定開花數量</td></tr>
@@ -712,7 +879,7 @@
     <tr style="background:#FFF3E0;"><td><strong>J3</strong></td><td>糯米</td><td>糯米糍</td></tr>
     <tr><td><strong>J4</strong></td><td>竹葉黑</td><td>竹葉黑（沙坑種 / 沙丘種，嘉義同種異名）</td></tr>
     <tr style="background:#FFF3E0;"><td><strong>J5</strong></td><td>桂味</td><td>桂味</td></tr>
-    <tr><td><strong>J0</strong></td><td>其他</td><td>楠西早生、旺荔、翠玉、港尾、吉荔、紅寶石、淮荔、三月紅、豔荔、大丁香、懷荔</td></tr>
+    <tr><td><strong>J0</strong></td><td>其他</td><td>楠西早生、旺荔、翠玉、港尾、吉荔、紅寶石、淮荔、三月紅、豔荔、大丁香、鵝蛋荔、紫娘喜</td></tr>
   </table>
   <p style="font-size:0.82rem;color:#999;margin-top:12px;">※ J0「其他」涵蓋多個地方品種，實務交易時統稱「其他荔枝」。</p>
 </div>
@@ -734,9 +901,12 @@
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24077" target="_blank">台農 2 號旺荔</a></li>
     <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24084" target="_blank">台農 4 號吉荔</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24085" target="_blank">台農 5 號紅寶石</a> ｜ 
+        <a href="https://www.epochtimes.com/b5/18/6/29/n10523330.htm" target="_blank">紅寶石種子分析（大紀元）</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24081" target="_blank">竹葉黑（沙坑種 / 沙丘種）</a></li>
     <li><a href="https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=variety&id=52659" target="_blank">台農 3 號玫瑰紅</a> ｜ 
+        <a href="https://news.ltn.com.tw/news/local/paper/689370" target="_blank">玫瑰紅 vs 大丁香分辨真假（自由時報）</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24074" target="_blank">重要栽培品種分類</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24020" target="_blank">鵝蛋荔、紫娘喜及其他巨型果引進品種</a></li>
   </ul>
   <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網荔枝主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
   <p><strong>產業與品種補充來源：</strong></p>
@@ -744,14 +914,17 @@
     <li><a href="https://greenbox.tw/Blog/BlogPostNew/8626/" target="_blank">臺灣荔枝品種全解析 — 綠盒</a></li>
     <li><a href="https://www.moa.gov.tw/ws.php?id=2502888" target="_blank">臺灣荔枝產業未來發展策略 — 農業部農糧署</a></li>
   </ul>
-  <p><strong>📋 第一市場實務講習資料（曾有元講師，114 年 6 月）：</strong></p>
+  <p><strong>📋 第一市場實務講習資料：</strong></p>
   <ul style="margin-left:20px; margin-bottom:12px;">
-    <li>《一市場水果組 6 月在職訓練 — 荔枝 曾有元》（PPT）</li>
+    <li>《一市場水果組 6 月在職訓練 — 荔枝》（PPT）</li>
     <li>《荔枝 114.0613》（DOCX 講習資料表）</li>
   </ul>
-  <p style="font-size:0.82rem;color:#999;">實務產期曆、市場數據、品質鑑別三步驟、分級包裝規格等內容，均參考第一市場曾有元講師之講習資料。</p>
+  <p style="font-size:0.82rem;color:#999;">實務產期曆、市場數據、品質鑑別三步驟、分級包裝規格等內容，均參考第一市場之講習資料。</p>
 </div>
 
 </div>
 </body>
 </html>
+
+
+
