@@ -13,11 +13,19 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif; background: var(--light-bg); color: var(--dark-text); line-height: 1.8; }
-  .hero { background: linear-gradient(135deg,#B71C1C 0%,#C62828 35%,#E53935 65%,#EF5350 100%); color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg') center/cover; opacity: 0.1; }
+  .hero { background: linear-gradient(135deg,#4A1A5C 0%,#7B2D8E 35%,#C73E7B 70%,#F5A623 100%); color: white; padding: 100px 20px 70px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/75/741eea741a_m.jpg') center/cover; opacity: 0.08; }
+  .hero .logo-wrap { position: relative; display: inline-block; margin-bottom: 24px; }
+  .hero .logo-wrap img { width: 220px; height: auto; background: white; padding: 16px 28px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
   .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
+  .author-info .author-label { display: inline-block; background: rgba(245,166,35,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
+  .author-info .author-name { font-weight: 600; margin-right: 12px; }
+  .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
+  .author-info .author-contact a { color: #FFE0B2; text-decoration: none; border-bottom: 1px dotted rgba(255,224,178,0.6); }
+  .author-info .author-contact a:hover { color: #fff; border-bottom-color: #fff; }
   .back-home {
     position: absolute; top: 16px; left: 20px; z-index: 10;
     color: rgba(255,255,255,0.85); text-decoration: none;
@@ -94,11 +102,17 @@
 </head>
 <body>
 
-<div class="hero">
+  <div class="hero">
   <a class="back-home" href="index.html">← 返回水果圖鑑首頁</a>
+  <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
   <h1>🍒 臺灣荔枝專業圖鑑</h1>
-  <div class="subtitle">北農內部培訓學習資料</div>
+  <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
   <div class="subtitle2">17 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+  <div class="author-info">
+    <span class="author-label">作者</span>
+    <span class="author-name">培訓試拍 楊畯詠</span>
+    <span class="author-contact">如有補充更正可 mail 至 <a href="mailto:leodean1204@gmail.com">leodean1204@gmail.com</a></span>
+  </div>
 </div>
 
 <div class="container">
