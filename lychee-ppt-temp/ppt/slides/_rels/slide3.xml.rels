@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://greenbox.tw/Products/ItemDetail/16701?utm_source=blog&amp;utm_medium=6744" TargetMode="External"/>
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide" Target="../notesSlides/notesSlide2.xml"/>
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout" Target="../slideLayouts/slideLayout4.xml"/>
+  <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://greenbox.tw/Products/ItemDetail/37417?utm_source=blog&amp;utm_medium=6744" TargetMode="External"/>
+  <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://greenbox.tw/Home/Search?key=%E7%8E%89%E8%8D%B7%E5%8C%85%E8%8D%94%E6%9E%9D&amp;type=-1&amp;utm_source=blog&amp;utm_medium=6744" TargetMode="External"/>
+</Relationships>
