@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣梨專業圖鑑</title>
+<style>
+  :root {
+    --pear-gold: #F9A825; --pear-deep: #EF6C00; --pear-light: #FFF3E0;
+    --pear-cream: #FFF8E1; --pear-brown: #8D6E63; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFDF5; --card-bg: #FFFFFF; --accent: #F9A825;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif; background: var(--light-bg); color: var(--dark-text); line-height: 1.8; }
+  .hero { background: linear-gradient(135deg,#4A1A5C 0%,#7B2D8E 35%,#C73E7B 70%,#F5A623 100%); color: white; padding: 100px 20px 70px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/51e40bfb8d_m.jpg') center/cover; opacity: 0.08; }
+  .hero .logo-wrap { position: relative; display: inline-block; margin-bottom: 24px; }
+  .hero .logo-wrap img { width: 220px; height: auto; background: white; padding: 16px 28px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
+  .author-info .author-label { display: inline-block; background: rgba(245,166,35,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
+  .author-info .author-name { font-weight: 600; margin-right: 12px; }
+  .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
+  .author-info .author-contact a { color: #FFE0B2; text-decoration: none; border-bottom: 1px dotted rgba(255,224,178,0.6); }
+  .author-info .author-contact a:hover { color: #fff; border-bottom-color: #fff; }
+  .back-home { position: absolute; top: 18px; left: 20px; z-index: 10; display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px 9px 14px; background: rgba(255,255,255,0.95); color: #4A1A5C; text-decoration: none; font-size: 0.9rem; font-weight: 700; border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: all 0.2s; }
+  .back-home::before { content: "🏠"; font-size: 1.1rem; line-height: 1; }
+  .back-home:hover { background: #fff; transform: translateX(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: #E65100; }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box { background: linear-gradient(135deg,#FFF3E0,#FFF8E1); border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid var(--accent); }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #FFF8E1; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: linear-gradient(135deg,#EF6C00,#F9A825); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .cons-card .pc-header { background: linear-gradient(135deg,#C62828,#E53935); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+  .pros-card .pc-body { background: linear-gradient(180deg,#FFF8E1,#FFFFFF); padding: 20px; }
+  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pros-card .pc-icon { background: #FFE0B2; color: #EF6C00; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #F9A825; color: white; }
+  .badge-new { background: #EF6C00; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-gold { background: #FFF8E1; color: #E65100; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-blue { background: #E3F2FD; color: #1565C0; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#F9A825,transparent); margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #FFF8E1; border-left: 4px solid #F9A825; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
+  <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
+  <h1>🍐 臺灣梨專業圖鑑</h1>
+  <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
+  <div class="subtitle2">7 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
+  <div class="author-info">
+    <span class="author-label">總整理</span>
+    <span class="author-name">儲訓試拍 楊畯詠</span>
+    <span class="author-contact">如有補充更正可 mail 至 <a href="mailto:leodean1204@gmail.com">leodean1204@gmail.com</a></span>
+  </div>
+</div>
+
+<div class="container">
+
+<h2>📖 總論</h2>
+<div class="intro-box">
+  <p>梨（砂梨，<em>Pyrus pyrifolia</em> Nakai）為薔薇科梨屬落葉喬木，屬<strong>東方梨</strong>系統。臺灣栽培的梨主要為<strong>砂梨品系</strong>，全臺栽培面積約 <strong>4,865 公頃</strong>，年產約 <strong>8.8 萬公噸</strong>，產期自 5 月中至 11 月，供應國人近 8 個月。</p>
+  <p>臺灣梨栽培分為兩大系統：<strong>低海拔的橫山梨</strong>（早期先民自華南引進）與<strong>高海拔的溫帶梨</strong>（日本引進，如新世紀、幸水、豐水、新興等）。民國 60 年代，農民發展出<strong>「高接梨」栽培技術</strong>——將溫帶梨花芽接於橫山梨徒長枝上，使低海拔地區也能生產汁多清甜的溫帶梨，成為臺灣農業技術的一大成就。</p>
+  <p>產地高度集中於<strong>臺中市</strong>（栽培面積約 3,306 公頃，占全臺六成以上），核心產區為<strong>東勢、和平（梨山）、新社、后里、石岡</strong>。近年由劉申權育成的<strong>寶島甘露梨</strong>（有「梨界 LV」之稱）與<strong>寶島晶新梨</strong>，更開啟臺灣大果梨的新頁。</p>
+</div>
+
+<div class="feature-row">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/51e40bfb8d_m.jpg" alt="新興梨" loading="lazy">
+  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/71c50d03a2_m.jpg" alt="豐水梨" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：新興梨 — 最普遍的高接梨品種 ｜ 右：豐水梨 — 多汁肉細緻（圖：農業部農業知識入口網）</p>
+
+<h2>📈 產業發展概況</h2>
+<div class="variety-section">
+  <h3>🗺️ 主要產地分布</h3>
+  <table class="compare-table">
+    <tr><th>縣市</th><th>栽培面積</th><th>年產量</th><th>代表產區</th><th>主要品種</th></tr>
+    <tr style="background:#FFF8E1;"><td><strong>臺中市</strong></td><td><strong>3,306 公頃（約 68%）</strong></td><td>56,502 公噸</td><td>東勢、和平（梨山）、新社、后里、石岡</td><td>新興、豐水、甘露、幸水</td></tr>
+    <tr><td>苗栗縣</td><td>—</td><td>—</td><td>卓蘭、大湖</td><td>新興、豐水</td></tr>
+    <tr><td>宜蘭縣</td><td>—</td><td>—</td><td>三星、大同</td><td>上將梨（高接）、雪梨</td></tr>
+    <tr><td>新竹縣</td><td>—</td><td>—</td><td>尖石、五峰（高海拔）</td><td>新世紀、雪梨</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>🌉 高接梨的奧祕：</strong>臺灣的低海拔地區冬季低溫不足，溫帶梨無法正常花芽分化。農民自民國 60 年代起，將高海拔溫帶梨的<strong>花芽枝條</strong>剪下，冷藏後<strong>高接於橫山梨的徒長枝</strong>上，成功在低海拔生產高品質溫帶梨。這種「移花接木」技術使臺灣成為全球少數能在亞熱帶生產溫帶梨的地區，但也付出較高的人力成本。
+  </div>
+
+  <h3>⚖️ 產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🌉</span><span class="pc-text"><strong>高接梨技術獨步全球</strong> — 低海拔也能生產溫帶梨，品質甚至更勝高海拔</span></div>
+        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>產期長達 8 個月</strong> — 5 月中至 11 月，供應期極長</span></div>
+        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>官方育種持續突破</strong> — 寶島甘露梨、晶新梨開創大果新市場</span></div>
+        <div class="pc-item"><span class="pc-icon">🏔️</span><span class="pc-text"><strong>梨山高海拔優勢</strong> — 免高接，果實品質優、價位高</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>高接作業費工</strong> — 嫁接、套袋皆須高空作業，人力成本高、老化嚴重</span></div>
+        <div class="pc-item"><span class="pc-icon">❄️</span><span class="pc-text"><strong>低溫需求高</strong> — 溫帶梨花芽需冷藏處理，暖冬影響休眠打破</span></div>
+        <div class="pc-item"><span class="pc-icon">🌪️</span><span class="pc-text"><strong>氣候風險</strong> — 冰雹、颱風易造成風疤與落果，影響外觀與產量</span></div>
+        <div class="pc-item"><span class="pc-icon">🐛</span><span class="pc-text"><strong>病蟲害管理</strong> — 梨木蝨、赤星病等，套袋與用藥成本高</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📂 品種分類總覽</h2>
+<p>依栽培方式與品種來源分為三大類：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/71c50d03a2_m.jpg" alt="高接梨日本系" loading="lazy">
+    <div class="card-body"><h4>🟡 高接梨 · 日本系品種</h4><p>主力 · 東勢為主</p><span class="tag tag-gold">幸水 · 豐水 · 新興 · 新世紀</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/1edadabd7c_m.jpg" alt="橫山梨" loading="lazy">
+    <div class="card-body"><h4>🟢 橫山梨（低海拔砧木）</h4><p>高接梨的基礎 · 原生種</p><span class="tag tag-green">橫山梨 · 倒頭梨</span></div>
+  </div>
+  <div class="category-card">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/51e40bfb8d_m.jpg" alt="臺灣育成新品種" loading="lazy">
+    <div class="card-body"><h4>🔵 臺灣育成新品種</h4><p>大果 · 梨界 LV</p><span class="tag tag-blue">寶島甘露梨 · 寶島晶新梨</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 一、高接梨日本系品種 ===== -->
+<h2>🟡 一、高接梨 · 日本系品種（主力）</h2>
+<div class="variety-section">
+
+  <!-- ── 幸水梨 ── -->
+  <h3>幸水梨 <span class="badge badge-main">早生 · 品質最佳</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/06e851a109_m.jpg" alt="幸水梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">幸水梨：日本引進的早生種，品質甚佳但不易貯藏（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>日本引進（早生種）</td></tr>
+    <tr><td>果實</td><td>果皮赤褐色，套袋後呈黃色；果形正圓，<strong>果頂凹下且深</strong>；果點稍粗</td></tr>
+    <tr><td>果肉</td><td>果肉<strong>細緻、多汁、味甜清爽</strong>，品質甚佳</td></tr>
+    <tr><td>糖度</td><td><strong>11–13°Brix</strong></td></tr>
+    <tr><td>產期</td><td>高接 5 月下旬–6 月上旬；高海拔 8 月下旬</td></tr>
+    <tr><td>特性</td><td>品質最佳，但<strong>不易貯藏</strong>，宜鮮食</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 豐水梨 ── -->
+  <h3>豐水梨 <span class="badge badge-main">早生 · 多汁</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/71c50d03a2_m.jpg" alt="豐水梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">豐水梨：日本引進，果肉細緻清脆多汁，較耐冷藏（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>日本引進</td></tr>
+    <tr><td>果實</td><td>果皮青褐色，套袋後呈黃色；果形長圓；果點細</td></tr>
+    <tr><td>果肉</td><td>果肉<strong>細緻、清脆、多汁、味甜</strong></td></tr>
+    <tr><td>糖度</td><td><strong>10.5–13°Brix</strong></td></tr>
+    <tr><td>產期</td><td>高接 6 月上旬–7 月上旬；高海拔 8 月下旬–9 月上旬</td></tr>
+    <tr><td>特性</td><td>品質佳，較耐冷藏，頗受消費者喜愛</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 新興梨 ── -->
+  <h3>新興梨 <span class="badge badge-main">最普遍 · 最耐冷藏</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/51e40bfb8d_m.jpg" alt="新興梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">新興梨：市面上最普遍的高接梨品種，清脆耐藏（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>日本引進，由新世紀梨實生苗選育</td></tr>
+    <tr><td>果實</td><td>果皮青褐色，套袋後呈黃色；果形大、長圓形，<strong>較有稜</strong>；果點粗</td></tr>
+    <tr><td>果肉</td><td>果肉細，但<strong>石細胞較多</strong>；多汁、清脆</td></tr>
+    <tr><td>糖度</td><td><strong>10–13°Brix</strong></td></tr>
+    <tr><td>產期</td><td>高接 7 月上旬–8 月中旬；高海拔 9 月中旬–下旬</td></tr>
+    <tr><td>特性</td><td><strong>最耐冷藏</strong>（可達數月），為最普遍的高接梨品種</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- ── 新世紀梨 ── -->
+  <h3>新世紀梨 <span class="badge badge-special">幼梨仔 · 皮薄</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/ba5961cc55_m.jpg" alt="新世紀梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">新世紀梨：皮薄水份多，俗稱「幼梨仔」，可連皮食用（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>日本引進</td></tr>
+    <tr><td>果實</td><td>果皮青色，經<strong>遮光套袋</strong>後呈白色；果形扁圓</td></tr>
+    <tr><td>果肉</td><td>果肉<strong>細脆</strong>、果汁多</td></tr>
+    <tr><td>糖度</td><td><strong>10–11°Brix</strong></td></tr>
+    <tr><td>產期</td><td>高接 5 月下旬–6 月上旬；高海拔 8 月下旬–9 月下旬</td></tr>
+    <tr><td>特性</td><td>皮薄水份多，如嬰兒肌膚，俗稱「<strong>幼梨仔</strong>」，可連皮食用</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 二、橫山梨 ===== -->
+<h2>🟢 二、橫山梨（低海拔砧木 · 原生種）</h2>
+<div class="variety-section">
+
+  <h3>橫山梨 <span class="badge badge-special">高接梨的基礎</span></h3>
+  <div class="feature-single">
+    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/83/1edadabd7c_m.jpg" alt="橫山梨" loading="lazy">
+  </div>
+  <p style="font-size:0.82rem;color:#999;">橫山梨：低海拔栽培的原生品種，是高接梨的砧木（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>來源</td><td>早期先民自中國華南引進</td></tr>
+    <tr><td>果實</td><td>果皮褐色，果形長圓，果粒大</td></tr>
+    <tr><td>果肉</td><td>肉質脆稍粗，<strong>石細胞較多</strong>，味甜中帶酸</td></tr>
+    <tr><td>產期</td><td>二次：<strong>倒頭梨 5–6 月</strong>；<strong>正期果 8 月下旬–9 月下旬</strong></td></tr>
+    <tr><td>地位</td><td><strong>高接梨的砧木</strong> — 其徒長枝供溫帶梨花芽嫁接，是臺灣高接梨產業的基礎</td></tr>
+  </table>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 三、臺灣育成新品種 ===== -->
+<h2>🔵 三、臺灣育成新品種（大果 · 梨界 LV）</h2>
+<div class="variety-section">
+
+  <!-- ── 寶島甘露梨 ── -->
+  <h3>寶島甘露梨 <span class="badge badge-new">梨界 LV · 大果</span></h3>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">寶島甘露梨：劉申權育成，平均果重超過 800g 的大果梨，有「梨界 LV」之稱</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成者</td><td>劉申權（民間育種）</td></tr>
+    <tr><td>品種權</td><td>民國 107 年 3 月 23 日農授糧字第 1071064538 號</td></tr>
+    <tr><td>育種方式</td><td>雜交品種</td></tr>
+    <tr><td>果實</td><td>果實外觀<strong>扁圓</strong>，<strong>大果</strong>（平均果重超過 <strong>800g</strong>）</td></tr>
+    <tr><td>果肉</td><td>肉白、質脆、多汁</td></tr>
+    <tr><td>糖度</td><td><strong>11–12°Brix</strong></td></tr>
+    <tr><td>產期</td><td>中低海拔高接 8 月中旬前後；梨山免高接 9 月底–10 月上旬（<strong>晚生品種</strong>）</td></tr>
+    <tr><td>栽培</td><td>花芽形成較晚，平地冬季低溫不足，需剪枝冷藏後回接</td></tr>
+    <tr><td>市場</td><td>近年新興高價品種，以「<strong>梨界 LV</strong>」聞名，大果送禮市場熱門</td></tr>
+  </table>
+  <div class="note-box"><strong>📋 資料來源：</strong>農業部農業知識入口網 — <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46588" target="_blank">寶島甘露梨</a>。甘露梨為臺灣民間育種的重大突破，大果特性使單果售價與送禮價值大幅提升。</div>
+
+  <hr>
+
+  <!-- ── 寶島晶新梨 ── -->
+  <h3>寶島晶新梨 <span class="badge badge-new">大果 · 貯存更佳</span></h3>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">寶島晶新梨：劉申權育成，平均果重超過 800g，採後貯存風味更佳</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>育成者</td><td>劉申權（民間育種）</td></tr>
+    <tr><td>品種權</td><td>民國 106 年 10 月 25 日農授糧字第 1061065873 號</td></tr>
+    <tr><td>育種方式</td><td>雜交品種</td></tr>
+    <tr><td>果實</td><td>果實外觀較圓，<strong>大果</strong>（平均果重超過 <strong>800g</strong>）</td></tr>
+    <tr><td>果肉</td><td>肉白、質脆、多汁</td></tr>
+    <tr><td>糖度</td><td><strong>約 12°Brix</strong>；<strong>果實採後貯存一段時間風味更佳</strong></td></tr>
+    <tr><td>產期</td><td>中低海拔高接 8 月中旬前後；梨山免高接 9 月底–10 月上旬（<strong>晚生品種</strong>）</td></tr>
+    <tr><td>栽培</td><td>花芽形成較晚，平地冬季低溫不足，需剪枝冷藏後回接</td></tr>
+    <tr><td>市場</td><td>與甘露梨同屬大果新品，貯後風味提升為其特色</td></tr>
+  </table>
+  <div class="note-box"><strong>📋 資料來源：</strong>農業部農業知識入口網 — <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46591" target="_blank">寶島晶新梨</a>。晶新梨與甘露梨同由劉申權育成，兩者皆為晚生大果品種，採後貯存風味更佳是其賣點。</div>
+
+</div>
+
+<hr class="section-divider">
+
+<h2>📊 主力品種綜合對比表</h2>
+<div class="variety-section">
+<table class="compare-table">
+  <tr><th>品種</th><th>類別</th><th>果皮</th><th>糖度(°Brix)</th><th>產期（高接）</th><th>核心特色</th></tr>
+  <tr style="background:#FFF8E1;"><td><strong>幸水梨</strong></td><td>日本系</td><td>赤褐→黃</td><td>11–13</td><td>5 下–6 上</td><td>品質最佳 · 不易貯藏</td></tr>
+  <tr><td><strong>豐水梨</strong></td><td>日本系</td><td>青褐→黃</td><td>10.5–13</td><td>6 上–7 上</td><td>清脆多汁 · 較耐藏</td></tr>
+  <tr style="background:#FFF8E1;"><td><strong>新興梨</strong></td><td>日本系</td><td>青褐→黃</td><td>10–13</td><td>7 上–8 中</td><td>最耐藏 · 最普遍</td></tr>
+  <tr><td><strong>新世紀梨</strong></td><td>日本系</td><td>青→白</td><td>10–11</td><td>5 下–6 上</td><td>皮薄 · 幼梨仔</td></tr>
+  <tr style="background:#E8F5E9;"><td><strong>橫山梨</strong></td><td>低海拔砧木</td><td>褐</td><td>甜中帶酸</td><td>5–6 月／8 下–9 下</td><td>高接梨的基礎</td></tr>
+  <tr style="background:#E3F2FD;"><td><strong>寶島甘露梨</strong></td><td>臺灣育成</td><td>—</td><td>11–12</td><td>8 中／9 底–10 上</td><td>大果 800g+ · 梨界 LV</td></tr>
+  <tr style="background:#E3F2FD;"><td><strong>寶島晶新梨</strong></td><td>臺灣育成</td><td>—</td><td>12</td><td>8 中／9 底–10 上</td><td>大果 800g+ · 貯存更佳</td></tr>
+</table>
+</div>
+
+<hr class="section-divider">
+
+<h2>🛒 選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>🔍 通用選購要領：</strong><br>
+    <strong>外觀：</strong>果皮光滑、無風疤或黑斑，套袋梨色澤均勻<br>
+    <strong>果形：</strong>圓整對稱、果臍（果頂）端正<br>
+    <strong>觸感：</strong>結實有重量感，表示水份充足<br>
+    <strong>香氣：</strong>成熟梨帶有清甜果香
+  </div>
+
+  <div class="note-box">
+    <strong>🔬 各品種口感速查：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>幸水梨：</strong>細緻清甜 — 品質最佳，追求極致口感的首選</li>
+      <li><strong>豐水梨：</strong>清脆多汁 — 經典水梨風味，老少咸宜</li>
+      <li><strong>新興梨：</strong>最脆耐藏 — 愛吃脆口、想久放的最佳選擇</li>
+      <li><strong>新世紀梨：</strong>皮薄多汁 — 可連皮吃，適合懶得削皮的人</li>
+      <li><strong>橫山梨：</strong>酸甜有嚼勁 — 石細胞多，風味古早</li>
+      <li><strong>寶島甘露梨：</strong>大果飽滿 — 送禮體面，梨界 LV</li>
+      <li><strong>寶島晶新梨：</strong>大果耐放 — 採後貯存風味更佳</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>📚 資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 梨主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=3026" target="_blank">目前栽培品種 — 梨主題館（7 品種目錄）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46588" target="_blank">寶島甘露梨</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=46591" target="_blank">寶島晶新梨</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25192" target="_blank">橫山梨</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25191" target="_blank">新興梨</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25190" target="_blank">幸水梨</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25189" target="_blank">豐水梨</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25188" target="_blank">新世紀梨</a></li>
+  </ul>
+  <p><strong>產業數據補充參考：</strong>臺中市政府農業局（全臺梨栽培面積 4,865 公頃、年產 88,409 公噸；臺中 3,306 公頃、56,502 公噸，居全臺第一）。</p>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網梨主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+</div>
+
+</div>
+
+<div class="footer" style="text-align:center; padding:30px 20px; color:#999; font-size:0.85rem;">
+  臺灣梨專業圖鑑 · 資料來源：農業部農業知識入口網（kmweb.moa.gov.tw）及相關權威機構
+</div>
+
+</body>
+</html>
