@@ -22,12 +22,8 @@
     color: white; padding: 80px 20px 60px; text-align: center;
     position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg') center/cover;
-    opacity: 0.07;
-  }
-  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
   .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
@@ -44,13 +40,13 @@
   h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
   p { margin-bottom: 12px; color: var(--medium-text); }
   .intro-box {
-    background: linear-gradient(135deg,#FFFDE7,#FFF8E1);
+    background: #FFFDE7;
     border-radius: 16px; padding: 30px; margin: 30px 0;
     border-left: 5px solid var(--accent);
   }
   .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
-  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
-  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
   .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
   .category-card .card-body { padding: 16px; }
   .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
@@ -66,15 +62,15 @@
   .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
   .compare-table tr:hover td { background: #FFFDE7; }
   .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
-  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
-  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
-  .pros-card .pc-header { background: linear-gradient(135deg,#2E7D32,#43A047); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
-  .cons-card .pc-header { background: linear-gradient(135deg,#C62828,#E53935); color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; }
-  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
-  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .pros-cons-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: #2E7D32; color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 600; }
+  .cons-card .pc-header { background: #C62828; color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 600; }
+  .pros-card .pc-body { background: #F1F8E9; padding: 20px; }
+  .cons-card .pc-body { background: #FFEBEE; padding: 20px; }
   .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
   .pc-item:last-child { border-bottom: none; }
-  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 600; margin-top: 1px; }
   .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
   .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
   .pc-text { flex: 1; }
@@ -98,7 +94,7 @@
   .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
   .source-box a { color: var(--accent); text-decoration: none; }
   .source-box a:hover { text-decoration: underline; }
-  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#F9A825,transparent); margin: 40px 0; }
+  .section-divider { border: none; height: 2px; background: #E5E5E5; margin: 40px 0; }
   .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
@@ -109,7 +105,7 @@
 <div class="hero">
   <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
     <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
-  <h1>🍌 臺灣香蕉專業圖鑑</h1>
+  <h1>臺灣香蕉專業圖鑑</h1>
   <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
   <div class="subtitle2">10 品種內外銷香蕉 + 13 品種特色芭蕉 · 依農業部農業知識入口網正式分類</div>
   <div class="author-info">
@@ -121,7 +117,7 @@
 
 <div class="container">
 
-<h2>📖 總論</h2>
+<h2>總論</h2>
 <div class="intro-box">
   <p>香蕉（<em>Musa</em> spp.）為芭蕉科芭蕉屬大型草本植物，原產於東南亞熱帶地區，是世界上最重要的水果之一，年產量超過 <strong>1.5 億公噸</strong>，僅次於番茄、西瓜居世界水果第三位，也是臺灣<strong>栽培面積最大的果樹</strong>。</p>
   <p>臺灣香蕉栽培面積約 <strong>15,000 公頃</strong>，年產約 <strong>33 萬公噸</strong>，曾經是臺灣最大的外銷農產品，1960–1970 年代年外銷日本最高達 <strong>40 萬公噸</strong>，為臺灣賺取大量外匯，有「<strong>香蕉王國</strong>」美譽。今日內銷為主、外銷為輔，產地集中中南部，<strong>屏東縣為最大產區</strong>。</p>
@@ -134,9 +130,9 @@
 </div>
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：北蕉 — 臺灣香蕉的基礎品種，栽培歷史逾 270 年 ｜ 右：蛋蕉 — AA 二倍體芭蕉，皮薄肉滑甜度高（圖：農業部）</p>
 
-<h2>📈 產業發展概況</h2>
+<h2>產業發展概況</h2>
 <div class="variety-section">
-  <h3>🗺️ 主要產地分布</h3>
+  <h3>主要產地分布</h3>
   <table class="compare-table">
     <tr><th>排名</th><th>縣市</th><th>約佔比</th><th>主要鄉鎮</th></tr>
     <tr style="background:#FFFDE7;"><td>1</td><td><strong>屏東縣</strong></td><td>25–30%</td><td>高樹、內埔、萬巒、里港</td></tr>
@@ -147,27 +143,27 @@
   </table>
 
   <div class="key-point">
-    <strong>🌤️ 產期特點：</strong>臺灣香蕉為<strong>周年生產</strong>，但春夏（3–6 月）為風味最佳的盛產期，此時糖度最高、適合內外銷。秋冬香蕉因低溫生長較慢，果實較小但甜度仍佳。
+    <strong>產期特點：</strong>臺灣香蕉為<strong>周年生產</strong>，但春夏（3–6 月）為風味最佳的盛產期，此時糖度最高、適合內外銷。秋冬香蕉因低溫生長較慢，果實較小但甜度仍佳。
   </div>
 
-  <h3>⚖️ 產業優勢與挑戰</h3>
+  <h3>產業優勢與挑戰</h3>
   <div class="pros-cons-grid">
     <div class="pros-cons-card pros-card">
-      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-header">優勢</div>
       <div class="pc-body">
-        <div class="pc-item"><span class="pc-icon">🏆</span><span class="pc-text"><strong>歷史品牌價值</strong> — 「香蕉王國」國際知名度高，日本市場對臺蕉有忠誠度</span></div>
-        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>周年可生產</strong> — 搭配不同產區與品種，全年供應無虞</span></div>
-        <div class="pc-item"><span class="pc-icon">🧬</span><span class="pc-text"><strong>台蕉系列抗病育種有成</strong> — 從台蕉一號到八號，持續推出抗黃葉病新品種</span></div>
-        <div class="pc-item"><span class="pc-icon">🌍</span><span class="pc-text"><strong>芭蕉品種多樣</strong> — 13 種芭蕉各具風味特色，滿足多元消費需求</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>歷史品牌價值</strong> — 「香蕉王國」國際知名度高，日本市場對臺蕉有忠誠度</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>周年可生產</strong> — 搭配不同產區與品種，全年供應無虞</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>台蕉系列抗病育種有成</strong> — 從台蕉一號到八號，持續推出抗黃葉病新品種</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>芭蕉品種多樣</strong> — 13 種芭蕉各具風味特色，滿足多元消費需求</span></div>
       </div>
     </div>
     <div class="pros-cons-card cons-card">
-      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-header">挑戰</div>
       <div class="pc-body">
-        <div class="pc-item"><span class="pc-icon">🦠</span><span class="pc-text"><strong>黃葉病威脅</strong> — 第四生理小種（TR4）為全球香蕉產業最大威脅，北蕉不具抗性</span></div>
-        <div class="pc-item"><span class="pc-icon">🌪️</span><span class="pc-text"><strong>颱風災損</strong> — 香蕉植株高大易倒伏，每年颱風季損失可觀</span></div>
-        <div class="pc-item"><span class="pc-icon">📉</span><span class="pc-text"><strong>外銷量萎縮</strong> — 從年銷 40 萬噸降至近年約 3,000–8,000 噸，菲律賓、厄瓜多低價競爭</span></div>
-        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>勞動力老化</strong> — 香蕉栽培管理費工，缺工問題逐年加劇</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>黃葉病威脅</strong> — 第四生理小種（TR4）為全球香蕉產業最大威脅，北蕉不具抗性</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>颱風災損</strong> — 香蕉植株高大易倒伏，每年颱風季損失可觀</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>外銷量萎縮</strong> — 從年銷 40 萬噸降至近年約 3,000–8,000 噸，菲律賓、厄瓜多低價競爭</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>勞動力老化</strong> — 香蕉栽培管理費工，缺工問題逐年加劇</span></div>
       </div>
     </div>
   </div>
@@ -175,24 +171,24 @@
 
 <hr class="section-divider">
 
-<h2>📂 品種分類總覽</h2>
+<h2>品種分類總覽</h2>
 <p>依農業部農業知識入口網正式分類：</p>
 
 <div class="category-grid">
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="香蕉系列" loading="lazy">
-    <div class="card-body"><h4>🍌 內外銷香蕉系列</h4><p>AAA 基因組 · 10 品種</p><span class="tag tag-yellow">北蕉 · 台蕉1–8號 · 新北蕉</span></div>
+    <div class="card-body"><h4>內外銷香蕉系列</h4><p>AAA 基因組 · 10 品種</p><span class="tag tag-yellow">北蕉 · 台蕉1–8號 · 新北蕉</span></div>
   </div>
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="芭蕉系列" loading="lazy">
-    <div class="card-body"><h4>🥚 常見芭蕉系列</h4><p>AA/AB/ABB 基因組 · 13 品種</p><span class="tag tag-green">蛋蕉 · 玫瑰蕉 · 紅皮蕉 · 呂宋蕉等</span></div>
+    <div class="card-body"><h4>常見芭蕉系列</h4><p>AA/AB/ABB 基因組 · 13 品種</p><span class="tag tag-green">蛋蕉 · 玫瑰蕉 · 紅皮蕉 · 呂宋蕉等</span></div>
   </div>
 </div>
 
 <hr class="section-divider">
 
 <!-- ===== 一、內外銷香蕉 ===== -->
-<h2>🍌 一、內外銷香蕉系列（AAA 基因組）</h2>
+<h2>一、內外銷香蕉系列（AAA 基因組）</h2>
 <div class="variety-section">
 
   <!-- ── 北蕉 ── -->
@@ -273,14 +269,14 @@
       <td>周年</td>
     </tr>
   </table>
-  <div class="note-box"><strong>📌 台蕉育種脈絡：</strong>台蕉系列以「北蕉」為基礎親本，依序針對抗黃葉病（1,3,5,7,8號）、矮化抗風（2號）、豐產（6號）、外銷（新北蕉）等目標進行選育。其中<strong>台蕉 5 號玉山</strong>和<strong>新北蕉寶島蕉</strong>為目前最重要的抗病接班品種。</div>
+  <div class="note-box"><strong>台蕉育種脈絡：</strong>台蕉系列以「北蕉」為基礎親本，依序針對抗黃葉病（1,3,5,7,8號）、矮化抗風（2號）、豐產（6號）、外銷（新北蕉）等目標進行選育。其中<strong>台蕉 5 號玉山</strong>和<strong>新北蕉寶島蕉</strong>為目前最重要的抗病接班品種。</div>
 
 </div>
 
 <hr class="section-divider">
 
 <!-- ===== 二、常見芭蕉 ===== -->
-<h2>🥚 二、常見芭蕉系列</h2>
+<h2>二、常見芭蕉系列</h2>
 <div class="variety-section">
 
   <!-- ── 蛋蕉 ── -->
@@ -389,7 +385,7 @@
 
 <hr class="section-divider">
 
-<h2>📊 品種綜合對比表</h2>
+<h2>品種綜合對比表</h2>
 <div class="variety-section">
   <table class="compare-table">
     <tr><th>品種</th><th>基因組</th><th>果指特徵</th><th>單株果重</th><th>產期</th><th>核心特色</th></tr>
@@ -407,10 +403,10 @@
 
 <hr class="section-divider">
 
-<h2>🛒 選購消費指南</h2>
+<h2>選購消費指南</h2>
 <div class="variety-section">
   <div class="key-point">
-    <strong>🔍 通用選購要領：</strong><br>
+    <strong>通用選購要領：</strong><br>
     <strong>外觀：</strong>果皮金黃、無大面積黑斑或軟爛；果柄鮮綠表示新鮮<br>
     <strong>觸感：</strong>按壓微有彈性（過硬未熟、過軟過熟）<br>
     <strong>熟度：</strong>出現「芝麻點」（糖斑）時甜度最高，為最佳賞味時機<br>
@@ -418,7 +414,7 @@
   </div>
 
   <div class="note-box">
-    <strong>🔬 各品種口感速查：</strong>
+    <strong>各品種口感速查：</strong>
     <ul style="margin:8px 0 0 20px; line-height:1.9;">
       <li><strong>北蕉：</strong>經典香蕉風味，香甜均衡 — 最百搭的日常選擇</li>
       <li><strong>蛋蕉：</strong>皮薄肉滑甜度高 — 小巧精緻、一口滿足</li>
@@ -432,7 +428,7 @@
 
 <hr class="section-divider">
 
-<h2>📚 資料來源</h2>
+<h2>資料來源</h2>
 <div class="source-box">
   <p><strong>主要參考資料（農業部農業知識入口網 — 香蕉主題館）：</strong></p>
   <ul style="margin-left:20px; margin-bottom:12px;">

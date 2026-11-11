@@ -22,12 +22,8 @@
     color: white; padding: 80px 20px 60px; text-align: center;
     position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg') center/cover;
-    opacity: 0.08;
-  }
-  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
   .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
@@ -41,14 +37,12 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 18px 9px 14px;
     background: rgba(255,255,255,0.95); color: #4A1A5C;
-    text-decoration: none; font-size: 0.9rem; font-weight: 700;
+    text-decoration: none; font-size: 0.9rem; font-weight: 600;
     border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    transition: all 0.2s;
+    transition: box-shadow .2s ease;
   }
-  .back-home::before {
-    content: "\1F3E0"; font-size: 1.1rem; line-height: 1;
-  }
-  .back-home:hover { background: #fff; transform: translateX(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  
+  .back-home:hover { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
   .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
   .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
   h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
@@ -56,7 +50,7 @@
   h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
   p { margin-bottom: 12px; color: var(--medium-text); }
   .intro-box {
-    background: linear-gradient(135deg,#FCE4EC,#FFF3E0);
+    background: #FCE4EC;
     border-radius: 16px; padding: 30px; margin: 30px 0;
     border-left: 5px solid var(--accent);
   }
@@ -66,9 +60,9 @@
   }
   .category-card {
     background: var(--card-bg); border-radius: 14px; overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   }
-  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
   .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
   .category-card .card-body { padding: 16px; }
   .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
@@ -93,24 +87,24 @@
   .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
   .pros-cons-card {
     border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
+
   }
-  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-cons-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
   .pros-card .pc-header {
-    background: linear-gradient(135deg,#2E7D32,#43A047);
+    background: #2E7D32;
     color: white; padding: 16px 20px; text-align: center;
-    font-size: 1.15rem; font-weight: 700;
+    font-size: 1.15rem; font-weight: 600;
   }
   .cons-card .pc-header {
-    background: linear-gradient(135deg,#C62828,#E53935);
+    background: #C62828;
     color: white; padding: 16px 20px; text-align: center;
-    font-size: 1.15rem; font-weight: 700;
+    font-size: 1.15rem; font-weight: 600;
   }
-  .pros-card .pc-body { background: linear-gradient(180deg,#F1F8E9,#FFFFFF); padding: 20px; }
-  .cons-card .pc-body { background: linear-gradient(180deg,#FFEBEE,#FFFFFF); padding: 20px; }
+  .pros-card .pc-body { background: #F1F8E9; padding: 20px; }
+  .cons-card .pc-body { background: #FFEBEE; padding: 20px; }
   .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
   .pc-item:last-child { border-bottom: none; }
-  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; margin-top: 1px; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 600; margin-top: 1px; }
   .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
   .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
   .pc-text { flex: 1; }
@@ -131,11 +125,11 @@
   .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
   .source-box a { color: var(--accent); text-decoration: none; }
   .source-box a:hover { text-decoration: underline; }
-  .section-divider { border: none; height: 2px; background: linear-gradient(90deg,transparent,#C2185B,transparent); margin: 40px 0; }
+  .section-divider { border: none; height: 2px; background: #E5E5E5; margin: 40px 0; }
   .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   .maturity-bar { display: flex; height: 48px; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-  .maturity-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+  .maturity-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; color: white; }
   /* ── 手機板表格可橫向滾動 ── */
   @media (max-width: 650px) {
     .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
@@ -151,7 +145,7 @@
 <div class="hero">
   <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
     <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
-  <h1>🐉 臺灣紅龍果專業圖鑑</h1>
+  <h1>臺灣紅龍果專業圖鑑</h1>
   <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
   <div class="subtitle2">15 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
   <div class="author-info">
@@ -161,7 +155,7 @@
 
 <div class="container">
 
-<h2>📖 總論</h2>
+<h2>總論</h2>
 <div class="intro-box">
   <p>紅龍果（火龍果）為仙人掌科三角柱屬（<em>Hylocereus</em>），多年生攀緣性肉質植物，原生於中南美洲熱帶雨林及西印度地區。臺灣於 <strong>1983 年</strong>由國內農友及醫師自越南、中南美洲引進種原，並進行民間雜交育種。</p>
   <p>紅龍果幼年性短（約 10 個月即可生產），年產量高達 <strong>15,000 公斤/公頃</strong>以上。目前市場上<strong>白肉種約佔 3 成、紅肉種約佔 7 成</strong>，近 3–5 年新植面積以紅肉種為主。</p>
@@ -173,9 +167,9 @@
 </div>
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：白肉種(左)與紅肉種(右)幼果外觀差異 ｜ 右：各種不同肉色的紅龍果（圖：農業部）</p>
 
-<h2>📈 產業發展概況</h2>
+<h2>產業發展概況</h2>
 <div class="variety-section">
-  <h3>🕐 栽培面積變遷三階段</h3>
+  <h3>栽培面積變遷三階段</h3>
   <table class="compare-table">
     <tr><th style="width:22%">時期</th><th style="width:18%">年份</th><th style="width:20%">栽培面積</th><th>關鍵事件</th></tr>
     <tr><td style="background:#FFF3E0;">引進擴張期</td><td>1999–2003</td><td>380 → 1,044 公頃</td><td>以越南白肉種為主；品質不穩、口感差、草青味重，價格崩跌、農民棄種</td></tr>
@@ -184,10 +178,10 @@
   </table>
 
   <div class="note-box">
-    <strong>🔄 轉折關鍵：</strong>2010 年越南紅龍果因檢疫問題無法進口，加上臺灣白肉種獲日本同意外銷，使國內市場價格穩定，再次掀起種植風潮。紅肉種因含甜菜苷色素、抗氧化能力佳，需求持續增加，目前新植面積以紅肉種為主。
+    <strong>轉折關鍵：</strong>2010 年越南紅龍果因檢疫問題無法進口，加上臺灣白肉種獲日本同意外銷，使國內市場價格穩定，再次掀起種植風潮。紅肉種因含甜菜苷色素、抗氧化能力佳，需求持續增加，目前新植面積以紅肉種為主。
   </div>
 
-  <h3>🗺️ 主要產地分布</h3>
+  <h3>主要產地分布</h3>
   <p>以下數據综合自農糧署農業統計、臺南區農業改良場技術專刊（2018）及各年度產地調查。<strong>南投縣近年栽培面積持續成長，約2022–2023年間已超越彰化縣成為全台最大產區</strong>（名間鄉日夜溼差大、果品質佳、拍賣價全台最高）。</p>
   <table class="compare-table">
     <tr><th>排名</th><th>縣市</th><th>栽培面積</th><th>佔比</th><th>備註</th></tr>
@@ -202,36 +196,36 @@
   </table>
 
   <div class="note-box">
-    <strong>📊 數據說明：</strong>上表為<strong>多年度綜合估值</strong>。精確數值請參考<a href="https://agrstat.moa.gov.tw/sdweb/public/inquiry/InquireAdvance.aspx" target="_blank">農業部統計資料查詢系統</a>。
+    <strong>數據說明：</strong>上表為<strong>多年度綜合估值</strong>。精確數值請參考<a href="https://agrstat.moa.gov.tw/sdweb/public/inquiry/InquireAdvance.aspx" target="_blank">農業部統計資料查詢系統</a>。
   </div>
 
-  <h3>📊 紅肉 vs 白肉栽培比例</h3>
+  <h3>紅肉 vs 白肉栽培比例</h3>
   <div class="key-point">
     <strong>紅肉種：白肉種 ≈ 7：3</strong><br>
     近 3～5 年新植面積以紅肉種為主，主因：①含甜菜苷色素（抗氧化能力佳） ②國際市場較具競爭力 ③品種改良（大紅、蜜寶等）品質穩定。
   </div>
 
-  <h3>🌾 產業優勢與挑戰</h3>
+  <h3>產業優勢與挑戰</h3>
   <div class="pros-cons-grid">
     <div class="pros-cons-card pros-card">
-      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-header">優勢</div>
       <div class="pc-body">
-        <div class="pc-item"><span class="pc-icon">💰</span><span class="pc-text"><strong>市場價格穩定、利潤佳</strong> — 相較於其他水果，紅龍果價格波動較小</span></div>
-        <div class="pc-item"><span class="pc-icon">🌱</span><span class="pc-text"><strong>栽培門檻低、適應性廣</strong> — 耐旱耐瘠，平地至丘陵均可栽培</span></div>
-        <div class="pc-item"><span class="pc-icon">⚡</span><span class="pc-text"><strong>定植後 14 個月即可結果</strong> — 投資回收期短，資金壓力低</span></div>
-        <div class="pc-item"><span class="pc-icon">📅</span><span class="pc-text"><strong>採收期長達半年</strong> — 5–11 月為主產期，分批成熟降低集中上市風險</span></div>
-        <div class="pc-item"><span class="pc-icon">💡</span><span class="pc-text"><strong>夜間燈照可延長產期至全年</strong> — 調節技術成熟，錯峰上市提升收益</span></div>
-        <div class="pc-item"><span class="pc-icon">✈️</span><span class="pc-text"><strong>外銷日本、加拿大等市場</strong> — 白肉種已獲日方檢疫准入</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>市場價格穩定、利潤佳</strong> — 相較於其他水果，紅龍果價格波動較小</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>栽培門檻低、適應性廣</strong> — 耐旱耐瘠，平地至丘陵均可栽培</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>定植後 14 個月即可結果</strong> — 投資回收期短，資金壓力低</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>採收期長達半年</strong> — 5–11 月為主產期，分批成熟降低集中上市風險</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>夜間燈照可延長產期至全年</strong> — 調節技術成熟，錯峰上市提升收益</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>外銷日本、加拿大等市場</strong> — 白肉種已獲日方檢疫准入</span></div>
       </div>
     </div>
     <div class="pros-cons-card cons-card">
-      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-header">挑戰</div>
       <div class="pc-body">
-        <div class="pc-item"><span class="pc-icon">📊</span><span class="pc-text"><strong>全台栽培面積急速增加</strong> — 需持續監控產銷平衡，避免供過於求</span></div>
-        <div class="pc-item"><span class="pc-icon">🧑‍🌾</span><span class="pc-text"><strong>紅肉種多需人工異花授粉</strong> — 勞力成本高，授粉時段受限（夜間）</span></div>
-        <div class="pc-item"><span class="pc-icon">📐</span><span class="pc-text"><strong>各批次果形大小差異大</strong> — 分級標準化難度較高</span></div>
-        <div class="pc-item"><span class="pc-icon">🐛</span><span class="pc-text"><strong>病蟲害威脅</strong> — 炭疽病、潰瘍病、東方果實蠅等需持續防治</span></div>
-        <div class="pc-item"><span class="pc-icon">📦</span><span class="pc-text"><strong>部分品種不耐貯運</strong> — 果皮薄，常溫保存期短</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>全台栽培面積急速增加</strong> — 需持續監控產銷平衡，避免供過於求</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>紅肉種多需人工異花授粉</strong> — 勞力成本高，授粉時段受限（夜間）</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>各批次果形大小差異大</strong> — 分級標準化難度較高</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>病蟲害威脅</strong> — 炭疽病、潰瘍病、東方果實蠅等需持續防治</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>部分品種不耐貯運</strong> — 果皮薄，常溫保存期短</span></div>
       </div>
     </div>
   </div>
@@ -239,32 +233,32 @@
 
 <hr class="section-divider">
 
-<h2>📂 品種分類總覽</h2>
+<h2>品種分類總覽</h2>
 <p>依農業部農業知識入口網正式分類，臺灣紅龍果分為<strong>四大類</strong>：</p>
 
 <div class="category-grid">
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/49fe997ed1_m.jpg" alt="白肉種" loading="lazy">
-    <div class="card-body"><h4>🤍 白肉種</h4><p><em>H. undatus</em> · 自花親和 · 肉質爽脆</p><span class="tag tag-green">越南白肉種</span></div>
+    <div class="card-body"><h4>白肉種</h4><p><em>H. undatus</em> · 自花親和 · 肉質爽脆</p><span class="tag tag-green">越南白肉種</span></div>
   </div>
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/157/3276c0c7fb_m.jpg" alt="紅肉種" loading="lazy">
-    <div class="card-body"><h4>❤️ 改良紅肉種</h4><p><em>H. polyrhizus / costaricensis</em> · 10 品種</p><span class="tag tag-red">大紅 · 蜜寶 · 喜香紅等</span></div>
+    <div class="card-body"><h4>改良紅肉種</h4><p><em>H. polyrhizus / costaricensis</em> · 10 品種</p><span class="tag tag-red">大紅 · 蜜寶 · 喜香紅等</span></div>
   </div>
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/subject_WS/46587/A02_1.jpg" alt="特色品種" loading="lazy">
-    <div class="card-body"><h4>💜 特色品種</h4><p>雙色 · 粉紅 · 蜜龍 · 青龍 · 無刺</p><span class="tag tag-purple">5 特殊品種</span></div>
+    <div class="card-body"><h4>特色品種</h4><p>雙色 · 粉紅 · 蜜龍 · 青龍 · 無刺</p><span class="tag tag-purple">5 特殊品種</span></div>
   </div>
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/subject_WS/46585/A02_3.jpg" alt="黃龍果" loading="lazy">
-    <div class="card-body"><h4>💛 黃龍果（燕窩果）</h4><p><em>H. megalanthus</em> · 黃皮白肉 · 高價位</p><span class="tag tag-yellow">燕窩果</span></div>
+    <div class="card-body"><h4>黃龍果（燕窩果）</h4><p><em>H. megalanthus</em> · 黃皮白肉 · 高價位</p><span class="tag tag-yellow">燕窩果</span></div>
   </div>
 </div>
 
 <hr class="section-divider">
 
 <!-- ===== 一、白肉種 ===== -->
-<h2>🤍 一、白肉種（越南白肉種）</h2>
+<h2>一、白肉種（越南白肉種）</h2>
 <div class="variety-section">
   <h3><em>Hylocereus undatus</em> Britt. &amp; Rose</h3>
 
@@ -294,10 +288,10 @@
 <hr class="section-divider">
 
 <!-- ===== 二、改良紅肉種 ===== -->
-<h2>❤️ 二、改良紅肉種</h2>
+<h2>二、改良紅肉種</h2>
 <div class="variety-section">
 
-  <h3>🌿 紅肉種共同特徵</h3>
+  <h3>紅肉種共同特徵</h3>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>產期</td><td>較白肉種早（南部 4 月上旬至 10 月中旬），燈照可延至 11–12 月，每年 12 批花以上</td></tr>
@@ -306,7 +300,7 @@
     <tr><td>風味</td><td>糖度較高，果肉軟較不脆，含甜菜苷色素不易消化</td></tr>
   </table>
   <div class="note-box">
-    <strong>⚠️ 注意：</strong>各批次果形大小差異大，栽種較費工。排泄物帶色屬正常現象（甜菜苷色素）。
+    <strong>注意：</strong>各批次果形大小差異大，栽種較費工。排泄物帶色屬正常現象（甜菜苷色素）。
   </div>
 
   <h3>品種詳述</h3>
@@ -451,7 +445,7 @@
     </tr>
     <tr>
       <td><strong>帝龍</strong></td>
-      <td>果萼較短，果皮亮度高<br>容易裂果 ⚠️</td>
+      <td>果萼較短，果皮亮度高<br>容易裂果 </td>
       <td>甜酸適度<br>風味頗佳</td>
       <td>需人工授粉<br>管理技術要求高</td>
       <td>早、末期採收果較福龍為大<br>管理不當時果肉風味會帶酸</td>
@@ -464,7 +458,7 @@
       <td>果實蠅較不愛叮咬，可免套袋<br>台南柳營、東山一帶栽植不少</td>
     </tr>
   </table>
-  <div class="note-box"><strong>🌡️ 吳沛然系列共通特性：</strong>可適應南部地區高溫栽植，但必須人工授粉果形才會大，開花期受氣溫影響較大。</div>
+  <div class="note-box"><strong>吳沛然系列共通特性：</strong>可適應南部地區高溫栽植，但必須人工授粉果形才會大，開花期受氣溫影響較大。</div>
 
   <!-- ── 蜜玄龍、昕運2號 ── -->
   <hr>
@@ -490,7 +484,7 @@
 <hr class="section-divider">
 
 <!-- ===== 三、其他特色品種 ===== -->
-<h2>💜 三、其他特色品種</h2>
+<h2>三、其他特色品種</h2>
 <div class="variety-section">
 
   <!-- ── 雙色種 ── -->
@@ -511,7 +505,7 @@
     <tr><td>缺點</td><td>果萼短而易裂果；肉色分布不穩定</td></tr>
   </table>
 
-  <div class="note-box"><strong>🌡️ 溫度與肉色關係：</strong>高溫期間甜菜紅素不易生成，夏天果實如同白肉種。氣溫愈低、日夜溫差大時紅圈會較大。<strong>秋冬果風味最佳。</strong></div>
+  <div class="note-box"><strong>溫度與肉色關係：</strong>高溫期間甜菜紅素不易生成，夏天果實如同白肉種。氣溫愈低、日夜溫差大時紅圈會較大。<strong>秋冬果風味最佳。</strong></div>
   <div class="key-point"><strong>栽培要點：</strong>①套牛皮紙袋改善皮色 ②提早 5 天採收防裂果 ③適合草生栽培避免土壤水分變化過於激烈</div>
 
   <hr>
@@ -535,7 +529,7 @@
     <tr><td>缺點</td><td>對潰瘍病敏感度高，不耐熱</td></tr>
   </table>
 
-  <div class="key-point"><strong>🔍 粉紅種 vs 雙色種：</strong>粉紅種全果均勻淡紅無區隔，雙色種紅白兩色明顯分隔；粉紅種皮色亮麗、雙色種皮色較淡。兩者目前均尚無大面積商業生產。</div>
+  <div class="key-point"><strong>粉紅種 vs 雙色種：</strong>粉紅種全果均勻淡紅無區隔，雙色種紅白兩色明顯分隔；粉紅種皮色亮麗、雙色種皮色較淡。兩者目前均尚無大面積商業生產。</div>
 
   <hr>
 
@@ -559,7 +553,7 @@
     <tr><td>產期</td><td>花期自 3 月下旬至 12 月上旬，不經燈照即可延長至翌年 1 月 — <strong>產期極長</strong></td></tr>
     <tr><td>商業</td><td>因果皮帶細刺及果形偏小，尚無商業生產；目前作為雜交親本使用</td></tr>
   </table>
-  <div class="note-box"><strong>🔬 育種定位：</strong>蜜龍的核心價值在作為屬間雜交橋樑品系，攜帶紅肉種紅色果肉 + 黃龍甘蔗甜味、長產期、自花親和等優勢基因。未來有望育出「大果 + 無刺 + 甘蔗甜味 + 長產期」的理想品種。</div>
+  <div class="note-box"><strong>育種定位：</strong>蜜龍的核心價值在作為屬間雜交橋樑品系，攜帶紅肉種紅色果肉 + 黃龍甘蔗甜味、長產期、自花親和等優勢基因。未來有望育出「大果 + 無刺 + 甘蔗甜味 + 長產期」的理想品種。</div>
 
   <hr>
 
@@ -600,7 +594,7 @@
 <hr class="section-divider">
 
 <!-- ===== 四、黃龍果（燕窩果） ===== -->
-<h2>💛 四、黃龍果（燕窩果）</h2>
+<h2>四、黃龍果（燕窩果）</h2>
 <div class="variety-section">
   <h3><em>Hylocereus megalanthus</em> Bauer.</h3>
 
@@ -626,17 +620,17 @@
 <hr class="section-divider">
 
 <!-- ===== 品種綜合對比表 ===== -->
-<h2>📊 品種綜合對比表</h2>
+<h2>品種綜合對比表</h2>
 <div class="variety-section">
   <table class="compare-table">
     <tr><th>品種</th><th>果皮色</th><th>果肉色</th><th>果形</th><th>自花親和</th><th>糖度</th><th>特色</th></tr>
-    <tr><td><strong>白肉種</strong></td><td>紅色光澤</td><td>白色</td><td>長橢圓</td><td>✅</td><td>16–20°</td><td>爽脆·管理省工</td></tr>
-    <tr style="background:#FCE4EC;"><td><strong>大紅</strong></td><td>紅色</td><td>深紅色</td><td>偏圓形</td><td>✅</td><td>20°↑</td><td>佔紅肉6成·鱗片寬短</td></tr>
+    <tr><td><strong>白肉種</strong></td><td>紅色光澤</td><td>白色</td><td>長橢圓</td><td></td><td>16–20°</td><td>爽脆·管理省工</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>大紅</strong></td><td>紅色</td><td>深紅色</td><td>偏圓形</td><td></td><td>20°↑</td><td>佔紅肉6成·鱗片寬短</td></tr>
     <tr><td><strong>蜜寶</strong></td><td>紅色</td><td>紅色</td><td>橢圓/圓球</td><td>—</td><td>18°↑</td><td>外銷種·耐貯放2週</td></tr>
-    <tr style="background:#FCE4EC;"><td><strong>喜香紅</strong></td><td>紅色</td><td>紅色</td><td>長橢圓</td><td>✅</td><td>18°↑</td><td>濃厚香氣·風味優</td></tr>
-    <tr><td><strong>富貴紅</strong></td><td>玫瑰紅</td><td>紫紅色</td><td>長橢圓</td><td>✅</td><td>—</td><td>易側邊裂果·對肥水敏感</td></tr>
+    <tr style="background:#FCE4EC;"><td><strong>喜香紅</strong></td><td>紅色</td><td>紅色</td><td>長橢圓</td><td></td><td>18°↑</td><td>濃厚香氣·風味優</td></tr>
+    <tr><td><strong>富貴紅</strong></td><td>玫瑰紅</td><td>紫紅色</td><td>長橢圓</td><td></td><td>—</td><td>易側邊裂果·對肥水敏感</td></tr>
     <tr style="background:#FCE4EC;"><td><strong>小甜甜</strong></td><td>桃紅色</td><td>紫紅(淡)</td><td>偏小</td><td>—</td><td>19°↑</td><td>甘蔗甜味·宅配市場</td></tr>
-    <tr><td><strong>石火泉</strong></td><td>紅色</td><td>紅色</td><td>—</td><td>✅</td><td>中等</td><td>較適中部·栽培者漸少</td></tr>
+    <tr><td><strong>石火泉</strong></td><td>紅色</td><td>紅色</td><td>—</td><td></td><td>中等</td><td>較適中部·栽培者漸少</td></tr>
     <tr style="background:#FCE4EC;"><td><strong>甜龍</strong></td><td>紅色</td><td>紫紅色</td><td>偏圓球</td><td>—</td><td>甜酸兼俱</td><td>果實蠅較不愛叮</td></tr>
     <tr><td><strong>蜜玄龍</strong></td><td>紅色</td><td>紅色</td><td>—</td><td>—</td><td>—</td><td>鱗片披針形·辨識度高</td></tr>
     <tr><td><strong>臻寶</strong></td><td>紅色</td><td>紫紅(不均)</td><td>—</td><td>—</td><td>—</td><td>淡紫紅肉</td></tr>
@@ -645,36 +639,36 @@
     <tr style="background:#E8F5E9;"><td><strong>蜜龍</strong></td><td>橙紅色</td><td>紅色</td><td>偏小</td><td>—</td><td>20°↑</td><td>甘蔗甜味·產期極長</td></tr>
     <tr style="background:#E8F5E9;"><td><strong>青龍</strong></td><td>綠色</td><td>白/紅肉</td><td>—</td><td>—</td><td>中等</td><td>綠皮特色·成熟度難判定</td></tr>
     <tr style="background:#E0F2F1;"><td><strong>善龍</strong></td><td>紅色光澤</td><td>紅色</td><td>—</td><td>—</td><td>較淡薄</td><td>近無刺·管理方便</td></tr>
-    <tr style="background:#FFF9C4;"><td><strong>黃龍</strong></td><td>黃色帶刺</td><td>白色</td><td>偏小</td><td>✅</td><td>高</td><td>高價位·易染炭疽潰瘍</td></tr>
+    <tr style="background:#FFF9C4;"><td><strong>黃龍</strong></td><td>黃色帶刺</td><td>白色</td><td>偏小</td><td></td><td>高</td><td>高價位·易染炭疽潰瘍</td></tr>
   </table>
 </div>
 
 <hr class="section-divider">
 
-<h2>🌱 栽培技術要點</h2>
+<h2>栽培技術要點</h2>
 <div class="variety-section">
-  <h3>🌿 授粉需求一覽</h3>
+  <h3>授粉需求一覽</h3>
   <table class="compare-table">
     <tr><th>授粉類型</th><th>品種</th><th>說明</th></tr>
     <tr><td><span class="badge badge-main">自花親和</span></td><td>白肉種、大紅、喜香紅、富貴紅、石火泉、燕窩果</td><td>不需人工授粉，遇雨不影響著果</td></tr>
     <tr><td><span class="badge" style="background:#FF5722;color:white;">需人工授粉</span></td><td>蜜寶、吳沛然系列(夏季)、粉紅種(夏季)、部分紅肉種</td><td>柱頭長於雄蕊，需混用其他品種花粉</td></tr>
   </table>
 
-  <h3>📦 套袋建議</h3>
+  <h3>套袋建議</h3>
   <table class="compare-table">
     <tr><th>套袋材質</th><th>效果</th><th>適用品種</th></tr>
-    <tr><td>牛皮紙袋</td><td>✅ 皮色亮麗最佳</td><td>白肉種、雙色種</td></tr>
-    <tr><td>不織布袋</td><td>✅ 皮色尚可</td><td>一般品種</td></tr>
-    <tr><td>紗網袋</td><td>❌ 皮色不均、賣相差</td><td>不建議</td></tr>
+    <tr><td>牛皮紙袋</td><td>皮色亮麗最佳</td><td>白肉種、雙色種</td></tr>
+    <tr><td>不織布袋</td><td>皮色尚可</td><td>一般品種</td></tr>
+    <tr><td>紗網袋</td><td>皮色不均、賣相差</td><td>不建議</td></tr>
   </table>
 </div>
 
 <hr class="section-divider">
 
-<h2>🛒 選購消費指南</h2>
+<h2>選購消費指南</h2>
 <div class="variety-section">
   <div class="key-point">
-    <strong>🔍 通用選購要領：</strong><br>
+    <strong>通用選購要領：</strong><br>
     <strong>外觀：</strong>果皮鮮紅有光澤、鱗片鮮綠不枯萎<br>
     <strong>觸感：</strong>按壓微有彈性（過硬未熟、過軟過熟）<br>
     <strong>重量：</strong>同體積下愈重愈好（水分充足）<br>
@@ -682,7 +676,7 @@
   </div>
 
   <div class="note-box" style="margin-top:16px;">
-    <strong>🔬 各品種口感速查：</strong>
+    <strong>各品種口感速查：</strong>
     <ul style="margin:8px 0 0 20px; line-height:1.9;">
       <li><strong>白肉種：</strong>肉質爽脆、清甜不膩 — 最適合不喜黏口的人</li>
       <li><strong>大紅／蜜寶：</strong>甜度高（18–20°Brix）、多汁細嫩</li>
@@ -696,7 +690,7 @@
 
 <hr class="section-divider">
 
-<h2>🏢 北農交易代碼對照</h2>
+<h2>北農交易代碼對照</h2>
 <div class="variety-section">
   <p>以下為本圖鑑收錄品種與<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司</a>果菜品名代碼對照：</p>
   <table class="compare-table">
@@ -723,7 +717,7 @@
 
 <hr class="section-divider">
 
-<h2>📚 資料來源</h2>
+<h2>資料來源</h2>
 <div class="source-box">
   <p><strong>主要參考資料（農業部農業知識入口網 — 紅龍果主題館）：</strong></p>
   <ul style="margin-left:20px; margin-bottom:12px;">

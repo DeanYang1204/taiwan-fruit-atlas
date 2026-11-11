@@ -30,12 +30,8 @@
     color: white; padding: 80px 20px 60px; text-align: center;
     position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://kmweb.moa.gov.tw/files/subject_WS/10694/A02_12.jpg') center/cover;
-    opacity: 0.12;
-  }
-  .hero h1 { font-size: 2.8rem; position: relative; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); margin-bottom: 10px; }
+  
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
   .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
@@ -49,14 +45,12 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 18px 9px 14px;
     background: rgba(255,255,255,0.95); color: #4A1A5C;
-    text-decoration: none; font-size: 0.9rem; font-weight: 700;
+    text-decoration: none; font-size: 0.9rem; font-weight: 600;
     border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    transition: all 0.2s;
+    transition: box-shadow .2s ease;
   }
-  .back-home::before {
-    content: "\1F3E0"; font-size: 1.1rem; line-height: 1;
-  }
-  .back-home:hover { background: #fff; transform: translateX(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  
+  .back-home:hover { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
   .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
   .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
   h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
@@ -65,7 +59,7 @@
   p { margin-bottom: 12px; color: var(--medium-text); }
   
   .intro-box {
-    background: linear-gradient(135deg, #FFF3E0, #FFF8E1);
+    background: #FFF3E0;
     border-radius: 16px; padding: 30px; margin: 30px 0;
     border-left: 5px solid var(--accent);
   }
@@ -76,10 +70,10 @@
   }
   .category-card {
     background: var(--card-bg); border-radius: 14px; overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     cursor: default;
   }
-  .category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
   .category-card img {
     width: 100%; height: 200px; object-fit: contain; display: block;
     background: #f8f8f8;
@@ -98,9 +92,9 @@
   }
   .variety-card {
     background: #FAFAFA; border-radius: 12px; overflow: hidden;
-    border: 1px solid #eee; transition: transform 0.3s;
+    border: 1px solid #eee;
   }
-  .variety-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+  .variety-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
   .variety-card img {
     width: 100%; max-height: 240px; object-fit: contain; display: block;
     background: #f5f5f5;
@@ -141,21 +135,21 @@
   }
   .pros-cons-card {
     border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow .2s ease;
   }
-  .pros-cons-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-cons-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
   .pros-card .pc-header {
-    background: linear-gradient(135deg, #2E7D32, #43A047);
+    background: #2E7D32;
     color: white; padding: 16px 20px; text-align: center;
-    font-size: 1.15rem; font-weight: 700; letter-spacing: 2px;
+    font-size: 1.15rem; font-weight: 600; letter-spacing: 2px;
   }
   .cons-card .pc-header {
-    background: linear-gradient(135deg, #C62828, #E53935);
+    background: #C62828;
     color: white; padding: 16px 20px; text-align: center;
-    font-size: 1.15rem; font-weight: 700; letter-spacing: 2px;
+    font-size: 1.15rem; font-weight: 600; letter-spacing: 2px;
   }
-  .pros-card .pc-body { background: linear-gradient(180deg, #F1F8E9, #FFFFFF); padding: 20px; }
-  .cons-card .pc-body { background: linear-gradient(180deg, #FFEBEE, #FFFFFF); padding: 20px; }
+  .pros-card .pc-body { background: #F1F8E9; padding: 20px; }
+  .cons-card .pc-body { background: #FFEBEE; padding: 20px; }
   .pc-item {
     display: flex; align-items: flex-start; gap: 10px;
     padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08);
@@ -165,7 +159,7 @@
   .pc-icon {
     flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.82rem; font-weight: 700; margin-top: 1px;
+    font-size: 0.82rem; font-weight: 600; margin-top: 1px;
   }
   .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
   .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
@@ -207,7 +201,7 @@
   .source-box a:hover { text-decoration: underline; }
   
   .section-divider {
-    border: none; height: 2px; background: linear-gradient(90deg, transparent, #FF8F00, transparent);
+    border: none; height: 2px; background: #E5E5E5;
     margin: 40px 0;
   }
   .note-box {
@@ -247,7 +241,7 @@
 <div class="hero">
   <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
     <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
-  <h1>🥭 臺灣芒果專業圖鑑</h1>
+  <h1>臺灣芒果專業圖鑑</h1>
   <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
   <div class="subtitle2">24 品種完整收錄 · 依農業部農業知識入口網正式分類</div>
   <div class="author-info">
@@ -258,7 +252,7 @@
 <div class="container">
 
 <!-- ====== 總論 ====== -->
-<h2>📖 總論</h2>
+<h2>總論</h2>
 <div class="intro-box">
   <p>芒果（<em>Mangifera indica</em> L.）為漆樹科常綠喬木，原產於印度及中南半島，已有超過 4,000 年栽培歷史。臺灣芒果最早於 <strong>17 世紀荷蘭統治時期</strong>引進，種植於臺南六甲一帶，經 400 年馴化形成今日的「土芒果」（在來種），是臺灣所有芒果品種的根基。</p>
   <p>目前全臺芒果栽培面積約 <strong>16,000 公頃</strong>，年產約 15 萬公噸，產值逾 <strong>80 億元</strong>。產地高度集中於南部三縣市（臺南、屏東、高雄），<strong>每 10 顆芒果就有 9 顆來自這三個縣市</strong>。其中愛文品種佔市場約 5 成以上，是臺灣最具代表性的芒果品種。</p>
@@ -271,34 +265,34 @@
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：愛文芒果果實 ｜ 右：金煌芒果果實（圖：農業部農業知識入口網）</p>
 
 <!-- ====== 歷史引進脈絡 ====== -->
-<h2>📜 引進歷史脈絡</h2>
+<h2>引進歷史脈絡</h2>
 <div class="variety-section">
   <p>臺灣芒果品種的演進，與殖民、戰爭及全球化緊密相連，歷經四大階段：</p>
   
   <div class="timeline">
     <div class="timeline-item">
-      <h4>🏴󠁧󠁢󠁮󠁬󠁿 第一階段：大航海時代（17 世紀）</h4>
+      <h4>第一階段：大航海時代（17 世紀）</h4>
       <p>荷蘭人最早將芒果引入臺灣，種植於臺南六甲及附近鄉鎮。經 400 年馴化，形成以「柴檨」為主的<strong>土芒果族群</strong>（含香檨、肉檨、牛犀等），成為現今所有芒果嫁接的根砧基礎。</p>
     </div>
     <div class="timeline-item">
-      <h4>🇯🇵 第二階段：日治時期（1910 年代起）</h4>
+      <h4>第二階段：日治時期（1910 年代起）</h4>
       <p>日本以臺灣為南進基地，從印尼、印度等地大量引進「南洋種」芒果，品種多達 30 餘種，是歷史上引進最多外來種源的時代。現今仍存的有<strong>黑香（烏香）、懷特、卓安南</strong>等。</p>
     </div>
     <div class="timeline-item">
-      <h4>🇺🇸 第三階段：美援時代（1954 年起）</h4>
+      <h4>第三階段：美援時代（1954 年起）</h4>
       <p>農復會自美國佛羅里達州引進<strong>愛文、凱特、海頓、聖心</strong>等品種，開啟現代化大規模種植。其中愛文成為今日臺灣芒果的代名詞，佔有率超過 5 成。</p>
     </div>
     <div class="timeline-item">
-      <h4>🧬 第四階段：本土育種時代（1960 年代至今）</h4>
+      <h4>第四階段：本土育種時代（1960 年代至今）</h4>
       <p>官方與民間不斷培育新品種。高雄六龜果農黃金煌育出<strong>金煌</strong>，帶動雜交育種風潮；官方陸續推出<strong>臺農一號、夏雪（高雄 3 號）、蜜雪（高雄 4 號）、臺中一號</strong>等，臺灣已成為全球芒果品種多樣性最高的地區之一——種原庫保有 <strong>130 種</strong>，市面上可購得超過 <strong>20 種</strong>。</p>
     </div>
   </div>
 </div>
 
 <!-- ====== 產業發展概況 ====== -->
-<h2>📈 產業發展概況</h2>
+<h2>產業發展概況</h2>
 <div class="variety-section">
-  <h3>🗺️ 主要產地分布</h3>
+  <h3>主要產地分布</h3>
   <p>國產芒果產地極度集中於南部，全臺種植面積約 <strong>16,000 公頃</strong>，南部三縣市佔比超過 90%：</p>
   <table class="compare-table">
     <tr><th>排名</th><th>縣市</th><th>栽培面積（約）</th><th>佔比</th><th>主要鄉鎮</th></tr>
@@ -310,10 +304,10 @@
   </table>
 
   <div class="key-point">
-    <strong>🌤️ 產期節奏：</strong>屏東因緯度較低，<strong>4 月下旬率先上市</strong>（枋山愛文）；臺南接棒至 7 月下旬（玉井、南化為核心）；高雄六龜等山區因海拔較高產期可延至 8 月；凱特為最晚熟品種，產季可到 <strong>9–10 月</strong>。
+    <strong>產期節奏：</strong>屏東因緯度較低，<strong>4 月下旬率先上市</strong>（枋山愛文）；臺南接棒至 7 月下旬（玉井、南化為核心）；高雄六龜等山區因海拔較高產期可延至 8 月；凱特為最晚熟品種，產季可到 <strong>9–10 月</strong>。
   </div>
 
-  <h3>📊 各品種栽培佔比（概估）</h3>
+  <h3>各品種栽培佔比（概估）</h3>
   <table class="compare-table">
     <tr><th>品種</th><th>市佔率（約）</th><th>定位</th><th>產期</th></tr>
     <tr style="background:#FBE9E7;"><td><strong>愛文</strong></td><td>50–55%</td><td>主力品種，內外銷主力</td><td>5–7 月</td></tr>
@@ -324,54 +318,54 @@
     <tr><td>其他品種</td><td>5–10%</td><td>夏雪、蜜雪、黑香、金蜜等特色品種</td><td>5–10 月</td></tr>
   </table>
 
-  <h3>⚖️ 產業優勢與挑戰</h3>
+  <h3>產業優勢與挑戰</h3>
   <div class="pros-cons-grid">
     <div class="pros-cons-card pros-card">
-      <div class="pc-header">✅ 優 勢</div>
+      <div class="pc-header">優勢</div>
       <div class="pc-body">
         <div class="pc-item">
-          <span class="pc-icon">🌏</span>
+          
           <span class="pc-text"><strong>品種多樣性全球第一</strong> — 種原庫 130 種、市面可購 20+ 種，滿足多元消費需求</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">📦</span>
+          
           <span class="pc-text"><strong>愛文具備外銷競爭力</strong> — 紅皮討喜、甜酸均衡，成功打入日本、韓國、香港市場</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">📅</span>
+          
           <span class="pc-text"><strong>產期可從 4 月延伸至 10 月</strong> — 搭配不同品種與產地，供應期長達半年以上</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">🏆</span>
+          
           <span class="pc-text"><strong>民間育種能量強</strong> — 金煌、玉文、農民黨等均為農民自主選育，具市場驅動力</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">🔬</span>
+          
           <span class="pc-text"><strong>高甜度優勢</strong> — 臺中一號糖度可達 21°Brix、金蜜 21.3°Brix，具國際競爭力</span>
         </div>
       </div>
     </div>
     <div class="pros-cons-card cons-card">
-      <div class="pc-header">⚠️ 挑 戰</div>
+      <div class="pc-header">挑戰</div>
       <div class="pc-body">
         <div class="pc-item">
-          <span class="pc-icon">🦠</span>
+          
           <span class="pc-text"><strong>炭疽病威脅</strong> — 愛文極不耐炭疽病，採後黑點斑嚴重影響商品價值與櫥架壽命</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">📉</span>
+          
           <span class="pc-text"><strong>產期過度集中</strong> — 5–7 月盛產期易供過於求，價格波動大</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">🌀</span>
+          
           <span class="pc-text"><strong>颱風風險</strong> — 產季與颱風季高度重疊，晚熟品種（凱特）風險尤高</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">🔄</span>
+          
           <span class="pc-text"><strong>隔年結果習性</strong> — 部分品種有明顯大小年，影響產量穩定性</span>
         </div>
         <div class="pc-item">
-          <span class="pc-icon">🌡️</span>
+          
           <span class="pc-text"><strong>氣候變遷影響</strong> — 暖冬導致開花不整齊、低溫寒害影響著果率</span>
         </div>
       </div>
@@ -382,14 +376,14 @@
 <hr class="section-divider">
 
 <!-- ====== 品種分類總覽 ====== -->
-<h2>📂 品種分類總覽</h2>
+<h2>品種分類總覽</h2>
 <p>依引進來源與育成背景，將臺灣芒果分為<strong>五大類</strong>：</p>
 
 <div class="category-grid">
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/e8afe65697_m.png" alt="在來種" loading="lazy">
     <div class="card-body">
-      <h4>🌳 本土在來種</h4>
+      <h4>本土在來種</h4>
       <p>400 年馴化 · 濃郁芒果香</p>
       <span class="tag tag-green">土芒果（柴檨）</span>
     </div>
@@ -397,7 +391,7 @@
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/427844a45d_m.jpg" alt="美國引進種" loading="lazy">
     <div class="card-body">
-      <h4>🇺🇸 美國引進種</h4>
+      <h4>美國引進種</h4>
       <p>1954 年引進 · 現代化主力</p>
       <span class="tag tag-red">愛文 · 凱特 · 海頓 · 聖心</span>
     </div>
@@ -405,7 +399,7 @@
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/cec61f8bda_m.jpg" alt="南洋引進種" loading="lazy">
     <div class="card-body">
-      <h4>🌏 南洋引進種</h4>
+      <h4>南洋引進種</h4>
       <p>日治時期引入 · 異國風味</p>
       <span class="tag tag-green">黑香 · 懷特 · 卓安南</span>
     </div>
@@ -413,7 +407,7 @@
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/4b25833054_m.jpg" alt="官方育成" loading="lazy">
     <div class="card-body">
-      <h4>🧬 官方育成品種</h4>
+      <h4>官方育成品種</h4>
       <p>農改場/農試所育成</p>
       <span class="tag tag-blue">夏雪 · 蜜雪 · 臺農一號 · 臺中一號</span>
     </div>
@@ -421,7 +415,7 @@
   <div class="category-card">
     <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/20/d58db2c54b_m.jpg" alt="民間育種" loading="lazy">
     <div class="card-body">
-      <h4>🧑‍🌾 民間育成品種</h4>
+      <h4>民間育成品種</h4>
       <p>農民自主選育 · 百花齊放</p>
       <span class="tag tag-gold">金煌 · 玉文 · 紅龍 · 金蜜 等</span>
     </div>
@@ -433,7 +427,7 @@
 <!-- ================================================ -->
 <!-- 一、本土在來種 -->
 <!-- ================================================ -->
-<h2>🌳 一、本土在來種</h2>
+<h2>一、本土在來種</h2>
 
 <div class="variety-section">
   <h3><em>Mangifera indica</em> L. — 土芒果（柴檨）</h3>
@@ -444,7 +438,7 @@
   </div>
   <p style="font-size:0.82rem;color:#999;text-align:center;">左：土芒果果實 ｜ 右：左為愛文、右為土芒果對比（圖：農業部）</p>
 
-  <h4>🌿 品種特徵</h4>
+  <h4>品種特徵</h4>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>歷史</td><td>荷蘭統治時期（17 世紀）引進，經 400 年馴化，含香檨、柴檨、肉檨、牛檨等品系，以柴檨栽培最廣</td></tr>
@@ -459,7 +453,7 @@
   </table>
 
   <div class="note-box">
-    <strong>🍦 多元用途：</strong>土芒果果實雖小，但用途最廣——幼果可製作酸甜爽脆的情人果（芒果青），成熟果可製成蜜餞、芒果乾、冰沙。坊間另有改良種，果實較大（約 200g），產期稍晚但風味同樣迷人。
+    <strong>多元用途：</strong>土芒果果實雖小，但用途最廣——幼果可製作酸甜爽脆的情人果（芒果青），成熟果可製成蜜餞、芒果乾、冰沙。坊間另有改良種，果實較大（約 200g），產期稍晚但風味同樣迷人。
   </div>
 </div>
 
@@ -468,7 +462,7 @@
 <!-- ================================================ -->
 <!-- 二、美國引進種 -->
 <!-- ================================================ -->
-<h2>🇺🇸 二、美國引進種（1954 年農復會引進）</h2>
+<h2>二、美國引進種（1954 年農復會引進）</h2>
 
 <div class="variety-section">
   <h3>2.1 愛文 Irwin <span class="badge badge-main">主力品種</span></h3>
@@ -489,7 +483,7 @@
     <tr><td>植株</td><td>可高達 4 公尺，建議矮化至 2.5 公尺以下以利管理</td></tr>
     <tr><td>產期</td><td>5–7 月</td></tr>
     <tr><td>市場</td><td><strong>內外銷主力</strong>，產量穩定、不易隔年結果，紅皮討喜</td></tr>
-    <tr><td>缺點</td><td>⚠️ 極不耐炭疽病，採後櫥架壽命短，易產生黑點病斑降低商品價值。果皮出現黑點表示成熟度已足，應盡快食用</td></tr>
+    <tr><td>缺點</td><td>極不耐炭疽病，採後櫥架壽命短，易產生黑點病斑降低商品價值。果皮出現黑點表示成熟度已足，應盡快食用</td></tr>
   </table>
 
   <hr>
@@ -509,7 +503,7 @@
     <tr><td>風味</td><td>酸度較高（0.5–0.9%），成熟軟化後降至約 0.25%；酸甜感強烈</td></tr>
     <tr><td>糖度</td><td>13–18 °Brix</td></tr>
     <tr><td>栽培</td><td>耐病蟲害能力強，用藥需求較少；多使用黑色牛皮紙袋套袋促進轉色</td></tr>
-    <tr><td>風險</td><td>⚠️ 果實過大（>900g）或過晚採收，果肉生理劣變風險增加；產季易受颱風危害</td></tr>
+    <tr><td>風險</td><td>果實過大（>900g）或過晚採收，果肉生理劣變風險增加；產季易受颱風危害</td></tr>
   </table>
 
   <hr>
@@ -544,7 +538,7 @@
 <!-- ================================================ -->
 <!-- 三、南洋引進種 -->
 <!-- ================================================ -->
-<h2>🌏 三、南洋引進種（日治時期引入）</h2>
+<h2>三、南洋引進種（日治時期引入）</h2>
 
 <div class="variety-section">
   <h3>3.1 黑香（烏香）</h3>
@@ -566,7 +560,7 @@
   </table>
 
   <div class="note-box">
-    <strong>🔍 黑香 vs 萬清香（七里香）：</strong>兩者皆為綠皮種，市場容易混淆。萬清香尾韻帶荔枝、龍眼果的清香，產期 6–7 月，市面上非常少見。兩個品種風味有些許不同。
+    <strong>黑香 vs 萬清香（七里香）：</strong>兩者皆為綠皮種，市場容易混淆。萬清香尾韻帶荔枝、龍眼果的清香，產期 6–7 月，市面上非常少見。兩個品種風味有些許不同。
   </div>
 
   <hr>
@@ -584,7 +578,7 @@
     <tr><td>別名</td><td>香蕉檨（果型長如香蕉）、竹葉檨、白檨（果肉淺黃偏白）</td></tr>
     <tr><td>果肉</td><td>淺黃偏白色，Q 軟特殊、細緻、香甜</td></tr>
     <tr><td>育種價值</td><td><strong>金煌芒果的親本</strong>！金煌的果型長、果肉細緻、種子扁薄等優良特性，均遺傳自懷特</td></tr>
-    <tr><td>注意事項</td><td>⚠️ 對撲克拉錳藥劑敏感，易產生藥害，應避免使用</td></tr>
+    <tr><td>注意事項</td><td>對撲克拉錳藥劑敏感，易產生藥害，應避免使用</td></tr>
     <tr><td>現況</td><td>栽培面積極少，主要作為育種材料</td></tr>
   </table>
 
@@ -612,7 +606,7 @@
 <!-- ================================================ -->
 <!-- 四、官方育成品種 -->
 <!-- ================================================ -->
-<h2>🧬 四、官方育成品種</h2>
+<h2>四、官方育成品種</h2>
 
 <div class="variety-section">
   <h3>4.1 高雄 3 號─夏雪 <span class="badge badge-new">芒果界 LV</span></h3>
@@ -644,7 +638,7 @@
   </div>
   <p style="font-size:0.82rem;color:#999;">蜜雪果實：果皮呈亮麗桃紅色、果肉橙黃，果形圓潤（圖：高雄區農業改良場）</p>
 
-  <h4>🌿 品種特徵</h4>
+  <h4>品種特徵</h4>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>高雄區農業改良場李雪如；愛文開放雜交後裔中選出（KMI90056 品系）</td></tr>
@@ -661,7 +655,7 @@
     <tr><td>開花期</td><td>屏東 1 月中旬至 3 月上旬；花期適逢寒流，<strong>需飼養麗蠅輔助授粉</strong></td></tr>
   </table>
 
-  <h4>📊 蜜雪 vs 愛文 — 對照試驗數據</h4>
+  <h4>蜜雪 vs 愛文 — 對照試驗數據</h4>
   <table class="compare-table">
     <tr><th>調查日期</th><th>品種</th><th>果重(g)</th><th>果肉率(%)</th><th>糖度(°Brix)</th><th>酸度(%)</th></tr>
     <tr style="background:#FCE4EC;">
@@ -677,12 +671,12 @@
   </table>
 
   <div class="note-box">
-    <strong>🌱 栽培要點摘要：</strong>① 適合嘉義以南，pH 5.5–7.0，行株距 5×4m 或 6×5m ② 主幹 60–80cm 處修剪，反覆修剪形成半圓樹冠<br>
+    <strong>栽培要點摘要：</strong>① 適合嘉義以南，pH 5.5–7.0，行株距 5×4m 或 6×5m ② 主幹 60–80cm 處修剪，反覆修剪形成半圓樹冠<br>
     ③ 盛花後 40–50 日疏果（每穗留 1–2 果）、雞蛋大時套<strong>半透明防水紙袋</strong> ④ 謝花後 120–130 天開始轉色時採收
   </div>
 
   <div class="key-point">
-    <strong>🔍 育種意義：</strong>蜜雪的核心價值在於解決愛文「不耐炭疽病、櫥架壽命短」的外銷致命傷——室溫 12 天病害率僅 25%（愛文 100%），同時維持甚至超越愛文的甜度水準。
+    <strong>育種意義：</strong>蜜雪的核心價值在於解決愛文「不耐炭疽病、櫥架壽命短」的外銷致命傷——室溫 12 天病害率僅 25%（愛文 100%），同時維持甚至超越愛文的甜度水準。
   </div>
 
   <hr>
@@ -715,7 +709,7 @@
   </div>
   <p style="font-size:0.82rem;color:#999;">臺中一號：果皮色澤黃帶紅，光照充足可完全轉紅，糖度可達 21°Brix（圖：臺中區農業改良場 / 中時新聞網）</p>
 
-  <h4>🌿 品種特徵</h4>
+  <h4>品種特徵</h4>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>育成</td><td>國立中興大學謝慶昌 × 臺中區農業改良場；金煌實生後代選拔，15 年育成</td></tr>
@@ -732,13 +726,13 @@
   </table>
 
   <div class="note-box">
-    <strong>🌱 栽培要點：</strong>① 園地通風良好，土層深厚壤質土，行株距 5×5m ② 枝條較柔軟，分枝宜高、主枝角度不宜過大，以免果實碰地<br>
+    <strong>栽培要點：</strong>① 園地通風良好，土層深厚壤質土，行株距 5×5m ② 枝條較柔軟，分枝宜高、主枝角度不宜過大，以免果實碰地<br>
     ③ 正常結果量下單一結果枝留 1–2 果為宜<br>
     ④ 套用<strong>半透明白色紙袋</strong>可增加果皮著色程度
   </div>
 
   <div class="key-point">
-    <strong>🔍 與金煌的關鍵差異：</strong>臺中一號雖為金煌實生後代，但解決了金煌最致命的「不可在欉黃」問題——金煌若在樹上完熟會生理劣變爛心，臺中一號卻可安心在欉紅採收，是育種上的一大突破。
+    <strong>與金煌的關鍵差異：</strong>臺中一號雖為金煌實生後代，但解決了金煌最致命的「不可在欉黃」問題——金煌若在樹上完熟會生理劣變爛心，臺中一號卻可安心在欉紅採收，是育種上的一大突破。
   </div>
 
 </div>
@@ -748,7 +742,7 @@
 <!-- ================================================ -->
 <!-- 五、民間育成品種 -->
 <!-- ================================================ -->
-<h2>🧑‍🌾 五、民間育成品種</h2>
+<h2>五、民間育成品種</h2>
 
 <div class="variety-section">
   <p>臺灣農民的育種熱情舉世聞名，以金煌為首的民間育成品種百花齊放，帶動了整個芒果產業的多元化發展。</p>
@@ -793,7 +787,7 @@
 
   <hr>
 
-  <h3>📋 其他民間育成品種一覽</h3>
+  <h3>其他民間育成品種一覽</h3>
   <div class="variety-grid">
 
     <!-- 紅龍 -->
@@ -856,7 +850,7 @@
         <p>紅皮 · 果型圓略扁 · 柱頭痕跡凸起為明顯特徵</p>
         <p>果重約 670g · 糖度 16.2 °Brix · 糖酸比 90</p>
         <p><span class="tag tag-red">紅皮</span> <span class="tag tag-cross">香氣濃郁</span></p>
-        <p style="font-size:0.82rem;color:#888;">⚠️ 部分園區栽培有生理劣變問題，栽培面積不多</p>
+        <p style="font-size:0.82rem;color:#888;">部分園區栽培有生理劣變問題，栽培面積不多</p>
       </div>
     </div>
 
@@ -902,7 +896,7 @@
   </div>
 
   <!-- 少量栽培品種簡表 -->
-  <h3>📋 其他少量栽培品種一覽</h3>
+  <h3>其他少量栽培品種一覽</h3>
   <table class="compare-table">
     <tr><th>品種</th><th>來源</th><th>果重(g)</th><th>糖度</th><th>特色</th><th>現況</th></tr>
     <tr><td>文心</td><td>1997 年臺南玉井發現</td><td>500–600</td><td>—</td><td>紅皮圓型、中晚生</td><td>零星栽培</td></tr>
@@ -915,7 +909,7 @@
 <hr class="section-divider">
 
 <!-- ====== 品種綜合對比表 ====== -->
-<h2>📊 品種綜合對比表</h2>
+<h2>品種綜合對比表</h2>
 
 <div class="variety-section">
 <table class="compare-table">
@@ -973,10 +967,10 @@
 <hr class="section-divider">
 
 <!-- ====== 選購消費指南 ====== -->
-<h2>🛒 選購消費指南</h2>
+<h2>選購消費指南</h2>
 
 <div class="variety-section">
-  <h3>🔍 通用選購要領</h3>
+  <h3>通用選購要領</h3>
   <div class="key-point">
     <strong>外觀：</strong>果皮色澤均勻、無大量黑斑或凹陷<br>
     <strong>觸感：</strong>輕壓微有彈性（過硬未熟、過軟過熟）<br>
@@ -985,37 +979,37 @@
     <strong>果粉：</strong>表面有白色果粉表示新鮮採收
   </div>
 
-  <h3>🥭 各品種口感速查</h3>
+  <h3>各品種口感速查</h3>
   <table class="compare-table">
     <tr><th>口感偏好</th><th>推薦品種</th><th>說明</th></tr>
     <tr>
-      <td>🍬<strong>怕酸一族</strong></td>
+      <td><strong>怕酸一族</strong></td>
       <td>金煌、金蜜、臺中一號</td>
       <td>酸度極低，金煌酸度僅 0.24%，幾乎不酸；金蜜糖高達 21°Brix</td>
     </tr>
     <tr>
-      <td>🍋<strong>酸甜均衡派</strong></td>
+      <td><strong>酸甜均衡派</strong></td>
       <td>愛文</td>
       <td>甜酸比例適中（糖酸比 57），層次分明，經典不敗</td>
     </tr>
     <tr>
-      <td>💪<strong>大口吃肉派</strong></td>
+      <td><strong>大口吃肉派</strong></td>
       <td>金煌、玉文、金興</td>
       <td>果實大、種子薄、果肉率高</td>
     </tr>
     <tr>
-      <td>🌿<strong>香氣至上派</strong></td>
+      <td><strong>香氣至上派</strong></td>
       <td>土芒果、夏雪、黑香</td>
       <td>土芒果香氣最濃、夏雪土芒果風味、黑香龍眼香</td>
     </tr>
     <tr>
-      <td>🧊<strong>耐放實惠派</strong></td>
+      <td><strong>耐放實惠派</strong></td>
       <td>凱特、臺農一號</td>
       <td>凱特耐病蟲害藥少、臺農一號耐貯運</td>
     </tr>
   </table>
 
-  <h3>⚠️ 品種選購注意事項</h3>
+  <h3>品種選購注意事項</h3>
   <div class="note-box">
     <ul style="margin:8px 0 0 20px; line-height:1.9;">
       <li><strong>愛文出現黑點：</strong>非腐壞，而是成熟度已足的指標，應盡快食用</li>
@@ -1030,10 +1024,10 @@
 <hr class="section-divider">
 
 <!-- ====== 栽培技術要點 ====== -->
-<h2>🌱 栽培技術要點</h2>
+<h2>栽培技術要點</h2>
 
 <div class="variety-section">
-  <h3>🦠 抗病性一覽</h3>
+  <h3>抗病性一覽</h3>
   <table class="compare-table">
     <tr><th>抗病等級</th><th>品種</th><th>說明</th></tr>
     <tr style="background:#E8F5E9;">
@@ -1053,7 +1047,7 @@
     </tr>
   </table>
 
-  <h3>📦 催熟與後熟要領</h3>
+  <h3>催熟與後熟要領</h3>
   <table class="compare-table">
     <tr><th>品種類型</th><th>採收方式</th><th>後熟處理</th><th>代表品種</th></tr>
     <tr>
@@ -1077,10 +1071,10 @@
   </table>
 
   <div class="note-box">
-    <strong>⚠️ 重要提醒：</strong>金煌芒果<strong>絕不可</strong>採收「在欉黃」的果實，否則極易產生果肉生理劣變（果肉軟爛、褐化）。應採收花後 105–120 天的 7–8 分熟硬熟果，經催熟後再出售。
+    <strong>重要提醒：</strong>金煌芒果<strong>絕不可</strong>採收「在欉黃」的果實，否則極易產生果肉生理劣變（果肉軟爛、褐化）。應採收花後 105–120 天的 7–8 分熟硬熟果，經催熟後再出售。
   </div>
 
-  <h3>🧴 藥劑敏感品種</h3>
+  <h3>藥劑敏感品種</h3>
   <div class="key-point">
     以下品種對特定藥劑敏感，施用時需特別注意避免藥害：<br>
     • <strong>紅龍（水蜜桃芒果）</strong>— 對撲克拉類藥劑敏感<br>
@@ -1091,7 +1085,7 @@
 
 <hr class="section-divider">
 
-<h2>🏢 北農交易代碼對照</h2>
+<h2>北農交易代碼對照</h2>
 <div class="source-box">
   <p>以下為本圖鑑收錄品種與<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司</a>果菜品名代碼對照：</p>
   <table class="compare-table">
@@ -1114,7 +1108,7 @@
 <hr class="section-divider">
 
 <!-- ====== 資料來源 ====== -->
-<h2>📚 資料來源</h2>
+<h2>資料來源</h2>
 
 <div class="source-box">
   <p><strong>主要參考資料（農業部農業知識入口網 — 芒果主題館）：</strong></p>
