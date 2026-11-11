@@ -128,7 +128,7 @@
     opacity: 0.55; filter: grayscale(0.5); cursor: default;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .fruit-card.wip:hover { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .fruit-card.wip:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
   .fruit-card.wip .card-img { filter: brightness(0.9); }
   .fruit-card.wip .card-arrow { display: none; }
   .wip-badge {
@@ -146,7 +146,6 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     min-height: 200px;
   }
-  .coming-soon .icon { font-size: 2.4rem; margin-bottom: 10px; opacity: 0.4; }
   .coming-soon p { font-size: 0.95rem; }
 
   /* ── Footer ── */
@@ -357,33 +356,32 @@
       </div>
     </a>
 
+    <!-- ▸▸▸ 鳳梨 Pineapple ▸▸▸ -->
+    <a class="fruit-card" href="pineapple-atlas.html">
+      <img class="card-img" src="images/pineapple/tn17_jinzuan.jpg" alt="鳳梨" loading="lazy">
+      <div class="card-accent" style="background: #E65100;"></div>
+      <div class="card-body">
+        <h3 style="color:#E65100;">鳳梨</h3>
+        <div class="sci-name">Ananas comosus · Pineapple</div>
+        <div class="desc">第三大果樹，年產 40 萬公噸。12 品種各自對應官方全果照，金鑽佔比 85% 為絕對主力，附北農 B 類代號與分級規格。</div>
+        <div class="card-stats">
+          <div class="stat"><strong>10,000+ 公頃</strong>栽培面積</div>
+          <div class="stat"><strong>12 品種</strong>三大類別</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF8E1;color:#E65100;">品種分類</span>
+          <span class="tag" style="background:#FFF8E1;color:#E65100;">產地分布</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">北農分級</span>
+        </div>
+        <div class="card-arrow" style="color:#E65100;">查看完整圖鑑 →</div>
+      </div>
+    </a>
+
   </div><!-- /card-grid 已完成 -->
 
   <!-- ── 建構中 ── -->
   <div class="section-title" style="margin-top:48px;">建構中</div>
   <div class="card-grid">
-
-    <!-- ▸▸▸ 鳳梨 Pineapple ▸▸▸ -->
-    <div class="fruit-card wip">
-      <img class="card-img" src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/3/4cc881b8ba_m.jpg" alt="鳳梨" loading="lazy">
-      <div class="card-accent" style="background: #9E9E9E;"></div>
-      <div class="card-body">
-        <span class="wip-badge">建構中</span>
-        <h3 style="color:#757575;">鳳梨</h3>
-        <div class="sci-name">Ananas comosus · Pineapple</div>
-        <div class="desc">第三大果樹，年產 40 萬公噸。13 品種完整收錄，金鑽佔比 85% 為絕對主力。</div>
-        <div class="card-stats">
-          <div class="stat"><strong>10,000+ 公頃</strong>栽培面積</div>
-          <div class="stat"><strong>13 品種</strong>三大類別</div>
-        </div>
-        <div class="card-tags">
-          <span class="tag" style="background:#FFF8E1;color:#757575;">品種分類</span>
-          <span class="tag" style="background:#FFF8E1;color:#757575;">產地分布</span>
-          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">市場分析</span>
-        </div>
-        <div class="card-arrow" style="color:#9E9E9E;">即將推出 →</div>
-      </div>
-    </div>
 
     <!-- ▸▸▸ 香蕉 Banana ▸▸▸ -->
     <div class="fruit-card wip">
@@ -408,7 +406,6 @@
     </div>
 
     <div class="coming-soon">
-      <div class="icon"></div>
       <p>更多品種 — 陸續擴充</p>
       <p style="font-size:0.78rem;margin-top:4px;">葡萄、棗子⋯</p>
     </div>
