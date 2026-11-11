@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣百香果專業圖鑑</title>
+<style>
+  :root {
+    --pf-purple: #8E24AA; --pf-deep: #6A1B9A; --pf-light: #F3E5F5;
+    --pf-cream: #FDF6EC; --pf-gold: #F9A825; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFDF5; --card-bg: #FFFFFF; --accent: #8E24AA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif; background: var(--light-bg); color: var(--dark-text); line-height: 1.8; }
+  .hero { background: linear-gradient(135deg,#4A148C 0%,#6A1B9A 35%,#8E24AA 70%,#CE93D8 100%); color: white; padding: 100px 20px 70px; text-align: center; position: relative; overflow: hidden; }
+
+  .hero .logo-wrap { position: relative; display: inline-block; margin-bottom: 24px; }
+  .hero .logo-wrap img { width: 220px; height: auto; background: white; padding: 16px 28px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
+  .author-info .author-label { display: inline-block; background: rgba(249,168,37,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
+  .author-info .author-name { font-weight: 600; margin-right: 12px; }
+  .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
+  .author-info .author-contact a { color: #E1BEE7; text-decoration: none; border-bottom: 1px dotted rgba(225,190,231,0.6); }
+  .author-info .author-contact a:hover { color: #fff; border-bottom-color: #fff; }
+  .back-home { position: absolute; top: 18px; left: 20px; z-index: 10; display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px 9px 14px; background: rgba(255,255,255,0.95); color: #8E24AA; text-decoration: none; font-size: 0.9rem; font-weight: 600; border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: box-shadow .2s ease; }
+
+  .back-home:hover { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: #6A1B9A; }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box { background: #F3E5F5; border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid var(--accent); }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; margin: 30px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 480px; width: 100%; height: 300px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #F3E5F5; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .pros-cons-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header { background: #8E24AA; color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 600; }
+  .cons-card .pc-header { background: #C62828; color: white; padding: 16px 20px; text-align: center; font-size: 1.15rem; font-weight: 600; }
+  .pros-card .pc-body { background: #F3E5F5; padding: 20px; }
+  .cons-card .pc-body { background: #FFEBEE; padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #8E24AA; color: white; }
+  .badge-new { background: #6A1B9A; color: white; }
+  .badge-special { background: #2E7D32; color: white; }
+  .badge-early { background: #F57C00; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-purple { background: #F3E5F5; color: #6A1B9A; }
+  .tag-gold { background: #FFF8E1; color: #F57C00; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-blue { background: #E3F2FD; color: #1565C0; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: #E5E5E5; margin: 40px 0; }
+  .note-box { background: #F3E5F5; border-left: 4px solid #8E24AA; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #FFF8E1; border-left: 4px solid #F9A825; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .variety-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 6px; }
+  .variety-head h3 { margin: 0; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .category-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
+  <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
+  <h1>臺灣百香果專業圖鑑</h1>
+  <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
+  <div class="subtitle2">西番蓮家族 15 品種完整收錄 · 食用百香果 × 觀賞野生西番蓮</div>
+  <div class="author-info">
+    <span class="author-label">總整理</span>
+    <span class="author-name">儲訓試拍 楊畯詠</span>
+    <span class="author-contact">如有補充更正可 mail 至 <a href="mailto:leodean1204@gmail.com">leodean1204@gmail.com</a></span>
+  </div>
+</div>
+
+<div class="container">
+
+<h2>總論</h2>
+<div class="intro-box">
+  <p>百香果屬<strong>西番蓮科（Passifloraceae）西番蓮屬（Passiflora）</strong>之多年生蔓性果樹，又稱<strong>時計果、西番蓮、受難果、西番果</strong>等。其果汁香甜、用途多元，可供鮮食及加工用，經濟價值高，有「<strong>果汁之王</strong>」的美譽。</p>
+  <p>百香果名稱由來：其花朵形似「時鐘」與「基督受難」之象徵，故稱時計果、受難果。臺灣商業栽培以<strong>台農1號</strong>為絕對主力，另有<strong>滿天星、黃金、香蜜</strong>等新興品種。臺灣百香果種苗嫁接技術純熟、品質佳，每年有<strong>數百萬株外銷東南亞</strong>，為具競爭力之產業。</p>
+  <p>全臺百香果栽培面積約 <strong>975 公頃</strong>（114 年），其中<strong>南投縣以約 643 公頃、佔全臺 66%</strong>居絕對主產區（埔里、水里、仁愛、鹿谷一帶），年產量逾 1.4 萬公噸。產期自 <strong>6 月至 12 月</strong>，夏秋為盛產高峰。</p>
+</div>
+
+<div class="feature-single">
+  <img src="images/passion/passion_cut.jpg" alt="百香果果實與剖面" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">百香果：外皮紫紅、內部橙黃果肉包覆黑色種子，香氣濃郁（圖：農業部農業知識入口網）</p>
+
+<h2>產業概況</h2>
+<div class="variety-section">
+  <h3>主要產區分布（114 年）</h3>
+  <table class="compare-table">
+    <tr><th>縣市</th><th>種植面積(公頃)</th><th>收量(公斤)</th><th>主要鄉鎮</th></tr>
+    <tr style="background:#F3E5F5;"><td><strong>南投縣</strong></td><td><strong>643.48</strong></td><td><strong>14,239,824</strong></td><td>埔里、水里、仁愛、鹿谷</td></tr>
+    <tr><td><strong>臺中市</strong></td><td>57.86</td><td>1,077,999</td><td>后里、外埔、新社、東勢</td></tr>
+    <tr><td><strong>臺南市</strong></td><td>46.19</td><td>696,082</td><td>柳營、東山</td></tr>
+    <tr><td><strong>屏東縣</strong></td><td>60.81</td><td>675,318</td><td>枋寮</td></tr>
+    <tr><td><strong>高雄市</strong></td><td>46.05</td><td>635,001</td><td>美濃、六龜</td></tr>
+    <tr><td><strong>苗栗縣</strong></td><td>18.58</td><td>321,221</td><td>卓蘭</td></tr>
+    <tr><td><strong>嘉義縣</strong></td><td>31.38</td><td>296,913</td><td>番路、竹崎、大林</td></tr>
+    <tr><td><strong>臺東縣</strong></td><td>22.77</td><td>251,605</td><td>關山</td></tr>
+    <tr><td><strong>彰化縣</strong></td><td>15.63</td><td>184,016</td><td>二林</td></tr>
+    <tr><td><strong>雲林縣</strong></td><td>10.04</td><td>137,017</td><td>古坑</td></tr>
+  </table>
+
+  <div class="key-point">
+    <strong>產地特性：</strong>百香果由<strong>南往北、由低海拔往高海拔</strong>逐序供貨——屏東、高雄等南部產區早熟，接著臺中、苗栗，最後南投埔里等山區接棒，使 6–12 月半年以上都有穩定供應。南投縣是全臺最大主產區，佔總產量 <strong>六成以上</strong>。
+  </div>
+
+  <h3>產業優勢與挑戰</h3>
+  <div class="pros-cons-grid">
+    <div class="pros-cons-card pros-card">
+      <div class="pc-header">優勢</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-text"><strong>種苗嫁接技術純熟</strong> — 每年數百萬株外銷東南亞，具國際競爭力</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>週年生產可調節</strong> — 週年栽培技術成熟，溫室多元利用，供應期長</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>用途多元</strong> — 鮮食、果汁、加工、飲料基底，市場需求穩定</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>南投品牌聚落</strong> — 埔里大坪頂等專業產區，青農投入、技術精進</span></div>
+      </div>
+    </div>
+    <div class="pros-cons-card cons-card">
+      <div class="pc-header">挑戰</div>
+      <div class="pc-body">
+        <div class="pc-item"><span class="pc-text"><strong>病毒病危害</strong> — 百香果木質化病毒等，需無病毒種苗與輪作防治</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>氣候敏感</strong> — 高溫畸形果、颱風倒棚、低溫落果，設施成本高</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>授粉限制</strong> — 部分品種需人工授粉或昆蟲媒介，勞力成本高</span></div>
+        <div class="pc-item"><span class="pc-text"><strong>後熟易損</strong> — 果皮薄、後熟快，不耐長途貯運，鮮銷壓力大</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>品種分類總覽</h2>
+<p>百香果同屬<strong>西番蓮科西番蓮屬</strong>，本圖鑑依農業部農業知識入口網「百香果主題館 — 西番蓮家族」收錄 <strong>15 個品種</strong>，分為<strong>食用百香果</strong>（10 種）與<strong>觀賞／野生西番蓮</strong>（5 種）兩大類：</p>
+
+<div class="category-grid">
+  <div class="category-card">
+    <img src="images/passion/img_taing1.jpg" alt="食用百香果" loading="lazy">
+    <div class="card-body"><h4>食用百香果</h4><p>台農1號 · 滿天星 · 黃金等</p><span class="tag tag-purple">10 品種</span></div>
+  </div>
+  <div class="category-card">
+    <img src="images/passion/img_languan.jpg" alt="觀賞野生西番蓮" loading="lazy">
+    <div class="card-body"><h4>觀賞／野生西番蓮</h4><p>藍冠 · 三角葉 · 毛西番蓮等</p><span class="tag tag-green">5 品種</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 一、食用百香果 ===== -->
+<h2>一、食用百香果</h2>
+<div class="variety-section">
+  <p>食用百香果為臺灣商業栽培與市場流通的主力，以<strong>台農1號</strong>栽培最廣，另有甜度更高的<strong>滿天星、黃金</strong>，以及加工用的<strong>黃百香果</strong>、高山栽培的<strong>甜百香果、香蕉百香果</strong>等。</p>
+
+  <!-- 台農1號 -->
+  <div class="variety-head"><h3>台農1號</h3><span class="badge badge-main">臺灣栽培面積最廣 · 主力品種</span></div>
+  <div class="feature-single"><img src="images/passion/img_taing1.jpg" alt="台農1號百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">台農1號：果皮鮮紅至紫紅，表皮光滑具細密白點（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora edulis</em> × <em>P. edulis</em> f. <em>flavicarpa</em></td></tr>
+    <tr><td>來源</td><td>1980 年代由紫色種 × 黃色種百香果雜交育成，又稱「雜交種」</td></tr>
+    <tr><td>繁殖</td><td>為保留遺傳特性，以嫁接或扦插法繁殖；商業種苗多以黃色種為嫁接根砧</td></tr>
+    <tr><td>果實</td><td>果皮鮮紅至紫紅色，表皮光滑具細密白點，平均果重 <strong>65–75 公克</strong></td></tr>
+    <tr><td>果汁</td><td>約佔總果重 <strong>33%</strong>，酸度約 1–3%，糖度約 <strong>15–19 度</strong></td></tr>
+    <tr><td>特性</td><td>風土適應性介於黃色種與紫色種之間，平地至中海拔 600 公尺山坡地均可栽培；自交親和</td></tr>
+    <tr><td>用途</td><td>果汁香氣足、酸度夠，鮮食及加工皆宜</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 滿天星 -->
+  <div class="variety-head"><h3>滿天星</h3><span class="badge badge-new">蜜糖百香果 · 甜度高</span></div>
+  <div class="feature-single"><img src="images/passion/img_mantianxing.jpg" alt="滿天星百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">滿天星：表皮白色細密斑點如繁星，故得名「滿天星」（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>別名</td><td>蜜糖百香果</td></tr>
+    <tr><td>果實</td><td>果形較台農1號大（<strong>80–120 公克</strong>），果皮較厚、白點較大，呈鮮紅至淡黃色</td></tr>
+    <tr><td>轉色</td><td>果皮轉色與日照有關，日照充足時整顆呈鮮紅色</td></tr>
+    <tr><td>風味</td><td>相較台農1號<strong>甜度高、酸度低</strong>，果汁約佔總果重 33%</td></tr>
+    <tr><td>特性</td><td>適宜生長溫度 15–33℃，下午開花；無授粉媒介僅部分著果，高溫較易有畸形果</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 紫百香果 -->
+  <div class="variety-head"><h3>紫百香果</h3><span class="badge badge-special">紫色種 · 香氣足</span></div>
+  <div class="feature-single"><img src="images/passion/img_zibaixiangguo.jpg" alt="紫百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">紫百香果：果型小、果皮深紫，食味佳香氣足（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora edulis</em> Sims（英名 gulupa、passion fruit）</td></tr>
+    <tr><td>別稱</td><td>紫色種、野生種</td></tr>
+    <tr><td>分布</td><td>臺灣主要分布於中高海拔（<strong>500–1,000 公尺</strong>）地區，平地適應不良</td></tr>
+    <tr><td>特性</td><td>耐熱性差、較黃色種生長勢弱，但<strong>耐寒性較佳</strong>；莖葉及捲鬚為綠色；開花期 12 月至翌年 5 月</td></tr>
+    <tr><td>果實</td><td>果型小、果汁量較低約佔總果重 <strong>30%</strong></td></tr>
+    <tr><td>風味</td><td>食味佳、香氣足，糖度高、酸度低</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 黃百香果 -->
+  <div class="variety-head"><h3>黃百香果</h3><span class="badge badge-early">黃色種 · 加工用</span></div>
+  <div class="feature-single"><img src="images/passion/img_huangbaixiangguo.jpg" alt="黃百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">黃百香果：果皮成熟時呈鮮黃色，果汁酸度較高，多用於加工（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora edulis</em> f. <em>flavicarpa</em>（英名 grenadille、parcha、maracuyá）</td></tr>
+    <tr><td>別稱</td><td>黃色種</td></tr>
+    <tr><td>分布</td><td>平地至低中海拔 500 公尺山坡地</td></tr>
+    <tr><td>特性</td><td>植株生長旺盛、適應力良好，但耐寒性稍弱；莖葉及捲鬚呈紫紅色</td></tr>
+    <tr><td>授粉</td><td>花朵較大、雄蕊及柱頭距離遠，不易自花授粉，需人工授粉輔助</td></tr>
+    <tr><td>果實</td><td>果皮成熟時呈鮮黃色，果汁含量約 <strong>35%</strong>，酸度較高</td></tr>
+    <tr><td>用途</td><td>多用於加工</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 黃金 -->
+  <div class="variety-head"><h3>黃金</h3><span class="badge badge-new">金黃果皮 · 甜度高酸度低</span></div>
+  <div class="feature-single"><img src="images/passion/img_huangjin.jpg" alt="黃金百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">黃金百香果掛果：成熟時果皮呈金黃色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>成熟時果皮呈<strong>金黃色</strong>，市售種苗具前述特性品種皆以「黃金」稱之，各品種口感略有差異</td></tr>
+    <tr><td>開花</td><td>花朵為中午至傍晚開放</td></tr>
+    <tr><td>掛果期</td><td>80–100 天</td></tr>
+    <tr><td>風味</td><td>果實<strong>甜度高、酸度低</strong></td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 甜百香果 -->
+  <div class="variety-head"><h3>甜百香果</h3><span class="badge badge-special">印尼百香果 · 高山種</span></div>
+  <div class="feature-single"><img src="images/passion/img_tianbaixiangguo.jpg" alt="甜百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">甜百香果：果皮光滑橘黃、假種皮白色，味甜酸度低（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora ligularis</em>（英名 Sweet granadilla、grenadia）</td></tr>
+    <tr><td>別稱</td><td>印尼百香果</td></tr>
+    <tr><td>來源</td><td>原產南美洲安地斯山脈高地，不耐高溫、屬較耐寒之西番蓮屬種</td></tr>
+    <tr><td>栽培</td><td>臺灣適合生長於海拔 <strong>1,500 公尺以上</strong>地區；葉形單葉心形</td></tr>
+    <tr><td>果實</td><td>成熟時表皮光滑、呈橘黃色，果型較大，假種皮呈白色</td></tr>
+    <tr><td>風味</td><td>味道甜、酸度低、略帶香氣，以鮮食用為主；哥倫比亞栽培年產量約 8 公噸/公頃</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 香蕉百香果 -->
+  <div class="variety-head"><h3>香蕉百香果</h3><span class="badge badge-special">果型細長 · 耐寒</span></div>
+  <div class="feature-single"><img src="images/passion/img_xiangjiao.jpg" alt="香蕉百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">香蕉百香果：果型細長如香蕉、果皮薄軟呈淡黃色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora mollissima</em>（英名 Curuba、Banana Passionfruit、tumbo）</td></tr>
+    <tr><td>名稱</td><td>因果型細長故得名香蕉百香果</td></tr>
+    <tr><td>來源</td><td>原產南美洲祕魯安地斯山脈高地，為西番蓮屬中較耐寒品種，極不耐熱（適溫 15–18℃）</td></tr>
+    <tr><td>型態</td><td>葉型三裂葉深鋸齒狀，花為粉紅色長鐘形</td></tr>
+    <tr><td>果實</td><td>果皮薄且軟，成熟時淡黃色，果重約 <strong>100–150 公克</strong>，可食假種皮比例高</td></tr>
+    <tr><td>風味</td><td>酸度低，以鮮食為主，年產量約 8 公噸/公頃</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 香蜜百香果 -->
+  <div class="variety-head"><h3>香蜜百香果</h3><span class="badge badge-new">大型果 · 果肉可食</span></div>
+  <div class="feature-single"><img src="images/passion/img_xiangmi.jpg" alt="香蜜百香果" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">香蜜百香果果實：果型大、果肉及假種皮皆可食用（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>果實</td><td>果型大，平均果重約 <strong>250–500 公克</strong>，可青果（催熟）或掛果轉色採收</td></tr>
+    <tr><td>食用</td><td>果皮轉黃熟、果肉稍軟時食用品質較佳；除果皮外，<strong>果肉及假種皮皆可食用</strong></td></tr>
+    <tr><td>果肉</td><td>假種皮呈淡黃色、內含果汁微酸，果肉略帶特殊香氣</td></tr>
+    <tr><td>栽培</td><td>目前已有農友少量商業化栽培，臺灣中低海拔地區可多年生產</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 紫水晶西番蓮 -->
+  <div class="variety-head"><h3>紫水晶西番蓮</h3><span class="badge badge-special">紫花 · 耐寒</span></div>
+  <div class="feature-single"><img src="images/passion/img_zishuijing.jpg" alt="紫水晶西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">紫水晶西番蓮：花瓣紫色、開花直徑約 10 公分（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora</em> 'Amethyst'</td></tr>
+    <tr><td>型態</td><td>常綠攀緣植物，花瓣為紫色，開花直徑約 10 公分</td></tr>
+    <tr><td>特性</td><td>西番蓮屬內較具耐寒性物種；葉形為具深裂之掌型葉，葉色藍綠色</td></tr>
+    <tr><td>果實</td><td>開花可結實，成熟果皮呈橘黃色</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 大果西番蓮 -->
+  <div class="variety-head"><h3>大果西番蓮</h3><span class="badge badge-main">巨型百香果 · 果肉可食</span></div>
+  <div class="feature-single"><img src="images/passion/img_daguo.jpg" alt="大果西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">大果西番蓮：果形碩大、中空狀，果重約 650 公克（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora quadrangularis</em>（英名 Giant granadilla、giant tumbo、badea）</td></tr>
+    <tr><td>型態</td><td>多年生攀緣植物，原生於熱帶美洲，具卵形或心形平滑葉片</td></tr>
+    <tr><td>果實</td><td>外皮平滑、卵圓形，果形碩大、呈中空狀，果重約 <strong>650 公克</strong></td></tr>
+    <tr><td>食用</td><td>假種皮內果汁酸度低，以鮮食為主，<strong>果肉皆為可食用部位</strong>，未成熟果肉亦可煮食</td></tr>
+    <tr><td>特性</td><td>開花需人工授粉以促進著果，耐熱但不耐霜凍，平地至海拔 900 公尺左右山區皆可生長</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== 二、觀賞/野生西番蓮 ===== -->
+<h2>二、觀賞／野生西番蓮</h2>
+<div class="variety-section">
+  <p>以下品種多為觀賞栽培或臺灣野生分布之西番蓮，果實較小或不具商品價值，但花朵與葉型各具特色，為西番蓮家族中不可或缺的一員。</p>
+
+  <!-- 毛西番蓮 -->
+  <div class="variety-head"><h3>毛西番蓮</h3><span class="badge badge-special">野生雜草</span></div>
+  <div class="feature-single"><img src="images/passion/img_maoxifanlian.jpg" alt="毛西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">毛西番蓮：全株密生長毛、成熟果呈橘黃色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora foetida</em> L.</td></tr>
+    <tr><td>來源</td><td>原產西印度群島，現廣泛分布於熱帶地區</td></tr>
+    <tr><td>分布</td><td>臺灣中南部低海拔山地及平地有廣泛野生分布</td></tr>
+    <tr><td>型態</td><td>全株密生長毛、有時略帶臭味，葉形長卵型；會匍匐或攀緣其他植物，成為作物雜草</td></tr>
+    <tr><td>果實</td><td>成熟果呈橘黃色，內有白色假種皮之種子</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 三角葉西番蓮 -->
+  <div class="variety-head"><h3>三角葉西番蓮</h3><span class="badge badge-special">栓皮西番蓮 · 野生</span></div>
+  <div class="feature-single"><img src="images/passion/img_sanjiaoye.jpg" alt="三角葉西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">三角葉西番蓮：果型小僅 1–1.5 公分，成熟呈黑色或黑紫色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora suberosa</em> L.（英名 corkystem passionflower）</td></tr>
+    <tr><td>別稱</td><td>老莖外皮具黃色木栓層，又稱「栓皮西番蓮」</td></tr>
+    <tr><td>分布</td><td>原產南美巴西，廣泛分布全臺平地及低海拔（500 公尺以下）地區</td></tr>
+    <tr><td>型態</td><td>葉片單葉互生呈寬卵型，花通常成對、不具花冠，副花冠呈淡綠色絲狀</td></tr>
+    <tr><td>果實</td><td>果皮薄之漿果，幼果綠色轉藍色，成熟呈黑色或黑紫色，果型小僅 <strong>1–1.5 公分</strong>圓球形</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 藍冠西番蓮 -->
+  <div class="variety-head"><h3>藍冠西番蓮</h3><span class="badge badge-special">耐寒 · 觀賞</span></div>
+  <div class="feature-single"><img src="images/passion/img_languan.jpg" alt="藍冠西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">藍冠西番蓮：副花冠絲狀棕白藍三色，成熟果橘黃色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora caerulea</em> L.（英名 blue passionflower、bluecrown passionflower）</td></tr>
+    <tr><td>別稱</td><td>巴西耐寒西番蓮</td></tr>
+    <tr><td>特性</td><td>多年生落葉或半落葉木質藤本，可耐 <strong>-10℃</strong> 低溫，廣泛栽培為攀緣或地被植物</td></tr>
+    <tr><td>型態</td><td>葉掌狀五裂（有時七裂），副花冠為絲狀棕、白、藍三色</td></tr>
+    <tr><td>果實</td><td>卵型漿果，成熟呈橘黃色，內種子假種皮深橘黃色，味道平淡</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 樟葉西番蓮 -->
+  <div class="variety-head"><h3>樟葉西番蓮</h3><span class="badge badge-special">觀賞引進</span></div>
+  <div class="feature-single"><img src="images/passion/img_zhangye.jpg" alt="樟葉西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">樟葉西番蓮：假種皮多汁、略帶香氣、酸味低（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora laurifolia</em> L.（英名 water lemon、Jamaican honeysuckle、golden bellapple）</td></tr>
+    <tr><td>來源</td><td>原生於熱帶美洲，不耐霜凍，喜全年充足水分之溫暖地區；臺灣引進供觀賞用</td></tr>
+    <tr><td>果實</td><td>大小中等、呈卵形</td></tr>
+    <tr><td>風味</td><td>假種皮多汁、略帶香氣、酸味低</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 葡萄葉西番蓮 -->
+  <div class="variety-head"><h3>葡萄葉西番蓮</h3><span class="badge badge-special">艷紅西番蓮 · 觀賞</span></div>
+  <div class="feature-single"><img src="images/passion/img_putaoye.jpg" alt="葡萄葉西番蓮" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;">葡萄葉西番蓮：花瓣、花萼及副花冠皆呈艷紅色（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th style="width:30%">項目</th><th>特徵</th></tr>
+    <tr><td>學名</td><td><em>Passiflora coccinea</em>（英名 perfumed passionflower）</td></tr>
+    <tr><td>別稱</td><td>因葉型類似葡萄葉，故稱葡萄葉西番蓮；又稱「艷紅西番蓮」</td></tr>
+    <tr><td>來源</td><td>原生於中南美洲熱帶地區，多年生常綠藤本，莖幹圓柱形、莖幹與葉表皮皆帶絨毛</td></tr>
+    <tr><td>花朵</td><td>花瓣、花萼及副花冠皆呈艷紅色</td></tr>
+    <tr><td>果實</td><td>幼果綠色略帶淡綠條紋，假種皮內果汁酸味重，常做為觀賞用</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<h2>綜合對比表</h2>
+<div class="variety-section">
+<table class="compare-table">
+  <tr><th>品種</th><th>類別</th><th>果重</th><th>果皮色</th><th>糖酸</th><th>核心特色</th></tr>
+  <tr style="background:#F3E5F5;"><td><strong>台農1號</strong></td><td>食用</td><td>65–75g</td><td>鮮紅至紫紅</td><td>糖15–19度/酸1–3%</td><td>主力 · 鮮食加工皆宜</td></tr>
+  <tr><td><strong>滿天星</strong></td><td>食用</td><td>80–120g</td><td>鮮紅至淡黃</td><td>甜高酸低</td><td>蜜糖 · 白斑繁星</td></tr>
+  <tr style="background:#F3E5F5;"><td><strong>紫百香果</strong></td><td>食用</td><td>果小</td><td>深紫</td><td>糖高酸低</td><td>香氣足 · 高海拔</td></tr>
+  <tr><td><strong>黃百香果</strong></td><td>食用</td><td>—</td><td>鮮黃</td><td>酸度高</td><td>加工用 · 需人工授粉</td></tr>
+  <tr style="background:#F3E5F5;"><td><strong>黃金</strong></td><td>食用</td><td>—</td><td>金黃</td><td>甜高酸低</td><td>掛果80–100天</td></tr>
+  <tr><td><strong>甜百香果</strong></td><td>食用</td><td>果較大</td><td>橘黃</td><td>甜酸低</td><td>高山種 · 白假種皮</td></tr>
+  <tr style="background:#F3E5F5;"><td><strong>香蕉百香果</strong></td><td>食用</td><td>100–150g</td><td>淡黃</td><td>酸低</td><td>細長 · 耐寒</td></tr>
+  <tr><td><strong>香蜜百香果</strong></td><td>食用</td><td>250–500g</td><td>轉黃</td><td>微酸</td><td>大型果 · 果肉可食</td></tr>
+  <tr style="background:#F3E5F5;"><td><strong>紫水晶西番蓮</strong></td><td>食用/觀賞</td><td>—</td><td>橘黃</td><td>—</td><td>紫花 · 耐寒</td></tr>
+  <tr><td><strong>大果西番蓮</strong></td><td>食用</td><td>650g</td><td>黃綠</td><td>酸低</td><td>巨型 · 果肉可食</td></tr>
+  <tr style="background:#E8F5E9;"><td><strong>毛西番蓮</strong></td><td>野生</td><td>小</td><td>橘黃</td><td>—</td><td>密毛 · 雜草</td></tr>
+  <tr><td><strong>三角葉西番蓮</strong></td><td>野生</td><td>1–1.5cm</td><td>黑/黑紫</td><td>—</td><td>栓皮 · 微型果</td></tr>
+  <tr style="background:#E8F5E9;"><td><strong>藍冠西番蓮</strong></td><td>觀賞</td><td>—</td><td>橘黃</td><td>平淡</td><td>耐-10℃ · 三色副花冠</td></tr>
+  <tr><td><strong>樟葉西番蓮</strong></td><td>觀賞</td><td>中等</td><td>—</td><td>酸低</td><td>water lemon · 多汁</td></tr>
+  <tr style="background:#E8F5E9;"><td><strong>葡萄葉西番蓮</strong></td><td>觀賞</td><td>小</td><td>綠</td><td>酸重</td><td>艷紅花 · 觀賞</td></tr>
+</table>
+</div>
+
+<hr class="section-divider">
+
+<h2>北農品名代號與分級</h2>
+<div class="variety-section">
+  <p>百香果在北農拍賣市場依品種分為兩大品名代號：<strong>百香果（改良種／台農1號）</strong>與<strong>百香果（蜜糖、滿天星）</strong>，分級依果實重量訂定。</p>
+
+  <h3>品名代號</h3>
+  <table class="compare-table">
+    <tr><th>品名</th><th>品名代碼</th><th>統一編碼</th><th>適用範圍</th></tr>
+    <tr style="background:#F3E5F5;"><td><strong>百香果（改良種）</strong></td><td><strong>51</strong></td><td>2030200000515</td><td>改良種（台農1號）</td></tr>
+    <tr><td><strong>百香果（蜜糖、滿天星）</strong></td><td><strong>50</strong></td><td>2030200000508</td><td>蜜糖、滿天星</td></tr>
+  </table>
+
+  <h3>大小規格（果重）</h3>
+  <table class="compare-table">
+    <tr><th>規格</th><th>大（L）</th><th>中（M）</th><th>小（S）</th></tr>
+    <tr><td><strong>果重</strong></td><td>80 公克以上</td><td>60–80 公克</td><td>未達 60 公克</td></tr>
+  </table>
+
+  <h3>品質標準</h3>
+  <table class="compare-table">
+    <tr><th>等級</th><th>品質標準</th></tr>
+    <tr><td><strong>特級</strong></td><td>同一品種，成熟適度，果形完整，色澤優良，外觀無瑕疵</td></tr>
+    <tr><td><strong>優級</strong></td><td>同一品種，成熟尚適度，果形尚完整，色澤良好，外觀輕微瑕疵</td></tr>
+    <tr><td><strong>良級</strong></td><td>品質次於優級品，具有商品價值者</td></tr>
+  </table>
+
+  <div class="note-box">
+    <strong>包裝規格：</strong>
+    <ul style="margin:8px 0 0 20px; line-height:1.9;">
+      <li><strong>百香果（改良種）：</strong>紙箱，十號箱 <strong>45×30×25 公分</strong>，淨重 <strong>6 公斤</strong></li>
+      <li><strong>百香果（蜜糖、滿天星）：</strong>紙箱，<strong>40×35×30 公分</strong>，淨重 <strong>10 公斤</strong></li>
+    </ul>
+    <p style="margin-top:8px;">資料來源：臺北農產運銷公司分級包裝規格（<a href="https://www.tapmc.com.tw/Pages/Market/Packing/G000C2" target="_blank">百香果改良種</a>、<a href="https://www.tapmc.com.tw/Pages/Market/Packing/G000C3" target="_blank">百香果蜜糖滿天星</a>）。</p>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>選購消費指南</h2>
+<div class="variety-section">
+  <div class="key-point">
+    <strong>選購要領：</strong><br>
+    <strong>外觀：</strong>選擇具有品種特色的成熟果，外型<strong>寬大宗整而有重量感</strong>者為佳<br>
+    <strong>成熟度：</strong>台農1號以果皮著色完整、呈深紅或紫紅色者為佳；果皮平整無皺縮、無腐爛發霉<br>
+    <strong>觸感：</strong>果實輕搖時果肉無晃動、無水聲，有重量感者佳<br>
+    <strong>滿天星：</strong>選白點細密、日照充足整顆鮮紅者，甜度較高
+  </div>
+
+  <div class="note-box">
+    <strong>後熟小秘訣：</strong>百香果屬<strong>後熟型水果</strong>——自然成熟落地後，再放置 2–3 天，香氣強度反而增加、更為甜美。但常溫放置 7 天後，外皮逐漸枯萎皺縮，果肉起發酵作用、果重減輕、風味變差。未熟果（生果）除糖度低、酸度高、香氣不足、含澱粉較多外，可能含過量氰化物，不宜食用，其含量會隨果實成熟而逐漸消失。
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>資料來源</h2>
+<div class="source-box">
+  <p><strong>主要參考資料（農業部農業知識入口網 — 百香果主題館）：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/index.php?id=161" target="_blank">百香果主題館</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=5175" target="_blank">西番蓮家族（品種目錄）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40131" target="_blank">台農1號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40132" target="_blank">滿天星</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=60475" target="_blank">黃金</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40140" target="_blank">紫百香果</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40139" target="_blank">黃百香果</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40141" target="_blank">甜百香果</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40142" target="_blank">香蕉百香果</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40143" target="_blank">香蜜百香果</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40144" target="_blank">紫水晶西番蓮</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40135" target="_blank">大果西番蓮</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40133" target="_blank">毛西番蓮</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40134" target="_blank">三角葉西番蓮</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40136" target="_blank">藍冠西番蓮</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40137" target="_blank">樟葉西番蓮</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=40138" target="_blank">葡萄葉西番蓮</a></li>
+  </ul>
+  <p><strong>產銷資料：</strong><a href="https://kmweb.moa.gov.tw/theme_data.php?theme=production_map&id=80" target="_blank">農漁生產地圖 — 百香果（114 年各縣市鄉鎮產量）</a></p>
+  <p><strong>北農分級包裝：</strong><a href="https://www.tapmc.com.tw/Pages/Market/Packing/G000C2" target="_blank">百香果（改良種）</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G000C3" target="_blank">百香果（蜜糖、滿天星）</a></p>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網百香果主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+</div>
+
+</div>
+
+<div class="footer" style="text-align:center; padding:30px 20px; color:#999; font-size:0.85rem;">
+  臺灣百香果專業圖鑑 · 資料來源：農業部農業知識入口網（kmweb.moa.gov.tw）及臺北農產運銷公司
+</div>
+
+</body>
+</html>
