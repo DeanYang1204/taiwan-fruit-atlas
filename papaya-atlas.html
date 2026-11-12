@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣木瓜專業圖鑑</title>
+<style>
+  :root {
+    --papaya-orange: #EF6C00; --papaya-amber: #F9A825; --papaya-deep: #B53D00;
+    --papaya-light: #FFF3E0; --papaya-cream: #FFF8E1;
+    --papaya-green: #7CB342; --dark-text: #2C2C2C;
+    --medium-text: #555; --light-bg: #FFFBF5; --card-bg: #FFFFFF; --accent: #EF6C00;
+    --section-bg: #FFF3E0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #B53D00 0%, #EF6C00 30%, #F9A825 60%, #AFB42B 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; font-size: 0.88rem; }
+  .author-info .author-label { display: inline-block; background: rgba(239,108,0,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
+  .author-info .author-name { font-weight: 600; margin-right: 12px; }
+  .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
+  .author-info .author-contact a { color: #FFCC80; text-decoration: none; border-bottom: 1px dotted rgba(255,224,178,0.6); }
+  .author-info .author-contact a:hover { color: #fff; border-bottom-color: #fff; }
+  .back-home {
+    position: absolute; top: 18px; left: 20px; z-index: 10;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px 9px 14px;
+    background: rgba(255,255,255,0.95); color: #B53D00;
+    text-decoration: none; font-size: 0.9rem; font-weight: 600;
+    border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: box-shadow .2s ease;
+  }
+  
+  .back-home:hover { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 20px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box {
+    background: #FFF3E0;
+    border-radius: 16px; padding: 30px; margin: 30px 0;
+    border-left: 5px solid var(--accent);
+  }
+  .category-grid {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px; margin: 30px 0;
+  }
+  .category-card {
+    background: var(--card-bg); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .category-card img { width: 100%; height: 200px; object-fit: contain; background: #f8f8f8; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.9rem; margin: 0; color: #777; }
+  .variety-section {
+    background: var(--card-bg); border-radius: 16px; padding: 30px;
+    margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 500px; width: 100%; height: 320px; object-fit: contain; border-radius: 12px; background: #f5f5f5; }
+  .feature-single + p { text-align: center; }
+  .compare-table {
+    width: 100%; border-collapse: collapse; margin: 20px 0;
+    font-size: 0.9rem; background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .compare-table th { background: var(--accent); color: white; padding: 12px 14px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: #FFF3E0; }
+  .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0; }
+  .pros-cons-card {
+    border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+
+  }
+  .pros-cons-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+  .pros-card .pc-header {
+    background: #2E7D32;
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 600;
+  }
+  .cons-card .pc-header {
+    background: #C62828;
+    color: white; padding: 16px 20px; text-align: center;
+    font-size: 1.15rem; font-weight: 600;
+  }
+  .pros-card .pc-body { background: #F1F8E9; padding: 20px; }
+  .cons-card .pc-body { background: #FFEBEE; padding: 20px; }
+  .pc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 0.92rem; color: #444; }
+  .pc-item:last-child { border-bottom: none; }
+  .pc-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 600; margin-top: 1px; }
+  .pros-card .pc-icon { background: #C8E6C9; color: #2E7D32; }
+  .cons-card .pc-icon { background: #FFCDD2; color: #C62828; }
+  .pc-text { flex: 1; }
+  @media (max-width:650px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+  /* ── 手機板表格可橫向滾動 ── */
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 90px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .compare-table th { border: 1px solid var(--accent); }
+  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #EF6C00; color: white; }
+  .badge-new { background: #B53D00; color: white; }
+  .badge-special { background: #6A1B9A; color: white; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-gold { background: #FFF3E0; color: #B53D00; }
+  .tag-yellow { background: #FFF9C4; color: #EF6C00; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-red { background: #FFEBEE; color: #C62828; }
+  .tag-pink { background: #FCE4EC; color: #AD1457; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .section-divider { border: none; height: 2px; background: #E5E5E5; margin: 40px 0; }
+  .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+
+
+/* GANTT:CSS:START */
+body { --gantt-main: #EF6C00; --gantt-soft: #FFCC80; }
+/* ── 產期甘特圖 ── */
+.gantt-card { background: #fff; border-radius: 16px; padding: 22px 20px; margin: 18px 0 26px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.gantt-scroll { overflow-x: auto; }
+.gantt-chart { min-width: 1000px; }
+.gantt-group-row, .gantt-axis, .gantt-row { display: grid; grid-template-columns: 216px repeat(18, 1fr); align-items: center; }
+.gantt-group-row { background: #F5F5F5; border-radius: 8px 8px 0 0; }
+.gantt-corner { font-size: 0.8rem; color: #666; padding: 6px 10px; position: sticky; left: 0; z-index: 4; }
+.gantt-group-row .gantt-corner { background: #F5F5F5; }
+.gantt-axis .gantt-corner { background: #EBEBEB; }
+.gantt-group { grid-row: 1; text-align: center; font-size: 0.78rem; color: #666; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-axis { background: #EBEBEB; }
+.gantt-month { text-align: center; font-size: 0.72rem; color: #555; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-month.next { color: #8A6D3B; }
+.gantt-row { min-height: 38px; border-bottom: 1px solid #F0F0F0; }
+.gantt-name { position: sticky; left: 0; background: #fff; z-index: 4; padding: 5px 10px; font-size: 0.85rem; }
+.gantt-name strong { font-weight: 600; }
+.gantt-name small { display: block; font-size: 0.72rem; color: #888; }
+.gantt-track { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(18, 1fr); align-items: center; height: 26px; }
+.gantt-cell { grid-row: 1; height: 26px; border-left: 1px solid #F0F0F0; }
+.gantt-bar { grid-row: 1; height: 16px; background: var(--gantt-soft, #C8E6C9); border-radius: 4px; z-index: 2; margin: 0 1px; }
+.gantt-peak { grid-row: 1; height: 16px; background: var(--gantt-main, #2E7D32); border-radius: 4px; z-index: 3; margin: 0 1px; }
+.gantt-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 0.82rem; color: #666; }
+.gantt-legend span:last-child { flex-basis: 100%; }
+.gantt-legend i { display: inline-block; width: 26px; height: 12px; border-radius: 4px; vertical-align: -1px; margin-right: 6px; }
+.gantt-note { font-size: 0.84rem; color: #777; margin-top: 10px; margin-bottom: 0; }
+@media (max-width: 650px) { .gantt-card { padding: 16px 12px; } }
+/* GANTT:CSS:END */
+
+  /* ── 缺圖說明框 ── */
+  .no-photo { background: #F5F5F5; border: 1px dashed #CCCCCC; border-radius: 12px; padding: 26px 20px; margin: 20px 0; text-align: center; color: #777; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
+    <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
+  <h1>臺灣木瓜專業圖鑑</h1>
+  <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
+  <div class="subtitle2">9 品種完整收錄 · 北農 I 類品名代號對照</div>
+  <div class="author-info">
+    <span class="author-label">總整理</span>    <span class="author-name">儲訓試拍 楊畯詠</span>    <span class="author-contact">如有補充更正可 mail 至 <a href="mailto:leodean1204@gmail.com">leodean1204@gmail.com</a></span>
+  </div>
+</div>
+
+<div class="container">
+<h2>總論</h2>
+<div class="intro-box">
+  <p>木瓜（<em>Carica papaya</em>）為番木瓜科多年生半草本果樹，原產熱帶美洲，清末引入臺灣，1907 年起逐漸普遍栽培。別名番瓜、番木瓜，因富含維生素 A、C、β-胡蘿蔔素與蛋白分解酵素「木瓜酵素」，素有<strong>萬壽果</strong>之稱。</p>
+  <p>臺灣木瓜<strong>週年生產，5 至 9 月為盛產期</strong>，此時日照充足、光合作用效率高，果實糖度與風味最佳。為避免蚜蟲傳播輪點毒素病，產業以<strong>網室栽培</strong>為主；<strong>台農二號約佔全臺栽培面積 90%</strong>，是批發市場絕對主力。北農果菜品名代碼表中，木瓜屬 <strong>I 類</strong>，另按網室紅肉、一般紅肉、日昇種、青木瓜分列代號。</p>
+</div>
+
+<div class="feature-row">
+  <img src="images/papaya/market.jpg" alt="市場上的黃熟木瓜" loading="lazy">
+  <img src="images/papaya/packing.jpg" alt="套網袋包裝的木瓜" loading="lazy">
+</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：集貨市場的黃熟木瓜 ｜ 右：逐果套網袋以減少擦壓傷（圖：農業部農漁生產地圖）</p>
+
+<!-- GANTT:START -->
+<h2>產期甘特圖</h2>
+<p>木瓜為週年生產果品，北農依品項區分貨件。淺色為供應期、深色為盛產期；橫軸由當年度 1 月延伸至翌年 6 月，週年供應的橫條表示同一週期延續。</p>
+<div class="gantt-card"><div class="gantt-scroll"><div class="gantt-chart"><div class="gantt-group-row"><div class="gantt-corner">品項 / 月份</div><div class="gantt-group" style="grid-column:2 / 14">當年度 1–12 月</div><div class="gantt-group" style="grid-column:14 / 20">翌年 1–6 月</div></div><div class="gantt-axis"><div class="gantt-corner">供應期</div><span class="gantt-month">1</span><span class="gantt-month">2</span><span class="gantt-month">3</span><span class="gantt-month">4</span><span class="gantt-month">5</span><span class="gantt-month">6</span><span class="gantt-month">7</span><span class="gantt-month">8</span><span class="gantt-month">9</span><span class="gantt-month">10</span><span class="gantt-month">11</span><span class="gantt-month">12</span><span class="gantt-month next">1</span><span class="gantt-month next">2</span><span class="gantt-month next">3</span><span class="gantt-month next">4</span><span class="gantt-month next">5</span><span class="gantt-month next">6</span></div><div class="gantt-row"><div class="gantt-name"><strong>網室紅肉 I1</strong><small>週年 · 台農 2 號</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 19"></span><span class="gantt-peak" style="grid-column:5 / 10"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>一般紅肉 I2</strong><small>週年 · 露地與其他紅肉種</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 19"></span><span class="gantt-peak" style="grid-column:5 / 10"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>日陞種 I3</strong><small>週年 · 高屏網室小果</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 19"></span><span class="gantt-peak" style="grid-column:5 / 10"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>青木瓜 I4</strong><small>週年 · 未熟果</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 19"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>其他 I0</strong><small>週年 · 含進口貨件</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 19"></span></div></div></div></div><div class="gantt-legend"><span><i style="background:var(--gantt-soft)"></i>供應期</span><span><i style="background:var(--gantt-main)"></i>盛產期</span><span>橫軸 1–12 月為當年度，接續 1–6 月為翌年，週年供應可連續判讀</span></div>
+<p class="gantt-note">農業部與臺南區農業改良場資料均指出木瓜週年生產，5 至 9 月為品質與產量最佳的盛產期；官方未提供逐品種產期差異，故本圖以北農 I 類品項呈現。青木瓜為未熟果，無明顯盛產高峰。</p></div>
+<!-- GANTT:END -->
+
+<h2>產業發展概況</h2>
+<div class="variety-section">
+  <h3>產地與規模</h3>
+  <p>依臺南區農業改良場資料，全臺木瓜栽培面積近年約 <strong>2,450 公頃</strong>（早期統計曾近 3,000 公頃），主要產區以<strong>屏東縣、臺南市各約三成</strong>為最多，其次為高雄市、南投縣、嘉義縣與雲林縣。農漁生產地圖列出的重點鄉鎮包括南投埔里、名間、竹山、國姓，雲林林內，嘉義中埔、水上，臺南大內、楠西、玉井、南化、山上，高雄美濃、六龜、杉林，屏東高樹、新埤、長治、內埔，以及臺東卑南。</p>
+  <div class="feature-single"><img src="images/papaya/orchard.jpg" alt="木瓜植株結果情形" loading="lazy"></div>
+  <p style="font-size:0.82rem;color:#999;text-align:center;">木瓜植株連續著果情形，果實由下往上陸續成熟（圖：農業部農漁生產地圖）</p>
+
+  <h3>氣候土宜與網室栽培</h3>
+  <table class="compare-table">
+    <tr><th>項目</th><th>官方栽培要點</th></tr>
+    <tr><td><strong>溫度</strong></td><td style="text-align:left;">生育最適 25–30 ℃，日均溫須在 16 ℃ 以上；下霜即受凍害，中南部海拔 500 公尺以上不適經濟栽培</td></tr>
+    <tr><td><strong>排水</strong></td><td style="text-align:left;">根部浸水 24–48 小時即腐爛，宜高畦、排水溝，雨後不可積水</td></tr>
+    <tr><td><strong>土壤</strong></td><td style="text-align:left;">疏鬆肥沃、富含有機質、地下水位低，pH 6.0–6.5 的砂質壤土；忌連作，廢耕後須隔 3 年</td></tr>
+    <tr><td><strong>網室</strong></td><td style="text-align:left;">32 目白色防紫外線網密閉披覆，骨架高 3.0–3.6 公尺；10 月底前定植，5 月下旬至 6 月上旬拆網</td></tr>
+    <tr><td><strong>授粉</strong></td><td style="text-align:left;">網室內雌株無法自然授粉，須人工授粉；園區四周栽植約 2% 佛州種雄株作授粉樹</td></tr>
+    <tr><td><strong>病害</strong></td><td style="text-align:left;">輪點毒素病由蚜蟲媒介，是採用網室與清潔健康苗的主因；網室內白粉病、紅蜘蛛與畸型果須加強管理</td></tr>
+  </table>
+  <div class="note-box"><strong>批發市場判讀：</strong>網室貨件通常果面潔淨、果形整齊，北農以 I1「網室紅肉」單獨列代號；露地或其他紅肉種歸 I2。兩者在成熟度與大小規格上套用同一套分級標準，但貨件來源與價格帶不同。</div>
+</div>
+
+<h2>品種分類總覽</h2>
+<p>依農業知識入口網木瓜主題館品種目錄，扣除未列入本圖鑑的品項後，收錄 <strong>9 個市場流通與育種史上具代表性的品種</strong>，分為三類。各品種照片逐一對應官方條目，不以他品種照片替代。</p>
+<div class="category-grid">
+  <div class="category-card"><img src="images/papaya/tn2.jpg" alt="主力與新興品種" loading="lazy">
+    <div class="card-body"><h4>一、主力與新興品種</h4><p>台農二號、日陞、紅妃、台農十一號小寶。市場實際流通與新近推廣的品項。</p></div></div>
+  <div class="category-card"><img src="images/papaya/tn6.jpg" alt="農試所育成系列" loading="lazy">
+    <div class="card-body"><h4>二、農試所育成系列</h4><p>台農五號、台農六號朱玉。以耐病、矮生、網室適栽為育種目標。</p></div></div>
+  <div class="category-card"><img src="images/papaya/sulu_tree.jpg" alt="早期引種品種植株" loading="lazy">
+    <div class="card-body"><h4>三、早期引種與歷史品種</h4><p>蘇魯一號、台農一號、台農三號。官方條目未提供果實照，圖為蘇魯一號植株。</p></div></div>
+</div>
+
+<h2>一、主力與新興品種</h2>
+<div class="variety-section">
+<h3>台農二號 <span class="badge badge-main">絕對主力</span></h3>
+<div class="feature-single"><img src="images/papaya/tn2.jpg" alt="台農二號" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">台農二號果實與剖面，果皮濃綠轉黃、果肉紅色（圖：農業知識入口網，原圖含官方品種標籤）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 60 年（1971）農業試驗所鳳山熱帶園藝試驗分所，泰國種 × 日陞種一代雜交</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果橢圓型、兩性果長型，果形平整美觀</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 1,100 公克；11–12 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">紅色、汁多味爽，果皮濃綠</td></tr>
+<tr><td>產量</td><td style="text-align:left;">每株年產約 33 公斤</td></tr>
+<tr><td>市場地位</td><td style="text-align:left;">全臺栽培面積約 90%，北農 I1 網室紅肉與 I2 一般紅肉的主要貨源</td></tr>
+</table>
+<p>生育強健、開花早、結果部位低，為臺灣最主要的經濟栽培品種。成熟較速、貯運力較弱，產地多於果溝開始轉色時提早採收，再於運銷過程後熟。</p>
+<hr>
+<h3>日陞（日昇） <span class="badge badge-main">北農 I3</span></h3>
+<div class="feature-single"><img src="images/papaya/risheng.jpg" alt="日陞（日昇）" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">日陞果實與剖面，果型小、果肉橙紅（圖：農業知識入口網，原圖含尺標與品種標籤）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>引進</td><td style="text-align:left;">民國 56 年（1967）自夏威夷引進純化，59 年推廣</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果近圓型、兩性果梨形，果溝與果肋不明顯、畸型果極少</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均約 400 公克；可達 15 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">鮮紅色、氣味清香、品質優</td></tr>
+<tr><td>栽培特性</td><td style="text-align:left;">果小、產量低，僅適高屏地區網室栽培</td></tr>
+<tr><td>北農代號</td><td style="text-align:left;">I3 日昇種，語音查詢碼 070903</td></tr>
+</table>
+<p>北農品名代碼表以「日昇種」登錄，與農業資料的「日陞」為同一品種。因果形小，分級規格與箱裝淨重均與台農二號不同，實務上須分開申報。</p>
+<hr>
+<h3>紅妃 <span class="badge badge-special">民間育成</span></h3>
+<div class="feature-single"><img src="images/papaya/hongfei.jpg" alt="紅妃" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">紅妃果實與剖面，果肉橙紅、果形大（圖：農業知識入口網）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 75 年（1986）農友種苗公司一代雜交品種</td></tr>
+<tr><td>果形</td><td style="text-align:left;">兩性株長橢圓型、雌株近球型，果形大</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">通常 1.3–2 公斤，最大可達 3 公斤；糖度約 12 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">肉色紅美、肉厚細膩多汁，低溫期肉色較淡</td></tr>
+<tr><td>栽培特性</td><td style="text-align:left;">耐輪點病毒病強、結果期早、結果部位低矮較抗風、產量高</td></tr>
+</table>
+<p>大果型紅肉品種，早生且耐病，適合颱風季前的產區；低溫期果肉著色轉淡是現場分級時常見的外觀差異。</p>
+<hr>
+<h3>台農十一號 小寶 <span class="badge badge-new">新品種</span></h3>
+<div class="feature-single"><img src="images/papaya/tn11.jpg" alt="台農十一號 小寶" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">台農十一號小寶全果與剖面，果肉橙黃色（圖：農業知識入口網，113 年新增條目）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>發布</td><td style="text-align:left;">民國 113 年（2024）農業知識入口網新增品種條目</td></tr>
+<tr><td>果形</td><td style="text-align:left;">長橢圓形，結果整齊、畸形果少</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 800–900 公克，較台農二號小</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">橙黃色，與台農二號紅肉形成市場區隔</td></tr>
+<tr><td>栽培特性</td><td style="text-align:left;">單節著果數高、儲運性佳，兼具台農二號良好生長習性</td></tr>
+</table>
+<p>以小果型對應小家庭需求，橙黃肉色可打破市場單一紅肉品種的結構；官方資料標明深具推廣潛力，屬新興品項。</p>
+</div>
+
+<h2>二、農試所育成系列</h2>
+<div class="variety-section">
+<h3>台農五號 <span class="badge badge-main">耐病育種</span></h3>
+<div class="feature-single"><img src="images/papaya/tn5.jpg" alt="台農五號" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">台農五號果實與剖面，果肉橙紅（圖：農業知識入口網）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 76 年（1987）9 月命名推廣，臺灣第一個耐輪點病毒病新品種</td></tr>
+<tr><td>親本</td><td style="text-align:left;">佛州種 × 哥斯達黎加紅肉種雜交後代再雜交</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果橢圓形、兩性果長形；矮生，離地 56 公分即開始結果</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">10–11 °Brix，冬季品質反較台農二號為優</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">橙紅色</td></tr>
+<tr><td>貯運</td><td style="text-align:left;">果皮較薄、後熟較快，貯運力較弱，宜提早採收</td></tr>
+</table>
+<p>早生，約比台農二號早一個月採收；對輪點毒素病與紅蜘蛛抵抗性較強，可越冬繼續生產。夏季風味略遜，可透過疏果與施肥改善。</p>
+<hr>
+<h3>台農六號 朱玉 <span class="badge badge-new">網室適栽</span></h3>
+<div class="feature-single"><img src="images/papaya/tn6.jpg" alt="台農六號 朱玉" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">台農六號朱玉果實與剖面，果肉深橙紅豔麗（圖：農業知識入口網，原圖含品種名標籤）</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 87 年（1998）3 月命名推廣，同年 6 月命商品名「朱玉」</td></tr>
+<tr><td>親本</td><td style="text-align:left;">蘇魯一號 × 日陞種雜交後代再雜交</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果近圓形、兩性果短梨形；果長 12.0 公分、果徑 8.6 公分</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 444.6 公克；12.3 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">深橙紅豔麗、肉厚 2.0 公分，果肉利用率 69.3%</td></tr>
+<tr><td>株型／產量</td><td style="text-align:left;">莖節間短 1.9 公分、結果部位低 67.9 公分、株產量 24.8 公斤</td></tr>
+</table>
+<p>矮生、適於網室栽植；正常梨型果高達 99.7%，五裂果與香蕉型果幾乎不發生，五至六月少有俗稱橡皮肉的現象。</p>
+</div>
+
+<h2>三、早期引種與歷史品種</h2>
+<div class="variety-section">
+<p>此節三品種為臺灣木瓜育種的基礎材料，現多已退出主流栽培。農業知識入口網對應條目<strong>未提供果實照片</strong>，故僅以官方文字資料整理特徵表，不借用外觀相近品種的照片。下圖為蘇魯一號條目所附的植株照，作為早期引種栽培示意。</p>
+<div class="feature-single"><img src="images/papaya/sulu_tree.jpg" alt="蘇魯一號木瓜植株" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">蘇魯一號植株照，非果實外觀照（圖：農業知識入口網）</p>
+<hr>
+<h3>蘇魯一號 <span class="badge badge-special">早期引種</span></h3>
+<div class="no-photo">農業知識入口網本品種條目未提供果實照片，本圖鑑不以外觀相近之他品種照片替代。</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">官方條目僅提供植株照片，無果實照；本節開頭另置該植株照作為引種栽培示意</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>引進</td><td style="text-align:left;">民國 43 年（1954）鳳山試驗分所自夏威夷引進，47 年純化推廣</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌性果略呈球形、兩性果洋梨形</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 600 公克；12 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">深橙黃色、肉質細</td></tr>
+<tr><td>產量</td><td style="text-align:left;">每株年產約 26 公斤</td></tr>
+<tr><td>栽培特性</td><td style="text-align:left;">耐貯運、耐寒力較強，較適中北部地區栽培</td></tr>
+</table>
+<p>臺灣早期引種選拔的基礎品種，亦為台農六號朱玉的育種親本之一，現已非市場主流貨源。</p>
+<hr>
+<h3>台農一號 <span class="badge badge-special">外銷型</span></h3>
+<div class="no-photo">農業知識入口網本品種條目未提供果實照片，本圖鑑不以外觀相近之他品種照片替代。</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">農業知識入口網本品種條目未提供果實照片</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 60 年（1971）哥斯達黎加紅肉種 × 日陞種一代雜交</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果橢圓、兩性果長型；果皮光滑淺綠</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 900 公克；13 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">紅豔、具特殊香味</td></tr>
+<tr><td>產量</td><td style="text-align:left;">每株年產約 30 公斤</td></tr>
+<tr><td>栽培特性</td><td style="text-align:left;">抗疫病性強、早生、耐貯運；耐寒力差，不適中北部栽培</td></tr>
+</table>
+<p>因輪點毒素病限制，在臺灣栽培面積有限；但高產與耐貯運特性使其在中南美洲成為主要栽培品種，是臺灣木瓜育種外銷的代表。</p>
+<hr>
+<h3>台農三號 <span class="badge badge-special">加工兼用</span></h3>
+<div class="no-photo">農業知識入口網本品種條目未提供果實照片，本圖鑑不以外觀相近之他品種照片替代。</div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">農業知識入口網本品種條目未提供果實照片</p>
+<table class="compare-table">
+<tr><th style="width:30%">項目</th><th>特徵</th></tr>
+<tr><td>育成</td><td style="text-align:left;">民國 60 年（1971）菲律賓種 × 日陞種一代雜交</td></tr>
+<tr><td>果形</td><td style="text-align:left;">雌果橢圓型、兩性果長型；矮生，離地 72 公分即開始結果</td></tr>
+<tr><td>果重／糖度</td><td style="text-align:left;">平均 1,300 公克；11–12 °Brix</td></tr>
+<tr><td>果肉</td><td style="text-align:left;">橙黃色、品質中等</td></tr>
+<tr><td>產量</td><td style="text-align:left;">每株年產約 35 公斤</td></tr>
+<tr><td>用途</td><td style="text-align:left;">家庭、冰果店與加工兼用；耐寒性稍強，較適中北部栽培</td></tr>
+</table>
+<p>大果豐產、肉色橙黃，適合加工與冰果用途；依臺南區農業改良場品種產業現況資料，此類早期台農系列現已少有推廣種植。</p>
+</div>
+
+<h2>北農品名代號與分級</h2>
+<div class="variety-section">
+  <p>木瓜在北農果菜品名代碼表中屬 <strong>I 類</strong>，依栽培方式、果肉色與品種細分代號。拍賣實務以品名代號區分貨件，並與統一編碼、等級、大小規格共同構成交易標示。</p>
+  <h3>品名代號對照</h3>
+  <table class="compare-table">
+    <tr><th>品名代號</th><th>品名</th><th>語音查詢碼</th><th>統一編碼</th><th>對應貨件</th></tr>
+    <tr style="background:#FFF3E0;"><td><strong>I1</strong></td><td>網室紅肉</td><td>070901</td><td>2030209000011</td><td>台農二號為主，網室栽培</td></tr>
+    <tr><td><strong>I2</strong></td><td>一般紅肉</td><td>070902</td><td>—</td><td>露地與其他紅肉品種</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>I3</strong></td><td>日昇種</td><td>070903</td><td>2030209000035</td><td>日陞（日昇）小果種</td></tr>
+    <tr><td><strong>I4</strong></td><td>青木瓜</td><td>070904</td><td>2030209000042</td><td>未熟果，供料理與加工</td></tr>
+    <tr style="background:#FFF3E0;"><td><strong>I0</strong></td><td>其他</td><td>070900</td><td>—</td><td>未單獨列代號品種與進口貨件</td></tr>
+  </table>
+  <div class="note-box"><strong>市場實務提醒：</strong>I4 青木瓜雖列於 TAPMC 水果類品名代碼表，北農拍賣實務上歸<strong>蔬菜類</strong>處理，與官方分類不同，統計與貨件查詢時須留意。資料來源：<a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">北農果菜品名代碼表 — 水果類</a>。</div>
+
+  <h3>品質標準（I1 台農二號、I3 日陞種）</h3>
+  <table class="compare-table">
+    <tr><th>等級</th><th>品質標準</th></tr>
+    <tr><td><strong>特級</strong></td><td style="text-align:left;">成熟度轉黃比例 5–25%（果溝暗黃至 3 明溝黃），果形完整，果溝色澤橙黃，外觀無瑕疵</td></tr>
+    <tr><td><strong>優級</strong></td><td style="text-align:left;">成熟度轉黃比例 50% 以下（果溝 5 明溝黃），果形尚完整，果實轉色良好，外觀輕微瑕疵</td></tr>
+    <tr><td><strong>良級</strong></td><td style="text-align:left;">品質次於優級品，具有商品價值者</td></tr>
+  </table>
+  <div class="key-point"><strong>現場判讀用語：</strong>木瓜品質以「轉黃比例」與「果溝轉色數」控管採收成熟度，而非以整顆果皮變黃程度判定。特級須在果溝暗黃至 3 明溝黃之間，優級可放寬至 5 明溝黃；轉色過深代表後熟已啟動，貯運風險提高。</div>
+
+  <h3>青木瓜（I4）品質標準</h3>
+  <table class="compare-table">
+    <tr><th>等級</th><th>品質標準</th></tr>
+    <tr><td><strong>特級</strong></td><td style="text-align:left;">未成熟，果形完整，色澤優良，無風疤、病蟲害及其他傷害</td></tr>
+    <tr><td><strong>優級</strong></td><td style="text-align:left;">未成熟，果形尚完整，色澤良好，無病蟲害及其他嚴重傷害</td></tr>
+    <tr><td><strong>良級</strong></td><td style="text-align:left;">品質次於優級品，但有商品價值者</td></tr>
+  </table>
+
+  <h3>大小規格</h3>
+  <table class="compare-table">
+    <tr><th>規格</th><th>I1 台農二號</th><th>I3 日陞種</th><th>I4 青木瓜</th></tr>
+    <tr><td><strong>特大 2L</strong></td><td>1,000 公克以上，每箱 12 粒以內</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>大 L</strong></td><td>800–1,000 公克，12–14 粒</td><td>600 公克以上，8–10 粒</td><td>1.2–1.5 公斤，8–10 粒</td></tr>
+    <tr><td><strong>中 M</strong></td><td>600–800 公克，15–20 粒</td><td>500–600 公克，10–12 粒</td><td>1–1.2 公斤，10–12 粒</td></tr>
+    <tr><td><strong>小 S</strong></td><td>未達 600 公克，20 粒以上</td><td>未達 500 公克，12 粒以上</td><td>未達 1 公斤，14 粒</td></tr>
+  </table>
+
+  <h3>紙箱包裝規格</h3>
+  <table class="compare-table">
+    <tr><th>品項</th><th>紙箱外徑</th><th>淨重</th></tr>
+    <tr><td><strong>I1 台農二號</strong></td><td>七號箱 50 × 33 × 27 公分，可微調內縮 1–2 公分</td><td>12 公斤</td></tr>
+    <tr><td><strong>I3 日陞種</strong></td><td>七號箱 50 × 33 × 16 公分，可微調內縮 1–2 公分</td><td>6 公斤</td></tr>
+    <tr><td><strong>I4 青木瓜</strong></td><td>520 × 340 × 250 公厘</td><td>12 公斤</td></tr>
+  </table>
+  <div class="note-box"><strong>共同作業要求：</strong>果實適時採收，集貨過程避免人為與機械傷害；按相同品種、等級及大小規格選別分級；箱上收貨人、供應單位（人）、供應代號、品名、等級、規格、淨重及件數須填寫完備；若放置電石催熟，須包裹妥當避免撒落污染果實。資料來源：<a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00094" target="_blank">I1 分級包裝</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00095" target="_blank">I3 分級包裝</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00076" target="_blank">I4 分級包裝</a>。</div>
+</div>
+
+<h2>品種綜合對比表</h2>
+<div class="feature-single"><img src="images/papaya/variety_compare.jpg" alt="六個木瓜品種果實對比" loading="lazy"></div>
+<p style="font-size:0.82rem;color:#999;text-align:center;">六個有官方果實照的品種對比，由左上至右下：台農二號、日陞、紅妃、台農十一號小寶、台農五號、台農六號朱玉（原圖：農業知識入口網）</p>
+<table class="compare-table">
+  <tr><th>品種</th><th>來源／年代</th><th>平均果重</th><th>果肉與糖度</th><th>市場角色</th></tr>
+  <tr style="background:#FFF3E0;"><td><strong>台農二號</strong></td><td>1971 泰國種 × 日陞種</td><td>1,100 g</td><td>紅肉 11–12 °Brix</td><td>主力，約 90%</td></tr>
+  <tr><td><strong>日陞</strong></td><td>1967 夏威夷引進</td><td>約 400 g</td><td>鮮紅肉 可達 15 °Brix</td><td>北農 I3 小果種</td></tr>
+  <tr style="background:#FFF3E0;"><td><strong>紅妃</strong></td><td>1986 農友種苗</td><td>1.3–2 kg</td><td>紅肉 約 12 °Brix</td><td>大果、耐病</td></tr>
+  <tr><td><strong>台農十一號</strong></td><td>2024 官方新增</td><td>800–900 g</td><td>橙黃肉</td><td>小家庭新興品</td></tr>
+  <tr style="background:#FFF3E0;"><td><strong>台農五號</strong></td><td>1987 耐病育種</td><td>約 1,400 g</td><td>橙紅肉 10–11 °Brix</td><td>早生、耐輪點病</td></tr>
+  <tr><td><strong>台農六號</strong></td><td>1998 朱玉</td><td>444.6 g</td><td>深橙紅 12.3 °Brix</td><td>網室矮生</td></tr>
+  <tr style="background:#FFF3E0;"><td><strong>蘇魯一號</strong></td><td>1954 夏威夷引進</td><td>600 g</td><td>深橙黃 12 °Brix</td><td>早期引種親本</td></tr>
+  <tr><td><strong>台農一號</strong></td><td>1971 雜交育成</td><td>900 g</td><td>紅肉 13 °Brix</td><td>耐貯運、外銷型</td></tr>
+  <tr style="background:#FFF3E0;"><td><strong>台農三號</strong></td><td>1971 雜交育成</td><td>1,300 g</td><td>橙黃 11–12 °Brix</td><td>加工兼用</td></tr>
+</table>
+<div class="note-box">台農五號果重採農業試驗所品種特性表約 1,435 公克，與主題館條目未載果重者互為補充；其餘數值依各官方條目。官方未提供果實照的三個歷史品種不列入上方對比圖。</div>
+
+<h2>選購消費指南</h2>
+<div class="pros-cons-grid">
+  <div class="pros-cons-card pros-card">
+    <div class="pc-header">選購要點</div>
+    <div class="pc-body">
+      <div class="pc-item"><span class="pc-icon">1</span><span class="pc-text">瓜體有重量感，表皮清淨有光澤、光滑細緻</span></div>
+      <div class="pc-item"><span class="pc-icon">2</span><span class="pc-text">外形端正飽滿，無擦壓傷、腐爛與病蟲害痕跡</span></div>
+      <div class="pc-item"><span class="pc-icon">3</span><span class="pc-text">轉色處黃中透紅、略帶芳香，果溝開始轉黃為適採成熟度</span></div>
+      <div class="pc-item"><span class="pc-icon">4</span><span class="pc-text">按壓果蒂周圍已軟化即可食用，表皮顏色不是可靠指標</span></div>
+    </div>
+  </div>
+  <div class="pros-cons-card cons-card">
+    <div class="pc-header">貯運與食用提醒</div>
+    <div class="pc-body">
+      <div class="pc-item"><span class="pc-icon">1</span><span class="pc-text">完熟果肉軟化不耐運輸，產地多在六、七分熟採收</span></div>
+      <div class="pc-item"><span class="pc-icon">2</span><span class="pc-text">運銷過程以電石催熟促進後熟軟化，箱內須包裹妥當</span></div>
+      <div class="pc-item"><span class="pc-icon">3</span><span class="pc-text">未熟果不可冷藏，應置室溫待後熟</span></div>
+      <div class="pc-item"><span class="pc-icon">4</span><span class="pc-text">軟熟後盡快食用；冷藏過久風味變差且易寒害腐壞</span></div>
+    </div>
+  </div>
+</div>
+<div class="key-point"><strong>食用與加工：</strong>鮮食最能保留維生素與木瓜酵素；青木瓜酵素含量最高，適合涼拌、燉排骨與醃肉嫩化。木瓜酵素受高溫破壞，煮熟後即不具分解蛋白質的效果。</div>
+
+<h2>資料來源</h2>
+<div class="source-box">
+  <p><strong>農業部農業知識入口網 — 木瓜主題館與品種條目：</strong></p>
+  <ul style="margin-left:20px; margin-bottom:12px;">
+    <li><a href="https://kmweb.moa.gov.tw/subject/index.php?id=7" target="_blank">木瓜主題館</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=480" target="_blank">木瓜品種目錄</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8217" target="_blank">台農二號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8215" target="_blank">日陞</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8222" target="_blank">紅妃</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=57358" target="_blank">台農十一號</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8219" target="_blank">台農五號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8220" target="_blank">台農六號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8214" target="_blank">蘇魯一號</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8216" target="_blank">台農一號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=8218" target="_blank">台農三號</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=483" target="_blank">氣候土宜</a> ｜ <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=486" target="_blank">網室栽培</a></li>
+  </ul>
+  <p><strong>產銷與產業資料：</strong><a href="https://kmweb.moa.gov.tw/theme_data.php?theme=production_map&id=107" target="_blank">農漁生產地圖 — 木瓜</a> ｜ <a href="https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=attention&id=47996" target="_blank">臺南區農業改良場 — 木瓜盛產期說明</a> ｜ <a href="https://scholars.tari.gov.tw/bitstream/123456789/10997/1/journal_jts_1-6.pdf" target="_blank">農業試驗所 — 本省木瓜優良品種簡介</a> ｜ <a href="https://book.tndais.gov.tw/Magazine/mag100/100-2.pdf" target="_blank">臺南區農業改良場 — 木瓜品種及種苗產業現況介紹</a></p>
+  <p><strong>北農分級包裝：</strong><a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">果菜品名代碼表（水果類）</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00094" target="_blank">I1 木瓜台農二號</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00095" target="_blank">I3 日陞種</a> ｜ <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00076" target="_blank">I4 青木瓜</a></p>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網、農漁生產地圖及北農公開資料，圖片版權歸原機關所有。三個歷史品種因官方未提供果實照，圖鑑誠實標註缺圖，不以其他品種照片替代。</p>
+</div>
+
+</div>
+</body>
+</html>
