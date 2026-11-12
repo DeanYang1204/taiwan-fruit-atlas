@@ -91,6 +91,12 @@
   .tag-red { background: #FFEBEE; color: #C62828; }
   .tag-pink { background: #FCE4EC; color: #AD1457; }
   .tag-purple { background: #EDE7F6; color: #4527A0; }
+  .variety-gallery { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 16px; margin: 20px 0 8px; }
+  .gallery-item { background: #fff; border: 1px solid #EAEAEA; border-radius: 12px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 190px; object-fit: contain; background: #FAFAFA; display: block; }
+  .gallery-item .g-cap { padding: 10px 12px 12px; font-size: 0.82rem; color: #888; line-height: 1.5; }
+  .gallery-item .g-cap strong { display: block; color: #333; font-size: 0.95rem; margin-bottom: 2px; }
+  .gallery-sub { font-size: 1.1rem; color: #555; margin: 26px 0 6px; padding-left: 10px; border-left: 4px solid var(--accent); }
   .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
   .source-box a { color: var(--accent); text-decoration: none; }
   .source-box a:hover { text-decoration: underline; }
@@ -107,7 +113,7 @@
     <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
   <h1>臺灣香蕉專業圖鑑</h1>
   <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
-  <div class="subtitle2">10 品種內外銷香蕉 + 13 品種特色芭蕉 · 依農業部農業知識入口網正式分類</div>
+  <div class="subtitle2">10 品種內外銷香蕉 + 13 品種食用芭蕉 · 北農 A 類品名代號對照 · 觀賞蕉不收錄</div>
   <div class="author-info">
     <span class="author-label">總整理</span>
     <span class="author-name">儲訓試拍 楊畯詠</span>
@@ -122,13 +128,14 @@
   <p>香蕉（<em>Musa</em> spp.）為芭蕉科芭蕉屬大型草本植物，原產於東南亞熱帶地區，是世界上最重要的水果之一，年產量超過 <strong>1.5 億公噸</strong>，僅次於番茄、西瓜居世界水果第三位，也是臺灣<strong>栽培面積最大的果樹</strong>。</p>
   <p>臺灣香蕉栽培面積約 <strong>15,000 公頃</strong>，年產約 <strong>33 萬公噸</strong>，曾經是臺灣最大的外銷農產品，1960–1970 年代年外銷日本最高達 <strong>40 萬公噸</strong>，為臺灣賺取大量外匯，有「<strong>香蕉王國</strong>」美譽。今日內銷為主、外銷為輔，產地集中中南部，<strong>屏東縣為最大產區</strong>。</p>
   <p>品種方分為<strong>香蕉（AAA 基因組）</strong>與<strong>芭蕉（AA/AB/ABB 等基因組）</strong>兩大類。香蕉以「北蕉」為基礎親本，台蕉系列為主要栽培品種；芭蕉則以蛋蕉、玫瑰蕉、紅皮蕉等特色品種著稱。</p>
+  <p><strong>收錄範圍：</strong>本圖鑑聚焦<strong>市場流通的鮮食品種</strong>，共 23 種（內外銷香蕉 10、食用芭蕉 13）。園藝觀賞用蕉類與種原編號品系因不屬拍賣交易果品，不予收錄。</p>
 </div>
 
 <div class="feature-row">
-  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="北蕉" loading="lazy">
-  <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="蛋蕉" loading="lazy">
+  <img src="images/banana/img_beijiao.jpg" alt="北蕉成熟果把" loading="lazy">
+  <img src="images/banana/img_danjiao.jpg" alt="蛋蕉成熟果把" loading="lazy">
 </div>
-<p style="font-size:0.82rem;color:#999;text-align:center;">左：北蕉 — 臺灣香蕉的基礎品種，栽培歷史逾 270 年 ｜ 右：蛋蕉 — AA 二倍體芭蕉，皮薄肉滑甜度高（圖：農業部）</p>
+<p style="font-size:0.82rem;color:#999;text-align:center;">左：北蕉 — 臺灣香蕉的基礎品種，栽培歷史逾 270 年 ｜ 右：蛋蕉 — AA 二倍體芭蕉，皮薄肉滑甜度高（圖：農業部農業知識入口網）</p>
 
 <h2>產業發展概況</h2>
 <div class="variety-section">
@@ -176,14 +183,51 @@
 
 <div class="category-grid">
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="香蕉系列" loading="lazy">
+    <img src="images/banana/img_tn5.jpg" alt="內外銷香蕉系列" loading="lazy">
     <div class="card-body"><h4>內外銷香蕉系列</h4><p>AAA 基因組 · 10 品種</p><span class="tag tag-yellow">北蕉 · 台蕉1–8號 · 新北蕉</span></div>
   </div>
   <div class="category-card">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="芭蕉系列" loading="lazy">
-    <div class="card-body"><h4>常見芭蕉系列</h4><p>AA/AB/ABB 基因組 · 13 品種</p><span class="tag tag-green">蛋蕉 · 玫瑰蕉 · 紅皮蕉 · 呂宋蕉等</span></div>
+    <img src="images/banana/img_nanhuajiao.jpg" alt="食用芭蕉系列" loading="lazy">
+    <div class="card-body"><h4>食用芭蕉系列</h4><p>AA/AB/ABB 基因組 · 13 品種</p><span class="tag tag-green">蛋蕉 · 玫瑰蕉 · 紅皮蕉 · 呂宋蕉等</span></div>
   </div>
 </div>
+
+
+<hr class="section-divider">
+
+<h2>品種果把圖輯</h2>
+<p>以下 23 張成熟果把照片，逐一裁自農業部農業知識入口網各品種官方圖卡（只取果把主體，捨去田間植株與烤入圖面的品種名標題），可直接比對果指形狀、色澤與果把大小。觀賞蕉類不在此列。</p>
+
+<div class="gallery-sub">內外銷香蕉系列 · 10 品種</div>
+<div class="variety-gallery">
+  <div class="gallery-item"><img src="images/banana/img_beijiao.jpg" alt="北蕉" loading="lazy"><div class="g-cap"><strong>北蕉</strong>AAA · 基礎品種 · 270 年</div></div>
+  <div class="gallery-item"><img src="images/banana/img_xianrenjiao.jpg" alt="仙人蕉" loading="lazy"><div class="g-cap"><strong>仙人蕉</strong>AAA · 北蕉芽條變異</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn1.jpg" alt="台蕉 1 號" loading="lazy"><div class="g-cap"><strong>台蕉 1 號</strong>AAA · 抗黃葉病</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn2.jpg" alt="台蕉 2 號" loading="lazy"><div class="g-cap"><strong>台蕉 2 號</strong>AAA · 矮化抗風</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn3.jpg" alt="台蕉 3 號" loading="lazy"><div class="g-cap"><strong>台蕉 3 號</strong>AAA · 台蕉 5 號親本</div></div>
+  <div class="gallery-item"><img src="images/banana/img_xinbeijiao.jpg" alt="新北蕉（寶島蕉）" loading="lazy"><div class="g-cap"><strong>新北蕉（寶島蕉）</strong>AAA · 抗 TR4 · 外銷接班</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn5.jpg" alt="台蕉 5 號（玉山）" loading="lazy"><div class="g-cap"><strong>台蕉 5 號（玉山）</strong>AAA · 中抗 · 轉色均勻</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn6.jpg" alt="台蕉 6 號（玉豐）" loading="lazy"><div class="g-cap"><strong>台蕉 6 號（玉豐）</strong>AAA · 豐產</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn7.jpg" alt="台蕉 7 號（玉泉）" loading="lazy"><div class="g-cap"><strong>台蕉 7 號（玉泉）</strong>AAA · 抗病優質</div></div>
+  <div class="gallery-item"><img src="images/banana/img_tn8.jpg" alt="台蕉 8 號" loading="lazy"><div class="g-cap"><strong>台蕉 8 號</strong>AAA · 矮化豐產 · 糖度 21–23</div></div>
+</div>
+<div class="gallery-sub">食用芭蕉系列 · 13 品種</div>
+<div class="variety-gallery">
+  <div class="gallery-item"><img src="images/banana/img_danjiao.jpg" alt="蛋蕉（旦蕉／一口蕉）" loading="lazy"><div class="g-cap"><strong>蛋蕉（旦蕉／一口蕉）</strong>AA · 短圓薄皮 · 北農 A3</div></div>
+  <div class="gallery-item"><img src="images/banana/img_meiguijiao.jpg" alt="玫瑰蕉" loading="lazy"><div class="g-cap"><strong>玫瑰蕉</strong>AA · 細長尖 · 高抗黃葉病</div></div>
+  <div class="gallery-item"><img src="images/banana/img_hongpijiao.jpg" alt="紅皮蕉" loading="lazy"><div class="g-cap"><strong>紅皮蕉</strong>AAA · 暗紅果皮</div></div>
+  <div class="gallery-item"><img src="images/banana/img_lusongjiao.jpg" alt="呂宋蕉" loading="lazy"><div class="g-cap"><strong>呂宋蕉</strong>AAB · 中部山區</div></div>
+  <div class="gallery-item"><img src="images/banana/img_nanhuajiao.jpg" alt="南華蕉" loading="lazy"><div class="g-cap"><strong>南華蕉</strong>ABB · 最常見芭蕉 · 北農 A2</div></div>
+  <div class="gallery-item"><img src="images/banana/img_lilinjiao.jpg" alt="李林蕉（美人蕉／佛手蕉）" loading="lazy"><div class="g-cap"><strong>李林蕉（美人蕉／佛手蕉）</strong>AA · 果串形似佛手</div></div>
+  <div class="gallery-item"><img src="images/banana/img_fenjiao.jpg" alt="粉蕉" loading="lazy"><div class="g-cap"><strong>粉蕉</strong>ABB · 果肉細軟清甜</div></div>
+  <div class="gallery-item"><img src="images/banana/img_mijiao.jpg" alt="蜜蕉" loading="lazy"><div class="g-cap"><strong>蜜蕉</strong>ABB · 甜度高如蜜</div></div>
+  <div class="gallery-item"><img src="images/banana/img_ainanhuajiao.jpg" alt="矮南華蕉" loading="lazy"><div class="g-cap"><strong>矮南華蕉</strong>ABB · 矮化抗風</div></div>
+  <div class="gallery-item"><img src="images/banana/img_jialusongjiao.jpg" alt="假呂宋蕉（仿仔）" loading="lazy"><div class="g-cap"><strong>假呂宋蕉（仿仔）</strong>AAB · 近似呂宋蕉</div></div>
+  <div class="gallery-item"><img src="images/banana/img_aihongpijiao.jpg" alt="矮紅皮蕉" loading="lazy"><div class="g-cap"><strong>矮紅皮蕉</strong>AAA · 紅皮蕉矮化種</div></div>
+  <div class="gallery-item"><img src="images/banana/img_huanghoujiao.jpg" alt="皇后蕉" loading="lazy"><div class="g-cap"><strong>皇后蕉</strong>AA · 小巧精緻</div></div>
+  <div class="gallery-item"><img src="images/banana/img_jinshouzhi.jpg" alt="金手指" loading="lazy"><div class="g-cap"><strong>金手指</strong>AA · 細小如指 · 精品級</div></div>
+</div>
+<div class="note-box"><strong>北農拍賣對照：</strong>圖輯中<strong>北蕉與台蕉系列</strong>在交易上歸 <strong>A1 香蕉</strong>；<strong>蛋蕉</strong>歸 <strong>A3 旦蕉</strong>；<strong>南華蕉、粉蕉、蜜蕉</strong>等歸 <strong>A2 芭蕉</strong>。各代號的分級與包裝規格見下方章節。</div>
 
 <hr class="section-divider">
 
@@ -194,9 +238,9 @@
   <!-- ── 北蕉 ── -->
   <h3>北蕉 <span class="badge badge-main">基礎品種 · 270 年歷史</span></h3>
   <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="北蕉" loading="lazy">
+    <img src="images/banana/img_beijiao.jpg" alt="北蕉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">北蕉：清乾隆年間自華南引入，栽培歷史逾 270 年，是臺灣所有香蕉品種的根基（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;">北蕉：清乾隆年間自華南引入，栽培歷史逾 270 年，是臺灣所有香蕉品種的根基（圖：農業部農業知識入口網）</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>歷史</td><td>清乾隆年間（1736–1795）自華南引入，至今約 270 年</td></tr>
@@ -214,9 +258,9 @@
   <!-- ── 仙人蕉 ── -->
   <h3>仙人蕉</h3>
   <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/7540b92805_m.jpg" alt="仙人蕉" loading="lazy">
+    <img src="images/banana/img_xianrenjiao.jpg" alt="仙人蕉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">仙人蕉：北蕉的芽條變異品種，果形較北蕉更為弓彎（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;">仙人蕉：北蕉的芽條變異品種，果形較北蕉更為弓彎（圖：農業部農業知識入口網）</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>來源</td><td>北蕉的芽條變異品種</td></tr>
@@ -265,7 +309,7 @@
     <tr>
       <td><strong>台蕉 8 號</strong></td>
       <td>抗病</td>
-      <td>最新台蕉品種，延續抗病育種方向</td>
+      <td>台灣香蕉研究所自寶島蕉田區選獲之矮化豐產新品系，108 年 12 月命名；株高約 270 cm、種植至採收約 12 個月（較寶島蕉提早 1 個月），單株果重 27 kg 以上，果型近似北蕉，果肉糖度 21–23 °Brix，對黃葉病 TR4 具中度抗性</td>
       <td>周年</td>
     </tr>
   </table>
@@ -276,15 +320,15 @@
 <hr class="section-divider">
 
 <!-- ===== 二、常見芭蕉 ===== -->
-<h2>二、常見芭蕉系列</h2>
+<h2>二、食用芭蕉系列</h2>
 <div class="variety-section">
 
   <!-- ── 蛋蕉 ── -->
   <h3>蛋蕉（旦蕉／一口蕉）<span class="badge badge-special">AA 二倍體 · 市場新寵</span></h3>
   <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/5ade4b6457_m.jpg" alt="蛋蕉" loading="lazy">
+    <img src="images/banana/img_danjiao.jpg" alt="蛋蕉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">蛋蕉：泰國原名 Kluai Khai（意為「蛋」），果指短圓、皮薄肉滑甜度高，臺灣雖少種但市場反應極佳（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;">蛋蕉：泰國原名 Kluai Khai（意為「蛋」），果指短圓、皮薄肉滑甜度高，臺灣雖少種但市場反應極佳（圖：農業部農業知識入口網）</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>基因組</td><td>AA（二倍體），泰國及馬來西亞最重要的鮮食蕉品種之一</td></tr>
@@ -300,9 +344,9 @@
   <!-- ── 玫瑰蕉 ── -->
   <h3>玫瑰蕉 <span class="badge badge-new">AA 二倍體 · 精緻水果潛力股</span></h3>
   <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/3cfdef166f_m.jpg" alt="玫瑰蕉" loading="lazy">
+    <img src="images/banana/img_meiguijiao.jpg" alt="玫瑰蕉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">玫瑰蕉：原品種名 Cultivar Rose，1995 年自比利時國際香蕉種原轉運中心引進（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;">玫瑰蕉：原品種名 Cultivar Rose，1995 年自比利時國際香蕉種原轉運中心引進（圖：農業部農業知識入口網）</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>基因組</td><td>AA（二倍體），1995 年自比利時 ITC 引進，來源不詳（可能為印尼地方品種）</td></tr>
@@ -319,9 +363,9 @@
   <!-- ── 紅皮蕉 ── -->
   <h3>紅皮蕉 <span class="badge badge-special">AAA · 暗紅果皮</span></h3>
   <div class="feature-single">
-    <img src="https://kmweb.moa.gov.tw/files/IMITA_Gallery/21/c6ce7ac796_m.jpg" alt="紅皮蕉" loading="lazy">
+    <img src="images/banana/img_hongpijiao.jpg" alt="紅皮蕉" loading="lazy">
   </div>
-  <p style="font-size:0.82rem;color:#999;">紅皮蕉：因果皮呈討喜的暗紅色而得名，全球廣泛分布但多為庭園式栽培（圖：農業部）</p>
+  <p style="font-size:0.82rem;color:#999;">紅皮蕉：因果皮呈討喜的暗紅色而得名，全球廣泛分布但多為庭園式栽培（圖：農業部農業知識入口網）</p>
   <table class="compare-table">
     <tr><th style="width:30%">項目</th><th>特徵</th></tr>
     <tr><td>基因組</td><td>AAA，遍佈全球蕉區，東南亞及中南美洲普遍種植（多為庭院式）</td></tr>
@@ -357,7 +401,7 @@
     </tr>
     <tr style="background:#FFFDE7;">
       <td><strong>李林蕉（美人蕉／佛手蕉）</strong></td><td>—</td>
-      <td>果串形似佛手，外觀特殊，具觀賞與食用雙重價值</td>
+      <td>果串形似佛手、果指排列緊密，外觀特殊；果肉細緻可鮮食，屬食用蕉</td>
     </tr>
     <tr>
       <td><strong>矮紅皮蕉</strong></td><td>AAA</td>
@@ -403,6 +447,38 @@
 
 <hr class="section-divider">
 
+
+<h2>北農品名代號與分級</h2>
+<div class="variety-section">
+  <p>臺北農產運銷公司果菜品名代碼表中，香蕉類屬 <strong>A 類</strong>。拍賣交易、語音查詢與進貨明細均以下列代號登載，與品種學名是兩套不同系統，儲訓人員需能互換對照。</p>
+  <table class="compare-table">
+    <tr><th>品名代號</th><th>拍賣品名</th><th>語音查詢碼</th><th>大小規格（每把果重）</th><th>紙箱（外徑）</th><th>淨重</th></tr>
+    <tr style="background:#FFFDE7;"><td><strong>A1</strong></td><td>香蕉<br><span style="font-size:0.8rem;color:#888;">北蕉、台蕉系列、新北蕉</span></td><td>070101</td><td>大 L：3 kg 以上<br>中 M：2–3 kg<br>小 S：未達 2 kg</td><td>五號箱 60×40×30 cm</td><td>15 kg</td></tr>
+    <tr><td><strong>A2</strong></td><td>芭蕉<br><span style="font-size:0.8rem;color:#888;">南華蕉、粉蕉、蜜蕉</span></td><td>070102</td><td>大 L：2.5–3.5 kg<br>中 M：1.5–2.5 kg<br>小 S：未達 1.5 kg</td><td>55×35×27 cm</td><td>15 kg</td></tr>
+    <tr style="background:#FFFDE7;"><td><strong>A3</strong></td><td>旦蕉<br><span style="font-size:0.8rem;color:#888;">蛋蕉／一口蕉</span></td><td>070103</td><td>2L：900 g 以上<br>大 L：750–900 g<br>中 M：500–750 g<br>小 S：未達 500 g</td><td>56×36×19 cm</td><td>10 kg</td></tr>
+    <tr><td><strong>A4</strong></td><td>越旦</td><td>070104</td><td>大 L：1 kg 以上<br>中 M：0.8–1 kg<br>小 S：未達 0.8 kg</td><td>58×36×20 cm</td><td>10 kg</td></tr>
+    <tr style="background:#FFFDE7;"><td><strong>A0</strong></td><td>其他／美人蕉</td><td>070100</td><td>2L：1.2 kg 以上<br>大 L：0.8–1.2 kg<br>中 M：0.5–0.8 kg<br>小 S：未達 0.5 kg</td><td>56×37×25 cm</td><td>15 kg</td></tr>
+  </table>
+
+  <h3>品質標準</h3>
+  <table class="compare-table">
+    <tr><th style="width:16%">等級</th><th>A1 香蕉 / A2 芭蕉</th><th>A3 旦蕉 / A0 美人蕉</th></tr>
+    <tr style="background:#FFFDE7;"><td><strong>特級</strong></td><td>成熟適度、果把完整、色澤優良、果面光滑（芭蕉為果粉均勻）、外觀無瑕疵</td><td>同一品種、成熟適度、串形完整、色澤優良、無病蟲害及其他傷害</td></tr>
+    <tr><td><strong>優級</strong></td><td>成熟尚適度、果把完整、色澤良好、果面尚光滑、外觀輕微瑕疵</td><td>同一品種、成熟尚適度、串形完整、色澤良好、無嚴重病蟲害及其他傷害</td></tr>
+    <tr><td><strong>良級</strong></td><td colspan="2">品質次於優級品，但仍具商品價值者</td></tr>
+  </table>
+
+  <h3>包裝作業要點</h3>
+  <div class="key-point">
+    <strong>共通：</strong>適時採收、集貨避免人為與機械傷害；果軸適度切除；按相同等級與大小規格分級；果把間鋪柔軟襯墊物避免擦壓傷；<strong>封箱不得使用封箱釘</strong>；箱面須標示市場別、供應單位、供應代號、品名、等級、規格、淨重及件數。<br>
+    <strong>A1 另有摺疊籃版本：</strong>五號籃 60×40×30 cm、淨重 15 kg，規格與品質標準同紙箱版，屬北農推動之循環容器。<br>
+    <strong>A3 旦蕉：</strong>果柄適度修整，紙箱淨重 10 kg，與 A1／A2 的 15 kg 不同，進貨時需留意。
+  </div>
+  <div class="note-box"><strong>追溯編碼：</strong>A1 香蕉標準分類編碼 4711248122107；A2 芭蕉統一編碼 2030201000026；A3 旦蕉 2030201000033；A0 美人蕉 2030201000002。統一編碼為農糧署依蔬果品名代號表制定，供產銷供應鏈追溯使用。</div>
+</div>
+
+<hr class="section-divider">
+
 <h2>選購消費指南</h2>
 <div class="variety-section">
   <div class="key-point">
@@ -433,6 +509,13 @@
   <p><strong>主要參考資料（農業部農業知識入口網 — 香蕉主題館）：</strong></p>
   <ul style="margin-left:20px; margin-bottom:12px;">
     <li><a href="https://kmweb.moa.gov.tw/subject/index.php?id=20" target="_blank">香蕉主題館 — 品種目錄</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=11129" target="_blank">北蕉（Pei-Chiao）品種資料</a> ｜ 
+        <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=44019" target="_blank">台蕉 8 號新品種簡介</a></li>
+    <li><a href="https://www.tapmc.com.tw/Pages/Market/Fruit" target="_blank">臺北農產運銷公司 — 果菜品名代碼表（水果類）</a></li>
+    <li><a href="https://www.tapmc.com.tw/Pages/Market/Packing/G0007E" target="_blank">A1 香蕉分級包裝</a> ｜ 
+        <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G0007F" target="_blank">A2 芭蕉</a> ｜ 
+        <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G00080" target="_blank">A3 旦蕉</a> ｜ 
+        <a href="https://www.tapmc.com.tw/Pages/Market/Packing/G000E0" target="_blank">A4 越旦</a></li>
     <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=952" target="_blank">北蕉</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=957" target="_blank">台蕉5號—玉山</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=956" target="_blank">新北蕉—寶島蕉</a></li>
@@ -446,7 +529,7 @@
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=924" target="_blank">李林蕉（美人蕉）</a> ｜ 
         <a href="https://kmweb.moa.gov.tw/subject/subject.php?id=969" target="_blank">皇后蕉</a></li>
   </ul>
-  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網香蕉主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。</p>
+  <p style="font-size:0.82rem;color:#999;">所有品種照片與資料均引用自農業部農業知識入口網香蕉主題館（kmweb.moa.gov.tw），圖片版權歸原機關所有。圖輯中的果把照裁自官方品種圖卡，已捨去田間背景與烤入圖面的品種名標題；北農分級資料引用自臺北農產運銷公司分級包裝規範。觀賞蕉類與種原編號品系不在本圖鑑收錄範圍。</p>
 </div>
 
 </div>

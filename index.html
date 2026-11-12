@@ -123,21 +123,6 @@
   }
   .fruit-card:hover .card-arrow { gap: 8px; }
 
-  /* ── 建構中 ── */
-  .fruit-card.wip {
-    opacity: 0.55; filter: grayscale(0.5); cursor: default;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .fruit-card.wip:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .fruit-card.wip .card-img { filter: brightness(0.9); }
-  .fruit-card.wip .card-arrow { display: none; }
-  .wip-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
-    background: #9E9E9E; color: white;
-    margin-bottom: 14px;
-  }
-
   /* ── Coming Soon ── */
   .coming-soon {
     background: var(--card-bg); border-radius: 18px;
@@ -377,40 +362,39 @@
       </div>
     </a>
 
-  </div><!-- /card-grid 已完成 -->
-
-  <!-- ── 建構中 ── -->
-  <div class="section-title" style="margin-top:48px;">建構中</div>
-  <div class="card-grid">
-
     <!-- ▸▸▸ 香蕉 Banana ▸▸▸ -->
-    <div class="fruit-card wip">
-      <img class="card-img" src="images/banana-hero.jpg" alt="香蕉" loading="lazy" style="object-fit:contain; background:#FFFDE7;">
-      <div class="card-accent" style="background: #9E9E9E;"></div>
+    <a class="fruit-card" href="banana-atlas.html">
+      <img class="card-img" src="images/banana/img_tn8.jpg" alt="香蕉" loading="lazy">
+      <div class="card-accent" style="background: #F9A825;"></div>
       <div class="card-body">
-        <span class="wip-badge">建構中</span>
-        <h3 style="color:#757575;">香蕉</h3>
+        <h3 style="color:#F57F17;">香蕉</h3>
         <div class="sci-name">Musa spp. · Banana / Plantain</div>
-        <div class="desc">臺灣最大果樹，年產 33 萬公噸。10 品種內外銷香蕉 + 13 品種特色芭蕉完整收錄。</div>
+        <div class="desc">臺灣最大果樹，年產 33 萬公噸。10 品種內外銷香蕉 + 13 品種食用芭蕉各自對應官方果把照，附北農 A 類代號與分級規格。觀賞蕉不收錄。</div>
         <div class="card-stats">
           <div class="stat"><strong>15,000+ 公頃</strong>栽培面積</div>
           <div class="stat"><strong>23 品種</strong>兩大品系</div>
         </div>
         <div class="card-tags">
-          <span class="tag" style="background:#FFFDE7;color:#757575;">內外銷香蕉</span>
-          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">特色芭蕉</span>
-          <span class="tag" style="background:#FFF3E0;color:#757575;">抗病育種</span>
+          <span class="tag" style="background:#FFF8E1;color:#F57F17;">內外銷香蕉</span>
+          <span class="tag" style="background:#E8F5E9;color:#2E7D32;">食用芭蕉</span>
+          <span class="tag" style="background:#FFF3E0;color:#F57F17;">北農分級</span>
         </div>
-        <div class="card-arrow" style="color:#9E9E9E;">即將推出 →</div>
+        <div class="card-arrow" style="color:#F9A825;">查看完整圖鑑 →</div>
       </div>
-    </div>
+    </a>
+
+  </div><!-- /card-grid 已完成 -->
+
+  <!-- ── 後續擴充 ── -->
+  <div class="section-title" style="margin-top:48px;">後續擴充</div>
+  <div class="card-grid">
 
     <div class="coming-soon">
       <p>更多品種 — 陸續擴充</p>
       <p style="font-size:0.78rem;margin-top:4px;">葡萄、棗子⋯</p>
     </div>
 
-  </div><!-- /card-grid 建構中 -->
+  </div><!-- /card-grid 後續擴充 -->
 </div><!-- /container -->
 
 <div class="footer">
