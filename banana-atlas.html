@@ -26,7 +26,7 @@
   .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
-  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; font-size: 0.88rem; }
   .author-info .author-label { display: inline-block; background: rgba(245,166,35,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
   .author-info .author-name { font-weight: 600; margin-right: 12px; }
   .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
@@ -104,6 +104,37 @@
   .note-box { background: #FFF3E0; border-left: 4px solid #FF6F00; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   .key-point { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
   @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+
+
+/* GANTT:CSS:START */
+body { --gantt-main: #F9A825; --gantt-soft: #FFE082; }
+/* ── 產期甘特圖 ── */
+.gantt-card { background: #fff; border-radius: 16px; padding: 22px 20px; margin: 18px 0 26px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.gantt-scroll { overflow-x: auto; }
+.gantt-chart { min-width: 1000px; }
+.gantt-group-row, .gantt-axis, .gantt-row { display: grid; grid-template-columns: 216px repeat(18, 1fr); align-items: center; }
+.gantt-group-row { background: #F5F5F5; border-radius: 8px 8px 0 0; }
+.gantt-corner { font-size: 0.8rem; color: #666; padding: 6px 10px; position: sticky; left: 0; z-index: 4; }
+.gantt-group-row .gantt-corner { background: #F5F5F5; }
+.gantt-axis .gantt-corner { background: #EBEBEB; }
+.gantt-group { grid-row: 1; text-align: center; font-size: 0.78rem; color: #666; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-axis { background: #EBEBEB; }
+.gantt-month { text-align: center; font-size: 0.72rem; color: #555; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-month.next { color: #8A6D3B; }
+.gantt-row { min-height: 38px; border-bottom: 1px solid #F0F0F0; }
+.gantt-name { position: sticky; left: 0; background: #fff; z-index: 4; padding: 5px 10px; font-size: 0.85rem; }
+.gantt-name strong { font-weight: 600; }
+.gantt-name small { display: block; font-size: 0.72rem; color: #888; }
+.gantt-track { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(18, 1fr); align-items: center; height: 26px; }
+.gantt-cell { grid-row: 1; height: 26px; border-left: 1px solid #F0F0F0; }
+.gantt-bar { grid-row: 1; height: 16px; background: var(--gantt-soft, #C8E6C9); border-radius: 4px; z-index: 2; margin: 0 1px; }
+.gantt-peak { grid-row: 1; height: 16px; background: var(--gantt-main, #2E7D32); border-radius: 4px; z-index: 3; margin: 0 1px; }
+.gantt-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 0.82rem; color: #666; }
+.gantt-legend span:last-child { flex-basis: 100%; }
+.gantt-legend i { display: inline-block; width: 26px; height: 12px; border-radius: 4px; vertical-align: -1px; margin-right: 6px; }
+.gantt-note { font-size: 0.84rem; color: #777; margin-top: 10px; margin-bottom: 0; }
+@media (max-width: 650px) { .gantt-card { padding: 16px 12px; } }
+/* GANTT:CSS:END */
 </style>
 </head>
 <body>
@@ -137,6 +168,11 @@
 </div>
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：北蕉 — 臺灣香蕉的基礎品種，栽培歷史逾 270 年 ｜ 右：蛋蕉 — AA 二倍體芭蕉，皮薄肉滑甜度高（圖：農業部農業知識入口網）</p>
 
+<!-- GANTT:START -->
+<h2>產期甘特圖</h2>
+<p>以單一產季年度呈現各品種供應時序，淺色為供應期、深色為盛產期。橫軸由當年度 1 月延伸至翌年 6 月，跨年產期可連續判讀。</p>
+<div class="gantt-card"><div class="gantt-scroll"><div class="gantt-chart"><div class="gantt-group-row"><div class="gantt-corner">品種 / 月份</div><div class="gantt-group" style="grid-column:2 / 14">當年度 1–12 月</div><div class="gantt-group" style="grid-column:14 / 20">翌年 1–6 月</div></div><div class="gantt-axis"><div class="gantt-corner">供應期</div><span class="gantt-month">1</span><span class="gantt-month">2</span><span class="gantt-month">3</span><span class="gantt-month">4</span><span class="gantt-month">5</span><span class="gantt-month">6</span><span class="gantt-month">7</span><span class="gantt-month">8</span><span class="gantt-month">9</span><span class="gantt-month">10</span><span class="gantt-month">11</span><span class="gantt-month">12</span><span class="gantt-month next">1</span><span class="gantt-month next">2</span><span class="gantt-month next">3</span><span class="gantt-month next">4</span><span class="gantt-month next">5</span><span class="gantt-month next">6</span></div><div class="gantt-row"><div class="gantt-name"><strong>全品系盛產期</strong><small>3–6 月（春夏）</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:3 / 7"></span><span class="gantt-peak" style="grid-column:3 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>北蕉（外銷主力）</strong><small>2–6 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:2 / 7"></span><span class="gantt-peak" style="grid-column:3 / 6"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>仙人蕉／新北蕉</strong><small>周年</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 13"></span><span class="gantt-peak" style="grid-column:3 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>台蕉 1–3、6–8 號</strong><small>周年</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 13"></span><span class="gantt-peak" style="grid-column:3 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>台蕉 5 號（玉山）</strong><small>11–12 月集中</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:11 / 13"></span><span class="gantt-peak" style="grid-column:11 / 13"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>玫瑰蕉</strong><small>9–10 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:9 / 11"></span><span class="gantt-peak" style="grid-column:9 / 11"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>南華蕉／紅皮蕉</strong><small>周年</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:1 / 13"></span></div></div></div></div><div class="gantt-legend"><span><i style="background:var(--gantt-soft)"></i>供應期</span><span><i style="background:var(--gantt-main)"></i>盛產期</span><span>橫軸 1–12 月為當年度，接續 1–6 月為翌年，跨年產期可連續判讀</span></div><p class="gantt-note">臺灣香蕉周年生產，春夏 3–6 月糖度最高、風味最佳且適合內外銷；部分品種有特定集中產期。</p></div>
+<!-- GANTT:END -->
 <h2>產業發展概況</h2>
 <div class="variety-section">
   <h3>主要產地分布</h3>

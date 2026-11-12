@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺灣棗子（印度棗）專業圖鑑</title>
+<meta name="description" content="臺灣棗子（印度棗）21 個品種完整圖鑑，含官方果實照片、產期甘特圖、產地分布、分級包裝與選購指南。">
+<style>
+
+  :root {
+    --jujube-green: #2E7D32; --jujube-leaf: #7CB342; --jujube-deep: #1B5E20;
+    --jujube-light: #E8F5E9; --jujube-cream: #F1F8E9;
+    --dark-text: #2C2C2C; --medium-text: #555; --light-bg: #FBFAF5;
+    --card-bg: #FFFFFF; --accent: #2E7D32; --section-bg: #E8F5E9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+    background: var(--light-bg); color: var(--dark-text); line-height: 1.8;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 35%, #7CB342 70%, #C5E1A5 100%);
+    color: white; padding: 80px 20px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero .logo-wrap { position: relative; display: inline-block; margin-bottom: 20px; }
+  .hero .logo-wrap img { width: 190px; height: auto; background: white; padding: 14px 24px; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+  .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
+  .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
+  .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; font-size: 0.88rem; }
+  .author-info .author-label { display: inline-block; background: rgba(124,179,66,0.92); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
+  .author-info .author-name { font-weight: 600; margin-right: 12px; }
+  .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
+  .author-info .author-contact a { color: #DCEDC8; text-decoration: none; border-bottom: 1px dotted rgba(220,237,200,0.6); }
+  .author-info .author-contact a:hover { color: #fff; border-bottom-color: #fff; }
+  .back-home {
+    position: absolute; top: 18px; left: 20px; z-index: 10;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px 9px 14px;
+    background: rgba(255,255,255,0.95); color: #1B5E20;
+    text-decoration: none; font-size: 0.9rem; font-weight: 600;
+    border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: box-shadow .2s ease;
+  }
+  .back-home:hover { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .back-home .arrow { font-size: 0.85rem; opacity: 0.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h2 { font-size: 1.8rem; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 1.4rem; margin: 30px 0 12px; color: #444; }
+  h4 { font-size: 1.15rem; margin: 16px 0 8px; color: #555; }
+  p { margin-bottom: 12px; color: var(--medium-text); }
+  .intro-box { background: var(--jujube-light); border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid var(--accent); }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .feature-row img { width: 100%; height: 300px; object-fit: contain; border-radius: 12px; background: #F5F5F5; }
+  .feature-single { margin: 20px 0; text-align: center; }
+  .feature-single img { max-width: 620px; width: 100%; height: 300px; object-fit: contain; border-radius: 12px; background: #F5F5F5; }
+  .caption { font-size: 0.82rem; color: #999; text-align: center; margin-bottom: 18px; }
+  .variety-section { background: var(--card-bg); border-radius: 16px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.88rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-table th { background: var(--accent); color: white; padding: 11px 12px; text-align: center; font-weight: 600; }
+  .compare-table td { padding: 9px 12px; border-bottom: 1px solid #E5E5E5; text-align: center; vertical-align: top; }
+  .compare-table tr:hover td { background: var(--jujube-cream); }
+  .category-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 20px; margin: 26px 0; }
+  .category-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .category-card img { width: 100%; height: 190px; object-fit: contain; background: #F7F7F7; }
+  .category-card .card-body { padding: 16px; }
+  .category-card .card-body h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .category-card .card-body p { font-size: 0.88rem; margin: 0; color: #777; }
+  .variety-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; margin: 24px 0; }
+  .variety-grid.five { grid-template-columns: repeat(5, 1fr); }
+  .variety-grid.five img { height: 180px; }
+  .variety-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 3px 14px rgba(0,0,0,0.08); }
+  .variety-card img { width: 100%; height: 210px; object-fit: contain; background: #F7F7F7; }
+  .variety-card .v-body { padding: 16px; }
+  .variety-card h4 { margin: 0 0 8px; font-size: 1.08rem; color: var(--jujube-deep); }
+  .variety-card .v-meta { font-size: 0.8rem; color: #2E7D32; background: var(--jujube-light); border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; }
+  .variety-card p { font-size: 0.86rem; margin: 0; color: #666; line-height: 1.7; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.76rem; font-weight: 600; margin-right: 6px; }
+  .badge-main { background: #2E7D32; color: white; }
+  .badge-early { background: #7CB342; color: white; }
+  .badge-late { background: #F9A825; color: #4E342E; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin: 2px; }
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-lime { background: #F1F8E9; color: #558B2F; }
+  .tag-gold { background: #FFF8E1; color: #E65100; }
+  .note-box { background: #FFF8E1; border-left: 4px solid #F9A825; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .key-point { background: var(--jujube-light); border-left: 4px solid #2E7D32; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.92rem; }
+  .source-box { background: #F5F5F5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.88rem; color: #666; }
+  .source-box a { color: var(--accent); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+  .source-box ul { margin: 8px 0 0 20px; }
+  .section-divider { border: none; height: 2px; background: #E5E5E5; margin: 40px 0; }
+  @media (max-width: 650px) {
+    .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-table td, .compare-table th { white-space: normal; min-width: 88px; }
+  }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .feature-row, .category-grid { grid-template-columns: 1fr; }
+    .variety-grid, .variety-grid.five { grid-template-columns: 1fr 1fr; }
+  }
+
+
+
+
+/* GANTT:CSS:START */
+body { --gantt-main: #2E7D32; --gantt-soft: #C8E6C9; }
+/* ── 產期甘特圖 ── */
+.gantt-card { background: #fff; border-radius: 16px; padding: 22px 20px; margin: 18px 0 26px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.gantt-scroll { overflow-x: auto; }
+.gantt-chart { min-width: 1000px; }
+.gantt-group-row, .gantt-axis, .gantt-row { display: grid; grid-template-columns: 216px repeat(18, 1fr); align-items: center; }
+.gantt-group-row { background: #F5F5F5; border-radius: 8px 8px 0 0; }
+.gantt-corner { font-size: 0.8rem; color: #666; padding: 6px 10px; position: sticky; left: 0; z-index: 4; }
+.gantt-group-row .gantt-corner { background: #F5F5F5; }
+.gantt-axis .gantt-corner { background: #EBEBEB; }
+.gantt-group { grid-row: 1; text-align: center; font-size: 0.78rem; color: #666; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-axis { background: #EBEBEB; }
+.gantt-month { text-align: center; font-size: 0.72rem; color: #555; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-month.next { color: #8A6D3B; }
+.gantt-row { min-height: 38px; border-bottom: 1px solid #F0F0F0; }
+.gantt-name { position: sticky; left: 0; background: #fff; z-index: 4; padding: 5px 10px; font-size: 0.85rem; }
+.gantt-name strong { font-weight: 600; }
+.gantt-name small { display: block; font-size: 0.72rem; color: #888; }
+.gantt-track { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(18, 1fr); align-items: center; height: 26px; }
+.gantt-cell { grid-row: 1; height: 26px; border-left: 1px solid #F0F0F0; }
+.gantt-bar { grid-row: 1; height: 16px; background: var(--gantt-soft, #C8E6C9); border-radius: 4px; z-index: 2; margin: 0 1px; }
+.gantt-peak { grid-row: 1; height: 16px; background: var(--gantt-main, #2E7D32); border-radius: 4px; z-index: 3; margin: 0 1px; }
+.gantt-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 0.82rem; color: #666; }
+.gantt-legend span:last-child { flex-basis: 100%; }
+.gantt-legend i { display: inline-block; width: 26px; height: 12px; border-radius: 4px; vertical-align: -1px; margin-right: 6px; }
+.gantt-note { font-size: 0.84rem; color: #777; margin-top: 10px; margin-bottom: 0; }
+@media (max-width: 650px) { .gantt-card { padding: 16px 12px; } }
+/* GANTT:CSS:END */
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="back-home" href="index.html">返回首頁 <span class="arrow">←</span></a>
+  <div class="logo-wrap"><img src="beinong-logo.png" alt="臺北農產運銷公司 北農"></div>
+  <h1>臺灣棗子專業圖鑑</h1>
+  <div class="subtitle">臺北農產運銷公司內部培訓自主學習資料</div>
+  <div class="subtitle2">印度棗 21 品種完整收錄 · 跨年產期甘特圖 · 分級包裝實務</div>
+  <div class="author-info">
+    <span class="author-label">總整理</span>    <span class="author-name">儲訓試拍 楊畯詠</span>    <span class="author-contact">如有補充更正可 mail 至 <a href="mailto:leodean1204@gmail.com">leodean1204@gmail.com</a></span>
+  </div>
+</div>
+
+<div class="container">
+
+<h2>總論</h2>
+<div class="intro-box">
+  <p>臺灣市場所稱的「棗子」是<strong>印度棗</strong>（<em>Ziziphus mauritiana</em> Lam.），為鼠李科棗屬常綠果樹，原產印度、緬甸及中國雲南一帶，與中藥材、苗栗公館特產的<strong>中國棗（紅棗，<em>Zizyphus jujuba</em> Mill.）同屬不同種</strong>，兩者不可混為一談。</p>
+  <p>印度棗在日治時期即有栽培，經多年品種選育與栽培技術改進，品質甜脆多汁，現已成為臺灣南部重要特產。依農業統計年報，近十年全臺栽培面積約 <strong>1,955–2,469 公頃</strong>，年產量約 <strong>29,121–38,795 公噸</strong>。產地集中<strong>高雄燕巢、大社、阿蓮、岡山、田寮</strong>，<strong>屏東鹽埔、高樹、里港、九如</strong>，以及臺南關廟、楠西、嘉義竹崎等地。</p>
+  <p>目前主要栽培品種為<strong>中葉、三木、高雄 8 號珍寶、高雄 11 號珍蜜、高雄 12 號珍愛</strong>，市場占有率達九成以上。商業嫁接苗種植後約 6 個月即可正常開花結果，品種更替速度極快。</p>
+</div>
+
+<div class="feature-row">
+  <img src="images/jujube/zhenai.jpg" alt="高雄12號珍愛果實" loading="lazy">
+  <img src="images/jujube/mizao.jpg" alt="蜜棗果實" loading="lazy">
+</div>
+<p class="caption">左：高雄 12 號珍愛 — 由珍寶芽條變異選育的農曆年前主力 ｜ 右：蜜棗 — 國內最重要、市面最常見的品種（圖：農業部農業知識入口網／高雄區農業改良場）</p>
+
+<div class="key-point">
+  <strong>產季特性：</strong>棗子是典型的<strong>跨年產期</strong>果品，11 月早熟品種上市，12 月至翌年 2 月為主力供應期，<strong>農曆年前後 1–2 月為盛產高峰</strong>，晚熟品種可延至 4 月上旬，正好銜接年節送禮需求。
+</div>
+
+<!-- GANTT:START -->
+<h2>產期甘特圖</h2>
+<p>以單一產季年度呈現各品種供應時序，淺色為供應期、深色為盛產期。橫軸由當年度 1 月延伸至翌年 6 月，跨年產期可連續判讀。</p>
+<div class="gantt-card"><div class="gantt-scroll"><div class="gantt-chart"><div class="gantt-group-row"><div class="gantt-corner">品種 / 月份</div><div class="gantt-group" style="grid-column:2 / 14">當年度 1–12 月</div><div class="gantt-group" style="grid-column:14 / 20">翌年 1–6 月</div></div><div class="gantt-axis"><div class="gantt-corner">供應期</div><span class="gantt-month">1</span><span class="gantt-month">2</span><span class="gantt-month">3</span><span class="gantt-month">4</span><span class="gantt-month">5</span><span class="gantt-month">6</span><span class="gantt-month">7</span><span class="gantt-month">8</span><span class="gantt-month">9</span><span class="gantt-month">10</span><span class="gantt-month">11</span><span class="gantt-month">12</span><span class="gantt-month next">1</span><span class="gantt-month next">2</span><span class="gantt-month next">3</span><span class="gantt-month next">4</span><span class="gantt-month next">5</span><span class="gantt-month next">6</span></div><div class="gantt-row"><div class="gantt-name"><strong>高朗 3 號／翠蜜</strong><small>11 月–翌年 2 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:11 / 15"></span><span class="gantt-peak" style="grid-column:13 / 14"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>高朗 1、2 號</strong><small>11 月下旬–翌年 2 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:11 / 15"></span><span class="gantt-peak" style="grid-column:13 / 14"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>天蜜</strong><small>12 月–翌年 2 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:12 / 15"></span><span class="gantt-peak" style="grid-column:13 / 14"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>蜜棗（主力）</strong><small>12 月下旬–翌年 3 月上旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:12 / 16"></span><span class="gantt-peak" style="grid-column:13 / 15"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>高雄 3 號黃金蜜棗</strong><small>12 月–翌年 3 月上旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:12 / 16"></span><span class="gantt-peak" style="grid-column:13 / 14"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>青蜜／櫻桃</strong><small>12 月–翌年 3 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:12 / 16"></span><span class="gantt-peak" style="grid-column:13 / 15"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>珍寶／珍愛／珍蜜</strong><small>翌年 1 月上旬–3 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:13 / 16"></span><span class="gantt-peak" style="grid-column:13 / 15"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>甜心／中葉／大葉</strong><small>翌年 1–3 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:13 / 16"></span><span class="gantt-peak" style="grid-column:14 / 15"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>高雄 10 號玉寶</strong><small>翌年 1 月下旬–3 月下旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:13 / 16"></span><span class="gantt-peak" style="grid-column:14 / 15"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>仙桃蜜棗</strong><small>翌年 2 月上旬–3 月下旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:14 / 16"></span><span class="gantt-peak" style="grid-column:15 / 16"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>翠香／金桃蜜棗</strong><small>翌年 2 月上旬–4 月上旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:14 / 17"></span><span class="gantt-peak" style="grid-column:15 / 16"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>高雄 2 號春蜜</strong><small>翌年 3 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:15 / 16"></span></div></div></div></div><div class="gantt-legend"><span><i style="background:var(--gantt-soft)"></i>供應期</span><span><i style="background:var(--gantt-main)"></i>盛產期</span><span>橫軸 1–12 月為當年度，接續 1–6 月為翌年，跨年產期可連續判讀</span></div><p class="gantt-note">棗子為典型跨年產期果品，11 月起早熟品種上市，農曆年前後 1–2 月為盛產高峰，晚熟品種可延至 4 月上旬。</p></div>
+<!-- GANTT:END -->
+<h2>產業發展概況</h2>
+<div class="variety-section">
+  <h3>印度棗與紅棗的區別</h3>
+  <div class="feature-row">
+    <img src="images/jujube/mizao.jpg" alt="印度棗（青棗）果實" loading="lazy">
+    <img src="images/jujube/img_redjujube.jpg" alt="中國棗（紅棗）果實" loading="lazy">
+  </div>
+  <p class="caption">左：印度棗（青棗）— 青綠色、鮮食脆甜 ｜ 右：中國棗（紅棗）— 成熟轉紅褐、多作乾果與藥材（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th>項目</th><th>印度棗（青棗）</th><th>中國棗（紅棗）</th></tr>
+    <tr><td>學名</td><td><em>Ziziphus mauritiana</em></td><td><em>Zizyphus jujuba</em></td></tr>
+    <tr><td>植株</td><td>常綠果樹</td><td>落葉果樹</td></tr>
+    <tr><td>果實</td><td>青綠至淺黃、大果、甜脆多汁</td><td>青綠轉紅褐、小果</td></tr>
+    <tr><td>主要用途</td><td>鮮食為主，年節送禮水果</td><td>乾果、蜜餞、中藥材、鮮食</td></tr>
+    <tr><td>臺灣主要產地</td><td>高雄、屏東、臺南、嘉義</td><td>苗栗公館（占國產九成以上）</td></tr>
+  </table>
+
+  <h3>主要產地與產業規模</h3>
+  <table class="compare-table">
+    <tr><th>產區</th><th>主要鄉鎮</th><th>產業定位</th></tr>
+    <tr style="background:#F1F8E9;"><td><strong>高雄市</strong></td><td>燕巢、大社、阿蓮、岡山、田寮</td><td>核心產區，蜜棗與高雄系列育成重鎮</td></tr>
+    <tr style="background:#F1F8E9;"><td><strong>屏東縣</strong></td><td>鹽埔、高樹、里港、九如</td><td>早熟產區，高朗系列發源地</td></tr>
+    <tr><td>臺南市</td><td>關廟、楠西</td><td>中南部供應帶</td></tr>
+    <tr><td>嘉義縣</td><td>竹崎</td><td>次要產區</td></tr>
+  </table>
+
+  <h3>產期調節技術</h3>
+  <p>官方歸納四類做法：<strong>選植早晚熟品種、主幹更新早晚、長梢修剪、主幹更新配合夜間照光</strong>。早熟品種（高朗 3 號、天蜜、翠蜜、高雄 3 號）宜於 2–3 月中旬前完成嫁接，8–9 月開花著果，1 月前採收結束；晚熟品種（玉冠、高雄 2 號、仙桃蜜棗）於 4 月以後嫁接、10–11 月著果，2 月底至 4 月上旬採收。</p>
+  <p>夜間燈照處理可讓產期提早至 9–11 月：1–3 月提早主幹更新，5–7 月夜間每公頃架設 70–120 盞 40W 日光燈，每夜照射 6–9 小時、處理 20–40 日。照光過久會使枝梢尾端及葉片變小，須視樹勢隨時關燈。</p>
+  <div class="note-box">
+    <strong>網室栽培：</strong>網室果外觀光滑粉綠、皮薄多汁，可延長產期與掛樹期，並減緩南風期間的黃熟速度，較易取得安全用藥標章；缺點是初期投入成本高，且冬季下雨時薄皮易生褐黑色條斑。
+  </div>
+  <div class="feature-row">
+    <img src="images/jujube/img_netroom.jpg" alt="網室栽培的印度棗" loading="lazy">
+    <img src="images/jujube/img_germplasm.jpg" alt="印度棗種原果實" loading="lazy">
+  </div>
+  <p class="caption">左：網室栽培的印度棗 ｜ 右：印度棗種原多樣性（圖：農業部農業知識入口網／高雄區農業改良場）</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>品種分類總覽</h2>
+<p>依農業部農業知識入口網「棗子家族」與高雄區農業改良場育種脈絡，收錄 21 個品種，分為三大類。</p>
+<div class="category-grid">
+<div class="category-card"><img src="images/jujube/mizao.jpg" alt="主力栽培品種" loading="lazy"><div class="card-body"><h4>主力栽培品種</h4><p>這 5 個品種為目前市場流通主力，合計占有率達九成以上。</p><span class="tag tag-green">主力栽培 · 5 品種</span></div></div>
+<div class="category-card"><img src="images/jujube/huangjin.jpg" alt="官方育成品種" loading="lazy"><div class="card-body"><h4>官方育成品種</h4><p>高雄區農業改良場與農試所鳳山分所育成命名，具完整性狀調查資料。</p><span class="tag tag-lime">官方育成 · 7 品種</span></div></div>
+<div class="category-card"><img src="images/jujube/gaolang3.jpg" alt="民間選育與地方品種" loading="lazy"><div class="card-body"><h4>民間選育與地方品種</h4><p>多由高朗 1 號、蜜棗的芽條變異或實生選種而來，品種更替速度快。</p><span class="tag tag-gold">民間選育 · 9 品種</span></div></div>
+</div>
+
+<h3>一、主力栽培品種</h3>
+<div class="variety-grid five">
+<div class="variety-card"><img src="images/jujube/mizao.jpg" alt="蜜棗" loading="lazy"><div class="v-body"><h4>蜜棗 <span class="badge badge-main">主力</span></h4><div class="v-meta">產期 12 月下旬–3 月上旬 ｜ 果重 90–120 g ｜ 糖度 12–14 °Brix</div><p>國內最重要品種，市面所見棗子大多為此品種。果肉細緻多汁、最受消費者喜愛，櫥架壽命約 6 日，盛產期在 1 月。</p></div></div>
+<div class="variety-card"><img src="images/jujube/zhongye.jpg" alt="中葉蜜棗" loading="lazy"><div class="v-body"><h4>中葉蜜棗 <span class="badge badge-main">主力</span></h4><div class="v-meta">產期 1–3 月 ｜ 果重 120–150 g ｜ 糖度 12–13 °Brix</div><p>生長勢較大葉蜜棗強，葉片大且無皺摺。桃形、淺綠有光澤，肉質稍粗但著果佳，為主要經濟栽培品種之一。</p></div></div>
+<div class="variety-card"><img src="images/jujube/zhenbao.jpg" alt="高雄 8 號珍寶" loading="lazy"><div class="v-body"><h4>高雄 8 號珍寶 <span class="badge badge-main">主力</span></h4><div class="v-meta">產期 1 月上旬–3 月上旬 ｜ 果重 93–150 g ｜ 糖度 13.6–14.5 °Brix</div><p>2011 年命名登記，扁圓形至圓形、外觀似青蘋果，綠色至淺綠色，櫥架壽命約 2–4 日，農曆年前高品質主力。</p></div></div>
+<div class="variety-card"><img src="images/jujube/zhenmi.jpg" alt="高雄 11 號珍蜜" loading="lazy"><div class="v-body"><h4>高雄 11 號珍蜜 <span class="badge badge-main">主力</span></h4><div class="v-meta">產期 1–3 月 ｜ 果重 110–150 g ｜ 糖度 12–15 °Brix</div><p>多汁爆漿，又名爆漿蜜棗，為目前農曆年後的主力品種。</p></div></div>
+<div class="variety-card"><img src="images/jujube/zhenai.jpg" alt="高雄 12 號珍愛" loading="lazy"><div class="v-body"><h4>高雄 12 號珍愛 <span class="badge badge-main">主力</span></h4><div class="v-meta">產期 1 月上旬–3 月上旬 ｜ 果重 110–150 g ｜ 糖度 12–15 °Brix</div><p>2016 年高雄場與大社區農友合作，自高雄 8 號珍寶芽條變異選育。卵圓形、翠綠色，甜脆多汁、櫥架壽命長，生育日數較珍寶多 10–15 日。</p></div></div>
+</div>
+
+<h3>二、官方育成品種</h3>
+<div class="variety-grid">
+<div class="variety-card"><img src="images/jujube/chunmi.jpg" alt="高雄 2 號春蜜" loading="lazy"><div class="v-body"><h4>高雄 2 號春蜜 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 3 月 ｜ 果重 盛產期 130–150 g ｜ 糖度 —</div><p>由高朗 1 號天然授粉實生苗選育，90 年 3 月命名。於主流品種 12–2 月採收後的 3 月生產，可延長印度棗產期；果實碩大、櫥架壽命達 7 日。</p></div></div>
+<div class="variety-card"><img src="images/jujube/huangjin.jpg" alt="高雄 3 號黃金蜜棗" loading="lazy"><div class="v-body"><h4>高雄 3 號黃金蜜棗 <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 12 月–3 月上旬 ｜ 果重 80–100 g ｜ 糖度 13–15 °Brix</div><p>優質早熟種，圓錐形或桃形、外觀金黃，果尖常有小斑點。特級品糖度可達 20 度，果皮轉金黃時仍甜脆，與一般品種轉黃即過熟不同。</p></div></div>
+<div class="variety-card"><img src="images/jujube/qingmi.jpg" alt="高雄 5 號青蜜" loading="lazy"><div class="v-body"><h4>高雄 5 號青蜜 <span class="badge badge-early">中熟</span></h4><div class="v-meta">產期 12–3 月 ｜ 果重 95–135 g ｜ 糖度 12–14 °Brix</div><p>圓柱形至長圓形，果蒂周圍呈方形，成熟果綠色。果皮厚、果肉脆而多汁爽口，果汁率 71–74%，櫥架壽命約 4–5 日。</p></div></div>
+<div class="variety-card"><img src="images/jujube/tianxin.jpg" alt="高雄 6 號甜心" loading="lazy"><div class="v-body"><h4>高雄 6 號甜心 <span class="badge badge-early">中熟</span></h4><div class="v-meta">產期 1 月–翌年 3 月 ｜ 果重 90–130 g ｜ 糖度 12–13.5 °Brix</div><p>卵圓至圓錐形、淡綠色，種子小、果肉率高，果皮薄、果肉細緻爽口無留皮感，櫥架壽命約 4–6 日。</p></div></div>
+<div class="variety-card"><img src="images/jujube/yingtao.jpg" alt="高雄 7 號櫻桃" loading="lazy"><div class="v-body"><h4>高雄 7 號櫻桃 <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 12–2 月 ｜ 果重 57–93 g ｜ 糖度 13.5–15.8 °Brix</div><p>2011 年高雄場選育的早熟品種，圓至圓錐形似櫻桃，淡綠至黃綠、果皮光滑，嗜口性極佳，5 年生植株平均產量 70–90 公斤。</p></div></div>
+<div class="variety-card"><img src="images/jujube/yubao.jpg" alt="高雄 10 號玉寶" loading="lazy"><div class="v-body"><h4>高雄 10 號玉寶 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 1 月下旬–3 月下旬 ｜ 果重 80–110 g ｜ 糖度 12–15 °Brix</div><p>果實扁圓形、黃綠色，果肉細緻，屬晚熟品種。</p></div></div>
+<div class="variety-card"><img src="images/jujube/qinglong.jpg" alt="台農 4 號青龍" loading="lazy"><div class="v-body"><h4>台農 4 號青龍 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 1 月–3 月下旬 ｜ 果重 140–160 g ｜ 糖度 13–15 °Brix</div><p>96 年農試所鳳山分所選育，為蜜棗（母本）與翠蜜棗（父本）雜交育成。外觀綠色具光澤、果實圓形、肉質細緻，5 年生每棵平均產量 120–160 公斤。</p></div></div>
+</div>
+
+<h3>三、民間選育與地方品種</h3>
+<div class="variety-grid">
+<div class="variety-card"><img src="images/jujube/gaolang1.jpg" alt="高朗 1 號（五十種）" loading="lazy"><div class="v-body"><h4>高朗 1 號（五十種） <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 11 月下旬–2 月 ｜ 果重 100–130 g ｜ 糖度 11–12 °Brix</div><p>早熟品種，卵圓形、果蒂周圍方圓，果皮光滑黃綠。屬大果，果肉細緻爽口但較鬆軟，櫥架壽命約 5 日。</p></div></div>
+<div class="variety-card"><img src="images/jujube/gaolang2.jpg" alt="高朗 2 號（台農 1 號）" loading="lazy"><div class="v-body"><h4>高朗 2 號（台農 1 號） <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 11 月下旬–2 月 ｜ 果重 120–140 g ｜ 糖度 10–12 °Brix</div><p>鹽埔鄉農友自高朗 1 號芽條變異選出，88 年由鳳山園藝試驗分所協助調查性狀並命名台農 1 號。長扁圓形、果皮有稜起，肉質較粗糙，櫥架壽命約 6 日。</p></div></div>
+<div class="variety-card"><img src="images/jujube/gaolang3.jpg" alt="高朗 3 號" loading="lazy"><div class="v-body"><h4>高朗 3 號 <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 11 月–2 月 ｜ 果重 100–130 g ｜ 糖度 10–12 °Brix</div><p>高朗 1 號芽條變異選出。果型似長橢圓形的翠蜜，外觀飽滿光滑、清甜多汁，屬早熟且櫥架壽命長，盛產期在 1 月。</p></div></div>
+<div class="variety-card"><img src="images/jujube/cuimi.jpg" alt="翠蜜" loading="lazy"><div class="v-body"><h4>翠蜜 <span class="badge badge-early">早熟</span></h4><div class="v-meta">產期 11 月–2 月 ｜ 果重 100–130 g ｜ 糖度 10–12 °Brix</div><p>果型似長橢圓形的高朗 1 號，外觀飽滿光滑、清甜多汁，櫥架壽命長。</p></div></div>
+<div class="variety-card"><img src="images/jujube/tianmi.jpg" alt="天蜜" loading="lazy"><div class="v-body"><h4>天蜜 <span class="badge badge-early">中熟</span></h4><div class="v-meta">產期 12 月–2 月 ｜ 果重 100–130 g ｜ 糖度 11–13 °Brix</div><p>外觀似翠蜜但果型較狹長，果皮有光澤，甜脆多汁、耐掛樹耐貯放，中晚熟，盛產期在 1 月。</p></div></div>
+<div class="variety-card"><img src="images/jujube/daye.jpg" alt="大葉蜜棗" loading="lazy"><div class="v-body"><h4>大葉蜜棗 <span class="badge badge-early">中熟</span></h4><div class="v-meta">產期 1–3 月 ｜ 果重 130–180 g ｜ 糖度 12–13 °Brix</div><p>蜜棗芽條變異選出。生長勢弱、葉片大有皺摺，桃形淺綠有光澤，肉質較蜜棗粗、著果較差。</p></div></div>
+<div class="variety-card"><img src="images/jujube/jintao.jpg" alt="金桃蜜棗" loading="lazy"><div class="v-body"><h4>金桃蜜棗 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 2 月上旬–4 月上旬 ｜ 果重 100–120 g ｜ 糖度 11–12 °Brix</div><p>蜜棗芽變，生長勢強。早期果桃形、晚期果圓錐形，果皮較蜜棗厚，較蜜棗晚熟可分散產期。</p></div></div>
+<div class="variety-card"><img src="images/jujube/xiantao.jpg" alt="仙桃蜜棗" loading="lazy"><div class="v-body"><h4>仙桃蜜棗 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 2 月上旬–3 月下旬 ｜ 果重 50–120 g ｜ 糖度 13–15 °Brix</div><p>蜜棗芽變，品質類似蜜棗但櫥架壽命與掛樹期稍短。早期果桃形、晚期果紡垂形，果尖易黃化，盛產 3 月，農曆年後才上市。</p></div></div>
+<div class="variety-card"><img src="images/jujube/cuixiang.jpg" alt="翠香" loading="lazy"><div class="v-body"><h4>翠香 <span class="badge badge-late">晚熟</span></h4><div class="v-meta">產期 2 月上旬–4 月上旬 ｜ 果重 — ｜ 糖度 —</div><p>94 年高雄縣燕巢鄉農友選育，生長勢弱、開花 9–11 月，屬晚熟品種。早期果桃形、晚期果紡垂形，品質似仙桃蜜棗，惟櫥架壽命及掛樹期較蜜棗短。</p></div></div>
+</div>
+
+<div class="note-box">
+  <strong>品種圖片說明：</strong>各品種照片取自農業知識入口網「棗子家族」相對應的品種條目，部分官方照片帶有網站浮水印，屬原始素材；早期條目（翠蜜、高朗 1、2 號）原圖尺寸較小，已放大銳化處理以利辨識。
+</div>
+
+<hr class="section-divider">
+
+<h2>品種綜合對比表</h2>
+<div class="variety-section">
+  <table class="compare-table">
+    <tr><th>品種</th><th>產期</th><th>果重</th><th>糖度</th><th>熟期</th><th>辨識重點</th></tr>
+<tr><td><strong>蜜棗</strong></td><td>12 月下旬–3 月上旬</td><td>90–120 g</td><td>12–14 °Brix</td><td>主力</td><td>國內最重要品種</td></tr>
+<tr><td><strong>中葉蜜棗</strong></td><td>1–3 月</td><td>120–150 g</td><td>12–13 °Brix</td><td>主力</td><td>生長勢較大葉蜜棗強</td></tr>
+<tr><td><strong>高雄 8 號珍寶</strong></td><td>1 月上旬–3 月上旬</td><td>93–150 g</td><td>13.6–14.5 °Brix</td><td>主力</td><td>2011 年命名登記</td></tr>
+<tr><td><strong>高雄 11 號珍蜜</strong></td><td>1–3 月</td><td>110–150 g</td><td>12–15 °Brix</td><td>主力</td><td>多汁爆漿</td></tr>
+<tr><td><strong>高雄 12 號珍愛</strong></td><td>1 月上旬–3 月上旬</td><td>110–150 g</td><td>12–15 °Brix</td><td>主力</td><td>2016 年高雄場與大社區農友合作</td></tr>
+<tr><td><strong>高雄 2 號春蜜</strong></td><td>3 月</td><td>盛產期 130–150 g</td><td>—</td><td>晚熟</td><td>由高朗 1 號天然授粉實生苗選育</td></tr>
+<tr><td><strong>高雄 3 號黃金蜜棗</strong></td><td>12 月–3 月上旬</td><td>80–100 g</td><td>13–15 °Brix</td><td>早熟</td><td>優質早熟種</td></tr>
+<tr><td><strong>高雄 5 號青蜜</strong></td><td>12–3 月</td><td>95–135 g</td><td>12–14 °Brix</td><td>中熟</td><td>圓柱形至長圓形</td></tr>
+<tr><td><strong>高雄 6 號甜心</strong></td><td>1 月–翌年 3 月</td><td>90–130 g</td><td>12–13.5 °Brix</td><td>中熟</td><td>卵圓至圓錐形、淡綠色</td></tr>
+<tr><td><strong>高雄 7 號櫻桃</strong></td><td>12–2 月</td><td>57–93 g</td><td>13.5–15.8 °Brix</td><td>早熟</td><td>2011 年高雄場選育的早熟品種</td></tr>
+<tr><td><strong>高雄 10 號玉寶</strong></td><td>1 月下旬–3 月下旬</td><td>80–110 g</td><td>12–15 °Brix</td><td>晚熟</td><td>果實扁圓形、黃綠色</td></tr>
+<tr><td><strong>台農 4 號青龍</strong></td><td>1 月–3 月下旬</td><td>140–160 g</td><td>13–15 °Brix</td><td>晚熟</td><td>96 年農試所鳳山分所選育</td></tr>
+<tr><td><strong>高朗 1 號（五十種）</strong></td><td>11 月下旬–2 月</td><td>100–130 g</td><td>11–12 °Brix</td><td>早熟</td><td>早熟品種</td></tr>
+<tr><td><strong>高朗 2 號（台農 1 號）</strong></td><td>11 月下旬–2 月</td><td>120–140 g</td><td>10–12 °Brix</td><td>早熟</td><td>鹽埔鄉農友自高朗 1 號芽條變異選出</td></tr>
+<tr><td><strong>高朗 3 號</strong></td><td>11 月–2 月</td><td>100–130 g</td><td>10–12 °Brix</td><td>早熟</td><td>高朗 1 號芽條變異選出。果型似長橢圓形的翠蜜</td></tr>
+<tr><td><strong>翠蜜</strong></td><td>11 月–2 月</td><td>100–130 g</td><td>10–12 °Brix</td><td>早熟</td><td>果型似長橢圓形的高朗 1 號</td></tr>
+<tr><td><strong>天蜜</strong></td><td>12 月–2 月</td><td>100–130 g</td><td>11–13 °Brix</td><td>中熟</td><td>外觀似翠蜜但果型較狹長</td></tr>
+<tr><td><strong>大葉蜜棗</strong></td><td>1–3 月</td><td>130–180 g</td><td>12–13 °Brix</td><td>中熟</td><td>蜜棗芽條變異選出。生長勢弱、葉片大有皺摺</td></tr>
+<tr><td><strong>金桃蜜棗</strong></td><td>2 月上旬–4 月上旬</td><td>100–120 g</td><td>11–12 °Brix</td><td>晚熟</td><td>蜜棗芽變</td></tr>
+<tr><td><strong>仙桃蜜棗</strong></td><td>2 月上旬–3 月下旬</td><td>50–120 g</td><td>13–15 °Brix</td><td>晚熟</td><td>蜜棗芽變</td></tr>
+<tr><td><strong>翠香</strong></td><td>2 月上旬–4 月上旬</td><td>—</td><td>—</td><td>晚熟</td><td>94 年高雄縣燕巢鄉農友選育</td></tr>
+  </table>
+  <p class="caption">資料來源：農業部農業知識入口網「棗子家族」各品種條目。標「—」者為官方條目未載數值。</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>分級包裝實務</h2>
+<div class="variety-section">
+  <h3>外銷重量分級</h3>
+  <table class="compare-table">
+    <tr><th>級次</th><th>單果重（臺兩）</th><th>公克</th><th>市場定位</th></tr>
+    <tr><td>S 級</td><td>二兩半～三兩</td><td>94–113 g</td><td>外銷主力</td></tr>
+    <tr><td>M 級</td><td>三兩～三兩半</td><td>113–132 g</td><td>外銷主力</td></tr>
+    <tr><td>L 級</td><td>三兩半～四兩</td><td>132–150 g</td><td>外銷主力</td></tr>
+    <tr><td>XL 級</td><td>四兩以上</td><td>150 g 以上</td><td>大果禮盒</td></tr>
+  </table>
+  <p>內銷紙箱主要為 15 公斤或 12 公斤裝，外銷採三層瓦楞紙箱每箱 6 公斤。分級後逐果套上泡棉（舒果套）防止擦壓傷，紙箱內襯 PE 塑膠袋但不封口，僅扭口塞入箱內縫隙後封箱。</p>
+  <div class="feature-single"><img src="images/jujube/img_packing.jpg" alt="棗子分級裝箱" loading="lazy"></div>
+  <p class="caption">逐果套網、重量分級後的裝箱方式（圖：農業部農業知識入口網）</p>
+
+  <h3>採收成熟度與貯運</h3>
+  <table class="compare-table">
+    <tr><th>項目</th><th>內銷</th><th>外銷</th></tr>
+    <tr><td>採收成熟度</td><td>8–9 分熟</td><td>7–8 分熟（蜜棗約花後 120–127 天）</td></tr>
+    <tr><td>果皮外觀</td><td>翠綠至黃綠</td><td>翠綠，轉黃者不適合外銷</td></tr>
+    <tr><td>預冷</td><td>一般不預冷，分級後迅速上市</td><td>5 ℃ 冷藏庫預冷，貯運避免回溫</td></tr>
+    <tr><td>貯藏</td><td>室溫 25 ℃ 櫥架約 4 日；家用冰箱冷藏可保存約 2 週</td><td>1–3 ℃ 可貯放 2–4 週，對乙烯敏感可加乙烯吸收劑</td></tr>
+  </table>
+  <p>成熟度愈高糖度愈高、色澤愈黃，但愈不耐貯運。田間採收後勿曝曬，應置陰涼處並剔除黃熟果與病蟲鳥害果，尤其遭東方果實蠅為害的果實須裝袋攜離田間。</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>選購消費指南</h2>
+<div class="variety-section">
+  <div class="feature-single"><img src="images/jujube/img_ripeness.jpg" alt="不同採收成熟度的棗子比較" loading="lazy"></div>
+  <p class="caption">不同採收成熟度的果色比較：翠綠至黃綠之間最適口（圖：農業部農業知識入口網）</p>
+  <table class="compare-table">
+    <tr><th>觀察指標</th><th>品質佳</th><th>品質較差</th></tr>
+    <tr><td>果色</td><td>八分熟翠綠至九分熟黃綠</td><td>全黃過熟、褐斑、脫水皺皮</td></tr>
+    <tr><td>果柄周圍</td><td>光滑平順無皺摺</td><td>有皺摺</td></tr>
+    <tr><td>果蒂</td><td>寬廣且凹陷深</td><td>果蒂突起</td></tr>
+    <tr><td>果皮</td><td>光滑、有光澤、無壓傷</td><td>擦壓傷、病斑、裂果</td></tr>
+  </table>
+  <div class="key-point">
+    <strong>保存：</strong>棗子以新鮮食用最佳，室溫 25 ℃ 櫥架壽命約 4 日。買回後以塑膠袋包好立即冷藏，可保存約 2 週；冷藏時果品不可裸露，以防脫水。
+  </div>
+  <div class="feature-single"><img src="images/jujube/img_contest.jpg" alt="評鑑冠軍果品" loading="lazy"></div>
+  <p class="caption">評鑑會中的套網果品，果形整齊、色澤一致為高分關鍵（圖：農業部農業知識入口網）</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>資料來源</h2>
+<div class="source-box">
+  本頁品種特徵、產期、果重與糖度資料，整理自農業部農業知識入口網「棗主題館」及高雄區農業改良場公開資料：
+  <ul>
+    <li><a href="https://kmweb.moa.gov.tw/subject/index.php?id=81" target="_blank" rel="noopener">棗主題館首頁（id=81）</a></li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=2965" target="_blank" rel="noopener">棗子家族（19 筆品種條目）</a>：各品種圖文說明</li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=24998" target="_blank" rel="noopener">印度棗與紅棗</a>、<a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25035" target="_blank" rel="noopener">印度棗種原介紹及利用</a>：學名辨析與育種脈絡</li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25063" target="_blank" rel="noopener">產期調節技術</a>、<a href="https://kmweb.moa.gov.tw/subject/subject.php?id=25062" target="_blank" rel="noopener">網室栽培</a>：栽培管理</li>
+    <li><a href="https://kmweb.moa.gov.tw/subject/subject.php?id=3017" target="_blank" rel="noopener">採後處理與包裝運輸</a>、<a href="https://kmweb.moa.gov.tw/subject/subject.php?id=51539" target="_blank" rel="noopener">挑棗 A 撇步</a>、<a href="https://kmweb.moa.gov.tw/subject/subject.php?id=62167" target="_blank" rel="noopener">簡易保鮮常識</a>：分級、選購與貯藏</li>
+  </ul>
+  <p style="margin-top:12px;">照片版權屬農業部農業知識入口網及高雄區農業改良場，僅供內部教育訓練識別使用。品種照片依官方條目逐一對應，未以他品種照片替代。</p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

@@ -20,7 +20,7 @@
   .hero h1 { font-size: 2.8rem; position: relative; margin-bottom: 10px; }
   .hero .subtitle { font-size: 1.2rem; position: relative; opacity: 0.9; margin-bottom: 8px; }
   .hero .subtitle2 { font-size: 0.95rem; position: relative; opacity: 0.8; }
-  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; backdrop-filter: blur(4px); font-size: 0.88rem; }
+  .author-info { position: relative; margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.12); border-radius: 24px; display: inline-block; font-size: 0.88rem; }
   .author-info .author-label { display: inline-block; background: rgba(245,166,35,0.9); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; margin-right: 8px; font-weight: 600; }
   .author-info .author-name { font-weight: 600; margin-right: 12px; }
   .author-info .author-contact { opacity: 0.92; font-size: 0.82rem; }
@@ -104,6 +104,37 @@
   .maturity-bar { display: flex; height: 48px; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .maturity-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; color: white; }
   @media (max-width:768px) { .hero h1 { font-size: 2rem; } .feature-row { grid-template-columns: 1fr; } .category-grid { grid-template-columns: 1fr 1fr; } }
+
+
+/* GANTT:CSS:START */
+body { --gantt-main: #C62828; --gantt-soft: #FFCDD2; }
+/* ── 產期甘特圖 ── */
+.gantt-card { background: #fff; border-radius: 16px; padding: 22px 20px; margin: 18px 0 26px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.gantt-scroll { overflow-x: auto; }
+.gantt-chart { min-width: 1000px; }
+.gantt-group-row, .gantt-axis, .gantt-row { display: grid; grid-template-columns: 216px repeat(18, 1fr); align-items: center; }
+.gantt-group-row { background: #F5F5F5; border-radius: 8px 8px 0 0; }
+.gantt-corner { font-size: 0.8rem; color: #666; padding: 6px 10px; position: sticky; left: 0; z-index: 4; }
+.gantt-group-row .gantt-corner { background: #F5F5F5; }
+.gantt-axis .gantt-corner { background: #EBEBEB; }
+.gantt-group { grid-row: 1; text-align: center; font-size: 0.78rem; color: #666; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-axis { background: #EBEBEB; }
+.gantt-month { text-align: center; font-size: 0.72rem; color: #555; padding: 5px 0; border-left: 1px solid #E0E0E0; }
+.gantt-month.next { color: #8A6D3B; }
+.gantt-row { min-height: 38px; border-bottom: 1px solid #F0F0F0; }
+.gantt-name { position: sticky; left: 0; background: #fff; z-index: 4; padding: 5px 10px; font-size: 0.85rem; }
+.gantt-name strong { font-weight: 600; }
+.gantt-name small { display: block; font-size: 0.72rem; color: #888; }
+.gantt-track { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(18, 1fr); align-items: center; height: 26px; }
+.gantt-cell { grid-row: 1; height: 26px; border-left: 1px solid #F0F0F0; }
+.gantt-bar { grid-row: 1; height: 16px; background: var(--gantt-soft, #C8E6C9); border-radius: 4px; z-index: 2; margin: 0 1px; }
+.gantt-peak { grid-row: 1; height: 16px; background: var(--gantt-main, #2E7D32); border-radius: 4px; z-index: 3; margin: 0 1px; }
+.gantt-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 0.82rem; color: #666; }
+.gantt-legend span:last-child { flex-basis: 100%; }
+.gantt-legend i { display: inline-block; width: 26px; height: 12px; border-radius: 4px; vertical-align: -1px; margin-right: 6px; }
+.gantt-note { font-size: 0.84rem; color: #777; margin-top: 10px; margin-bottom: 0; }
+@media (max-width: 650px) { .gantt-card { padding: 16px 12px; } }
+/* GANTT:CSS:END */
 </style>
 </head>
 <body>
@@ -135,16 +166,21 @@
 </div>
 <p style="font-size:0.82rem;color:#999;text-align:center;">左：玉荷包荔枝 ｜ 右：黑葉荔枝 — 兩大主力合計佔總面積 95%（圖：農業部）</p>
 
+<!-- GANTT:START -->
+<h2>產期甘特圖</h2>
+<p>以單一產季年度呈現各品種供應時序，淺色為供應期、深色為盛產期。橫軸由當年度 1 月延伸至翌年 6 月，跨年產期可連續判讀。</p>
+<div class="gantt-card"><div class="gantt-scroll"><div class="gantt-chart"><div class="gantt-group-row"><div class="gantt-corner">品種 / 月份</div><div class="gantt-group" style="grid-column:2 / 14">當年度 1–12 月</div><div class="gantt-group" style="grid-column:14 / 20">翌年 1–6 月</div></div><div class="gantt-axis"><div class="gantt-corner">供應期</div><span class="gantt-month">1</span><span class="gantt-month">2</span><span class="gantt-month">3</span><span class="gantt-month">4</span><span class="gantt-month">5</span><span class="gantt-month">6</span><span class="gantt-month">7</span><span class="gantt-month">8</span><span class="gantt-month">9</span><span class="gantt-month">10</span><span class="gantt-month">11</span><span class="gantt-month">12</span><span class="gantt-month next">1</span><span class="gantt-month next">2</span><span class="gantt-month next">3</span><span class="gantt-month next">4</span><span class="gantt-month next">5</span><span class="gantt-month next">6</span></div><div class="gantt-row"><div class="gantt-name"><strong>豔荔</strong><small>3 月</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:3 / 4"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>三月紅</strong><small>4 月下旬–5 月下旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:4 / 6"></span><span class="gantt-peak" style="grid-column:5 / 6"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>楠西早生</strong><small>5 月上旬–中旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:5 / 6"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>玉荷包</strong><small>5 月中旬–6 月上旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:5 / 7"></span><span class="gantt-peak" style="grid-column:5 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>黑葉</strong><small>5 月下旬–7 月中旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:5 / 8"></span><span class="gantt-peak" style="grid-column:6 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>竹葉黑</strong><small>6 月上旬–中旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:6 / 7"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>桂味／糯米糍</strong><small>6 月中旬–7 月下旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:6 / 8"></span><span class="gantt-peak" style="grid-column:7 / 8"></span></div></div><div class="gantt-row"><div class="gantt-name"><strong>大丁香等極晚熟</strong><small>7 月上中旬</small></div><div class="gantt-track"><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-cell"></span><span class="gantt-bar" style="grid-column:7 / 8"></span></div></div></div></div><div class="gantt-legend"><span><i style="background:var(--gantt-soft)"></i>供應期</span><span><i style="background:var(--gantt-main)"></i>盛產期</span><span>橫軸 1–12 月為當年度，接續 1–6 月為翌年，跨年產期可連續判讀</span></div><p class="gantt-note">依北農拍賣時序與各品種成熟梯隊彙整。同一品種在不同產地可相差 1–2 旬，南部高屏最早、中部南投臺中最晚。</p></div>
+<!-- GANTT:END -->
 <h2>產期分布一覽 —— 北農拍賣視角</h2>
 <p style="font-size:0.88rem;color:#888;text-align:center;margin:0 0 18px;">114 年實務追蹤｜產地由南往北逐序出貨，同品種跨產區接力供應</p>
 
 <div class="season-timeline" style="display:flex;gap:4px;margin:0 auto 24px;max-width:820px;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-  <div style="flex:1;background:linear-gradient(180deg,#FFF8E1,#FFE082,#FFB300);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;position:relative;font-size:0.78rem;font-weight: 600;color:#5D4037;">3–4 月<br>暖身</div>
-  <div style="flex:1.2;background:linear-gradient(180deg,#FFFDE7,#FFD54F,#F9A825);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#5D4037;">極早熟<br>5 月</div>
-  <div style="flex:1.5;background:linear-gradient(180deg,#FFCCBC,#FF8A65,#E64A19);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">早熟<br>5 下–6 上</div>
-  <div style="flex:2;background:linear-gradient(180deg,#FFCDD2,#E57373,#C62828);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">中熟<br>6 月中</div>
-  <div style="flex:1.5;background:linear-gradient(180deg,#E1BEE7,#AB47BC,#6A1B9A);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">晚熟<br>6 下–7 上</div>
-  <div style="flex:1.2;background:linear-gradient(180deg,#BBDEFB,#42A5F5,#1565C0);display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">極晚熟<br>7 月</div>
+  <div style="flex:1;background:#FFE082;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;position:relative;font-size:0.78rem;font-weight: 600;color:#5D4037;">3–4 月<br>暖身</div>
+  <div style="flex:1.2;background:#FFD54F;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#5D4037;">極早熟<br>5 月</div>
+  <div style="flex:1.5;background:#FF8A65;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">早熟<br>5 下–6 上</div>
+  <div style="flex:2;background:#E57373;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">中熟<br>6 月中</div>
+  <div style="flex:1.5;background:#AB47BC;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">晚熟<br>6 下–7 上</div>
+  <div style="flex:1.2;background:#42A5F5;display:flex;align-items:center;justify-content:center;padding:10px 4px;text-align:center;font-size:0.78rem;font-weight: 600;color:#fff;">極晚熟<br>7 月</div>
 </div>
 
 <div class="season-table-wrapper" style="max-width:860px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
